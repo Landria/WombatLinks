@@ -1,0 +1,12 @@
+<h2><%= t :sign_in%></h2>
+
+<%= render :partial => '/sessions/form' %>
+
+<ul>
+  <li>
+    <%= link_to (t :sign_up_ext), sign_up_path %>
+  </li>
+  <li>
+    <%= link_to (t :forgot_password), new_password_path %>
+  </li>
+</ul>

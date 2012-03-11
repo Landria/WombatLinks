@@ -18,27 +18,24 @@
     <header>
       <!--start menu-->
       <div id="login_menu">
-      	<% if signed_in? %>
-      	<span>
-      	<%= t :welcome %> </span><%= current_user.email%><br/>
-      	<%=link_to 'Edit', edit_user_path(current_user) %>
-      
-      <%= link_to "Sign out", sign_out_path, :method => :delete %>
-      <% else %>
-      <%= link_to "Sign in", sign_in_path %> / <%= link_to "Sign up", sign_up_path %>
-      <% end %>
+        <% if signed_in? %>
+        <%= t :welcome %><br/> <span><%= current_user.email%></span>
+        (<%= link_to (t :log_out), sign_out_path, :method => :delete %>)
+        <% else %>
+        <%= t :welcome_unauth%><br/>
+        <span><%= link_to (t :sign_in), sign_in_path %> / <%= link_to (t :sign_up), sign_up_path %></span>
+        <% end %>
       </div>
       <nav>
         <ul>
           <li>
             <%= link_to 'Home', root_path, :class =>'current' %>
           </li>
+          <% if can? :list, @links %>
           <li>
-            <a href="#">About us</a>
+            <%= link_to (t :my_links), links_path %>
           </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
+          <% end %>
           <li>
             <a href="#">Contact</a>
           </li>
@@ -49,19 +46,19 @@
     </header>
     <!--start linker block-->
     <div id="linker_top">
-    	<div id="logo"></div>
-    	<div id="page_title"></div>
+      <div id="logo"></div>
+      <div id="page_title"></div>
     </div>
     <section id='linker'>
-        <% flash.each do |key, value| -%>
-        <div class="flash <%= key %>">
-          <%= value %>
-        </div>
-        <% end -%>
-        <%= yield %>
+      <% flash.each do |key, value| -%>
+      <div class="flash <%= key %>">
+        <%= value %>
+      </div>
+      <% end -%>
+      <%= yield %>
     </section>
-      <div style="clear: both"></div>
-      <div id="linker_bottom"></div>
+    <div style="clear: both"></div>
+    <div id="linker_bottom"></div>
     <!--end intro-->
     <!--start holder-->
     <div class="holder_content">

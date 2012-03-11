@@ -4,5 +4,17 @@
 en:
   hello: "Hello world"
   denied: "Sorry! You can't access requested page!"
-  welcome: "You logged in as"
+  welcome: "Welcome to WombatLinks! You logged in as"
   edit_profile: "Your profile"
+  welcome_unauth: "Welcome to WombatLinks!"
+  new_link: "New link"
+  log_out: "Log out"
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  sign_up: "Not registered yet? Do it!"
+  send_link: "Send link"
+  forgot_password: "Forgot password?"
+  new_password_tx: "We will email you a link to reset your password."
+  reset_password: "Reset password"
+  reset_password_title: "Reset your password"
+  

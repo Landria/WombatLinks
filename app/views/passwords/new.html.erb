@@ -1,0 +1,15 @@
+<h2><%= t :reset_password_title%></h2>
+
+<p>
+  <%= t :new_password_tx %>
+</p>
+
+<%= form_for :password, :url => passwords_path do |form| %>
+  <div class="field">
+    <%= form.label :email %><br/>
+    <%= form.text_field :email, :type => "email" %>
+  </div>
+  <div class="actions">
+    <%= form.submit t :reset_password %>
+  </div>
+<% end %>

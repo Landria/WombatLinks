@@ -27,7 +27,7 @@ class Ability
       can :manage, :all
     else
       can :create, Link do |link|
-        #link.try(:user) == user || user.role =='user'
+        link.try(:user) == user || user.role =='user'
       end
       can :new, Link do |link|
         link.try(:user) == user || user.role =='user'

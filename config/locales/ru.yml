@@ -1,4 +1,53 @@
 ru:
   denied: "Извините, но у Вас нет доступа к запрошенной странице!"
-  welcome: "Вы вошли как "
+  welcome: "Приветствуем Вас на WombatLinks! Вы вошли как "
+  welcome_unauth: "Приветствуем Вас на WombatLinks!"
   edit_profile: "Ваш профиль"
+  new_link: "Новая ссылка"
+  my_links: "Мои ссылки"
+  log_out: "Выйти"
+  sign_in: "Войти"
+  sign_up: "Зарегистрироваться"
+  sign_up_ext: "Нет аккаунта? Обзаведитесь им!"
+  send_link: "Отправить ссылку"
+  forgot_password: "Забыли пароль?"
+  new_password_tx: "Вы получите письмо на свой электронный ящик с ссылкой для смены пароля."
+  reset_password: "Сменить пароль"
+  reset_password_title: "Сменить пароль"
+  helpers:
+    label:
+      session:
+        email: "Адрес эл. почты"
+        password: "Пароль"
+      password:
+        email: "Адрес эл. почты"
+        password: "Пароль"
+  clearance:
+    controllers:
+      sessions:
+        bad_email_or_password: "Неверный логин или пароль"
+      passwords:
+        bad_email_or_password: "Проверьте адрес электронной почты и пароль."
+        blank_password: "Введите пароль."
+        unknown_email: "Введенный email не зарегистрирован."
+        forbidden: "Проверьте URL и повторите отправку формы."
+  activerecord:
+    attributes:
+      user:
+        email: "Адрес эл. почты"
+        password: "Пароль"
+      link:
+        link: "Сылка"
+        email: "Адрес эл. почты"
+        litle: "Заголовок"
+        description: "Описание"
+    errors:
+      models:
+        link:
+          attributes:
+            link:
+              blank: "Введите адрес ссылки!"
+              invalid: "Ссылка не соответствует формату. Возможно, пропущены начальные http://"
+            email:
+              blank: "Введите email адрес!"
+              invalid: "Email не соответствует формату."
