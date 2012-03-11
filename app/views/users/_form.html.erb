@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this link from being saved:</h2>
+  <h2><%= t :common_error_message%></h2>
   <ul>
     <% @user.errors.full_messages.each do |msg| %>
     <li>

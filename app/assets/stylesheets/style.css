@@ -40,8 +40,9 @@ html, body {
 	}
 
 html, body{
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size: 13px;
+	/*font-family:Georgia, "Times New Roman", Times, serif;*/
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif";
+	font-size: 1em;
 	color: black;
 	margin:0 0 1px;
 	line-height: 1.5;
@@ -259,7 +260,7 @@ header{
 	font-size: 1.1em;
 }
 #login_menu span{
-	font-size: 1.6em;	
+	font-size: 1.4em;	
 
 }
 #page_title{
@@ -273,6 +274,18 @@ header{
 	background-position-x: right;
 }
 
+.form_required_tx{
+	margin: 10px 0 10px 0;
+	color: #FF0000;
+}
+h1{
+	margin-left: 0;
+}
+
+.flash {
+	color: #77CC00;
+	margin: 15px 0 10px 0;
+}
 /***************************************************
 				   HOLDERS
 ***************************************************/	
@@ -288,7 +301,42 @@ header{
 .holder_content_separator{
 	margin-bottom:20px;
 }
+/***************************************************
+ 					ERRORS
+***************************************************/
+#error_explanation{
+	border: none;
+	background-color: transparent;
+	font-size: 1.1em;
+	color: red;
+	background-color: #FFCC33;
+	padding: 10px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+#error_explanation ul li{
+	font-size: 1em;
+	list-style: none;
 	
+}
+#error_explanation h2{
+	border: none;
+	background-color: transparent;
+	color: #000000;
+	font-size: 1.3em;
+	padding-left: 10px; 
+}
+.field_with_errors{
+	background-color: transparent;
+	display: inline;
+}
+.field_with_errors label{
+	background-color: transparent;
+	display: inline;
+	color: red;
+}
 /***************************************************
 			        GALLERY
 ***************************************************/
@@ -391,15 +439,19 @@ footer{
 
 #FooterTwo{
 	position: absolute;
-	right: 225px;
+	right: 200px;
 	top:26px;
 	color:white;
 }
 
-#FooterTree{
+#FooterOne{
 	position: absolute;
-	left: 225px;
+	left: 200px;
 	top:26px;
+	color:white;
+}
+
+#FooterOne a{
 	color:white;
 }
 

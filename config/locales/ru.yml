@@ -14,6 +14,11 @@ ru:
   new_password_tx: "Вы получите письмо на свой электронный ящик с ссылкой для смены пароля."
   reset_password: "Сменить пароль"
   reset_password_title: "Сменить пароль"
+  required_fields_tx: "* обязательные поля"
+  password_request_email_send: "Вы получите письмо с инструкциями для смены пароля в течение нескольких минут."
+  common_error_message: "Обнаружены ошибки!"
+  register: "Регистрация"
+  new_link_title: "Отправить ссылку"
   helpers:
     label:
       session:
@@ -37,17 +42,25 @@ ru:
         email: "Адрес эл. почты"
         password: "Пароль"
       link:
-        link: "Сылка"
+        link: "Ссылка"
         email: "Адрес эл. почты"
-        litle: "Заголовок"
+        title: "Заголовок"
         description: "Описание"
     errors:
       models:
         link:
           attributes:
             link:
-              blank: "Введите адрес ссылки!"
-              invalid: "Ссылка не соответствует формату. Возможно, пропущены начальные http://"
+              blank: "не может быть пустой."
+              invalid: "не валидна. Проверьте данные."
             email:
-              blank: "Введите email адрес!"
-              invalid: "Email не соответствует формату."
+              blank: "не может быть пустым."
+              invalid: "не валиден. Проверьте данные."
+        user:
+          attributes:
+            email:
+              blank: "не может быть пустым."
+              taken: "уже зарегистрирован."
+              invalid: "не валиден. Проверьте данные."
+            password:
+              blank: "не может быть пустым."
