@@ -1,0 +1,142 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <title>Wombat Links</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/>
+</head>
+<body>
+  <!--start container-->
+  <div id="container">
+    <!--start header-->
+    <header>
+      <!--start menu-->
+      <div id="login_menu">
+      	<% if signed_in? %>
+      	<span>
+      	<%= t :welcome %> </span><%= current_user.email%><br/>
+      	<%=link_to 'Edit', edit_user_path(current_user) %>
+      
+      <%= link_to "Sign out", sign_out_path, :method => :delete %>
+      <% else %>
+      <%= link_to "Sign in", sign_in_path %> / <%= link_to "Sign up", sign_up_path %>
+      <% end %>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <%= link_to 'Home', root_path, :class =>'current' %>
+          </li>
+          <li>
+            <a href="#">About us</a>
+          </li>
+          <li>
+            <a href="#">Services</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <!--end menu-->
+      <!--end header-->
+    </header>
+    <!--start linker block-->
+    <div id="linker_top">
+    	<div id="logo"></div>
+    	<div id="page_title"></div>
+    </div>
+    <section id='linker'>
+        <% flash.each do |key, value| -%>
+        <div class="flash <%= key %>">
+          <%= value %>
+        </div>
+        <% end -%>
+        <%= yield %>
+    </section>
+      <div style="clear: both"></div>
+      <div id="linker_bottom"></div>
+    <!--end intro-->
+    <!--start holder-->
+    <div class="holder_content">
+      <section class="group1">
+        <h3>Services</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+          Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst. Nulla nonummy. Cras quis libero.
+        </p>
+        <article class="holder_gallery">
+          <h2>Lorem ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+            Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst.
+          </p>
+          <span class="readmore"><a href="#">Read more..</a></span>
+        </article>
+      </section>
+      <aside class="group2">
+        <h3>Latest news</h3>
+        <article class="holder_news">
+          <h4>Lorem ipsum <span>10.09.2011</span></h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu.<span class="readmore"> <a href="#">Read more..</a></span>
+          </p>
+        </article>
+        <article class="holder_news">
+          <h4>Lorem ipsum <span>20.09.2011</span></h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
+          </p>
+        </article>
+        <article class="holder_news">
+          <h4>Lorem ipsum <span>27.09.2011</span></h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
+          </p>
+        </article>
+      </aside>
+      <section class="group3">
+        <h3>About us</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+          Vestibulum condimentum facilisis nulla. In hac habitasse platea dictumst. Nulla nonummy. Cras quis libero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie.<span class="readmore"> <a href="#">Read more..</a></span>
+        </p>
+        <h3>Testimonials</h3>
+        <p>
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+          Vestibulum condimentum facilisis nulla. In hac habitasse platea dictumst." - Lorem ipsum
+        </p>
+        <p>
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+          Vestibulum condimentum facilisis nulla. In hac habitasse platea dictumst." - Lorem ipsum
+        </p>
+      </section>
+    </div>
+    <!--end holder-->
+  </div>
+  <!--end container-->
+  <!--start footer-->
+  <footer>
+    <div class="container">
+      <% t = Time.now%>
+      <div id="FooterTwo">
+        © <%= t.strftime('%Y') %> Wombat Links
+      </div>
+      <div id="FooterTree">
+        Valid html5, css3, design and code by <a href="http://www.marijazaric.com">marija zaric - creative simplicity</a>
+      </div>
+    </div>
+  </footer>
+  <!--end footer-->
+  <!-- Free template distributed by http://freehtml5templates.com -->
+</body>
+</html> 
