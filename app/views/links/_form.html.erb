@@ -1,7 +1,7 @@
-<%= form_for(@link) do |f| %>
+<%= form_for(@link, :html => { :class => "nice"}) do |f| %>
 <% if @link.errors.any? %>
-<div id="error_explanation">
-  <h2><%= t :common_error_message%></h2>
+<div class="alert-box error">
+  <h4><%= t :common_error_message%></h4>
   <ul>
     <% @link.errors.full_messages.each do |msg| %>
     <li>
@@ -12,29 +12,33 @@
 </div>
 <% end %>
 <div class="field">
-  <%= f.label :email %>*
+  <%= f.label :email, :class =>'has-tip', :title => (t :link_email_tip) %>*
   <br />
-  <%= f.text_field :email, :size => "36" %>
+  <%= f.text_field :email, :size => "34", :class => "oversize input-text" %>
 </div>
 <div class="field">
-  <%= f.label :link %>*
+  <%= f.label :link, :class =>'has-tip', :title => (t :link_link_tip) %>*
   <br />
-  <%= f.text_area :link, :size => "35x4", :style => 'max-width: 295px;' %>
+  <%= f.text_area :link, :size => "35x3", :style => 'max-width: 255px; width: 255px;' %>
 </div>
 <div class="field">
-  <%= f.label :title %>
+  <%= f.label :title, :class =>'has-tip', :title => (t :link_title_tip) %>
   <br />
-  <%= f.text_field :title, :size => "36"  %>
+  <%= f.text_field :title, :size => "36", :class => "oversize input-text" %>
 </div>
 <div class="field">
-  <%= f.label :description %>
+  <%= f.label :description, :class =>'has-tip', :title => (t :link_description_tip) %>
   <br />
- <%= f.text_area :description, :size => "35x4", :style => 'max-width: 295px;' %>
+  <%= f.text_area :description, :size => "35x3", :style => 'max-width: 295px;' %>
+</div>
+<div class="field">
+  <%= f.label :is_private, :class =>'has-tip', :title => (t :link_private_tip) %>
+  <%= f.check_box :is_private %>
 </div>
 <div class="form_required_tx">
-	<%= t :required_fields_tx%>
+  <%= t :required_fields_tx%>
 </div>
 <div class="actions">
-  <%= f.submit t :send_link %>
+  <input name="commit" type="submit" value="<%= t :send_link %>" class="nice radius white button">
 </div>
-<% end %> 
+<% end %>

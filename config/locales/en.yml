@@ -19,6 +19,15 @@ en:
   reset_password_title: "Reset your password"
   required_fields_tx: "* required fields"
   password_request_email_send: "You will receive an email within the next few minutes. It contains instructions for changing your password."
-  common_error_message: "Errors found!"
+  common_error_message: "Cannot proceed!"
   register: "Registration"
   new_link_title: "Send link"
+  link_email_tip: "Where to send?"
+  link_link_tip: "What to send?"
+  link_title_tip: "Link title used for email's subject. If you leave this field blank we'll try to get it automatically."
+  link_description_tip: "Link description used for email's message. If you leave this field blank we'll try to get it automatically."
+  link_private_tip: "Private links won't be published in our feed"
+  activerecord:
+    attributes:
+      link:
+        is_private: "It's my private link"

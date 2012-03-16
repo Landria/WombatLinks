@@ -32,6 +32,12 @@ class Ability
       can :new, Link do |link|
         link.try(:user) == user || user.role =='user'
       end
+      can :show, Link do |link|
+        link.try(:user) == user || user.role =='user'
+      end
+      can :index, Link do |link|
+        link.try(:user) == user || user.role =='user'
+      end
     end
   end
 end
