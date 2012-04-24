@@ -1,5 +1,7 @@
 <%= form_for(@link, :html => { :class => "nice"}) do |f| %>
+<% if signed_in? %>
 <%= hidden_field_tag 'link[user_id]', current_user.id %>
+<% end %>
 <% if @link.errors.any? %>
 <div class="alert-box error">
   <h4><%= t :common_error_message%></h4>
@@ -15,7 +17,8 @@
 <div class="field">
   <%= f.label :email, :class =>'has-tip', :title => (t :link_email_tip) %>*
   <br />
-  <%= f.text_field :email, :size => "34", :class => "oversize input-text" %>
+  <%  #email == signed_in ? current_user.email : "" %>
+  <%= f.text_field :email, :size => "34", :class => "oversize input-text", :value => signed_in? ? current_user.email : "" %>
 </div>
 <div class="field">
   <%= f.label :link, :class =>'has-tip', :title => (t :link_link_tip) %>*
