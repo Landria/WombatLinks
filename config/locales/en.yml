@@ -4,9 +4,10 @@
 en:
   hello: "Hello world"
   denied: "Sorry! You can't access requested page!"
-  welcome: "Welcome to WombatLinks! You logged in as"
+  created: "Link was successfully sent!"
+  auth_tx: "You logged in as"
   edit_profile: "Your profile"
-  welcome_unauth: "Welcome to WombatLinks!"
+  welcome: "Welcome to WombatLinks!"
   new_link: "New link"
   log_out: "Log out"
   sign_in: "Sign in"
@@ -26,7 +27,7 @@ en:
   link_link_tip: "What to send?"
   link_title_tip: "Link title used for email's subject. If you leave this field blank we'll try to get it automatically."
   link_description_tip: "Link description used for email's message. If you leave this field blank we'll try to get it automatically."
-  link_private_tip: "Private links won't be published in our feed"
+  link_private_tip: "Private links are not to be published in our feed. Unauthorized links are always public."
   activerecord:
     attributes:
       link:

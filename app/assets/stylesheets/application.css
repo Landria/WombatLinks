@@ -139,13 +139,14 @@ form.nice textarea, form.nice div.field input {
 }
 
 div.alert-box{
-	font-size: 1em !important.
+	font-size: 0.95em !important;
+	width: 300px;
 }
 
 div.alert-box h4{
 	color: #fff;
 	text-shadow: 0 -1px rgba(0,0,0,0.3);
-	font-size: 1.2em;
+	font-size: 1.25em;
 	padding-top: 0;
 	margin-bottom: 0;
 }
@@ -270,7 +271,7 @@ header{
 }
 	#login_menu{
 	float: right;
-	width: 350px;
+	width: 400px;
 	height: 70px;
 	text-align: right;
 	margin-bottom: 7px;
@@ -279,7 +280,7 @@ header{
 	line-height: 25px;
 }
 #login_menu span{
-	font-size: 1.4em;	
+	font-size: 1.3em;	
 }
 
 /*#login_menu span a:hover { color: #0066FF; }*/

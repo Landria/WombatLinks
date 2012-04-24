@@ -22,10 +22,10 @@
       <!--start menu-->
       <div id="login_menu">
         <% if signed_in? %>
-        <%= t :welcome %><br/> <span><%= current_user.email%></span>
+        <%= t :welcome %><br/><%= t :auth_tx%><span><%= current_user.email%></span>
         (<%= link_to (t :log_out), sign_out_path, :method => :delete %>)
         <% else %>
-        <%= t :welcome_unauth%><br/>
+        <%= t :welcome %><br/>
         <span><%= link_to (t :sign_in), sign_in_path %> / <%= link_to (t :sign_up), sign_up_path %></span>
         <% end %>
       </div>
@@ -136,7 +136,7 @@
         
       </div>
       <div id="FooterOne">
-        <a href="http://www.landrina.ru.com">Landrina Project</a>
+        <a href="http://www.landrina.ru">Landrina Project</a>
       </div>
     </div>
   </footer>

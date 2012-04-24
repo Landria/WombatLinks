@@ -49,7 +49,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, :notice => 'Link was successfully created.' }
+        format.html { redirect_to @link, :notice => t(:created) }
         format.json { render :json => @link, :status => :created, :location => @link }
       else
         format.html { render :action => "new" }
@@ -84,5 +84,10 @@ class LinksController < ApplicationController
       format.html { redirect_to links_url }
       format.json { head :no_content }
     end
+  end
+  
+  def getData
+    
+    
   end
 end

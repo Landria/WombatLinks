@@ -1,4 +1,5 @@
 <%= form_for(@link, :html => { :class => "nice"}) do |f| %>
+<%= hidden_field_tag 'link[user_id]', current_user.id %>
 <% if @link.errors.any? %>
 <div class="alert-box error">
   <h4><%= t :common_error_message%></h4>
@@ -29,11 +30,11 @@
 <div class="field">
   <%= f.label :description, :class =>'has-tip', :title => (t :link_description_tip) %>
   <br />
-  <%= f.text_area :description, :size => "35x3", :style => 'max-width: 295px;' %>
+  <%= f.text_area :description, :size => "35x4", :style => 'max-width: 255px;' %>
 </div>
 <div class="field">
   <%= f.label :is_private, :class =>'has-tip', :title => (t :link_private_tip) %>
-  <%= f.check_box :is_private %>
+  <%= f.check_box :is_private, :disabled => !signed_in? %>
 </div>
 <div class="form_required_tx">
   <%= t :required_fields_tx%>
