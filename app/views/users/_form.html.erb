@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
-<div id="error_explanation">
-  <h2><%= t :common_error_message%></h2>
+<div class="alert-box error">
+  <h4><%= t :common_error_message%></h4>
   <ul>
     <% @user.errors.full_messages.each do |msg| %>
     <li>
@@ -13,13 +13,13 @@
 <div class="field">
   <%= form.label :email %>
   <br/>
-  <%= form.text_field :email, :type => "email" %>
+  <%= form.text_field :email, :type => "email", :class => "oversize input-text" %>
 </div>
 <div class="field">
   <%= form.label :password %>
   <br/>
-  <%= form.password_field :password %>
+  <%= form.password_field :password, :class => "oversize input-text" %>
 </div>
 <div class="actions">
-  <%= form.submit t :sign_up %>
+  <input name="commit" type="submit" value="<%= t :sign_up %>" class="nice radius white button">
 </div>

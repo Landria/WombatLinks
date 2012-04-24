@@ -1,15 +1,16 @@
-<%= form_for :session, :url => session_path do |form| %>
-  <div class="field">
-    <%= form.label :email %>
-    <br/>
-    <%= form.text_field :email, :type => "email" %>
-  </div>
-  <div class="field">
-    <%= form.label :password %>
-    <br/>
-    <%= form.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= form.submit t :sign_in %>
-  </div>
+<%= form_for :session, :url => session_path, :html => { :class => "nice"} do |form| %>
+<div class="field">
+  <%= form.label :email %>
+  <br/>
+  <%= form.text_field :email, :type => "email", :class => "oversize input-text" %>
+</div>
+<div class="field">
+  <%= form.label :password %>
+  <br/>
+  <%= form.password_field :password, :class => "oversize input-text" %>
+</div>
+<div class="actions">
+  <input name="commit" type="submit" value="<%= t :sign_in %>" class="nice radius white button">
+</div>
+<br/>
 <% end %>

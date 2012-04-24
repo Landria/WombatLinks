@@ -31,8 +31,7 @@
       </div>
       <nav>
       	<div class="panel">
-      		<h5>My panel is bigger than yours.</h5>
-        <ul>
+      	<ul>
           <li>
             <%= link_to 'Home', root_path, :class =>'current' %>
           </li>
@@ -52,7 +51,7 @@
     </header>
     <!--start linker block-->
     <div id="linker_top">
-      <div id="logo"></div>
+      <div id="logo"><a href="<%= root_path %>"><%= image_tag "logo.png" %></a></div>
       <div id="page_title"></div>
     </div>
     <section id='linker'>

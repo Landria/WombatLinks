@@ -124,6 +124,8 @@ h4 span{
 form label{
 	font-size: 1em;
 	display: inline-block;
+	font-weight: bold;
+	color: #333;
 }
 
 form input{
@@ -260,14 +262,18 @@ header{
 	#logo{
 	width: 420px;
 	height: 130px;
-	background-image: url(logo.png);
-	background-repeat: no-repeat;
+	/*background-image: url(logo.png);
+	background-repeat: no-repeat;*/
 	z-index: 5;
 	background-position-x: right;
 	background-position-y: bottom;
 	position: relative;
-	top: 140px;
+	/*top: 140px;*/
 	left: 70px;
+}
+	#logo a{
+	position: relative;
+	top: 60px;
 }
 	#login_menu{
 	float: right;
@@ -327,6 +333,7 @@ header{
 	  border-bottom: dotted 1px #0593dc;
 	  color: #0066CC;
 	}
+	
 /***************************************************
 				   HOLDERS
 ***************************************************/	

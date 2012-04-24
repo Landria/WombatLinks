@@ -17,7 +17,6 @@
 <div class="field">
   <%= f.label :email, :class =>'has-tip', :title => (t :link_email_tip) %>*
   <br />
-  <%  #email == signed_in ? current_user.email : "" %>
   <%= f.text_field :email, :size => "34", :class => "oversize input-text", :value => signed_in? ? current_user.email : "" %>
 </div>
 <div class="field">

@@ -1,5 +1,11 @@
-<h1><%= t :register%></h1>
-
-<%= form_for @user do |form| %>
-  <%= render :partial => '/users/form', :object => form %>
-<% end %>
+<div class="row">
+  <div class="six columns">
+    <h1><%= t :register %></h1>
+    <%= form_for(@user, :html => { :class => "nice"}) do |form| %>
+    <%= render :partial => '/users/form', :object => form %>
+    <% end %>
+  </div>
+  <div class="six columns">
+    <h2><%= t :register %></h2>
+  </div>
+</div>
