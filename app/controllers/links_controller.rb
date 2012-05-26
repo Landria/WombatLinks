@@ -47,15 +47,18 @@ class LinksController < ApplicationController
 
   def get_data_for_link(url)
     require 'net/http'
-    data = Net::HTTP.get_response(URI.parse(URI.encode(url))).body
 
     title_regexp = /<title>(.*)<\/title>/
     description_regexp = /meta.*description.*content=[",'](.*)[",']/
 
-    title = data.scan(title_regexp)[0].to_s
-    description = data.scan(description_regexp)[0].to_s
-    p = {"title" => title, "description" => description}
-   
+    response = Net::HTTP.get_response(URI.parse(URI.encode(url)))
+    
+    if(response.code != "200")
+      p = false
+    else
+      p = {"title" => response.body.scan(title_regexp)[0].to_s, "description" => response.body.scan(description_regexp)[0].to_s}
+    end
+
     return p
   end
 
@@ -65,14 +68,16 @@ class LinksController < ApplicationController
     form_data = params[:link]
 
     if((form_data[:title] =='') or (form_data[:description] ==''))
-      data = get_data_for_link(form_data[:link]);
+      data = get_data_for_link(form_data[:link])
 
-      if(form_data[:title] =='')
-        form_data[:title] = data["title"]
-      end
+      if(data != false)
+        if(form_data[:title] =='')
+          form_data[:title] = data["title"]
+        end
 
-      if(form_data[:description] =='')
-        form_data[:description] = data["description"]
+        if(form_data[:description] =='')
+          form_data[:description] = data["description"]
+        end
       end
     end
 
