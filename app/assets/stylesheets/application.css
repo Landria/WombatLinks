@@ -277,13 +277,13 @@ header{
 }
 	#login_menu{
 	float: right;
-	width: 420px;
+	width: 440px;
 	height: 100px;
 	text-align: right;
 	margin-bottom: 7px;
 	margin-top: 10px;
-	font-size: 1.1em;
-	line-height: 25px;
+	font-size: 1em;
+	line-height: 22px;
 }
 	#login_menu span{
 	font-size: 1.3em;	
@@ -467,7 +467,7 @@ footer{
 nav{
 	position:absolute;
 	width:400px;
-	top:70px;
+	top:85px;
 	right:0;
 	/*text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 

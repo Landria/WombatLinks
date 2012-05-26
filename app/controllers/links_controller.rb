@@ -5,7 +5,6 @@ class LinksController < ApplicationController
   before_filter :authorize, :only => [:update, :destroy]
 
   load_and_authorize_resource
-  
   def index
     if signed_in?
       @links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
@@ -46,21 +45,39 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
   end
 
+  def get_data_for_link(url)
+    require 'net/http'
+    data = Net::HTTP.get_response(URI.parse(URI.encode(url))).body
+
+    title_regexp = /<title>(.*)<\/title>/
+    description_regexp = /meta.*description.*content=[",'](.*)[",']/
+
+    title = data.scan(title_regexp)[0].to_s
+    description = data.scan(description_regexp)[0].to_s
+    p = {"title" => title, "description" => description}
+   
+    return p
+  end
+
   # POST /links
   # POST /links.json
   def create
     form_data = params[:link]
-    
-    if(form_data[:title] =='')
-     form_data[:title] = 'Super Title'
+
+    if((form_data[:title] =='') or (form_data[:description] ==''))
+      data = get_data_for_link(form_data[:link]);
+
+      if(form_data[:title] =='')
+        form_data[:title] = data["title"]
+      end
+
+      if(form_data[:description] =='')
+        form_data[:description] = data["description"]
+      end
     end
-    
-    if(form_data[:description] =='')
-     form_data[:description] = 'Super Description'
-    end
-    
+
     @link = Link.new(form_data)
-    
+
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, :notice => t(:created) }
@@ -99,29 +116,10 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def getData(url)
-    require 'net/http'
-    data = Net::HTTP.get_response(URI.parse(url)).body
-    
-    #разобрать регуляркам и на title и description
-    #и сохранить в объекте
- 
-    country_code = /(\+[\d]{3})/
-    number = /( [0-9]{1,})/
-    title = //
-    description = //
- 
-    p = Hash.new
-    p[:title => data.scan(title), :description => data.scan(description)]    
-    
-    return p
-    
-  end
-  
+
   def validate_password(password)
     reg = /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}$/
-    
+
     return (reg.match(password))? true : false
   end
 end
