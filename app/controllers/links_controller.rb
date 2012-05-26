@@ -7,7 +7,11 @@ class LinksController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @links = Link.all
+    if signed_in?
+      @links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
+    else
+      @links = Link.all(:conditions => 'user_id IS NULL OR user_id = FALSE')
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,8 +49,18 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(params[:link])
-
+    form_data = params[:link]
+    
+    if(form_data[:title] =='')
+     form_data[:title] = 'Super Title'
+    end
+    
+    if(form_data[:description] =='')
+     form_data[:description] = 'Super Description'
+    end
+    
+    @link = Link.new(form_data)
+    
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, :notice => t(:created) }
@@ -86,8 +100,28 @@ class LinksController < ApplicationController
     end
   end
   
-  def getData
+  def getData(url)
+    require 'net/http'
+    data = Net::HTTP.get_response(URI.parse(url)).body
     
+    #разобрать регуляркам и на title и description
+    #и сохранить в объекте
+ 
+    country_code = /(\+[\d]{3})/
+    number = /( [0-9]{1,})/
+    title = //
+    description = //
+ 
+    p = Hash.new
+    p[:title => data.scan(title), :description => data.scan(description)]    
     
+    return p
+    
+  end
+  
+  def validate_password(password)
+    reg = /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}$/
+    
+    return (reg.match(password))? true : false
   end
 end

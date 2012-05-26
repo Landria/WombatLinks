@@ -33,13 +33,17 @@
       	<div class="panel">
       	<ul>
           <li>
-            <%= link_to 'Home', root_path, :class =>'current' %>
+            <%= link_to (t :home_page), root_path, :class =>'current' %>
           </li>
-          <% if can? :list, @links %>
+          
           <li>
+          	<% if can? :list, @links %>
             <%= link_to (t :my_links), links_path %>
+            <% else %>
+            <%= link_to (t :all_links), links_path %>
+            <% end %>
           </li>
-          <% end %>
+          
           <li>
             <a href="#">Contact</a>
           </li>

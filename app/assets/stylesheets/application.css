@@ -277,17 +277,17 @@ header{
 }
 	#login_menu{
 	float: right;
-	width: 400px;
-	height: 70px;
+	width: 420px;
+	height: 100px;
 	text-align: right;
 	margin-bottom: 7px;
 	margin-top: 10px;
 	font-size: 1.1em;
 	line-height: 25px;
 }
-#login_menu span{
+	#login_menu span{
 	font-size: 1.3em;	
-}
+	}
 
 /*#login_menu span a:hover { color: #0066FF; }*/
 
