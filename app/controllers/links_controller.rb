@@ -48,7 +48,7 @@ class LinksController < ApplicationController
   def get_data_for_link(url)
     require 'net/http'
 
-    title_regexp = /<title>(.*)<\/title>/
+    title_regexp = /<title>(\n?.*\n?)<\/title>/
     description_regexp = /meta.*description.*content=[",'](.*)[",']/
 
     response = Net::HTTP.get_response(URI.parse(URI.encode(url)))
