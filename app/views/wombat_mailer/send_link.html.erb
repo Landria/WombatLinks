@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <%= render 'wombat_mailer/header' %>
+    <p>
+      <b><%= (t :email_new_link_text)%></b>
+    </p>
+    <p>
+      <b>URL:</b> <%= @link.link %>
+      <br/>
+      <% if(!@link.title.empty?):%>
+      <b>Title:</b> <%= @link.title %>
+      <br/>
+      <% end %>
+      <% if(!@link.description.empty?):%>
+      <b>Description:</b> <%= @link.description %>
+    </p>
+    <% end%>
+    <br/>
+    <%= render 'wombat_mailer/footer' %>
+  </body>
+</html>

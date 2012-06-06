@@ -52,7 +52,7 @@ class LinksController < ApplicationController
     description_regexp = /meta.*description.*content=[",'](.*)[",']/
 
     response = Net::HTTP.get_response(URI.parse(URI.encode(url)))
-    
+
     if(response.code != "200")
       p = false
     else
@@ -61,13 +61,19 @@ class LinksController < ApplicationController
 
     return p
   end
+  
+  def send_socials(message)    
+    #SocialBee::Facebook.new( :config => "config/social/facebook.yml" ).say_public( message, params[:user_token] )
+    SocialBee::Twi.new( :config => "config/social/twitter.yml" ).say_public( message, params[:user_token] )
+    #SocialBee::Vkontakte.new( :config => "config/social/vk.yml" ).say_public( message, params[:user_token] )
+  end
 
   # POST /links
   # POST /links.json
   def create
     form_data = params[:link]
 
-    if((form_data[:title] =='') or (form_data[:description] ==''))
+    if(((form_data[:title].to_s.blank?) || (form_data[:description].to_s.blank?)) && (!form_data[:link].to_s.blank?))
       data = get_data_for_link(form_data[:link])
 
       if(data != false)
@@ -82,9 +88,11 @@ class LinksController < ApplicationController
     end
 
     @link = Link.new(form_data)
-
+    #send_socials('Beep!')
+    
     respond_to do |format|
       if @link.save
+        WombatMailer.send_link(@link).deliver
         format.html { redirect_to @link, :notice => t(:created) }
         format.json { render :json => @link, :status => :created, :location => @link }
       else

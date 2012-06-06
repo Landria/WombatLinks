@@ -1,10 +1,10 @@
 <!doctype html>
 <head>
   <!-- Set the viewport width to device width for mobile -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<title><%= content_for?(:title) ? yield(:title) : "Wombat Links" %></title>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "Wombat Links" %></title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -15,135 +15,130 @@
   <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/>
 </head>
 <body>
-  <!--start container-->
-  <div id="container" class="container">
-    <!--start header-->
-    <header>
-      <!--start menu-->
-      <div id="login_menu">
-        <% if signed_in? %>
-        <%= t :welcome %><br/><%= t :auth_tx%><span><%= current_user.email%></span>
-        (<%= link_to (t :log_out), sign_out_path, :method => :delete %>)
-        <% else %>
-        <%= t :welcome %><br/>
-        <span><%= link_to (t :sign_in), sign_in_path %> / <%= link_to (t :sign_up), sign_up_path %></span>
-        <% end %>
-      </div>
-      <nav>
-      	<div class="panel">
-      	<ul>
-          <li>
-            <%= link_to (t :home_page), root_path, :class =>'current' %>
-          </li>
-          
-          <li>
-          	<% if can? :list, @links %>
-            <%= link_to (t :my_links), links_path %>
+  <div class="container">
+    <!--start content-->
+    <div class="row display">
+    	<div id="container" class="twelve columns centered" >
+        <!--start linker block-->
+        <div id="linker-top" class="twelve columns centered">
+        	<!--start header-->
+        <header>
+          <!--start menu-->
+          <div id="login-menu" class="six columns">
+            <% if signed_in? %>
+            <%= t :welcome %>
+            <br/>
+            <%= t :auth_tx%><span><%= current_user.email%></span>
+            (<%= link_to (t :log_out), sign_out_path, :method => :delete %>)
             <% else %>
-            <%= link_to (t :all_links), links_path %>
+            <%= t :welcome %>
+            <br/>
+            <span><%= link_to (t :sign_in), sign_in_path %> / <%= link_to (t :sign_up), sign_up_path %></span>
             <% end %>
-          </li>
-          
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
+          </div>
+          <nav>
+            <div class="panel">
+              <dl class="sub-nav">
+                <dd class="active">
+                  <%= link_to (t :home_page), root_path %>
+                </dd>
+                <dd>
+                  <% if can? :list, @links %>
+                  <%= link_to (t :my_links), links_path %>
+                  <% else %>
+                  <%= link_to (t :all_links), links_path %>
+                  <% end %>
+                </dd>
+                <dd>
+                  <a href="#">О проекте</a>
+                </dd>
+              </dl>
+            </div>
+          </nav>
+          <!--end menu-->
+          <!--end header-->
+        </header>
+          <div id="logo">
+            <a href="<%= root_path %>"><%= image_tag "logo.png" %></a>
+          </div>
+          <div id="page_title"></div>
         </div>
-      </nav>
-      <!--end menu-->
-      <!--end header-->
-    </header>
-    <!--start linker block-->
-    <div id="linker_top">
-      <div id="logo"><a href="<%= root_path %>"><%= image_tag "logo.png" %></a></div>
-      <div id="page_title"></div>
-    </div>
-    <section id='linker'>
-      <% flash.each do |key, value| -%>
-      <div class="alert-box <%= key %>">
-        <%= value %>
+        <section id='linker'>
+          <% flash.each do |key, value| -%>
+          <div class="alert-box <%= key %>">
+            <%= value %>
+          </div>
+          <% end %>
+          <%= yield %>
+        </section>
+        <div style="clear: both" ></div>
+        <div id="linker-bottom" class="twelve columns centered"></div>
+        <!--end linker-->
+        <!--start holder-->
+        <div class="row display">
+          <div class="twelve columns centered">
+            <div class="nine columns">
+              <section class="group1">
+                <h3>Services</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+                  Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst. Nulla nonummy. Cras quis libero.
+                </p>
+                <article class="holder_gallery">
+                  <h2>Lorem ipsum</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+                    Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst.
+                  </p>
+                  <span class="readmore"><a href="#">Read more..</a></span>
+                </article>
+              </section>
+            </div>
+            <div class="three columns">
+              <aside class="group2">
+                <h3>Latest news</h3>
+                <article class="holder_news">
+                  <h4>Lorem ipsum <span>10.09.2011</span></h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu.<span class="readmore"> <a href="#">Read more..</a></span>
+                  </p>
+                </article>
+                <article class="holder_news">
+                  <h4>Lorem ipsum <span>20.09.2011</span></h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
+                  </p>
+                </article>
+                <article class="holder_news">
+                  <h4>Lorem ipsum <span>27.09.2011</span></h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
+                  </p>
+                </article>
+              </aside>
+              <div></div>
+            </div>
+            <!--end holder-->
+          </div>
+        </div>
       </div>
-      <% end -%>
-      <%= yield %>
-    </section>
-    <div style="clear: both"></div>
-    <div id="linker_bottom"></div>
-    <!--end intro-->
-    <!--start holder-->
-    <div class="holder_content">
-      <section class="group1">
-        <h3>Services</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
-          Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst. Nulla nonummy. Cras quis libero.
-        </p>
-        <article class="holder_gallery">
-          <h2>Lorem ipsum</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
-            Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst.
-          </p>
-          <span class="readmore"><a href="#">Read more..</a></span>
-        </article>
-      </section>
-      <aside class="group2">
-        <h3>Latest news</h3>
-        <article class="holder_news">
-          <h4>Lorem ipsum <span>10.09.2011</span></h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu.<span class="readmore"> <a href="#">Read more..</a></span>
-          </p>
-        </article>
-        <article class="holder_news">
-          <h4>Lorem ipsum <span>20.09.2011</span></h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
-          </p>
-        </article>
-        <article class="holder_news">
-          <h4>Lorem ipsum <span>27.09.2011</span></h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
-          </p>
-        </article>
-      </aside>
-      <section class="group3">
-        <h3>About us</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
-          Vestibulum condimentum facilisis nulla. In hac habitasse platea dictumst. Nulla nonummy. Cras quis libero.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie.<span class="readmore"> <a href="#">Read more..</a></span>
-        </p>
-        <h3>Testimonials</h3>
-        <p>
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
-          Vestibulum condimentum facilisis nulla. In hac habitasse platea dictumst." - Lorem ipsum
-        </p>
-        <p>
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
-          Vestibulum condimentum facilisis nulla. In hac habitasse platea dictumst." - Lorem ipsum
-        </p>
-      </section>
     </div>
-    <!--end holder-->
+    <!--end content-->
+    <!--start footer-->
+    <footer>
+      <div class="row display">
+        <div class="twelve columns centered">
+          <% t = Time.now%>
+          <div class="six columns offset-by-one">
+            © <%= t.strftime('%Y') %> Wombat Links
+          </div>
+          <div class="five columns">
+            <a href="http://www.landrina.ru">Landrina Project</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--end footer-->
   </div>
-  <!--end container-->
-  <!--start footer-->
-  <footer>
-    <div class="container">
-      <% t = Time.now%>
-      <div id="FooterTwo">
-        © <%= t.strftime('%Y') %> Wombat Links
-        
-      </div>
-      <div id="FooterOne">
-        <a href="http://www.landrina.ru">Landrina Project</a>
-      </div>
-    </div>
-  </footer>
-  <!--end footer-->
-  <!-- Free template distributed by http://freehtml5templates.com -->
 </body>
 </html> 

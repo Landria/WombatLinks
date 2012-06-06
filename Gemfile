@@ -48,4 +48,3 @@ gem 'jquery-rails'
  gem 'foreigner'
  gem "cancan"
  
- 

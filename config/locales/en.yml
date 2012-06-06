@@ -14,6 +14,7 @@ en:
   sign_up: "Sign up"
   sign_up: "Not registered yet? Do it!"
   send_link: "Send link"
+  home_page: "Send link"
   forgot_password: "Forgot password?"
   new_password_tx: "We will email you a link to reset your password."
   reset_password: "Reset password"
@@ -28,6 +29,12 @@ en:
   link_title_tip: "Link title used for email's subject. If you leave this field blank we'll try to get it automatically."
   link_description_tip: "Link description used for email's message. If you leave this field blank we'll try to get it automatically."
   link_private_tip: "Private links are not to be published in our feed. Unauthorized links are always public."
+  new_wombat_link: "New Wombat Link"
+  emai_footer_text: "Sincerely yours, Wombat Links!"
+  email_new_link_text: "New Link from WombatLinks."
+  email_change_psw_text_1: "Someone, hopefully you, has requested that we send you a link to change your password."
+  email_change_psw_text_2: "Here's the link:"
+  email_change_psw_text_3: "If you didn't request this, ignore this email. Don't worry. Your password hasn't been changed."
   activerecord:
     attributes:
       link:

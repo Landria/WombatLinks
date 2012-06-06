@@ -2,7 +2,7 @@ LinkmeRuby::Application.routes.draw do
   resources :links
   
   root :to => 'links#new'
-  
+
  
 #match '/links' => 'links#index'
 
