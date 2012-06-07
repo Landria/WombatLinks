@@ -169,6 +169,7 @@ div.alert-box h4{
 #container, #container_left, #container_right{
 	position: relative;
 	width:100%;
+	
 }
 
 #container{
@@ -283,11 +284,14 @@ header{
 	margin-bottom: 7px;
 	margin-top: 10px;
 	font-size: 1em;
-	line-height: 22px;
+	line-height: 23px;
 }
 	#login-menu span{
 	font-size: 1.3em;	
 	}
+	
+	#login-menu a.active { background: #06C; color: #fff; padding: 2px 12px; font-weight: bold;}
+	#login-menu a { text-decoration: none; border-radius: 30px; }
 
 /*#login_menu span a:hover { color: #0066FF; }*/
 
@@ -342,9 +346,9 @@ header{
 	dl.sub-nav { display: block; width: auto; overflow: hidden; margin: -4px 0 18px -9px; padding-top: 4px; }
 	dl.sub-nav dt, dl.sub-nav dd { float: left; display: inline; margin-left: 9px; margin-bottom: 4px; }
 	dl.sub-nav dt { color: #999; font-weight: normal; }
-	dl.sub-nav dd a { text-decoration: none; border-radius: 30px; }
-	dl.sub-nav dd a.active { background: #06C; color: #fff; padding: 5px 12px; font-weight: bold;}
-	dl.sub-nav dd a:hover {background-color: #06C; color: #fff; padding: 5px 12px; font-weight: bold;}
+	dl.sub-nav dd a { text-decoration: none; border-radius: 80px; }
+	dl.sub-nav dd a.active { background: #06C; color: #fff; padding: 4px 12px; font-weight: bold;}
+	dl.sub-nav dd a:hover {background-color: #06C; color: #fff; padding: 4px 12px; font-weight: bold;}
 /***************************************************
 				   HOLDERS
 ***************************************************/	
