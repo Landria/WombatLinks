@@ -343,7 +343,8 @@ header{
 	dl.sub-nav dt, dl.sub-nav dd { float: left; display: inline; margin-left: 9px; margin-bottom: 4px; }
 	dl.sub-nav dt { color: #999; font-weight: normal; }
 	dl.sub-nav dd a { text-decoration: none; border-radius: 30px; }
-	dl.sub-nav dd.active a { background: #06C; color: #fff; padding: 6px 15px; font-weight: bold;}
+	dl.sub-nav dd a.active { background: #06C; color: #fff; padding: 5px 12px; font-weight: bold;}
+	dl.sub-nav dd a:hover {background-color: #06C; color: #fff; padding: 5px 12px; font-weight: bold;}
 /***************************************************
 				   HOLDERS
 ***************************************************/	

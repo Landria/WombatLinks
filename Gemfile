@@ -47,4 +47,6 @@ gem 'jquery-rails'
  gem "clearance"
  gem 'foreigner'
  gem "cancan"
+ gem "erubis"
+ gem 'active_link_to'
  

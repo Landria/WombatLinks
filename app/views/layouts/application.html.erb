@@ -39,14 +39,14 @@
           <nav>
             <div class="panel">
               <dl class="sub-nav">
-                <dd class="active">
-                  <%= link_to (t :home_page), root_path %>
+                <dd class="active2">
+                  <%= active_link_to (t :home_page), root_path, :active => :exclusive %>
                 </dd>
                 <dd>
                   <% if can? :list, @links %>
-                  <%= link_to (t :my_links), links_path %>
+                  <%= active_link_to (t :my_links), links_path, :active => :exclusive %>
                   <% else %>
-                  <%= link_to (t :all_links), links_path %>
+                  <%= active_link_to (t :all_links), links_path, :active => :exclusive %>
                   <% end %>
                 </dd>
                 <dd>
