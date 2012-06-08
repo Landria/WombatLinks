@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'http://gemcutter.org'
 
 gem 'rails', '3.2.2'
 
@@ -49,4 +50,6 @@ gem 'jquery-rails'
  gem "cancan"
  gem "erubis"
  gem 'active_link_to'
+ gem 'twitter', '~>2.5.0'
+ gem 'url_shortener' 
  

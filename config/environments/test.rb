@@ -35,4 +35,7 @@ LinkmeRuby::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  config.bitly_login = "Landria"
+  config.bitly_api_key = "R_de421b9f20e1012c66b13504051ce7c8"
 end
