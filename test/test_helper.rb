@@ -10,4 +10,21 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def sign_in_user
+    sign_in_as FactoryGirl.build(:user)
+  end
+  
+  def sign_in_admin
+    sign_in_as FactoryGirl.build(:admin)
+  end
+  
+  def sign_in_as(user)
+    @controller.current_user = user
+    #session =  Clearance::Session.new(Rails.env)
+    #session.current_user = user
+    #session.add_cookie_to_headers
+    #Clearance::Authentication.new.current_user= user
+    #setup_controller_request_and_response
+    return user
+  end
 end

@@ -23,6 +23,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test do
+   gem 'factory_girl_rails'
+   gem 'rspec'
+   gem 'rspec-rails'
+   gem 'cucumber'
+   gem 'cucumber-rails', '~> 1.3.0'
+   gem 'webrat'
+   gem "shoulda", :require => nil
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -38,13 +48,15 @@ gem 'jquery-rails'
  gem 'capistrano'
 
 # To use debugger
- gem 'ruby-debug'
+ gem 'ruby-debug19'
  
  gem 'pacecar'
  gem "high_voltage"
  gem 'http_accept_language'
  gem 'therubyracer'
- gem 'mysql2'
+ #gem 'mysql2'
+ gem 'pg'
+ gem 'activerecord-postgresql-adapter'
  gem "clearance"
  gem 'foreigner'
  gem "cancan"
@@ -52,4 +64,5 @@ gem 'jquery-rails'
  gem 'active_link_to'
  gem 'twitter', '~>2.5.0'
  gem 'url_shortener' 
+ gem 'ruby-prof'
  

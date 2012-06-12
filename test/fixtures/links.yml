@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  link: MyString
-  title: MyString
-  description: 
-  email: MyString
+link_one:
+  link: 'http://rusrails.ru/a-guide-to-testing-rails-applications/introduction-to-testing'
+  title: 'My One Link Title'
+  description: 'My one link description'
+  email: 'underveil@yahoo.com'
 
-two:
-  link: MyString
-  title: MyString
-  description: 
-  email: MyString
+link_two:
+  link: 'http://rusrails.ru/'
+  title: ''
+  description: ''
+  email: 'underveil@yahoo.com'
+ 
+link_error:
+  link: 'http://rusrails'
+  title: ''
+  description: ''
+  email: 'underveil.yahoo.com'

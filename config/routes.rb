@@ -1,4 +1,6 @@
 LinkmeRuby::Application.routes.draw do
+  #resources :tweets
+
   resources :links
   
   root :to => 'links#new'
