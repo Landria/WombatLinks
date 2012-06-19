@@ -31,6 +31,7 @@ group :test do
    gem 'cucumber-rails', '~> 1.3.0'
    gem 'webrat'
    gem "shoulda", :require => nil
+   gem 'database_cleaner'
 end
 
 gem 'jquery-rails'

@@ -15,12 +15,12 @@
   <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/>
 </head>
 <body>
-    <!--start content-->
-    <div class="row display">
-    	<div id="container" class="twelve columns centered" >
-        <!--start linker block-->
-        <div id="linker-top" class="twelve columns centered">
-        	<!--start header-->
+  <!--start content-->
+  <div class="row display">
+    <div id="container" class="twelve columns centered" >
+      <!--start linker block-->
+      <div id="linker-top" class="twelve columns centered">
+        <!--start header-->
         <header>
           <!--start menu-->
           <div id="login-menu" class="six columns">
@@ -57,86 +57,90 @@
           <!--end menu-->
           <!--end header-->
         </header>
-          <div id="logo">
-            <a href="<%= root_path %>"><%= image_tag "logo.png" %></a>
-          </div>
-          <div id="page_title"></div>
+        <div id="logo">
+          <a href="<%= root_path %>"><%= image_tag "logo.png" %></a>
         </div>
-        <section id='linker'>
-          <% flash.each do |key, value| -%>
-          <div class="alert-box <%= key %>">
-            <%= value %>
-          </div>
+        <div id="page-top">
+          <% if(@tweets)%>
+          <span id='twitter'></span>
           <% end %>
-          <%= yield %>
-        </section>
-        <div style="clear: both" ></div>
-        <div id="linker-bottom" class="twelve columns centered"></div>
-        <!--end linker-->
-        <!--start holder-->
-        <div class="row display">
-          <div class="twelve columns centered">
-            <div class="nine columns">
-              <section class="group1">
-                <h3>Services</h3>
+        </div>
+      </div>
+      <section id='linker'>
+        <% flash.each do |key, value| -%>
+        <div class="alert-box <%= key %>">
+          <%= value %>
+        </div>
+        <% end %>
+        <%= yield %>
+      </section>
+      <div style="clear: both" ></div>
+      <div id="linker-bottom" class="twelve columns centered"></div>
+      <!--end linker-->
+      <!--start holder-->
+      <div class="row display">
+        <div class="twelve columns centered">
+          <div class="nine columns">
+            <section class="group1">
+              <h3>Services</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
+                Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst. Nulla nonummy. Cras quis libero.
+              </p>
+              <article class="holder_gallery">
+                <h2>Lorem ipsum</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
-                  Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst. Nulla nonummy. Cras quis libero.
+                  Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst.
                 </p>
-                <article class="holder_gallery">
-                  <h2>Lorem ipsum</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. Phasellus sollicitudin.
-                    Vestibulum condimentum  facilisis nulla. In hac habitasse platea dictumst.
-                  </p>
-                  <span class="readmore"><a href="#">Read more..</a></span>
-                </article>
-              </section>
-            </div>
-            <div class="three columns">
-              <aside class="group2">
-                <h3>Latest news</h3>
-                <article class="holder_news">
-                  <h4>Lorem ipsum <span>10.09.2011</span></h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu.<span class="readmore"> <a href="#">Read more..</a></span>
-                  </p>
-                </article>
-                <article class="holder_news">
-                  <h4>Lorem ipsum <span>20.09.2011</span></h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
-                  </p>
-                </article>
-                <article class="holder_news">
-                  <h4>Lorem ipsum <span>27.09.2011</span></h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
-                  </p>
-                </article>
-              </aside>
-              <div></div>
-            </div>
-            <!--end holder-->
+                <span class="readmore"><a href="#">Read more..</a></span>
+              </article>
+            </section>
           </div>
+          <div class="three columns">
+            <aside class="group2">
+              <h3>Latest news</h3>
+              <article class="holder_news">
+                <h4>Lorem ipsum <span>10.09.2011</span></h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu.<span class="readmore"> <a href="#">Read more..</a></span>
+                </p>
+              </article>
+              <article class="holder_news">
+                <h4>Lorem ipsum <span>20.09.2011</span></h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
+                </p>
+              </article>
+              <article class="holder_news">
+                <h4>Lorem ipsum <span>27.09.2011</span></h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. <span class="readmore"><a href="#">Read more..</a></span>
+                </p>
+              </article>
+            </aside>
+            <div></div>
+          </div>
+          <!--end holder-->
         </div>
       </div>
     </div>
-    <!--end content-->
-    <!--start footer-->
-    <footer>
-      <div class="row display">
-        <div class="twelve columns centered">
-          <% t = Time.now%>
-          <div class="six columns offset-by-one">
-            © <%= t.strftime('%Y') %> Wombat Links
-          </div>
-          <div class="five columns">
-            <a href="http://www.landrina.ru">Landrina Project</a>
-          </div>
+  </div>
+  <!--end content-->
+  <!--start footer-->
+  <footer>
+    <div class="row display">
+      <div class="twelve columns centered">
+        <% t = Time.now%>
+        <div class="six columns offset-by-one">
+          © <%= t.strftime('%Y') %> Wombat Links
+        </div>
+        <div class="five columns">
+          <a href="http://www.landrina.ru">Landrina Project</a>
         </div>
       </div>
-    </footer>
-    <!--end footer-->
+    </div>
+  </footer>
+  <!--end footer-->
 </body>
 </html> 

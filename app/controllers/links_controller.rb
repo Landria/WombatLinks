@@ -8,17 +8,17 @@ class LinksController < ApplicationController
     if signed_in?
       @links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
     else
-      @links = Link.all(:conditions => 'user_id IS NULL OR user_id = FALSE')
+      @links = Link.all(:conditions => 'user_id IS NULL')
     end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @links }
-      endf
     end
-  end;
+  end
 
   # GET /links/1
+
   # GET /links/1.json
   def show
     @link = Link.find(params[:id])
@@ -29,11 +29,14 @@ class LinksController < ApplicationController
   end
 
   # GET /links/new
+
   # GET /links/new.json
   def new
 
     @link = Link.new
-
+    @tweets = get_tweets
+    @page_title = false
+   
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @link }
@@ -41,11 +44,13 @@ class LinksController < ApplicationController
   end
 
   # GET /links/1/edit
+
   def edit
     @link = Link.find(params[:id])
   end
 
   # POST /links
+
   # POST /links.json
   def create
     form_data = params[:link]
@@ -84,6 +89,7 @@ class LinksController < ApplicationController
   end
 
   # PUT /links/1
+
   # PUT /links/1.json
   def update
     @link = Link.find(params[:id])
@@ -100,6 +106,7 @@ class LinksController < ApplicationController
   end
 
   # DELETE /links/1
+
   # DELETE /links/1.json
   def destroy
     @link = Link.find(params[:id])
@@ -127,9 +134,7 @@ class LinksController < ApplicationController
       end
     end
     message = title + " " + short_url +" #WombatLinks"
-    #Twitter.update(message)
-    #tweet = Tweet.new(:message => message)
-    #tweet.save
+    Twitter.update(message)
   rescue RuntimeError => error
     puts "Twitter error"
     puts error.inspect
@@ -166,4 +171,14 @@ class LinksController < ApplicationController
     return data
   end
 
+  def get_tweets
+    tweets = Twitter.user_timeline('Landrina', :page => 1, :count => 6)
+  rescue RuntimeError => error
+    puts "Twitter error"
+    puts error.inspect
+    tweets = false 
+  ensure
+    return tweets
+    #return false
+    end
 end

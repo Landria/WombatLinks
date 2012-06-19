@@ -1,12 +1,17 @@
 require 'test_helper'
-require 'clearance/testing'
 
 class LinksControllerTest < ActionController::TestCase
   setup do
+    DatabaseCleaner.strategy = :truncation
+    #DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.start
+    @controller = LinksController
+    #@request    = ActionController::TestRequest
+    #@response   = ActionController::TestResponse
     @link = links(:link_one)
-    user =  FactoryGirl.build(:user)
-    #sign_in_user
-    sign_in_as FactoryGirl.create(:admin)
+    #@user =  FactoryGirl.build(:admin)
+    @user = users(:user_one)
+    #sign_in
     #sign_in_as(FactoryGirl.build(:user))
     #User.authenticate(user.email, 'admin')
   end
@@ -58,7 +63,11 @@ class LinksControllerTest < ActionController::TestCase
   end
   
   test "current user" do
-    assert_equal '16250cce9a347a08f8c28f927319c396357b54a9', cookies['remember_token']
+    assert_equal '16250cce9a347a08f8c28f927319c396357b54a9', response.cookies['remember_token']
+  end
+  
+  teardown do
+    DatabaseCleaner.clean
   end
     
 end

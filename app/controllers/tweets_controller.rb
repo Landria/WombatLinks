@@ -1,6 +1,9 @@
 class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
+  
+  before_filter :authorize
+  load_and_authorize_resource
   def index
     @tweets = Tweet.all
 
@@ -63,7 +66,7 @@ class TweetsController < ApplicationController
         format.html { redirect_to @tweet, notice: 'Tweet was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        #format.html { render action: "edit" }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end

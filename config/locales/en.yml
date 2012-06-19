@@ -35,6 +35,8 @@ en:
   email_change_psw_text_1: "Someone, hopefully you, has requested that we send you a link to change your password."
   email_change_psw_text_2: "Here's the link:"
   email_change_psw_text_3: "If you didn't request this, ignore this email. Don't worry. Your password hasn't been changed."
+  twitter_feed_empty: "Sorry, twitter feed is empty"
+  twitter_title: "Our twitter feed"
   activerecord:
     attributes:
       link:

@@ -7,7 +7,7 @@ ru:
   new_link: "Новая ссылка"
   my_links: "Мои ссылки"
   all_links: "Все ссылки"
-  home_page: "Отпраивть ссылку"
+  home_page: "Отправить ссылку"
   log_out: "Выйти"
   sign_in: "Войти"
   sign_up: "Зарегистрироваться"
@@ -34,6 +34,8 @@ ru:
   email_change_psw_text_1: "Вы запросили ссылку на смену пароля к учетной записи WEombatLinks."
   email_change_psw_text_2: "Вот Ваша ссылка:"
   email_change_psw_text_3: "Если запрос сделали не Вы, проигнорируйте это письмо. Ваш пароль не будет изменен!"
+  twitter_feed_empty: "К сожалению, тви-лента не может быть показана"
+  twitter_title: "Наша тви-лента"
   helpers:
     label:
       session:

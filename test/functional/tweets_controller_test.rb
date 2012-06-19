@@ -2,7 +2,16 @@ require 'test_helper'
 
 class TweetsControllerTest < ActionController::TestCase
   setup do
+    DatabaseCleaner.strategy = :truncation
+    #DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.start
+    @controller = TweetsController.new
+    #@request    = ActionController::TestRequest.new
+    #@response   = ActionController::TestResponse.new
     @tweet = tweets(:one)
+    #@user =  FactoryGirl.build(:user)
+    #@user = users(:user_one)
+    #sign_in
   end
 
   test "should get index" do
@@ -45,5 +54,9 @@ class TweetsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to tweets_path
+  end
+  
+  teardown do
+    DatabaseCleaner.clean
   end
 end

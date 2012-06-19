@@ -1,5 +1,5 @@
 LinkmeRuby::Application.routes.draw do
-  #resources :tweets
+  resources :tweets
 
   resources :links
   
