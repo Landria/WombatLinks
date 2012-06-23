@@ -11,7 +11,6 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, ol, ul, li, form, label, legen
 	font-weight: inherit;
 	font-style: inherit;
 	font-size: 100%;
-	font-family: inherit;
 	vertical-align: baseline;
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -110,7 +109,7 @@ h4 {
 h4 span {
 	font-weight: bold;
 	font-size: 15px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	/*font-family: Georgia, "Times New Roman", Times, serif;*/
 	background-color: #FFCC33;
 	padding: 8px;
 	margin-left: 20px;
@@ -134,7 +133,7 @@ form input {
 }
 
 .button, textarea {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	/*font-family: Georgia, "Times New Roman", Times, serif;*/
 }
 
 form.nice textarea, form.nice div.field input {
@@ -368,7 +367,7 @@ dl.sub-nav {
 	display: block;
 	width: auto;
 	overflow: hidden;
-	margin: -4px 0 18px -9px;
+	margin: -4px 0 15px -9px;
 	padding-top: 4px;
 }
 dl.sub-nav dt, dl.sub-nav dd {
@@ -384,6 +383,7 @@ dl.sub-nav dt {
 dl.sub-nav dd a {
 	text-decoration: none;
 	border-radius: 80px;
+	padding: 0 12px;
 }
 dl.sub-nav dd a.active {
 	background: #06C;
@@ -417,11 +417,11 @@ dl.sub-nav dd a:hover {
  Twiter feed
  *******************************/
 div#twitter {
-	margin-top: 20px;
+	margin-top: 25px;
 }
-**************************************************
+/***************************************************
 ERRORS
-***************************************************/
+****************************************************/
 #error_explanation {
 	border: none;
 	background-color: transparent;
@@ -510,7 +510,7 @@ footer {
 
 nav {
 	position: absolute;
-	width: 400px;
+	width: 430px;
 	top: 85px;
 	right: 0;
 	/*text-shadow: 0 1px 1px rgba(0,0,0,.3);
@@ -603,7 +603,7 @@ nav ul li a.current {
 .readmore {
 	font-weight: bold;
 	font-size: 15px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	/*font-family: Georgia, "Times New Roman", Times, serif;*/
 	color: #333333;
 }
 

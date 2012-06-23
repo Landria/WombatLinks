@@ -66,4 +66,6 @@ gem 'jquery-rails'
  gem 'twitter', '~>2.5.0'
  gem 'url_shortener' 
  gem 'ruby-prof'
- 
+ gem 'resque'
+ gem 'resque-scheduler'
+ gem 'minitest'

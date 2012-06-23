@@ -178,7 +178,7 @@ class LinksController < ApplicationController
     puts error.inspect
     tweets = false 
   ensure
-    return tweets
     #return false
+    return tweets
     end
 end

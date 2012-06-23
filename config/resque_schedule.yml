@@ -1,0 +1,5 @@
+every_30_minute_job:
+ cron: "*/2 * * * *"
+ class: TweetJob
+ args: 
+ description: “"every 30 minute job"

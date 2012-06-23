@@ -2,3 +2,6 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run LinkmeRuby::Application
+
+require 'resque/server'  
+run Rack::URLMap.new "/" => AppName::Application,  "/resque" => Resque::Server.new  
