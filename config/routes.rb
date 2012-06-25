@@ -4,8 +4,9 @@ LinkmeRuby::Application.routes.draw do
   resources :links
   
   root :to => 'links#new'
+  
+  mount Resque::Server, :at => "/resque"
 
- 
 #match '/links' => 'links#index'
 
 # The priority is based upon order of creation:

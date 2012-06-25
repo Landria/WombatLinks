@@ -32,6 +32,8 @@ group :test do
    gem 'webrat'
    gem "shoulda", :require => nil
    gem 'database_cleaner'
+   gem 'minitest'
+   gem 'resque_unit'
 end
 
 gem 'jquery-rails'
@@ -66,6 +68,7 @@ gem 'jquery-rails'
  gem 'twitter', '~>2.5.0'
  gem 'url_shortener' 
  gem 'ruby-prof'
- gem 'resque'
+ gem 'resque', "~> 1.20.0",  :require => 'resque/server'
  gem 'resque-scheduler'
- gem 'minitest'
+ gem 'redis', '<= 3.0.0'
+ gem "high_voltage"

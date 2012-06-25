@@ -36,7 +36,7 @@ class LinksController < ApplicationController
     @link = Link.new
     @tweets = get_tweets
     @page_title = false
-   
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @link }
@@ -125,22 +125,26 @@ class LinksController < ApplicationController
   end
 
   def tweet(link)
-    short_url = get_shortened_link(link.link)
-    title = "New Wombat Link:"
-    if !link.title.to_s.blank?
-    title =  link.title
-    else if !link.description.to_s.blank?
-        title = link.description.truncate(60, :omission => '&hellip;', :separator => ' ')
+    begin
+      short_url = get_shortened_link(link.link)
+      title = "New Wombat Link:"
+      if !link.title.to_s.blank?
+      title =  link.title
+      else if !link.description.to_s.blank?
+          title = link.description.truncate(60, :omission => '&hellip;', :separator => ' ')
+        end
       end
-    end
-    message = title + " " + short_url +" #WombatLinks"
-    Twitter.update(message)
-  rescue RuntimeError => error
-    puts "Twitter error"
-    puts error.inspect
-    tweet = Tweet.new(:message => message)
+      message = title + " " + short_url +" #WombatLinks"
+      #Twitter.update(message)
+      tweet = Tweet.new(:message => message)
+      tweet.save
+    rescue RuntimeError => error
+      puts "Twitter error"
+      puts error.inspect
+      tweet = Tweet.new(:message => message)
     tweet.save
     end
+  end
 
   def get_shortened_link(url)
     authorize = UrlShortener::Authorize.new 'landria', 'R_de421b9f20e1012c66b13504051ce7c8'
@@ -172,13 +176,15 @@ class LinksController < ApplicationController
   end
 
   def get_tweets
-    tweets = Twitter.user_timeline('Landrina', :page => 1, :count => 6)
-  rescue RuntimeError => error
-    puts "Twitter error"
-    puts error.inspect
-    tweets = false 
-  ensure
+    begin
+      tweets = Twitter.user_timeline('Landrina', :page => 1, :count => 6)
+    rescue RuntimeError => error
+      puts "Twitter error"
+      puts error.inspect
+      tweets = false
+    ensure
     #return false
     return tweets
     end
+  end
 end

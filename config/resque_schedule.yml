@@ -1,5 +1,6 @@
-every_30_minute_job:
- cron: "*/2 * * * *"
+send_tweets_every_30_minutes:
+ cron: "*/30 * * * *"
  class: TweetJob
- args: 
- description: “"every 30 minute job"
+ args:
+ queue: TweetJob
+ description: "Send tweets every 30 minutes"

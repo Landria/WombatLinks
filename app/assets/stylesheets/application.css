@@ -588,6 +588,9 @@ nav ul li a.current {
 
 }
 
+.button {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
 /***************************************************
  SPECIFIC
  ***************************************************/
@@ -620,6 +623,7 @@ nav ul li a.current {
 }
 
 .holder_tweets {
+	width: 100%;
 	float: left;
 	border-bottom: 1px dotted black;
 	margin-bottom: 10px;
