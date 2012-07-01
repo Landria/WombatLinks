@@ -1,5 +1,7 @@
 class TweetJob < Resque::Job
+  
   @queue = :TweetJob
+  
   def self.perform
     tweets = Tweet.find(:all, :limit => 20)
     tweets.each do |t|

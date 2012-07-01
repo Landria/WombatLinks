@@ -18,7 +18,6 @@ class LinksController < ApplicationController
   end
 
   # GET /links/1
-
   # GET /links/1.json
   def show
     @link = Link.find(params[:id])
@@ -29,7 +28,6 @@ class LinksController < ApplicationController
   end
 
   # GET /links/new
-
   # GET /links/new.json
   def new
 
@@ -44,7 +42,6 @@ class LinksController < ApplicationController
   end
 
   # GET /links/1/edit
-
   def edit
     @link = Link.find(params[:id])
   end
@@ -53,32 +50,15 @@ class LinksController < ApplicationController
 
   # POST /links.json
   def create
-    form_data = params[:link]
-
-    if(((form_data[:title].to_s.blank?) || (form_data[:description].to_s.blank?)) && (!form_data[:link].to_s.blank?))
-      data = get_data_for_link(form_data[:link])
-
-      if(data != false)
-        if(form_data[:title].to_s.blank?)
-          form_data[:title] = data["title"]
-        end
-
-        if(form_data[:description].to_s.blank?)
-          form_data[:description] = data["description"]
-        end
-      end
-    end
-
-    @link = Link.new(form_data)
-
+    @link = Link.new(params[:link])
+    
     respond_to do |format|
       if @link.save
-        WombatMailer.send_link(@link).deliver
-
-        if(!@link.is_private?)
-          tweet(@link)
-        end
-
+        
+        Resque.enqueue(LinkJob, @link.id)
+        Resque.enqueue(TweetLinkJob, @link.id)
+        Resque.enqueue(MailLinkJob, @link.id)
+        
         format.html { redirect_to @link, :notice => t(:created) }
         format.json { render :json => @link, :status => :created, :location => @link }
       else
@@ -89,7 +69,6 @@ class LinksController < ApplicationController
   end
 
   # PUT /links/1
-
   # PUT /links/1.json
   def update
     @link = Link.find(params[:id])
@@ -124,57 +103,6 @@ class LinksController < ApplicationController
     return (reg.match(password))? true : false
   end
 
-  def tweet(link)
-    begin
-      short_url = get_shortened_link(link.link)
-      title = "New Wombat Link:"
-      if !link.title.to_s.blank?
-      title =  link.title
-      else if !link.description.to_s.blank?
-          title = link.description.truncate(60, :omission => '&hellip;', :separator => ' ')
-        end
-      end
-      message = title + " " + short_url +" #WombatLinks"
-      #Twitter.update(message)
-      tweet = Tweet.new(:message => message)
-      tweet.save
-    rescue RuntimeError => error
-      puts "Twitter error"
-      puts error.inspect
-      tweet = Tweet.new(:message => message)
-    tweet.save
-    end
-  end
-
-  def get_shortened_link(url)
-    authorize = UrlShortener::Authorize.new 'landria', 'R_de421b9f20e1012c66b13504051ce7c8'
-    client = UrlShortener::Client.new authorize
-    shorten = client.shorten(url + "?time= "+ Time.now.to_s)
-
-    return shorten.urls.to_s rescue url
-  end
-
-  def get_data_for_link(url)
-    require 'net/http'
-    data = false
-    title_regexp = /<title>(\n?.*\n?)<\/title>/
-    description_regexp = /meta.*description.*content=[",'](.*)[",']/
-
-    link = Link.find_by_link(url)
-
-    if link.instance_of? Link
-      data = {"title" => link.title, "description" => link.description}
-    else
-      response = Net::HTTP.get_response(URI.parse(URI.encode(url)))
-
-      if response.is_a? Net::HTTPOK
-        data = {"title" => response.body.scan(title_regexp)[0].to_s, "description" => response.body.scan(description_regexp)[0].to_s}
-      end
-    end
-
-    return data
-  end
-
   def get_tweets
     begin
       tweets = Twitter.user_timeline('Landrina', :page => 1, :count => 6)
@@ -183,7 +111,6 @@ class LinksController < ApplicationController
       puts error.inspect
       tweets = false
     ensure
-    #return false
     return tweets
     end
   end
