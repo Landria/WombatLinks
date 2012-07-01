@@ -12,7 +12,7 @@ class LinkJob < Resque::Job
 
     response = Net::HTTP.get_response(URI.parse(URI.encode(link.link)))
     if response.is_a? Net::HTTPOK
-      data = {"title" => response.body.scan(title_regexp)[0].to_s, "description" => response.body.scan(description_regexp)[0].to_s}
+      data = {"title" => response.body.scan(title_regexp)[0].to_s.encode("UTF-8"), "description" => response.body.scan(description_regexp)[0].to_s.encode("UTF-8")}
     end
 
     if(data != false)

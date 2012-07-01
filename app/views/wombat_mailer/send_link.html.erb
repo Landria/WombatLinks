@@ -9,14 +9,14 @@
       <b><%= (t :email_new_link_text)%></b>
     </p>
     <p>
-      <b>URL:</b> <%= @link.link %>
+      <b>URL:</b> <%= link_to(@link.link, @link.link) %>
       <br/>
       <% if(!@link.title.empty?)%>
-      <b>Title:</b> <%= @link.title %>
+      <b>Title:</b> <%=h @link.title %>
       <br/>
       <% end %>
       <% if(!@link.description.empty?)%>
-      <b>Description:</b> <%= @link.description %>
+      <b>Description:</b> <%=h @link.description %>
     </p>
     <% end%>
     <br/>

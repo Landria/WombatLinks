@@ -56,7 +56,7 @@ class LinksController < ApplicationController
       if @link.save
         
         Resque.enqueue(LinkJob, @link.id)
-        Resque.enqueue(TweetLinkJob, @link.id)
+        #Resque.enqueue(TweetLinkJob, @link.id)
         Resque.enqueue(MailLinkJob, @link.id)
         
         format.html { redirect_to @link, :notice => t(:created) }
