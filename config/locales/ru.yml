@@ -3,6 +3,7 @@ ru:
   auth_tx: "Вы вошли как "
   welcome: "Приветствуем Вас на WombatLinks!"
   created: "Ссылка успешно отправлена!"
+  updated: "Ссылка успешно обновлена!"
   edit_profile: "Ваш профиль"
   new_link: "Новая ссылка"
   my_links: "Мои ссылки"
@@ -36,6 +37,15 @@ ru:
   email_change_psw_text_3: "Если запрос сделали не Вы, проигнорируйте это письмо. Ваш пароль не будет изменен!"
   twitter_feed_empty: "К сожалению, тви-лента не может быть показана"
   twitter_title: "Наша тви-лента"
+  w_link: 'Ссылка #'
+  link: "Ссылка"
+  email: "Адрес эл. почты"
+  title: "Заголовок"
+  description: "Описание"
+  is_private: "Это моя личная ссылка"
+  is_private_show: "Личная ссылка"
+  no_links: "Не найдено ни одной ссылки!"
+  add_link: "Добавить ссылку"
   helpers:
     label:
       session:

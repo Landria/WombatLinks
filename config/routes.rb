@@ -1,11 +1,10 @@
 LinkmeRuby::Application.routes.draw do
+  match "/links/all" => "links#index", :as => :all_links, :all => true
   resources :tweets
-
   resources :links
-  
   root :to => 'links#new'
-  
   mount Resque::Server, :at => "/resque"
+  
 
 #match '/links' => 'links#index'
 

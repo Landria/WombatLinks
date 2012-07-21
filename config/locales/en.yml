@@ -5,6 +5,7 @@ en:
   hello: "Hello world"
   denied: "Sorry! You can't access requested page!"
   created: "Link was successfully sent!"
+  updated: "Link was successfully updated"
   auth_tx: "You logged in as"
   edit_profile: "Your profile"
   welcome: "Welcome to WombatLinks!"
@@ -37,6 +38,9 @@ en:
   email_change_psw_text_3: "If you didn't request this, ignore this email. Don't worry. Your password hasn't been changed."
   twitter_feed_empty: "Sorry, twitter feed is empty"
   twitter_title: "Our twitter feed"
+  w_link: 'Link #'
+  is_private_show: "Private link"
+  no_links: "No links found!"
   activerecord:
     attributes:
       link:

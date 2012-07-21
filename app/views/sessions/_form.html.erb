@@ -1,3 +1,8 @@
+<% flash.each do |key, value| -%>
+<div class="alert-box error">
+  <%= value %>
+</div>
+<% end %>
 <%= form_for :session, :url => session_path, :html => { :class => "nice"} do |form| %>
 <div class="field">
   <%= form.label :email %>

@@ -33,7 +33,7 @@ class Ability
         link.try(:user) == user || user.role =='user'
       end
       can :show, Link do |link|
-        link.try(:user) == user || user.role =='user'
+        link.id == user.id || link.is_private == false
       end
       can :index, Link do |link|
         link.try(:user) == user || user.role =='user'

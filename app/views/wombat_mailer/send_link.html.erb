@@ -12,7 +12,7 @@
       <b>URL:</b> <%= link_to(@link.link, @link.link) %>
       <br/>
       <% if(!@link.title.empty?)%>
-      <b>Title:</b> <%=h @link.title %>
+      <b>Title:</b> <%= raw @link.title %>
       <br/>
       <% end %>
       <% if(!@link.description.empty?)%>

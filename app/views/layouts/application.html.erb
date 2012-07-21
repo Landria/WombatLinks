@@ -42,10 +42,10 @@
                   <%= active_link_to (t :home_page), root_path, :active => :exclusive %>
                 </dd>
                 <dd>
-                  <% if can? :list, @links %>
+                  <% if signed_in? %>
                   <%= active_link_to (t :my_links), links_path, :active => :exclusive %>
                   <% else %>
-                  <%= active_link_to (t :all_links), links_path, :active => :exclusive %>
+                  <%= active_link_to (t :all_links), all_links_path, :active => :exclusive %>
                   <% end %>
                 </dd>
                 <dd>
@@ -68,7 +68,7 @@
       </div>
       <section id='linker'>
         <% flash.each do |key, value| -%>
-        <div class="alert-box <%= key %>">
+        <div class="alert-box <%= key %>" id="flash">
           <%= value %>
         </div>
         <% end %>

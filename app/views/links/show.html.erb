@@ -1,25 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Link:</b>
-  <%= @link.link %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @link.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @link.description %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @link.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Links list', links_path %>
+<div class="row">
+  <div class="six columns" id='link-detail'>
+    <h1><%= (t :w_link) + @link.id.to_s %></h1>
+    <% if(!notice.to_s.blank?)%>
+    <div class="alert-box success">
+      <%= notice %>
+    </div>
+    <% end %>
+    <p>
+      <b>URL:</b> <%= link_to(@link.link, @link.link) %>
+    </p>
+    <p>
+      <b><%= (t :title)%>:</b> <%= @link.title %>
+    </p>
+    <p>
+      <b><%= (t :description)%>:</b> <%= @link.description %>
+    </p>
+    <p>
+      <b><%= (t :email)%>:</b> <%= @link.email %>
+    </p>
+    <% if @link.is_private%>
+    <p>
+      <b><%= (t :is_private_show)%>:</b>
+    </p>
+    <% end %>
+    <%= link_to (t :new_link), root_path, :class => "nice radius white small button" %>
+    <% if signed_in? %>
+    <%= link_to (t :my_links), links_path, :class => "nice radius white small button" %>
+    <% else %>
+    <%= link_to (t :all_links), all_links_path, :class => "nice radius white small button" %>
+    <% end %>
+  </div>
+  <div class="six columns" id="twitter">
+    <%= render 'twee_feed' %>
+  </div>
+</div>

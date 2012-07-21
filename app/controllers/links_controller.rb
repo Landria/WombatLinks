@@ -5,12 +5,17 @@ class LinksController < ApplicationController
   before_filter :authorize, :only => [:update, :destroy]
   load_and_authorize_resource
   def index
+    @all = params[:all]
     if signed_in?
-      @links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
+      if(@all)
+        @links = Link.find(:all,:conditions=>["is_private=:is_private",{:is_private=>false}])
+      else
+        @links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
+      end
     else
       @links = Link.all(:conditions => 'user_id IS NULL')
     end
-
+ 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @links }
@@ -20,7 +25,10 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
+    @tweets = get_tweets
+    @page_title = false
     @link = Link.find(params[:id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @link }
@@ -50,6 +58,8 @@ class LinksController < ApplicationController
 
   # POST /links.json
   def create
+    @tweets = get_tweets
+    @page_title = false
     @link = Link.new(params[:link])
     
     respond_to do |format|
@@ -75,7 +85,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.update_attributes(params[:link])
-        format.html { redirect_to @link, :notice => 'Link was successfully updated.' }
+        format.html { redirect_to @link, :notice => t(:created) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

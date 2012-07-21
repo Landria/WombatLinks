@@ -17,9 +17,11 @@ class LinkJob < Resque::Job
 
     if(data != false)
       if(link.title.to_s.blank?)
+        data["title"].truncate(250, :omission => '&hellip;', :separator => ' ')
         link.update_attribute(:title, data["title"])
       end
       if(link.description.to_s.blank?)
+        data["description"].truncate(250, :omission => '&hellip;', :separator => ' ')
         link.update_attribute(:description , data["description"])
       end
     end    

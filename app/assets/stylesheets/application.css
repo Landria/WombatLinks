@@ -303,6 +303,25 @@ header {
 	border-radius: 30px;
 }
 
+
+#link-detail{
+	font-size: 1.4em;
+	line-height: 2.2em;
+	color: #505050;
+	word-wrap: break-word;
+}
+#link-detail .button{
+	margin-top: 10px;
+}
+
+.link_controls{
+	font-size: 1.1em;
+	padding-top: 5px;
+}
+
+#flash{
+	margin-top: 15px;
+}
 /*#login_menu span a:hover { color: #0066FF; }*/
 
 #page-top {
@@ -356,6 +375,24 @@ header {
 .has-tip:hover {
 	border-bottom: dotted 1px #0593dc;
 	color: #0066CC;
+}
+#title_block{
+	margin-bottom: 15px;
+}
+#title_block aaaa{
+	font-size: 1.3em;
+	text-decoration: none !important;
+	border: 1px #0066CC dotted;
+	padding: 4px 4px 4px 4px;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+}
+
+.small.button {
+	 font-size: 0.7em;
+	 padding: 8px 20px 10px;
+	 width: auto;
 }
 
 /*	--------------------------------------------------
@@ -633,12 +670,8 @@ nav ul li a.current {
 	font-weight: bold;
 	font-size: 14px;
 	color: #000;
-	/*background-color:#FFCC33;*/
 	float: right;
 	padding: 8px;
-	-webkit-border-radius: .5em;
-	-moz-border-radius: .5em;
-	border-radius: .5em;
 }
 
 .black {
