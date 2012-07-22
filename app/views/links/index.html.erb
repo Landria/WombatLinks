@@ -1,18 +1,27 @@
 <div class="row twelve columns">
-<div id="title_block">
-  <% if signed_in? %>
-    <% if(!@all)%>
-      <h1><%= t :my_links %></h1> 
-      <%= link_to (t :all_links), all_links_path, :method => :post %> 
-    <% else %>
+  <div class="row twelve columns">
+    <div class = "row six columns" id="title_block">
+      <% if signed_in? %>
+      <% if(!@all)%>
+      <h1><%= t :my_links %></h1>
+      <%= link_to (t :all_links), all_links_path, :method => :post %>
+      <% else %>
       <h1><%= t :all_links %></h1>
       <%= link_to (t :my_links), links_path %>
-    <%end%>
-  <% else %>
-  <h1><%= t :all_links %></h1>
-  <h5><%= raw t :index_auth_message, :sign_in_link => (link_to (t :sign_in_to), sign_in_path) %></h5>
-  <% end %>
-</div>
+      <%end%>
+      <% else %>
+      <h1><%= t :all_links %></h1>
+      <h5><%= raw t :index_auth_message, :sign_in_link => (link_to (t :sign_in_to), sign_in_path) %></h5>
+      <% end %>
+      
+      <% if(!@search_params.blank?)%>
+      <p>Результаты поиска для <%= @search_params %></p>
+      <% end%>
+    </div>
+    <div class="row six columns" id="search">
+      <%= render 'search' %>
+    </div>
+  </div>
   <% @links.each do |link| %>
   <p>
     <b><%= (t :link)+' #'+ link.id.to_s%>:</b> <%= link_to(link.link, link.link) %>
@@ -31,25 +40,30 @@
     <b><%= (t :is_private_show)%>:</b>
   </p>
   <% end %>
+  <p>
+    <b><%= (t :created_at)%>:</b> <%= link.created_at.strftime("%d/%m/%Y") %>
+  </p>
   <div class="link_controls">
-  <%= link_to (t :show), link %>
-  <% if can? :manage, Link %>
+    <%= link_to (t :show), link %>
+    <% if can? :manage, Link %>
     | <%= link_to (t :edit), edit_link_path(link) %>
     | <%= link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete %>
-  <% end %>
+    <% end %>
   </div>
   <hr>
   <% end %>
   <% if(@links.count == 0)%>
-    <%= t :no_links %>
+  <%= t :no_links %>
   <% end %>
 </div>
- <div class="row twelve columns">
+<div class="row twelve columns">
   <div id="pagination">
     <%= will_paginate @posts %>
   </div>
-  
+
   <% if can? :create, Link %>
-  <div><%= link_to (t :new_link), new_link_path, :class => "nice radius white button" %></div>
-  <% end %>
+  <div>
+    <%= link_to (t :new_link), new_link_path, :class => "nice radius white button" %>
   </div>
+  <% end %>
+</div>

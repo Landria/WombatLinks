@@ -1,4 +1,4 @@
-<%= form_for(@link, :html => { :class => "nice"}) do |f| %>
+<%= form_for(@link,:url => create_link_path, :html => { :class => "nice"}) do |f| %>
 <% if signed_in? %>
 <%= hidden_field_tag 'link[user_id]', current_user.id %>
 <% end %>

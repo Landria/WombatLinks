@@ -43,9 +43,9 @@
                 </dd>
                 <dd>
                   <% if signed_in? %>
-                  <%= active_link_to (t :my_links), links_path, :active => :exclusive %>
+                  <%= active_link_to (t :my_links), links_path, :active => [['links'], ['index']] %>
                   <% else %>
-                  <%= active_link_to (t :all_links), all_links_path, :active => :exclusive %>
+                  <%= active_link_to (t :all_links), all_links_path, :active => [['links'], ['index']] %>
                   <% end %>
                 </dd>
                 <dd>

@@ -1,4 +1,5 @@
 class Link < ActiveRecord::Base
+  
   belongs_to :user
 
   validates_presence_of :link, :email
@@ -25,5 +26,12 @@ class Link < ActiveRecord::Base
     ensure
       return url
     end
+  end
+  
+  def self.search_date(date_from, date_to, page)
+    paginate :per_page => self.per_page, :page => page,
+          # :conditions => ['created_at < ?', "%#{date_to}%"],
+           :order => 'created_at'
+           
   end
 end

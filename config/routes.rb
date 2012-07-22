@@ -1,5 +1,8 @@
 LinkmeRuby::Application.routes.draw do
   match "/links/all" => "links#index", :as => :all_links, :all => true
+  match "/links" => "links#index"
+  match "/link/create" => "links#create", :as => :create_link, :all => true
+  
   resources :tweets
   resources :links
   root :to => 'links#new'

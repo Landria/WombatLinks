@@ -52,6 +52,12 @@ ru:
   add_link: "Добавить ссылку"
   index_auth_message: "Вы просматриваете анонимные ссылки. Чтобы видеть все ссылки, пожалуйста, %{sign_in_link}!"
   sign_in_to: "войдите"
+  search: "поиск"
+  search_text: "Введите строку поиска"
+  created_at: "Дата отправки"
+  date_from: "Дата начала"
+  date_to: "Дата конца"
+  range: "периода"
   will_paginate:
     previous_label: "&#8592; Назад"
     next_label: "Вперед &#8594;"

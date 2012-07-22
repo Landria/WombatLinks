@@ -2,22 +2,34 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
 
-  before_filter :authorize, :only => [:update, :destroy]
+  before_filter :authorize, :only => [:update, :destroy, :edit]
   load_and_authorize_resource
   def index
     @all = params[:all]
-    if signed_in?
-      if(@all)
-        #@links = Link.find(:all,:conditions=>["is_private=:is_private",{:is_private=>false}])
-        @links = Link.where(:is_private => false).paginate(:page => params[:page]).order('created_at DESC')
-
-      else
-        #@links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
-        @links = Link.where(:user_id => current_user.id).paginate(:page => params[:page]).order('created_at DESC')
-      end
+    search = false
+    
+    if(params[:date_from].to_s.blank?)
+      date_from = DateTime.new(2011, 01, 01)
     else
-      #@links = Link.all(:conditions => 'user_id IS NULL')
-      @links = Link.where('user_id IS NULL').paginate(:page => params[:page]).order('created_at DESC')
+      search = true
+      date_from = Date.civil(params[:date_from][:"(1i)"].to_i,params[:date_from][:"(2i)"].to_i,params[:date_from][:"(3i)"].to_i)
+    end
+    
+    if(params[:date_to].to_s.blank?)
+      date_to = DateTime.current
+    else
+      search = true
+      date_to = Date.civil(params[:date_to][:"(1i)"].to_i,params[:date_to][:"(2i)"].to_i,params[:date_to][:"(3i)"].to_i)
+    end;
+    
+    if(search == true)
+      @search_params = t(:range)+' '+date_from.strftime("%d/%m/%Y") + ' / '+ date_to.strftime("%d/%m/%Y")
+    end
+    
+    if((@all) || (!signed_in?))
+      @links = Link.where(:is_private => false, :created_at => date_from..date_to).paginate(:page => params[:page]).order('created_at DESC')
+    else
+      @links = Link.where(:user_id => current_user.id).paginate(:page => params[:page]).order('created_at DESC')
     end
  
     respond_to do |format|
