@@ -394,7 +394,30 @@ header {
 	 padding: 8px 20px 10px;
 	 width: auto;
 }
+#pagination{
+	float: left;
+	margin-bottom: 25px;
+	width: 100%;
+	font-size: 1.2em;
+}
 
+#pagination a{
+	text-decoration: none !important;
+	border: 1px #0066CC dotted;
+	padding: 4px 4px 4px 4px;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+}
+
+#pagination .current, #pagination .next_page.disabled, #pagination .previous_page.disabled{
+	border: 1px #000 dotted;
+	padding: 4px 4px 4px 4px;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	font-style: normal;
+}
 /*	--------------------------------------------------
  Sub Navs
  http://www.zurb.com/article/292/how-to-create-simple-and-effective-sub-na

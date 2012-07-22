@@ -8,12 +8,16 @@ class LinksController < ApplicationController
     @all = params[:all]
     if signed_in?
       if(@all)
-        @links = Link.find(:all,:conditions=>["is_private=:is_private",{:is_private=>false}])
+        #@links = Link.find(:all,:conditions=>["is_private=:is_private",{:is_private=>false}])
+        @links = Link.where(:is_private => false).paginate(:page => params[:page]).order('created_at DESC')
+
       else
-        @links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
+        #@links = Link.find(:all,:conditions=>["user_id=:user_id",{:user_id=>current_user.id}])
+        @links = Link.where(:user_id => current_user.id).paginate(:page => params[:page]).order('created_at DESC')
       end
     else
-      @links = Link.all(:conditions => 'user_id IS NULL')
+      #@links = Link.all(:conditions => 'user_id IS NULL')
+      @links = Link.where('user_id IS NULL').paginate(:page => params[:page]).order('created_at DESC')
     end
  
     respond_to do |format|

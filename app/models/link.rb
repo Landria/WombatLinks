@@ -9,6 +9,8 @@ class Link < ActiveRecord::Base
               :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i },
               :if => "!email.blank?"
               
+  self.per_page = 10
+  
   def get_shortened_url()
     url = self.link
     begin

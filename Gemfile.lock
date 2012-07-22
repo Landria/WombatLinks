@@ -250,6 +250,7 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    will_paginate (3.0.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
     zurb-foundation (2.2.1.2)
@@ -297,4 +298,5 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   url_shortener
   webrat
+  will_paginate (~> 3.0.0)
   zurb-foundation
