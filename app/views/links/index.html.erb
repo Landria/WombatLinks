@@ -4,7 +4,7 @@
       <% if signed_in? %>
       <% if(!@all)%>
       <h1><%= t :my_links %></h1>
-      <%= link_to (t :all_links), all_links_path, :method => :post %>
+      <%= link_to (t :all_links), all_links_path %>
       <% else %>
       <h1><%= t :all_links %></h1>
       <%= link_to (t :my_links), links_path %>
@@ -15,7 +15,9 @@
       <% end %>
       
       <% if(!@search_params.blank?)%>
-      <p>Результаты поиска для <%= @search_params %></p>
+      <span id="search-results">
+        <p>Результаты поиска для <%= @search_params %></p>
+      </span>
       <% end%>
     </div>
     <div class="row six columns" id="search">

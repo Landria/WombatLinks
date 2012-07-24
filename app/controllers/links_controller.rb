@@ -23,7 +23,7 @@ class LinksController < ApplicationController
     end;
     
     if(search == true)
-      @search_params = t(:range)+' '+date_from.strftime("%d/%m/%Y") + ' / '+ date_to.strftime("%d/%m/%Y")
+      @search_params = t(:range)+' '+date_from.strftime("%d-%m-%Y") + '/'+ date_to.strftime("%d-%m-%Y")
     end
     
     if((@all) || (!signed_in?))

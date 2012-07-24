@@ -379,14 +379,9 @@ header {
 #title_block{
 	margin-bottom: 15px;
 }
-#title_block aaaa{
-	font-size: 1.3em;
-	text-decoration: none !important;
-	border: 1px #0066CC dotted;
-	padding: 4px 4px 4px 4px;
-	-webkit-border-radius: .5em;
-	-moz-border-radius: .5em;
-	border-radius: .5em;
+#title_block a{
+	font-size: 1.1em;
+	text-decoration: underline !important;
 }
 
 .small.button {
@@ -420,7 +415,18 @@ header {
 }
 
 #search{
+	
+}
 
+#search select{
+	display: inline-block;
+}
+
+#search-results{
+	display: block;
+	font-size: 1.1em;
+	margin: 15px 0 0 0;
+	color: black;
 }
 
 #search input{
@@ -434,10 +440,13 @@ header {
 	display: inline;
 	position: relative;
 	top: -1px;
-	font-size: 1.1em;
-	padding: 4px 15px 6px 15px;
+	font-size: 0.9em;
+	padding: 6px 6px 7px 6px;
 }
 
+#search .nice.contained.tabs{
+	
+}
 #search .nice.contained.tabs a{
 	font-size: 1.1em;
 }
@@ -445,6 +454,8 @@ header {
 #search ul.contained.tabs-content li {
 	padding-bottom: 5px;
 	padding-top: 10px;
+	padding-left: 7px;
+	padding-right: 7px;
 }
 /*	--------------------------------------------------
  Sub Navs
