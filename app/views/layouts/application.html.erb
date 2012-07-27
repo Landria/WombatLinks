@@ -7,6 +7,11 @@
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript">
+	var switchTo5x = true;
+  </script>
+  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
   <%= csrf_meta_tags %>
   <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
   <!--[if lt IE 9]>
@@ -34,6 +39,7 @@
             <br/>
             <span><%= active_link_to (t :sign_in), sign_in_path, :active => :exclusive%> / <%= active_link_to (t :sign_up), sign_up_path, :active => :exclusive %></span>
             <% end %>
+           Профиль
           </div>
           <nav>
             <div class="panel">
@@ -41,16 +47,21 @@
                 <dd class="active2">
                   <%= active_link_to (t :home_page), root_path, :active => :exclusive %>
                 </dd>
+                <% if signed_in? %>
                 <dd>
-                  <% if signed_in? %>
                   <%= active_link_to (t :my_links), links_path, :active => [['links'], ['index']] %>
-                  <% else %>
+                </dd>
+                <dd>
+                  <a href="#">Профиль</a>
+                </dd>
+                <% else%>
+                <dd>
                   <%= active_link_to (t :all_links), all_links_path, :active => [['links'], ['index']] %>
-                  <% end %>
                 </dd>
                 <dd>
                   <a href="#">О проекте</a>
                 </dd>
+                <% end %>
               </dl>
             </div>
           </nav>
@@ -142,5 +153,22 @@
     </div>
   </footer>
   <!--end footer-->
+  <!-- social buttons-->
+  <script>
+	var options = {
+		"publisher" : "97ab5a0d-2e38-4fe6-a158-27955a8b251d",
+		"position" : "left",
+		"ad" : {
+			"visible" : false,
+			"openDelay" : 5,
+			"closeDelay" : 0
+		},
+		"chicklets" : {
+			"items" : ["facebook", "vkontakte", "twitter", "googleplus", "linkedin", "digg", "sharethis"]
+		}
+	};
+	var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+  </script>
+  <!-- end of social-->
 </body>
 </html> 
