@@ -73,3 +73,4 @@ gem 'jquery-rails'
  gem 'redis', '<= 3.0.0'
  gem "high_voltage"
  gem 'will_paginate', '~> 3.0.0'
+ gem 'htmlentities'

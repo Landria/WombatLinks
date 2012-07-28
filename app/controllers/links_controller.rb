@@ -44,7 +44,7 @@ class LinksController < ApplicationController
     @tweets = get_tweets
     @page_title = false
     @link = Link.find(params[:id])
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @link }
