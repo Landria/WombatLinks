@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class LinksController < ApplicationController
   # GET /links
   # GET /links.json
@@ -74,7 +76,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-
+        @link.gen_link_hash
         Resque.enqueue(LinkJob, @link.id)
         #Resque.enqueue(TweetLinkJob, @link.id)
         Resque.enqueue(MailLinkJob, @link.id)
@@ -134,4 +136,5 @@ class LinksController < ApplicationController
       return tweets
     end
   end
+
 end

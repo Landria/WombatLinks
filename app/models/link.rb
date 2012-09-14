@@ -56,4 +56,15 @@ class Link < ActiveRecord::Base
   def user_link? user
     self.user_id == user.id
   end
+
+  def gen_link_hash
+    begin
+      hash_string = "link_hash=" + self.id.to_s + self.link + self.title + self.email
+      hash = Digest::MD5.hexdigest hash_string
+      self.update_attribute(:link_hash, hash)
+    rescue
+      self.update_attribute(:link_hash, self.id.to_s+"rtp9-87-wombatlink")
+    end
+  end
+
 end

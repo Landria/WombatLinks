@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120820204742) do
+ActiveRecord::Schema.define(:version => 20120820204743) do
 
   create_table "links", :force => true do |t|
     t.string   "link"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20120820204742) do
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_private",  :default => false
     t.integer  "user_id"
+    t.string   "hash"
+    t.string   "link_hash"
   end
 
   create_table "tweets", :force => true do |t|

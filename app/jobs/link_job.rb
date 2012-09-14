@@ -1,7 +1,7 @@
 class LinkJob < Resque::Job
 
   @queue = :LinkJob
-  
+
   def self.perform(link_id)
     require 'net/http'
     require 'htmlentities'
@@ -50,6 +50,7 @@ class LinkJob < Resque::Job
         link.update_attribute(:description , description)
       end
     end
+
   end
 
 end

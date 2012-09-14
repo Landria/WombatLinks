@@ -6,11 +6,6 @@
           <b><%= (t :is_private_show)%></b>
         </p>
     <% end %>
-    <% if(!notice.to_s.blank?)%>
-    <div class="alert-box success">
-      <%= notice %>
-    </div>
-    <% end %>
     <p>
       <b>URL:</b> <%= link_to(@link.link, @link.link) %>
     </p>

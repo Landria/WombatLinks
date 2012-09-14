@@ -120,7 +120,7 @@ ru:
   update: "Обновить"
   cancel_account: "Удалить аккаунт"
   back: "Назад"
-  update_account: "Обновить данные"
+  update_account: "Обновить профиль"
   current_password: "Текущий пароль"
   password_confirmation: "Подтверждение пароля"
   profile: "Профиль"
