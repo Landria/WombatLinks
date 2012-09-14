@@ -7,6 +7,7 @@
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :highcharts %>
   <script type="text/javascript">
 	var switchTo5x = true;
   </script>
@@ -33,26 +34,25 @@
             <%= t :welcome %>
             <br/>
             <%= t :auth_tx%><span><%= current_user.email%></span>
-            (<%= link_to (t :log_out), sign_out_path, :method => :delete%>)
+            (<%= link_to (t :log_out), destroy_user_session_path, :method => :delete%>)
             <% else %>
             <%= t :welcome %>
             <br/>
-            <span><%= active_link_to (t :sign_in), sign_in_path, :active => :exclusive%> / <%= active_link_to (t :sign_up), sign_up_path, :active => :exclusive %></span>
+            <span><%= active_link_to (t :sign_in), new_user_session_path, :active => :exclusive%> / <%= active_link_to (t :sign_up), new_user_registration_path, :active => :exclusive %></span>
             <% end %>
-           Профиль
           </div>
           <nav>
             <div class="panel">
               <dl class="sub-nav">
                 <dd class="active2">
-                  <%= active_link_to (t :home_page), root_path, :active => :exclusive %>
+                  <%= active_link_to (t :home_page), root_path, :active => [['links'], ['new','create']] %>
                 </dd>
-                <% if signed_in? %>
+                <% if user_signed_in? %>
                 <dd>
                   <%= active_link_to (t :my_links), links_path, :active => [['links'], ['index']] %>
                 </dd>
                 <dd>
-                  <a href="#">Профиль</a>
+                  <%= active_link_to (t :profile), edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']] %>
                 </dd>
                 <% else%>
                 <dd>
@@ -157,7 +157,7 @@
   <script>
 	var options = {
 		"publisher" : "97ab5a0d-2e38-4fe6-a158-27955a8b251d",
-		"position" : "left",
+		"position" : "right",
 		"ad" : {
 			"visible" : false,
 			"openDelay" : 5,
@@ -171,4 +171,4 @@
   </script>
   <!-- end of social-->
 </body>
-</html> 
+</html>

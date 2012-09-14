@@ -1,15 +1,18 @@
 LinkmeRuby::Application.routes.draw do
+
+  devise_for :users
+
   match "/links/all" => "links#index", :as => :all_links, :all => true
   match "/links" => "links#index"
   match "/link/create" => "links#create", :as => :create_link, :all => true
-  
+
   resources :tweets
   resources :links
   root :to => 'links#new'
   mount Resque::Server, :at => "/resque"
-  
 
-#match '/links' => 'links#index'
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
 
 # The priority is based upon order of creation:
 # first created -> highest priority.

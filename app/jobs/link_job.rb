@@ -25,7 +25,7 @@ class LinkJob < Resque::Job
       content = cleaned
     rescue EncodingError
       # Force it to UTF-8, throwing out invalid bits
-      content.encode!( 'UTF-8', invalid: :replace, undef: :replace )
+      content.encode!( 'UTF-8', :invalid => :replace, :undef => :replace, :replace => '' )
     end
     end
 
@@ -35,14 +35,14 @@ class LinkJob < Resque::Job
     end
 
     if(data != false)
-      if(link.title.to_s.blank? && !data['title'].blank?)
+      if(link.title.blank? && !data['title'].blank?)
         title = data["title"]
         title['["'] = ''
         title['"]'] = ''
         title.truncate(240, :omission => '&hellip;', :separator => ' ')
         link.update_attribute(:title, title)
       end
-      if(link.description.to_s.blank? && !data['description'].blank?)
+      if(link.description.blank? && !data['description'].blank?)
         description = data["description"]
         description['["'] = ''
         description['"]'] = ''

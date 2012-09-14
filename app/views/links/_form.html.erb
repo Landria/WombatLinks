@@ -17,7 +17,7 @@
 <div class="field">
   <%= f.label :email, :class =>'has-tip', :title => (t :link_email_tip) %>*
   <br />
-  <%= f.text_field :email, :size => "34", :class => "oversize input-text", :value => signed_in? ? current_user.email : "" %>
+  <%= f.text_field :email, :class => "oversize input-text", :value => signed_in? ? current_user.email : "" %>
 </div>
 <div class="field">
   <%= f.label :link, :class =>'has-tip', :title => (t :link_link_tip) %>*
@@ -27,7 +27,7 @@
 <div class="field">
   <%= f.label :title, :class =>'has-tip', :title => (t :link_title_tip) %>
   <br />
-  <%= f.text_field :title, :size => "36", :class => "oversize input-text" %>
+  <%= f.text_field :title, :class => "oversize input-text" %>
 </div>
 <div class="field">
   <%= f.label :description, :class =>'has-tip', :title => (t :link_description_tip) %>

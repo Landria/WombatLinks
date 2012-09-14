@@ -132,26 +132,44 @@ form input {
 	margin-bottom: 10px;
 }
 
-.button, textarea {
-	/*font-family: Georgia, "Times New Roman", Times, serif;*/
-}
-
 form.nice textarea, form.nice div.field input {
 	font-size: 100% !important;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 13px;
+}
+div.alert-box, div#error_explanation {
+    display: block;
+    padding: 6px 7px;
+    font-weight: bold; /*font-size: 13px;*/
+    background: #eee;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 12px; border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    text-shadow: 0 1px rgba(255,255,255,0.9);
+    position: relative;
 }
 
-div.alert-box {
+.alert-box.error, div#error_explanation {
+    background-color: #c00000;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0,0,0,0.3);
+}
+div.alert-box, div#error_explanation {
 	font-size: 0.95em !important;
-	width: 300px;
+	width: 300px !important;
 }
 
-div.alert-box h4 {
+div.alert-box h4, div#error_explanation h2 {
 	color: #fff;
 	text-shadow: 0 -1px rgba(0,0,0,0.3);
 	font-size: 1.25em;
 	padding-top: 0;
 	margin-bottom: 0;
+    margin-left: 0;
 }
+
+
 
 /*	--------------------------------------------------
  :: Links
@@ -416,7 +434,7 @@ header {
 }
 
 #search{
-	
+
 }
 
 #search select{
@@ -446,7 +464,7 @@ header {
 }
 
 #search .nice.contained.tabs{
-	
+
 }
 #search .nice.contained.tabs a{
 	font-size: 1.1em;
@@ -457,6 +475,12 @@ header {
 	padding-top: 10px;
 	padding-left: 7px;
 	padding-right: 7px;
+}
+
+p#is_private{
+    font-size: 0.8em;
+    color: #778899;
+    margin-bottom: 7px;
 }
 /*	--------------------------------------------------
  Sub Navs
@@ -520,41 +544,6 @@ div#twitter {
 	margin-top: 25px;
 }
 /***************************************************
-ERRORS
-****************************************************/
-#error_explanation {
-	border: none;
-	background-color: transparent;
-	font-size: 1.1em;
-	color: red;
-	background-color: #FFCC33;
-	padding: 10px;
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	margin-bottom: 10px;
-}
-
-#error_explanation ul li {
-	font-size: 1em;
-	list-style: none;
-}
-#error_explanation h2 {
-	border: none;
-	background-color: transparent;
-	color: #000000;
-	font-size: 1.3em;
-	padding-left: 10px;
-}
-.field_with_errors {
-	background-color: transparent;
-	display: inline;
-}
-.field_with_errors label {
-	background-color: transparent;
-	color: red;
-}
-
 /***************************************************
  GALLERY
  ***************************************************/
@@ -591,6 +580,10 @@ a.photo_hover2 {
 }
 a.photo_hover2:hover {
 	border: 1px solid #E1E1E1;
+}
+
+.devise_links{
+    margin-top: 15px;
 }
 
 /**************************************************
@@ -753,7 +746,7 @@ nav ul li a.current {
 
 .black a {
 	color: #ffffff;
-}   
+}
 
 /*!
  * jQuery UI Datepicker 1.8.21
@@ -776,7 +769,7 @@ nav ul li a.current {
 .ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
 .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
 .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
-.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-month,
 .ui-datepicker select.ui-datepicker-year { width: 49%;}
 .ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
 .ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }

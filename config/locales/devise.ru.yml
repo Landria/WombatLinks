@@ -1,0 +1,58 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ru:
+  errors:
+    messages:
+      expired: "просрочен, запросите новый"
+      not_found: "не найден"
+      already_confirmed: "уже подвтержден, попробуйте войти"
+      not_locked: "не был блокирован"
+      not_saved:
+        one: "Произошла 1 ошибка:"
+        other: "Произошло несколько ошибок:"
+
+  devise:
+    failure:
+      already_authenticated: 'Вы уже авторизовались.'
+      unauthenticated: 'Необходимо авторизоваться.'
+      unconfirmed: 'Необходимо подтвердить аккаунт.'
+      locked: 'Аккаунт блокирован.'
+      invalid: 'Проверьте логин и/или пароль'
+      invalid_token: 'Ошибка. Попробуйте перезагрузить страницу'
+      timeout: 'Сессия истекла. Повторите вход.'
+      inactive: 'Аккаунт еще не активирован.'
+    sessions:
+      signed_in: 'Добро пожаловать!'
+      signed_out: 'До скорой встречи!'
+    passwords:
+      send_instructions: 'Инструкции по смене пароля отправлены Вам на email.'
+      updated: 'Пароль успешно изменен.'
+      updated_not_active: 'Пароль успешно изменен, но аккаунт не активирован.'
+      send_paranoid_instructions: "Если Ваш email зарегистрирован, скоро Вы получите от нас письмо."
+      no_token: "Страница доступна только по ссылке из письма. Если Вы перешли по ссылке из письма, убедитесь, что она верна."
+    confirmations:
+      send_instructions: 'Письмо с кодом подтверждения отправлено на Ваш email..'
+      send_paranoid_instructions: 'Письмо отправлено на Ваш email.'
+      confirmed: 'Аккаунт подтвержден, но вход не произведен.'
+    registrations:
+      signed_up: 'Добро пожаловать!'
+      signed_up_but_unconfirmed: 'Добро пожаловать! Письмо с кодом подтверждения аккаунта отправлено на Ваш email.'
+      signed_up_but_inactive: 'Регистрация прошла успешно, но аккаунт еще не активирован.'
+      signed_up_but_locked: 'Регистрация прошла успешно, но аккаунт еще блокирован.'
+      updated: 'Аккаунт успешно обновлен.'
+      update_needs_confirmation: "Необходимо подтвержденеи нового email-адреса."
+      destroyed: 'Аккаунт успешно удален'
+    unlocks:
+      send_instructions: 'Письмо с инструкциями по разблокировке отправлено на Ваш email.'
+      unlocked: 'Аккаунт разблокирован.'
+      send_paranoid_instructions: 'Письмо отправлено на Ваш email.'
+    omniauth_callbacks:
+      success: 'Авторизация через %{kind} произведена успешно.'
+      failure: 'Невозможно авторизоваться через %{kind},"%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Подтверждение аккаунта'
+      reset_password_instructions:
+        subject: 'Запрос смены пароля'
+      unlock_instructions:
+        subject: 'Запрос разблокировки'

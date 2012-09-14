@@ -4,12 +4,12 @@ send_tweets_every_30_minutes:
  args:
  queue: TweetJob
  description: "Send tweets every 30 minutes"
- 
+
 delete_old_links_every_2_months:
- cron: "*/2 * * * *"
+ cron: "* */23 * * *"
  class: DeleteOldLinksJob
  args:
  queue: DeleteJob
- description: "Delete old links every 2 months"
- 
+ description: "Delete old links every 24 hours"
+
 #minutes, hour, day of month, month, day of week

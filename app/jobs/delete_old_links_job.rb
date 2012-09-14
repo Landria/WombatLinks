@@ -1,12 +1,12 @@
 class DeleteOldLinksJob < Resque::Job
 
   @queue = :DeleteJob
-  
+
   def self.perform
-    links = Link.where(:is_private => false, :user_id => 'NULL').order('created_at ASC')
+    links = Link.where(:is_private => false, :user_id => nil).order('created_at ASC')
 
     links.each do |t|
-      if(links.created_at < 7.days.ago)
+      if(t.created_at < 2.months.ago)
       t.destroy
       end
     end

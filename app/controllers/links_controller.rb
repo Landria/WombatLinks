@@ -2,39 +2,33 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
 
-  before_filter :authorize, :only => [:update, :destroy, :edit]
+  #before_filter :authorize, :only => [:update, :destroy, :edit]
+  before_filter :authenticate_user!, :except => [:index, :show, :new, :create]
   load_and_authorize_resource
+
   def index
     @all = params[:all]
-    search = false
-    
-    if(params[:date_from].to_s.blank?)
-      date_from = DateTime.new(2011, 01, 01)
+
+    if user_signed_in?
+      user_id = current_user.id
     else
-      search = true
-      date_from = Date.civil(params[:date_from][:"(1i)"].to_i,params[:date_from][:"(2i)"].to_i,params[:date_from][:"(3i)"].to_i)
+      user_id = nil
     end
-    
-    if(params[:date_to].to_s.blank?)
-      date_to = DateTime.current
-    else
-      search = true
-      date_to = Date.civil(params[:date_to][:"(1i)"].to_i,params[:date_to][:"(2i)"].to_i,params[:date_to][:"(3i)"].to_i)
-    end;
-    
-    if(search == true)
-      @search_params = t(:range)+' '+date_from.strftime("%d-%m-%Y") + '/'+ date_to.strftime("%d-%m-%Y")
+
+    @links = Link.search(@all, user_id, params[:page], params[:search])
+
+    if !params[:search].blank?
+      @search_params = params[:search]
     end
-    
-    if((@all) || (!signed_in?))
-      @links = Link.where(:is_private => false, :created_at => date_from..date_to).paginate(:page => params[:page]).order('created_at DESC')
-    else
-      @links = Link.where(:user_id => current_user.id).paginate(:page => params[:page]).order('created_at DESC')
-    end
- 
+
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @links }
+      if(!@all && !user_signed_in?)
+        format.html{ redirect_to all_links_path}
+      else
+        format.html
+        format.json { render :json => @links }
+      end
+
     end
   end
 
@@ -77,14 +71,14 @@ class LinksController < ApplicationController
     @tweets = get_tweets
     @page_title = false
     @link = Link.new(params[:link])
-    
+
     respond_to do |format|
       if @link.save
-        
+
         Resque.enqueue(LinkJob, @link.id)
         #Resque.enqueue(TweetLinkJob, @link.id)
         Resque.enqueue(MailLinkJob, @link.id)
-        
+
         format.html { redirect_to @link, :notice => t(:created) }
         format.json { render :json => @link, :status => :created, :location => @link }
       else
@@ -123,11 +117,11 @@ class LinksController < ApplicationController
     end
   end
 
-  def validate_password(password)
-    reg = /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}$/
+  #def validate_password(password)
+  #reg = /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}$/
 
-    return (reg.match(password))? true : false
-  end
+  # return (reg.match(password))? true : false
+  # end
 
   def get_tweets
     begin
@@ -137,7 +131,7 @@ class LinksController < ApplicationController
       puts error.inspect
       tweets = false
     ensure
-    return tweets
+      return tweets
     end
   end
 end

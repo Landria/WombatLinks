@@ -24,6 +24,7 @@ en:
   password_request_email_send: "You will receive an email within the next few minutes. It contains instructions for changing your password."
   common_error_message: "Cannot proceed!"
   register: "Registration"
+  register_link: "Sign up!"
   new_link_title: "Send link"
   link_email_tip: "Where to send?"
   link_link_tip: "What to send?"
@@ -41,7 +42,7 @@ en:
   w_link: 'Link #'
   is_private_show: "Private link"
   no_links: "No links yet!"
-  index_auth_message: "You are listing anonymous links only. To see all links please %{sign_in_link}!"
+  index_auth_message: "You are listing згидшс links only. To see all your links please %{sign_in_link}!"
   sign_in_to: "sign in"
   confirm: "Are you sure?"
   search: "search"
@@ -52,11 +53,23 @@ en:
   all_links: "All links"
   range: "range"
   date_search: "Date search"
-  text_search: "Text search"
+  text_search: "Search"
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
+    page_gap: "..."
   activerecord:
     attributes:
       link:
         is_private: "It's my private link"
+  confirm_not_recieved: "Didn't receive confirmation instructions?"
+  unlock_not_recieved: "Didn't receive unlock instructions?"
+  update: "Update"
+  cancel_account: "Cancel account"
+  back: "Back"
+  update_account: "Update account"
+  statistics: "Statistics"
+  all_links_count: "All your links count:"
+  all_private_links_count: "All you private links count:"
+  percent_of_system_links: "Percent of your links:"
+

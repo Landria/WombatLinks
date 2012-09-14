@@ -2,23 +2,13 @@
   <dd>
     <a href="#nice1" class="active"><%= t :text_search%></a>
   </dd>
-  <dd>
-    <a href="#nice2"><%= t :date_search%></a>
-  </dd>
 </dl>
 
 <ul class="nice tabs-content contained">
   <li class="active" id="nice1Tab">
   	<%= form_tag request.env['PATH_INFO'], :class => "nice" do -%>
       <%= text_field_tag "search", '', :class =>'input-text', :placeholder => (t :search_text) %>
-      <input name="commit" type="submit" value="<%= t :search %>" class="inline small white button radius">
-    <% end -%>
-  </li>
-  <li id="nice2Tab">
-  	<%= form_tag request.env['PATH_INFO'], :class => "nice" do -%>
-      <%= date_select('date_from', '', :order => [:day, :month, :year], :default => 7.days.ago, :end_year => Time.now.year, :use_month_numbers => true)%>/
-      <%= date_select('date_to', '', :order => [:day, :month, :year], :use_month_numbers => true, :end_year => Time.now.year)%>
-      <input name="commit" type="submit" value="<%= t :search %>" class="inline small white button radius">
+      <%= submit_tag (t :search) , :class => "inline small white button radius", :name => nil %>
     <% end -%>
   </li>
 </ul>

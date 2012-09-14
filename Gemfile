@@ -36,6 +36,10 @@ group :test do
    gem 'resque_unit'
 end
 
+group :development do
+  gem 'rails-erd'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -52,7 +56,7 @@ gem 'jquery-rails'
 
 # To use debugger
  gem 'ruby-debug19'
- 
+
  gem 'pacecar'
  gem "high_voltage"
  gem 'http_accept_language'
@@ -60,17 +64,20 @@ gem 'jquery-rails'
  #gem 'mysql2'
  gem 'pg'
  gem 'activerecord-postgresql-adapter'
- gem "clearance"
+ #gem "clearance"
+ gem 'devise'
  gem 'foreigner'
  gem "cancan"
  gem "erubis"
  gem 'active_link_to'
  gem 'twitter', '~>2.5.0'
- gem 'url_shortener' 
+ gem 'url_shortener'
  gem 'ruby-prof'
  gem 'resque', "~> 1.20.0",  :require => 'resque/server'
  gem 'resque-scheduler'
  gem 'redis', '<= 3.0.0'
- gem "high_voltage"
+ gem 'high_voltage'
  gem 'will_paginate', '~> 3.0.0'
  gem 'htmlentities'
+
+ gem 'pg_search'

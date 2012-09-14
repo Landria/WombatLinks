@@ -14,10 +14,4 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
-//alert('456');
-jQuery(document).ready(function(){
-	$(function() {
-		$("#datepicker_from").datepicker();
-		$("#datepicker_to").datepicker();
-	});
-});
+

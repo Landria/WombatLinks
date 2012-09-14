@@ -1,6 +1,11 @@
 <div class="row">
   <div class="six columns" id='link-detail'>
     <h1><%= (t :w_link) + @link.id.to_s %></h1>
+    <% if @link.is_private%>
+        <p id="is_private">
+          <b><%= (t :is_private_show)%></b>
+        </p>
+    <% end %>
     <% if(!notice.to_s.blank?)%>
     <div class="alert-box success">
       <%= notice %>
@@ -15,14 +20,12 @@
     <p>
       <b><%= (t :description)%>:</b> <%= @link.description %>
     </p>
-    <p>
-      <b><%= (t :email)%>:</b> <%= @link.email %>
-    </p>
-    <% if @link.is_private%>
-    <p>
-      <b><%= (t :is_private_show)%>:</b>
-    </p>
+    <% if user_signed_in? && (@link.user_link? current_user) %>
+        <p>
+          <b><%= (t :email) %>:</b> <%= @link.email %>
+        </p>
     <% end %>
+
     <%= link_to (t :new_link), root_path, :class => "nice radius white small button" %>
     <% if signed_in? %>
     <%= link_to (t :my_links), links_path, :class => "nice radius white small button" %>

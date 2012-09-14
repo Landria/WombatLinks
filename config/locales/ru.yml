@@ -25,6 +25,7 @@ ru:
   password_request_email_send: "Вы получите письмо с инструкциями для смены пароля в течение нескольких минут."
   common_error_message: "Форма не может быть отправлена!"
   register: "Регистрация"
+  register_link: "Нет аккаунта? Обзаведитесь им!"
   new_link_title: "Отправить ссылку"
   link_email_tip: "Куда отправить"
   link_link_tip: "Что отправить"
@@ -41,7 +42,7 @@ ru:
   twitter_feed_empty: "К сожалению, тви-лента не может быть показана"
   twitter_title: "Наша тви-лента"
   confirm: "Вы уверены?"
-  w_link: 'Ссылка #'
+  w_link: "Ссылка #"
   link: "Ссылка"
   email: "Адрес эл. почты"
   title: "Заголовок"
@@ -50,7 +51,7 @@ ru:
   is_private_show: "Личная ссылка"
   no_links: "Ссылок пока нет!"
   add_link: "Добавить ссылку"
-  index_auth_message: "Вы просматриваете анонимные ссылки. Чтобы видеть все ссылки, пожалуйста, %{sign_in_link}!"
+  index_auth_message: "Вы просматриваете только публичные ссылки. Чтобы видеть все свои ссылки, пожалуйста, %{sign_in_link}!"
   sign_in_to: "войдите"
   search: "искать"
   search_text: "Введите строку поиска"
@@ -59,10 +60,11 @@ ru:
   date_to: "Дата конца"
   range: "периода"
   date_search: "Поиск по дате"
-  text_search: "Поиск по тексту"
+  text_search: "Поиск"
   will_paginate:
     previous_label: "&#8592; Назад"
     next_label: "Вперед &#8594;"
+    page_gap: "..."
   helpers:
     label:
       session:
@@ -86,6 +88,7 @@ ru:
       user:
         email: "Адрес эл. почты"
         password: "Пароль"
+        current_password: "Текущий пароль"
       link:
         link: "Ссылка"
         email: "Адрес эл. почты"
@@ -110,3 +113,18 @@ ru:
               invalid: "не валиден. Проверьте данные."
             password:
               blank: "не введен."
+            current_password:
+              blank: "не введен"
+  confirm_not_recieved: "Не получили письмо с кодом подтверждения?"
+  unlock_not_recieved: "Не получили письмо с кодом разблокировки?"
+  update: "Обновить"
+  cancel_account: "Удалить аккаунт"
+  back: "Назад"
+  update_account: "Обновить данные"
+  current_password: "Текущий пароль"
+  password_confirmation: "Подтверждение пароля"
+  profile: "Профиль"
+  statistics: "Статистика"
+  all_links_count: "Общее количество Ваших ссылок:"
+  all_private_links_count: "Из них личных ссылок:"
+  percent_of_system_links: "Процент Ваших ссылок в системе:"
