@@ -4,7 +4,6 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
 
-  #before_filter :authorize, :only => [:update, :destroy, :edit]
   before_filter :authenticate_user!, :except => [:index, :show, :new, :create]
   load_and_authorize_resource
 

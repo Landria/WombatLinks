@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1389fbe4-d1a0-4d7b-b139-0c526e6bf94c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120820204743_add_hash_to_links.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dump.rdb" afterPath="$PROJECT_DIR$/dump.rdb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120820204744_create_users_black_list.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120820204745_create_emails_black_list.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/links_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/links_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/link_job.rb" afterPath="$PROJECT_DIR$/app/jobs/link_job.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/link.rb" afterPath="$PROJECT_DIR$/app/models/link.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/links/show.html.erb" afterPath="$PROJECT_DIR$/app/views/links/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/ru.yml" afterPath="$PROJECT_DIR$/config/locales/ru.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/links/index.html.erb" afterPath="$PROJECT_DIR$/app/views/links/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="linkme_ruby.iws" />
@@ -38,37 +33,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="requests_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/requests_controller.rb">
+      <file leaf-file-name="20120611225939_create_tweets.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20120611225939_create_tweets.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="57" selection-start="80" selection-end="80" vertical-scroll-proportion="0.09146342">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="link.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/link.rb">
+      <file leaf-file-name="20120304091257_create_links.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20120304091257_create_links.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="16" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
+            <state line="6" column="23" selection-start="94" selection-end="180" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="send_link.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.erb">
+      <file leaf-file-name="20120820204744_create_users_black_list.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20120820204744_create_users_black_list.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="4" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="links_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/links_controller.rb">
+      <file leaf-file-name="20120820204745_create_emails_black_list.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20120820204745_create_emails_black_list.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="68" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.0">
+            <state line="9" column="38" selection-start="193" selection-end="193" vertical-scroll-proportion="0.1682243">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20120820204742_add_private_to_links.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20120820204742_add_private_to_links.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="8" selection-start="172" selection-end="257" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,14 +91,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/mailers/wombat_mailer.rb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/links/index.html.erb" />
         <option value="$PROJECT_DIR$/config/locales/ru.yml" />
         <option value="$PROJECT_DIR$/app/controllers/request_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
@@ -102,7 +102,11 @@
         <option value="$PROJECT_DIR$/app/views/links/show.html.erb" />
         <option value="$PROJECT_DIR$/app/jobs/link_job.rb" />
         <option value="$PROJECT_DIR$/app/models/link.rb" />
+        <option value="$PROJECT_DIR$/app/views/links/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/links_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20120820204745_create_users_black_list.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20120820204744_create_users_black_list.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20120820204745_create_emails_black_list.rb" />
       </list>
     </option>
   </component>
@@ -925,55 +929,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="16" selection-start="1615" selection-end="1615" vertical-scroll-proportion="0.8719512">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="33" selection-start="1403" selection-end="1403" vertical-scroll-proportion="-25.333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="9" selection-start="84" selection-end="84" vertical-scroll-proportion="0.036585364">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="134" selection-start="2381" selection-end="2381" vertical-scroll-proportion="-22.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="49" selection-start="2959" selection-end="2959" vertical-scroll-proportion="0.7775489">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="35" selection-start="4656" selection-end="4656" vertical-scroll-proportion="0.7590113">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/links/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="15" selection-start="926" selection-end="926" vertical-scroll-proportion="0.5338983">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/tweets_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="0.0">
@@ -991,20 +946,6 @@
     <entry file="file://$PROJECT_DIR$/app/jobs/link_job.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="6" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/links_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="68" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/link.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="16" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1032,7 +973,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/requests_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="57" selection-start="80" selection-end="80" vertical-scroll-proportion="0.09146342">
+        <state line="5" column="31" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/links/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="36" selection-start="2103" selection-end="2103" vertical-scroll-proportion="0.88559324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/links_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="68" selection-start="685" selection-end="685" vertical-scroll-proportion="0.5304878">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/link.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="14" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/links/_search.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="40" selection-start="484" selection-end="484" vertical-scroll-proportion="0.28213167">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120611225939_create_tweets.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120304091257_create_links.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="23" selection-start="94" selection-end="180" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120820204742_add_private_to_links.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="8" selection-start="172" selection-end="257" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120820204744_create_users_black_list.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120820204745_create_emails_black_list.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="38" selection-start="193" selection-end="193" vertical-scroll-proportion="0.1682243">
           <folding />
         </state>
       </provider>
