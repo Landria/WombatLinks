@@ -5,6 +5,7 @@ LinkmeRuby::Application.routes.draw do
   match "/links/all" => "links#index", :as => :all_links, :all => true
   match "/links" => "links#index"
   match "/link/create" => "links#create", :as => :create_link, :all => true
+  match "/complain/:hash" => "Requests#spam_complain", :as => :spam_complain,:via => [:get]
 
   resources :tweets
   resources :links

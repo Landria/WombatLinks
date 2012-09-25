@@ -1,7 +1,7 @@
 class Link < ActiveRecord::Base
   include PgSearch
   pg_search_scope :user_search,
-                  :against => [:link, :email, :title, :description, :created_at],
+                  :against => [:link, :email, :title, :description],
                   :using => {
                       :tsearch => {:prefix => true}
                   }

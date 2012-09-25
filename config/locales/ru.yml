@@ -34,7 +34,7 @@ ru:
   link_private_tip: "Личные ссылки не публикуются в ленте и не доступны для общего поиска. Неавторизованные ссылки всегда публичны."
   new_wombat_link: "Новая Wombat ссылка"
   email_footer_text: "Искренне Ваш, сервис Wombat Links!"
-  email_new_link_text: "Новая ссылка от WombatLinks."
+  email_new_link_text: "Новая ссылка от WombatLinks"
   email_change_password: "Запрос на смену пароля WombatLinks"
   email_change_psw_text_1: "Вы запросили ссылку на смену пароля к учетной записи WEombatLinks."
   email_change_psw_text_2: "Вот Ваша ссылка:"
@@ -128,3 +128,8 @@ ru:
   all_links_count: "Общее количество Ваших ссылок:"
   all_private_links_count: "Из них личных ссылок:"
   percent_of_system_links: "Процент Ваших ссылок в системе:"
+  spam_complain:
+    error: "Запрос не может быть принята. Объект жалобы не найден. Проверьте правильность адреса."
+    message: "Получаете спам от WombatLinks? Пожалуйтесь на спам по этой ссылке!"
+    success: "Вы помогаете нам сделать сервис лучше! Спасибо!"
+    title: "Жалоба на спам от WombatLinks"

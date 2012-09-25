@@ -2,13 +2,14 @@ class CreateLockedUsers < ActiveRecord::Migration
   def change
     create_table :locked_users do |t|
       t.integer :user_id
-      t.string :comment
+      t.integer :spam_link_id
 
       t.timestamps
     end
 
-    change_table :users_black_list do |t|
+    change_table :locked_users do |t|
       t.foreign_key :users, :dependent => :delete
+      t.foreign_key :spam_links, :dependent => :delete
     end
   end
 end

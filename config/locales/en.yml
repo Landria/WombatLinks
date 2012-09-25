@@ -32,8 +32,8 @@ en:
   link_description_tip: "Link description used for email's message. If you leave this field blank we'll try to get it automatically."
   link_private_tip: "Private links are not to be published in our feed. Unauthorized links are always public."
   new_wombat_link: "New Wombat Link"
-  emai_footer_text: "Sincerely yours, Wombat Links!"
-  email_new_link_text: "New Link from WombatLinks."
+  email_footer_text: "Sincerely yours, Wombat Links!"
+  email_new_link_text: "New Link from WombatLinks"
   email_change_psw_text_1: "Someone, hopefully you, has requested that we send you a link to change your password."
   email_change_psw_text_2: "Here's the link:"
   email_change_psw_text_3: "If you didn't request this, ignore this email. Don't worry. Your password hasn't been changed."
@@ -72,4 +72,9 @@ en:
   all_links_count: "All your links count:"
   all_private_links_count: "All you private links count:"
   percent_of_system_links: "Percent of your links:"
+  spam_complain:
+    error: "Spam complain request cannot be proceed. Please, make sure URL is correct."
+    message: "Receive spam messages from WombatLinks? Follow this link to complain!"
+    success: "You help us make the service better! Thank you!"
+    title: "Spam complain"
 

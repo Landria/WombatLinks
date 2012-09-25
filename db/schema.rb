@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120820204745) do
-
-  create_table "emails_black_list", :force => true do |t|
-    t.string   "email"
-    t.string   "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120925011902) do
 
   create_table "links", :force => true do |t|
     t.string   "link"
@@ -30,6 +23,35 @@ ActiveRecord::Schema.define(:version => 20120820204745) do
     t.boolean  "is_private",  :default => false
     t.integer  "user_id"
     t.string   "link_hash"
+  end
+
+  create_table "locked_emails", :force => true do |t|
+    t.string   "email"
+    t.integer  "spam_link_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "locked_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "spam_link_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "spam_links", :force => true do |t|
+    t.integer  "link_id"
+    t.string   "comment"
+    t.integer  "count",      :default => 1
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "tweets", :force => true do |t|
@@ -55,15 +77,13 @@ ActiveRecord::Schema.define(:version => 20120820204745) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "users_black_list", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   add_foreign_key "links", "users", :name => "links_user_id_fk", :dependent => :delete
 
-  add_foreign_key "users_black_list", "users", :name => "users_black_list_user_id_fk", :dependent => :delete
+  add_foreign_key "locked_emails", "spam_links", :name => "locked_emails_spam_link_id_fk", :dependent => :delete
+
+  add_foreign_key "locked_users", "spam_links", :name => "locked_users_spam_link_id_fk", :dependent => :delete
+  add_foreign_key "locked_users", "users", :name => "locked_users_user_id_fk", :dependent => :delete
+
+  add_foreign_key "spam_links", "links", :name => "spam_links_link_id_fk", :dependent => :delete
 
 end

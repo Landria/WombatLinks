@@ -4,7 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <%= render 'wombat_mailer/header' %>
+    <%= render :partial => 'wombat_mailer/header' %>
     <p>
       <b><%= (t :email_new_link_text)%></b>
     </p>
@@ -12,14 +12,14 @@
       <b>URL:</b> <%= link_to(@link.link, @link.link) %>
       <br/>
       <% if(!@link.title.empty?)%>
-      <b>Title:</b> <%= raw @link.title %>
+      <b><%= t :title%>:</b> <%= raw @link.title %>
       <br/>
       <% end %>
       <% if(!@link.description.empty?)%>
-      <b>Description:</b> <%=h @link.description %>
+      <b><%= t :description%>:</b> <%=h @link.description %>
     </p>
     <% end%>
     <br/>
-    <%= render 'wombat_mailer/footer' %>
-  </body>
+    <%= render :partial =>'wombat_mailer/footer', :locals => {:link_hash => @link.link_hash.to_s} %>
+      </body>
 </html>
