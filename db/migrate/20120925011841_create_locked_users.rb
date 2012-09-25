@@ -1,8 +1,9 @@
-class CreateUsersBlackList < ActiveRecord::Migration
+class CreateLockedUsers < ActiveRecord::Migration
   def change
-    create_table :users_black_list do |t|
+    create_table :locked_users do |t|
       t.integer :user_id
       t.string :comment
+
       t.timestamps
     end
 
