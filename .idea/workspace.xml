@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1389fbe4-d1a0-4d7b-b139-0c526e6bf94c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120924223401_create_spam_links.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120924223409_create_news.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/lock.rb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/tweets.css.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/tweets_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/clearance_mailer/change_password.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20120820204745_create_emails_black_list.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/assets/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/tasks/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/log/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp-29835.rdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp-8737.rdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/.gitkeep" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/db/migrate/20120820204744_create_users_black_list.rb" afterPath="$PROJECT_DIR$/db/migrate/20120925011841_create_locked_users.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dump.rdb" afterPath="$PROJECT_DIR$/dump.rdb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/requests_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/link.rb" afterPath="$PROJECT_DIR$/app/models/link.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/wombat_mailer/_footer.html.erb" afterPath="$PROJECT_DIR$/app/views/wombat_mailer/_footer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.erb" afterPath="$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/en.yml" afterPath="$PROJECT_DIR$/config/locales/en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/ru.yml" afterPath="$PROJECT_DIR$/config/locales/ru.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="linkme_ruby.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,7 +41,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="6" selection-start="436" selection-end="436" vertical-scroll-proportion="0.27439025">
+            <state line="16" column="4" selection-start="436" selection-end="436" vertical-scroll-proportion="0.29268292">
               <folding />
             </state>
           </provider>
@@ -992,7 +966,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="436" selection-end="436" vertical-scroll-proportion="0.27439025">
+        <state line="16" column="4" selection-start="436" selection-end="436" vertical-scroll-proportion="0.29268292">
           <folding />
         </state>
       </provider>
