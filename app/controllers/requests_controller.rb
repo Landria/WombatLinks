@@ -7,10 +7,8 @@ class RequestsController < ApplicationController
     @link = Link.find_by_link_hash(params[:hash])
 
     if @link
-      if !Lock.exists? @link.id
+      if !Lock.exists? @link
         Lock.create @link
-      else
-        Lock.update @link.id
       end
       message = {:notice => (t 'spam_complain.success')}
     else
@@ -18,7 +16,6 @@ class RequestsController < ApplicationController
     end
 
     redirect_to root_path, message
-
   end
 
 end

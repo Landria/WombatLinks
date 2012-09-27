@@ -3,7 +3,6 @@ class CreateSpamLinks < ActiveRecord::Migration
     create_table :spam_links do |t|
       t.integer :link_id
       t.string  :comment
-      t.integer :count, :default => 1
 
       t.timestamps
     end

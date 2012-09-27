@@ -29,4 +29,12 @@ class User < ActiveRecord::Base
   def is?(role)
     roles.include?(role.to_s)
   end
+
+  def check_lock
+    begin
+      Link.joins(:spam_link).where(:user_id => self.id).count > 5
+    rescue
+      false
+    end
+  end
 end

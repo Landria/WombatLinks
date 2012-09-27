@@ -7,6 +7,7 @@ class Link < ActiveRecord::Base
                   }
 
   belongs_to :user
+  has_one :spam_link, :dependent=>:destroy
 
   validates_presence_of :link, :email
   validates :link,
