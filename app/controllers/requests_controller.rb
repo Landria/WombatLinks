@@ -7,7 +7,7 @@ class RequestsController < ApplicationController
     @link = Link.find_by_link_hash(params[:hash])
 
     if @link
-      if !Lock.exists? @link
+      if !@link.is_spam
         Lock.create @link
       end
       message = {:notice => (t 'spam_complain.success')}
