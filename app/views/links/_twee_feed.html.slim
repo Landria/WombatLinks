@@ -1,0 +1,10 @@
+span#title
+- if (@tweets)
+  - @tweets.each do |tweet|
+    article.holder_tweets
+      = tweet.text
+      br/
+      - if(!tweet.created_at.to_s.blank?)
+        span.twee-date= tweet.created_at.strftime("%Y.%m.%d %H.%M")
+- else
+  = t :twitter_feed_empty

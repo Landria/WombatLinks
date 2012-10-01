@@ -22,7 +22,7 @@ en:
   reset_password_title: "Reset your password"
   required_fields_tx: "* required fields"
   password_request_email_send: "You will receive an email within the next few minutes. It contains instructions for changing your password."
-  common_error_message: "Cannot proceed!"
+  common_error_message: "Oops! Something goes wrong!"
   register: "Registration"
   register_link: "Sign up!"
   new_link_title: "Send link"

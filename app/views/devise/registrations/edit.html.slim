@@ -1,0 +1,50 @@
+.row
+  .span5
+    .page-header
+      h1= t :update_account
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal', :method => :put}) do |f|
+      - errors = devise_error_messages!
+      - if !errors.blank?
+        .alert.alert-error
+          = errors
+      .control-group
+        = f.label :email, :class => 'control-label'
+        .controls
+          = f.text_field :email, :class => 'input-xlarge'
+      .control-group
+        = f.label :password, :class => 'control-label'
+        .controls
+          = f.text_field :password, :class => 'input-xlarge'
+
+      .control-group
+        = f.label :password_confirmation, :class => 'control-label'
+        .controls
+          = f.text_field :password_confirmation, :class => 'input-xlarge'
+      .control-group
+        = f.label :current_password, :class => 'control-label'
+        .controls
+          = f.text_field :current_password, :class => 'input-xlarge'
+
+      .form-actions
+        button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
+          = t :update
+
+    h3= t :cancel_account
+    p
+      = link_to (t :cancel_account), registration_path(resource_name), :data =>  confirm=((t :confirm))
+  .span6
+    .page-header
+      h1= t :statistics
+    p
+      = t :all_links_count
+      '
+      = current_user.count_links false
+    p
+      = t :all_private_links_count
+      '
+      = current_user.count_links true
+    p
+      = t :percent_of_system_links
+      '
+      = current_user.user_links_percent
+      | %

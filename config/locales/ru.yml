@@ -23,7 +23,7 @@ ru:
   reset_password_title: "Сменить пароль"
   required_fields_tx: "* обязательные поля"
   password_request_email_send: "Вы получите письмо с инструкциями для смены пароля в течение нескольких минут."
-  common_error_message: "Форма не может быть отправлена!"
+  common_error_message: "Ой, что-то пошло не так!"
   register: "Регистрация"
   register_link: "Нет аккаунта? Обзаведитесь им!"
   new_link_title: "Отправить ссылку"

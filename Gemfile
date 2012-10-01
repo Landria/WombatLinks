@@ -15,7 +15,8 @@ gem 'json'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem "zurb-foundation"
+  gem 'twitter-bootstrap-rails'
+  gem 'will_paginate-bootstrap', '~> 0.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
@@ -30,7 +31,7 @@ group :test do
    gem 'cucumber'
    gem 'cucumber-rails', '~> 1.3.0'
    gem 'webrat'
-   gem "shoulda", :require => nil
+   gem 'shoulda', :require => nil
    gem 'database_cleaner'
    gem 'minitest'
    gem 'resque_unit'
@@ -67,8 +68,8 @@ gem 'jquery-rails'
  #gem "clearance"
  gem 'devise'
  gem 'foreigner'
- gem "cancan"
- gem "erubis"
+ gem 'cancan'
+ gem 'erubis'
  gem 'active_link_to'
  gem 'twitter', '~>2.5.0'
  gem 'url_shortener'
@@ -81,3 +82,4 @@ gem 'jquery-rails'
  gem 'htmlentities'
 
  gem 'pg_search'
+ gem 'slim'

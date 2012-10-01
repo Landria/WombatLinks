@@ -1,0 +1,28 @@
+.row
+  .span5
+    .page-header
+      h1= t :sign_in
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f|
+      - errors = devise_error_messages!
+      - if !errors.blank?
+        .alert.alert-error
+          = errors
+      .control-group
+        = f.label :email, :class => 'control-label'
+        .controls
+          = f.text_field :email, :class => 'input-xlarge'
+      .control-group
+        = f.label :password, :class => 'control-label'
+        .controls
+          = f.text_field :password, :class => 'input-xlarge'
+      .control-group
+        - if devise_mapping.rememberable?
+          = f.label :remember_me, :class => 'control-label'
+          .controls
+            = f.check_box :remember_me
+
+      .form-actions
+        button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
+          = t :sign_in
+    .devise_links
+      = render "devise/shared/links"

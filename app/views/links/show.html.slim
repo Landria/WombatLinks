@@ -1,0 +1,38 @@
+.row
+  .span5
+    .page-header
+      h1= (t :w_link) + @link.id.to_s
+    #link-detail
+      - if @link.is_private
+        p#is_private
+          strong= (t :is_private_show)
+      p
+        strong
+          ' URL:
+        = link_to(@link.link, @link.link)
+      p
+        srong
+          = (t :title)
+          ' :
+        = @link.title
+      p
+        strong
+          = (t :description)
+          ' :
+        = @link.description
+      - if user_signed_in? && (@link.user_link? current_user)
+        p
+          strong
+            = (t :email)
+            ' :
+          = @link.email
+      = link_to (t :new_link), root_path, :class => "btn"
+      - if signed_in?
+        = link_to (t :my_links), links_path, :class => "btn"
+      - else
+        = link_to (t :all_links), all_links_path, :class => "btn"
+  .span6
+    - if @tweets
+      span#twitter
+      = render :partial => 'twee_feed'
+

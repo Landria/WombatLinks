@@ -1,0 +1,55 @@
+.row
+  .span5
+    .page-header
+      - if signed_in?
+        - if (!@all)
+          h1= t :my_links
+          = link_to (t :all_links), all_links_path
+        - else
+          h1= t :all_links
+          = link_to (t :my_links), links_path
+      - else
+        h1= t :all_links
+        h5= raw t :index_auth_message, :sign_in_link => (link_to (t :sign_in_to), new_user_session_path)
+    - if (!@search_params.blank?)
+      span#search-results
+        p
+          | Результаты поиска "#{@search_params}"
+  .span4.pull-right
+    .page-header
+      = render 'search'
+.row
+  .span10
+    - @links.each do |link|
+      p
+        strong
+          = ' #'+ link.id.to_s
+          ' :
+        = link_to(link.link, link.link)
+      - if link.is_private
+        p
+          strong= (t :is_private_show)
+      p
+        strong
+          = (t :title)
+          ' :
+        = link.title
+      p
+        strong
+          = (t :created_at)
+          ' :
+        = link.created_at.strftime("%d/%m/%Y")
+      .link_controls
+        - if can? :show, Link
+          = link_to (t :show), link
+        - if can? :manage, Link
+          | | #{link_to (t :edit), edit_link_path(link)}
+          | | #{link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete}
+      hr
+    - if (@links.count == 0)
+      = t :no_links
+  .span10
+    = will_paginate @links, :renderer => BootstrapPagination::Rails
+    - if can? :create, Link
+      div
+        = link_to (t :new_link), new_link_path, :class => "btn btn-large"

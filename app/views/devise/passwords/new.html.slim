@@ -1,0 +1,18 @@
+.row
+  .span5
+    .page-header
+      h1= t :reset_password_title
+    = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:class => 'form-horizontal', :method => :post}) do |f|
+      - errors = devise_error_messages!
+      - if !errors.blank?
+        .alert.alert-error
+          = errors
+      .control-group
+        = f.label :email, :class => 'control-label'
+        .controls
+          = f.text_field :email, :class => 'input-xlarge'
+      .form-actions
+        button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
+          = t :reset_password
+    .devise_links
+      = render "devise/shared/links"

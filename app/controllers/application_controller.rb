@@ -1,11 +1,13 @@
 class ApplicationController < ActionController::Base
-  before_filter :set_locale
+  before_filter :set_locale, :get_tweets
 
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error]  = t(:denied)
+    flash[:error] = t(:denied)
     redirect_to root_url
   end
+
+  private
 
   def set_locale
     available = %w{en ru}
@@ -20,6 +22,20 @@ class ApplicationController < ActionController::Base
   # in your /etc/hosts file to try this out locally
   def extract_locale_from_tld
     parsed_locale = request.host.split('.').last
-    I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
+    I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale : nil
   end
+
+
+  def get_tweets
+    begin
+      @tweets = Twitter.user_timeline('Landrina', :page => 1, :count => 9)
+    rescue RuntimeError => error
+      puts "Twitter error"
+      puts error.inspect
+      @tweets = false
+    ensure
+      return @tweets
+    end
+  end
+
 end

@@ -1,0 +1,10 @@
+.row
+  .span5
+    .page-header
+      h1= t :new_link_title
+    = render :partial => 'form'
+  .span5.pull-right
+    - if @tweets
+      span#twitter
+      = render :partial => 'twee_feed'
+

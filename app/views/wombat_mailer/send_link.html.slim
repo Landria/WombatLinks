@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+  body
+    = render :partial => 'wombat_mailer/header'
+    p
+      strong= (t :email_new_link_text)
+    p
+      strong
+        ' URL:
+        = link_to(@link.link, @link.link)
+      br
+      - if(!@link.title.empty?)
+        strong= t :title
+        ' :
+        = raw @link.title
+        br
+      - if(!@link.description.empty?)
+      strong= t :description
+      ' :
+      =h @link.description
+    br
+    = render :partial =>'wombat_mailer/footer', :locals => {:link_hash => @link.link_hash.to_s
+
