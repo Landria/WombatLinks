@@ -54,7 +54,7 @@ class Link < ActiveRecord::Base
     end
 
     if !search.blank?
-      links = user_search(search.to_s)
+      links = links.user_search(search.to_s)
     end
 
     links.order('created_at DESC').paginate(:page => page)

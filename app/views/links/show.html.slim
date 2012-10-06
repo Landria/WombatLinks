@@ -3,9 +3,13 @@
     .page-header
       h1= (t :w_link) + @link.id.to_s
     #link-detail
-      - if @link.is_private
-        p#is_private
-          strong= (t :is_private_show)
+      p
+        - if @link.is_private
+          span.private
+            strong= (t :is_private_show)
+        - if @link.is_spam
+          span.spam
+            strong= (t :is_spam_show)
       p
         strong
           ' URL:

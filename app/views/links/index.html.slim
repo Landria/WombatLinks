@@ -22,33 +22,30 @@
   .span10
     - @links.each do |link|
       p
-        strong
-          = ' #'+ link.id.to_s
-          ' :
-        = link_to(link.link, link.link)
-      p
         - if link.is_private
           span.private
             strong= (t :is_private_show)
         - if link.is_spam
           span.spam
             strong= (t :is_spam_show)
-      p
         strong
-          = (t :title)
+          = '#'+ link.id.to_s
           ' :
-        = link.title
+        = link_to(link.link, link.link)
       p
-        strong
-          = (t :created_at)
-          ' :
-        = link.created_at.strftime("%d/%m/%Y")
+        - if !link.title.blank?
+          strong
+            = link.title
+          br
+        = (t :created_at)
+        '
+        = link.created_at.strftime("%d.%m.%Y")
       .link_controls
-        - if can? :show, Link
+        - if can? :show, link
           = link_to (t :show), link
-        - if can? :manage, Link
-          | | #{link_to (t :edit), edit_link_path(link)}
-          | | #{link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete}
+          '
+        - if can? :manage, link
+          ' | #{link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete}
       hr
     - if (@links.count == 0)
       p= t :no_links
