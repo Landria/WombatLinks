@@ -2,43 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1389fbe4-d1a0-4d7b-b139-0c526e6bf94c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/requests/user_unlock.html.slim" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/wombat_mailer/send_unlock_request.html.slim" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/mailers/clearance_mailer.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/locks/_form.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/locks/edit.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/locks/index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/locks/new.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/locks/show.html.erb" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/integration/.gitkeep" afterPath="$PROJECT_DIR$/app/views/requests/user_locked.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/links_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/links_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/requests_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/link_job.rb" afterPath="$PROJECT_DIR$/app/jobs/link_job.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/mail_link_job.rb" afterPath="$PROJECT_DIR$/app/jobs/mail_link_job.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/tweet_link_job.rb" afterPath="$PROJECT_DIR$/app/jobs/tweet_link_job.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/wombat_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/wombat_mailer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/link.rb" afterPath="$PROJECT_DIR$/app/models/link.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/unlock_request.rb" afterPath="$PROJECT_DIR$/app/models/unlock_request.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.slim" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/links/_form.html.slim" afterPath="$PROJECT_DIR$/app/views/links/_form.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/wombat_mailer/_footer.html.slim" afterPath="$PROJECT_DIR$/app/views/wombat_mailer/_footer.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.slim" afterPath="$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.yml" afterPath="$PROJECT_DIR$/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/devise.rb" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/links/index.html.slim" afterPath="$PROJECT_DIR$/app/views/links/index.html.slim" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/en.yml" afterPath="$PROJECT_DIR$/config/locales/en.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/ru.yml" afterPath="$PROJECT_DIR$/config/locales/ru.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20120994091258_create_unlock_requests.rb" afterPath="$PROJECT_DIR$/db/migrate/20120994091258_create_unlock_requests.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="linkme_ruby.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,17 +35,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user_locked.html.slim" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/requests/user_locked.html.slim">
+      <file leaf-file-name="links_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/links_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="39" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-11.076923">
-              <folding>
-                <element signature="e#42#75#1" expanded="true" />
-                <element signature="e#85#113#1" expanded="true" />
-                <element signature="e#151#237#0" expanded="true" />
-                <element signature="e#258#280#0" expanded="true" />
-                <element signature="e#311#338#0" expanded="true" />
-              </folding>
+            <state line="17" column="76" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="link.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/link.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="55" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.90797544">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="22" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,7 +65,25 @@
       <file leaf-file-name="ru.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="50" selection-start="6063" selection-end="6063" vertical-scroll-proportion="0.0">
+            <state line="156" column="49" selection-start="6087" selection-end="6087" vertical-scroll-proportion="-33.8">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="en.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="21" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="29" selection-start="1966" selection-end="1966" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,70 +92,7 @@
       <file leaf-file-name="index.html.slim" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/links/index.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="18" selection-start="434" selection-end="434" vertical-scroll-proportion="-9.333333">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requests_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/requests_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="46" selection-start="625" selection-end="625" vertical-scroll-proportion="-21.6">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unlock_request.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/unlock_request.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="69" selection-start="380" selection-end="380" vertical-scroll-proportion="0.44536084">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wombat_mailer.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/wombat_mailer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="44" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/settings.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="send_unlock_request.html.slim" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/wombat_mailer/send_unlock_request.html.slim">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="46" selection-start="248" selection-end="248" vertical-scroll-proportion="-5.3333335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_footer.html.slim" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/wombat_mailer/_footer.html.slim">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="49" selection-start="78" selection-end="78" vertical-scroll-proportion="-2.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="send_link.html.slim" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.slim">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="81" selection-start="578" selection-end="578" vertical-scroll-proportion="-15.333333">
+            <state line="58" column="0" selection-start="1533" selection-end="1606" vertical-scroll-proportion="-31.703703">
               <folding />
             </state>
           </provider>
@@ -173,15 +111,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/links_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/links/_form.html.slim" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/requests/user_locked.html.slim" />
-        <option value="$PROJECT_DIR$/config/locales/en.yml" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/config/locales/ru.yml" />
         <option value="$PROJECT_DIR$/app/views/wombat_mailer/send_unlock_request.html.slim" />
         <option value="$PROJECT_DIR$/app/views/wombat_mailer/_footer.html.slim" />
         <option value="$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.slim" />
@@ -189,6 +121,12 @@
         <option value="$PROJECT_DIR$/config/settings.yml" />
         <option value="$PROJECT_DIR$/app/mailers/wombat_mailer.rb" />
         <option value="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
+        <option value="$PROJECT_DIR$/config/locales/en.yml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
+        <option value="$PROJECT_DIR$/config/locales/ru.yml" />
+        <option value="$PROJECT_DIR$/app/views/links/index.html.slim" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/models/link.rb" />
       </list>
     </option>
   </component>
@@ -1003,71 +941,23 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="35" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.7523511">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="61" selection-start="1093" selection-end="1093" vertical-scroll-proportion="0.677116">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="52" selection-start="992" selection-end="992" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="50" selection-start="6063" selection-end="6063" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/mail_link_job.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="233" selection-end="233" vertical-scroll-proportion="0.185567">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/requests/user_locked.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="39" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-11.076923">
-          <folding>
-            <element signature="e#42#75#1" expanded="true" />
-            <element signature="e#85#113#1" expanded="true" />
-            <element signature="e#151#237#0" expanded="true" />
-            <element signature="e#258#280#0" expanded="true" />
-            <element signature="e#311#338#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/wombat_mailer/send_unlock_request.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="46" selection-start="248" selection-end="248" vertical-scroll-proportion="-5.3333335">
+        <state line="8" column="46" selection-start="248" selection-end="248" vertical-scroll-proportion="0.1493776">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/wombat_mailer/_footer.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="49" selection-start="78" selection-end="78" vertical-scroll-proportion="-2.0">
+        <state line="3" column="49" selection-start="78" selection-end="78" vertical-scroll-proportion="0.056016598">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/wombat_mailer/send_link.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="81" selection-start="578" selection-end="578" vertical-scroll-proportion="-15.333333">
+        <state line="23" column="81" selection-start="578" selection-end="578" vertical-scroll-proportion="0.4294606">
           <folding />
         </state>
       </provider>
@@ -1075,13 +965,6 @@
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="29" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/links/index.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="18" selection-start="434" selection-end="434" vertical-scroll-proportion="-9.333333">
           <folding />
         </state>
       </provider>
@@ -1095,14 +978,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/settings.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
+        <state line="5" column="13" selection-start="119" selection-end="119" vertical-scroll-proportion="0.090817355">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/mailers/wombat_mailer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="44" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0">
+        <state line="23" column="44" selection-start="493" selection-end="493" vertical-scroll-proportion="0.41775984">
           <folding />
         </state>
       </provider>
@@ -1116,7 +999,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/unlock_request.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="69" selection-start="380" selection-end="380" vertical-scroll-proportion="0.44536084">
+        <state line="24" column="42" selection-start="380" selection-end="380" vertical-scroll-proportion="0.4359233">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="21" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="29" selection-start="1966" selection-end="1966" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="49" selection-start="6087" selection-end="6087" vertical-scroll-proportion="-33.8">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/links_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="76" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/links/index.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="1533" selection-end="1606" vertical-scroll-proportion="-31.703703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="22" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/link.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="55" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.90797544">
           <folding />
         </state>
       </provider>

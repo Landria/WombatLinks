@@ -26,9 +26,13 @@
           = ' #'+ link.id.to_s
           ' :
         = link_to(link.link, link.link)
-      - if link.is_private
-        p
-          strong= (t :is_private_show)
+      p
+        - if link.is_private
+          span.private
+            strong= (t :is_private_show)
+        - if link.is_spam
+          span.spam
+            strong= (t :is_spam_show)
       p
         strong
           = (t :title)
@@ -47,7 +51,7 @@
           | | #{link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete}
       hr
     - if (@links.count == 0)
-      = t :no_links
+      p= t :no_links
   .span10
     = will_paginate @links, :renderer => BootstrapPagination::Rails
     - if can? :create, Link

@@ -43,10 +43,11 @@ class Link < ActiveRecord::Base
   def self.search(all, user_id, page, search)
 
     if user_id.nil?
-      links = self.where(:is_private => false)
+      links = self.where(:is_private => false, :is_spam => false)
     else
       if all
-        links = self.where((:is_private == false) | (:user_id == user_id))
+        #links = self.where(((:is_private == false) && (:is_spam == false)) | (:user_id == user_id))
+        links = self.where("is_private = ? AND is_spam = ? OR user_id = ?", false, false, user_id)
       else
         links = self.where(:user_id => user_id)
       end

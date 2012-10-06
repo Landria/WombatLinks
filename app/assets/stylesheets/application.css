@@ -62,7 +62,7 @@ span#twitter {
     margin: 15px 0 0 0;
     color: black;
 }
-
+ /*
 #pagination{
     float: left;
     margin-bottom: 25px;
@@ -86,7 +86,7 @@ span#twitter {
     -moz-border-radius: .5em;
     border-radius: .5em;
     font-style: normal;
-}
+}*/
 
 div#error_explanation h2{
     font-size: 1.4em;
@@ -94,3 +94,19 @@ div#error_explanation h2{
     margin: 0;
 }
 
+span.private{
+    padding: 4px;
+    background-color: #add8e6;
+    margin-right: 5px;
+    -webkit-border-radius: .3em;
+    -moz-border-radius: .3em;
+    border-radius: .3em;
+}
+span.spam{
+    padding: 4px;
+    background-color: orange;
+    margin-right: 5px;
+    -webkit-border-radius: .3em;
+    -moz-border-radius: .3em;
+    border-radius: .3em;
+}

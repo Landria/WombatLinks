@@ -41,6 +41,7 @@ en:
   twitter_title: "Our twitter feed"
   w_link: 'Link #'
   is_private_show: "Private link"
+  is_spam_show: "Spam"
   no_links: "No links yet!"
   index_auth_message: "You are listing public links only. To see all your links please %{sign_in_link}!"
   sign_in_to: "sign in"
