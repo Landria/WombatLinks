@@ -1,0 +1,231 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<mxGraphModel dx="800" dy="800" grid="1" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" style="default-style2">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="2" value="Начало работы" style="shape=mxgraph.flowchart.start_1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="127.4375" y="10" width="99" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="14" value="Авторизация/ регистрация пользователя" style="shape=mxgraph.flowchart.process;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="439.5" y="115.25" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="17" value="Вызов отображений" style="shape=mxgraph.flowchart.manual_input;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="390.5" y="45.25" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="18" value="Форма авторизации/ регистрации" style="shape=mxgraph.flowchart.display;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="500.75" y="45.25" width="113.5" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="20" value=" Данные отобра- жение" style="shape=mxgraph.flowchart.database;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="572.5" y="115.25" width="60" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="21" value="" style="edgeStyle=none;endArrow=none;exitX=0.5;exitY=1;exitPerimeter=0;" edge="1" parent="1" source="17">
+      <mxGeometry x="-40.5" y="-4.75" width="100" height="100" as="geometry">
+        <mxPoint x="-40.5" y="95.25" as="sourcePoint"/>
+        <mxPoint x="439.5" y="135.25" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="22" value="" style="edgeStyle=segmentEdgeStyle;entryX=0.5;entryY=1;entryPerimeter=0;exitX=1;exitY=0.5;exitPerimeter=0" edge="1" parent="1" source="14" target="18">
+      <mxGeometry x="-40.5" y="-4.75" width="100" height="100" as="geometry">
+        <mxPoint x="539.5" y="155.25" as="sourcePoint"/>
+        <mxPoint x="59.5" y="-4.75" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="34" value="" style="edgeStyle=none;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" parent="1" source="20">
+      <mxGeometry x="-40.5" y="-5.25" width="100" height="100" as="geometry">
+        <mxPoint x="619.5" y="154.75" as="sourcePoint"/>
+        <mxPoint x="537.5" y="154.75" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="39" value="Данные верны?" style="shape=mxgraph.flowchart.decision;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="439.5" y="189.75" width="98" height="57" as="geometry"/>
+    </mxCell>
+    <mxCell id="40" value="" style="edgeStyle=none;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0" edge="1" parent="1" source="14" target="39">
+      <mxGeometry x="-40.5" y="-4.75" width="100" height="100" as="geometry">
+        <mxPoint x="-40.5" y="95.25" as="sourcePoint"/>
+        <mxPoint x="59.5" y="-4.75" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="43" value="" style="edgeStyle=segmentEdgeStyle;exitX=0;exitY=0.5;exitPerimeter=0;" edge="1" parent="1" source="39">
+      <mxGeometry x="-40.5" y="-4.75" width="100" height="100" as="geometry">
+        <mxPoint x="-40.5" y="95.25" as="sourcePoint"/>
+        <mxPoint x="403" y="145.25" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="44" value="нет" style="text" vertex="1" parent="1">
+      <mxGeometry x="409.5" y="189.75" width="40" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="82" value="Отправка ссылки" style="shape=mxgraph.flowchart.process;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="128.8125" y="221" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="94" value="Вызов отображений" style="shape=mxgraph.flowchart.manual_input;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="31.3125" y="151" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="95" value="Форма ссылки" style="shape=mxgraph.flowchart.display;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="1.8125" y="221" width="113.5" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="96" value=" Данные отобра- жение" style="shape=mxgraph.flowchart.database;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="246.8125" y="211" width="60" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="97" value="" style="edgeStyle=none;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" parent="1" source="96" target="82">
+      <mxGeometry x="-377.6875" y="-139" width="100" height="100" as="geometry">
+        <mxPoint x="-377.6875" y="-39" as="sourcePoint"/>
+        <mxPoint x="-277.6875" y="-139" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="99" value="" style="edgeStyle=none;endArrow=none;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0" edge="1" parent="1" source="94" target="82">
+      <mxGeometry x="-377.6875" y="-202" width="100" height="100" as="geometry">
+        <mxPoint x="-377.6875" y="-102" as="sourcePoint"/>
+        <mxPoint x="132.3125" y="188" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="107" value="" style="edgeStyle=none;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" parent="1" source="82" target="95">
+      <mxGeometry x="-377.6875" y="-139" width="100" height="100" as="geometry">
+        <mxPoint x="-377.6875" y="-39" as="sourcePoint"/>
+        <mxPoint x="-277.6875" y="-139" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="109" value="Данные верны?" style="shape=mxgraph.flowchart.decision;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="128.8125" y="294" width="98" height="57" as="geometry"/>
+    </mxCell>
+    <mxCell id="111" value="нет" style="text" vertex="1" parent="1">
+      <mxGeometry x="226.8125" y="301" width="40" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="120" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;exitX=1;exitY=0.5;exitPerimeter=0;" edge="1" parent="1" source="109">
+      <mxGeometry x="-377.6875" y="-110.5" width="100" height="100" as="geometry">
+        <mxPoint x="-377.6875" y="-10.5" as="sourcePoint"/>
+        <mxPoint x="180" y="210" as="targetPoint"/>
+        <Array as="points">
+          <mxPoint x="320" y="260"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="121" value="" style="edgeStyle=none;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0" edge="1" parent="1" source="82" target="109">
+      <mxGeometry x="-377.6875" y="-139" width="100" height="100" as="geometry">
+        <mxPoint x="-377.6875" y="-39" as="sourcePoint"/>
+        <mxPoint x="-277.6875" y="-139" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="127" value="БД" style="shape=mxgraph.flowchart.database;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="554.25" y="256.75" width="60" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="128" value="Сохран. данных авторизации/ регистрации" style="shape=mxgraph.flowchart.process;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="440" y="265.25" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="131" value="" style="edgeStyle=none;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0" edge="1" parent="1" source="39" target="128">
+      <mxGeometry x="-67" y="-4.75" width="100" height="100" as="geometry">
+        <mxPoint x="-67" y="95.25" as="sourcePoint"/>
+        <mxPoint x="33" y="-4.75" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="132" value="" style="edgeStyle=none;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0" edge="1" parent="1" source="128" target="127">
+      <mxGeometry x="-67" y="-4.75" width="100" height="100" as="geometry">
+        <mxPoint x="-67" y="95.25" as="sourcePoint"/>
+        <mxPoint x="33" y="-4.75" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="133" value="Сохранение ссылки, фоновые задачи" style="shape=mxgraph.flowchart.process;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="129.3125" y="370" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="134" value="" style="edgeStyle=none;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0" edge="1" parent="1" source="109" target="133">
+      <mxGeometry x="-377.6875" y="-200" width="100" height="100" as="geometry">
+        <mxPoint x="-377.6875" y="-100" as="sourcePoint"/>
+        <mxPoint x="-277.6875" y="-200" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="135" value="" style="edgeStyle=none;entryX=0;entryY=0.5;entryPerimeter=0;exitX=1;exitY=0.5;exitPerimeter=0" edge="1" target="136" parent="1" source="133">
+      <mxGeometry x="-377.6875" y="100" width="100" height="100" as="geometry">
+        <mxPoint x="232.3125" y="400" as="sourcePoint"/>
+        <mxPoint x="-277.6875" y="100" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="136" value="БД" style="shape=mxgraph.flowchart.database;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="292.3125" y="360" width="60" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="139" value="Страница ссылки" style="shape=mxgraph.flowchart.display;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="1.8125" y="740" width="113.5" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="140" value="" style="edgeStyle=none;endArrow=none;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0" edge="1" target="142" parent="1" source="145">
+      <mxGeometry x="-357.6875" y="317" width="100" height="100" as="geometry">
+        <mxPoint x="149.3125" y="690" as="sourcePoint"/>
+        <mxPoint x="152.3125" y="707" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="141" value="" style="edgeStyle=none;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" source="142" target="139" parent="1">
+      <mxGeometry x="-357.6875" y="380" width="100" height="100" as="geometry">
+        <mxPoint x="-357.6875" y="480" as="sourcePoint"/>
+        <mxPoint x="-257.6875" y="380" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="142" value="Просмотр ссылки" style="shape=mxgraph.flowchart.process;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="127.4375" y="740" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="143" value="" style="edgeStyle=none;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" source="144" target="142" parent="1">
+      <mxGeometry x="-357.6875" y="380" width="100" height="100" as="geometry">
+        <mxPoint x="-357.6875" y="480" as="sourcePoint"/>
+        <mxPoint x="-257.6875" y="380" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="144" value=" Данные отобра- жение" style="shape=mxgraph.flowchart.database;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="246.4375" y="730" width="60" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="145" value="Вызов отображений" style="shape=mxgraph.flowchart.manual_input;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="29.4375" y="670" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="162" value="Страница ссылок" style="shape=mxgraph.flowchart.display;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="1.8125" y="560" width="113.5" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="163" value="" style="edgeStyle=none;endArrow=none;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0" edge="1" target="165" parent="1" source="168">
+      <mxGeometry x="-357.6875" y="137" width="100" height="100" as="geometry">
+        <mxPoint x="149.3125" y="510" as="sourcePoint"/>
+        <mxPoint x="152.3125" y="527" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="164" value="" style="edgeStyle=none;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" source="165" target="162" parent="1">
+      <mxGeometry x="-357.6875" y="200" width="100" height="100" as="geometry">
+        <mxPoint x="-357.6875" y="300" as="sourcePoint"/>
+        <mxPoint x="-257.6875" y="200" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="165" value="Просмотр списка ссылок" style="shape=mxgraph.flowchart.process;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="128.4375" y="560" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="166" value="" style="edgeStyle=none;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" source="167" target="165" parent="1">
+      <mxGeometry x="-357.6875" y="200" width="100" height="100" as="geometry">
+        <mxPoint x="312.3125" y="590" as="sourcePoint"/>
+        <mxPoint x="-257.6875" y="200" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="167" value=" Данные отобра- жение" style="shape=mxgraph.flowchart.database;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="246.4375" y="550" width="60" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="168" value="Вызов отображений" style="shape=mxgraph.flowchart.manual_input;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+      <mxGeometry x="29.4375" y="490" width="98" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="206" value="" style="edgeStyle=none;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0" edge="1" parent="1" source="2" target="82">
+      <mxGeometry width="100" height="100" as="geometry">
+        <mxPoint y="100" as="sourcePoint"/>
+        <mxPoint x="100" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="212" value="" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0" edge="1" parent="1" source="128" target="2">
+      <mxGeometry x="-104.375" y="-1.5" width="100" height="100" as="geometry">
+        <mxPoint x="-104.375" y="98.5" as="sourcePoint"/>
+        <mxPoint x="122.0625" y="38.5" as="targetPoint"/>
+        <Array as="points">
+          <mxPoint x="489" y="350"/>
+          <mxPoint x="650" y="350"/>
+          <mxPoint x="650" y="40"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="215" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0" edge="1" parent="1" source="2" target="14">
+      <mxGeometry width="100" height="100" as="geometry">
+        <mxPoint y="100" as="sourcePoint"/>
+        <mxPoint x="100" as="targetPoint"/>
+        <Array as="points">
+          <mxPoint x="177" y="110"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+  </root>
+</mxGraphModel>

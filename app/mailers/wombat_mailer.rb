@@ -13,4 +13,11 @@ class WombatMailer < ActionMailer::Base
     mail :to      => link.email,
          :subject => I18n.t(:new_wombat_link) + ": "+ title
   end
+
+  def send_unlock_request
+     User.where(:role == 'admin').each do |admin|
+       mail :to      => admin.email,
+            :subject => "New unlock request"
+     end
+  end
 end

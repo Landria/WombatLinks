@@ -21,5 +21,6 @@ html
       ' :
       =h @link.description
     br
-    = render :partial =>'wombat_mailer/footer', :locals => {:link_hash => @link.link_hash.to_s
+    p= link_to (t :spam_complain_message), spam_complain_path(:hash => @link.hash, :only_path => false)
+    = render :partial =>'wombat_mailer/footer'
 

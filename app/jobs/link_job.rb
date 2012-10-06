@@ -14,22 +14,22 @@ class LinkJob < Resque::Job
     response = Net::HTTP.get_response(URI.parse(URI.encode(link.link)))
     content = response.body
 
-    if(response.body.encoding.to_s == 'ASCII-8BIT')
-      begin
-      # Try it as UTF-8 directly
-      cleaned = content.dup.force_encoding('UTF-8')
-      unless cleaned.valid_encoding?
-        # Some of it might be old Windows code page
-        cleaned = content.encode( 'UTF-8', 'Windows-1251' )
-      end
-      content = cleaned
-    rescue EncodingError
-      # Force it to UTF-8, throwing out invalid bits
-      content.encode!( 'UTF-8', :invalid => :replace, :undef => :replace, :replace => '' )
-    end
-    end
-
     if response.is_a? Net::HTTPOK
+      if(response.body.encoding.to_s == 'ASCII-8BIT')
+        begin
+          # Try it as UTF-8 directly
+          cleaned = content.dup.force_encoding('UTF-8')
+          unless cleaned.valid_encoding?
+            # Some of it might be old Windows code page
+            cleaned = content.encode( 'UTF-8', 'Windows-1251' )
+          end
+          content = cleaned
+        rescue EncodingError
+          # Force it to UTF-8, throwing out invalid bits
+          content.encode!( 'UTF-8', :invalid => :replace, :undef => :replace, :replace => '' )
+        end
+      end
+
       data = {"title" => HTMLEntities.new.decode(content.scan(title_regexp)[0].to_s),
         "description" => HTMLEntities.new.decode(content.scan(description_regexp)[0].to_s)}
     end

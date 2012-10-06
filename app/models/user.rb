@@ -1,15 +1,17 @@
 class User < ActiveRecord::Base
-  has_many :link, :dependent=>:destroy
+  has_many :link, :dependent => :destroy
+  has_many :unlock_request, :dependent => :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_protected :is_locked
 
   ROLES = %w[admin guest user]
 
   def count_links private
     if (private)
-      Link.where(:user_id =>self.id, :is_private => true).count
+      Link.where(:user_id => self.id, :is_private => true).count
     else
       Link.where(:user_id => self.id).count
     end
@@ -30,11 +32,23 @@ class User < ActiveRecord::Base
     roles.include?(role.to_s)
   end
 
-  def check_lock
+  def set_lock
+    if self.link.where(:is_spam == true).count > Settings.spam.max_spam_links_count
+      self.is_locked = true
+      self.save
+    end
+
+  end
+
+  def set_unlock
     begin
-      Link.joins(:spam_link).where(:user_id => self.id).count > 5
+      self.is_locked = false
+      self.save
+      self.link.where(:is_spam == true).each do |link|
+        link.is_spam = false
+        link.save
+      end
     rescue
-      false
     end
   end
 end

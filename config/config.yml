@@ -1,6 +1,7 @@
 defaults: &defaults
   bitly_login: "landria"
   bitly_api_key: "R_de421b9f20e1012c66b13504051ce7c8"
+  max_spam_link_count: 5
 
 development:
   <<: *defaults

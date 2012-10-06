@@ -14,7 +14,7 @@ en:
   sign_in: "Sign in"
   sign_up: "Sign up"
   sign_up: "Not registered yet? Do it!"
-  send_link: "Send link"
+  send_link: "Send my link"
   home_page: "Send link"
   forgot_password: "Forgot password?"
   new_password_tx: "We will email you a link to reset your password."
@@ -42,7 +42,7 @@ en:
   w_link: 'Link #'
   is_private_show: "Private link"
   no_links: "No links yet!"
-  index_auth_message: "You are listing згидшс links only. To see all your links please %{sign_in_link}!"
+  index_auth_message: "You are listing public links only. To see all your links please %{sign_in_link}!"
   sign_in_to: "sign in"
   confirm: "Are you sure?"
   search: "search"
@@ -77,4 +77,14 @@ en:
     message: "Receive spam messages from WombatLinks? Follow this link to complain!"
     success: "You help us make the service better! Thank you!"
     title: "Spam complain"
+  unlock_request:
+      new: "New"
+      declined: "Declined"
+      accepted: "Accepted"
+      lock_text: "This could happen because of much spam complains about links you send.
+      If you are absolutely sure it's mistake, please send us unlock request. We'll unlock your account gladly."
+      user_is_locked: "Account is blocked"
+      status_text: "Unlock requests from %{date} state:"
+      send_message: "Unlock request has been successfully send and will be processed as soon as possible."
+      send_unlock_request: "Send request"
 

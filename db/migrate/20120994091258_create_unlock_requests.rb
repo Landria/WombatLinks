@@ -3,7 +3,7 @@ class CreateUnlockRequests < ActiveRecord::Migration
     create_table :unlock_requests do |t|
       t.integer :user_id
       t.text :message
-      t.string :status
+      t.string :status, :default => 'new'
 
       t.timestamps
     end

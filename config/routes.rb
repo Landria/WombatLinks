@@ -3,14 +3,16 @@ LinkmeRuby::Application.routes.draw do
   match "/links/all" => "links#index", :as => :all_links, :all => true
   match "/links" => "links#index"
   match "/link/create" => "links#create", :as => :create_link, :all => true
-  match "/complain/:hash" => "Requests#spam_complain", :as => :spam_complain,:via => [:get]
-
-  resources :tweets
+  match "/complain/:hash" => "requests#spam_complain", :as => :spam_complain, :via => [:get]
   resources :links
+
   root :to => 'links#new'
-  mount Resque::Server, :at => "/resque"
+  mount Resque::Server, :at => "/background"
 
   devise_for :users
+
+  match "/users/locked" => "requests#user_locked", :as => :user_locked
+  match "/users/unlock" => "requests#send_unlock", :as => :user_unlock, :via => [:post]
 
 
 # The priority is based upon order of creation:

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :set_locale, :get_tweets
+  before_filter :set_locale, :get_tweets, :check_user_lock
 
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
@@ -36,6 +36,12 @@ class ApplicationController < ActionController::Base
     ensure
       return @tweets
     end
+  end
+
+  def check_user_lock
+     if user_signed_in?
+       current_user.set_lock
+     end
   end
 
 end

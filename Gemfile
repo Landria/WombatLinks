@@ -83,3 +83,4 @@ gem 'jquery-rails'
 
  gem 'pg_search'
  gem 'slim'
+ gem "rails_config"
