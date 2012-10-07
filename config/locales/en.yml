@@ -71,12 +71,13 @@ en:
   update_account: "Update account"
   statistics: "Statistics"
   all_links_count: "All your links count:"
-  all_private_links_count: "All you private links count:"
+  all_private_links_count: "Private links count:"
+  spam_links_count: "Marked as spam:"
   percent_of_system_links: "Percent of your links:"
   spam_complain:
     error: "Spam complain request cannot be proceed. Please, make sure URL is correct."
     message: "Receive spam messages from WombatLinks? Follow this link to complain!"
-    success: "You help us make the service better! Thank you!"
+    success: "Complain is accepted! Thank you!"
     title: "Spam complain"
   unlock_request:
       new: "New"

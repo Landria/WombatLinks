@@ -71,15 +71,10 @@ html lang="en"
                   span
                     = active_link_to (t :sign_in), new_user_session_path, :active => :exclusive
                     |  / #{active_link_to (t :sign_up), new_user_registration_path, :active => :exclusive}
-          /! /.nav-collapse
     .container
-      /! Main hero unit for a primary marketing message or call to action
       .main-unit
-        - flash.each do |key, value|
-          div id="flash" class="alert alert-#{key}"
-            = value
+        = bootstrap_flash
         = yield
-      /! Example row of columns
       .row
         .span6
           h2 Heading

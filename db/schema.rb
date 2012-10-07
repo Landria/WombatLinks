@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120994091258) do
+ActiveRecord::Schema.define(:version => 20120999494741) do
 
   create_table "links", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120994091258) do
     t.string   "link_hash"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.boolean  "is_send",     :default => false
   end
 
   create_table "locked_emails", :force => true do |t|

@@ -41,7 +41,7 @@
           br
         = (t :created_at)
         '
-        = link.created_at.strftime("%d.%m.%Y")
+        = link.created_at.strftime("%d.%m.%Y %H:%M")
       .link_controls
         - if can? :show, link
           = link_to (t :show), link
@@ -58,4 +58,4 @@
     = will_paginate @links, :renderer => BootstrapPagination::Rails
     - if can? :create, Link
       div
-        = link_to (t :new_link), new_link_path, :class => "btn btn-large"
+        = link_to (t :send_link), new_link_path, :class => "btn btn-large"

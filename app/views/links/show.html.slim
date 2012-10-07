@@ -35,7 +35,7 @@
       p
         = (t :created_at)
         '
-        = @link.created_at.strftime("%d.%m.%Y")
+        = @link.created_at.strftime("%d.%m.%Y %H:%M")
       - if can? :resend, @link
         = link_to (t :resend_link), resend_link_path(:link_id => @link.id), :class => "btn"
       - if can? :destroy, @link
@@ -43,5 +43,5 @@
       - else
         = link_to (t :all_links), all_links_path, :class => "btn"
       - if can? :add_link, Link
-        = link_to (t :new_link), root_path, :class => "btn"
+        = link_to (t :send_link), root_path, :class => "btn"
 

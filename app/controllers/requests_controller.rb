@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
       end
       message = {:notice => (t 'spam_complain.success')}
     else
-      message = {:notice => (t 'spam_complain.error')}
+      message = {:alert => (t 'spam_complain.error')}
     end
 
     redirect_to root_path, message

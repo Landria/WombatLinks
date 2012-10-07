@@ -4,23 +4,19 @@ html
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
   body
     = render :partial => 'wombat_mailer/header'
-    p
-      strong= (t :email_new_link_text)
+    - if(!@link.title.blank?)
+      h2= raw @link.title
     p
       strong
         ' URL:
-        = link_to(@link.link, @link.link)
+      = link_to(@link.link, @link.link)
       br
-      - if(!@link.title.empty?)
-        strong= t :title
+      - if(!@link.description.blank?)
+        strong= t :description
         ' :
-        = raw @link.title
-        br
-      - if(!@link.description.empty?)
-      strong= t :description
-      ' :
-      =h @link.description
-    br
-    p= link_to (t :spam_complain_message), spam_complain_path(:hash => @link.hash, :only_path => false)
+        =h @link.description
+    - if !@link.link_hash.blank?
+      br
+      p
+        = link_to (t 'spam_complain.message'), spam_complain_path(:hash => @link.link_hash, :only_path => false)
     = render :partial =>'wombat_mailer/footer'
-

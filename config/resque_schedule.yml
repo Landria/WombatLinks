@@ -12,4 +12,18 @@ delete_old_links_every_2_months:
  queue: DeleteJob
  description: "Delete old links every 24 hours"
 
+delete_old_links_every_2_minutes:
+ cron: "*/2 * * * * *"
+ class: DeleteOldLinksJob
+ args:
+ queue: DeleteJob
+ description: "Delete old links every 2 minutes"
+
+resend emails_every_2_minutes:
+ cron: "*/2 * * * * *"
+ class: ReTryMailJob
+ args:
+ queue: ReMailLinkJob
+ description: "Delete old links every 2 minutes"
+
 #minutes, hour, day of month, month, day of week

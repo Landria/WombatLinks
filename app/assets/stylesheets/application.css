@@ -3,7 +3,8 @@
  */
 
 .main-unit {
-    padding: 10px 40px 20px 40px;
+    margin-top: 10px;
+    padding: 5px 40px 20px 40px;
     margin-bottom: 20px;
     background-color: #f8f8ff;
     -webkit-border-radius: 6px;
@@ -49,7 +50,7 @@ span#twitter {
 #link-detail{
     font-size: 1.2em;
     color: #505050;
-    word-wrap: break-word;
+    word-break: normal;
 }
 #link-detail .button{
     margin-top: 10px;
@@ -68,8 +69,8 @@ div#error_explanation h2{
     margin: 0;
 }
 
-span.label{
-  padding: 4px;
+span.label, a.label{
+  padding: 5px;
 }
 h1, h2, h3,h4, h5{
     /*font-family: 'Chicle', cursive;
@@ -111,4 +112,8 @@ footer{
     /*font-family: 'Sofadi One', cursive;*/
     font-family: 'Comfortaa', cursive;
     font-size: 1.1em;
+}
+
+.btn{
+    font-family: 'Comfortaa', cursive;
 }

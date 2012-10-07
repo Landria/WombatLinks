@@ -61,7 +61,7 @@ def resend
 
     render 'new'
   else
-    redirect_to root_path, :notice => (t :link_not_found)
+    redirect_to root_path, :alert => (t :link_not_found)
   end
 end
 
@@ -75,7 +75,7 @@ def create
     if !@link.is_private?
       #Resque.enqueue(TweetLinkJob, @link.id)
     end
-    Resque.enqueue(MailLinkJob, @link.id)
+    Resque.enqueue(MailLinkJob, @link.id, I18n.locale)
 
     redirect_to @link, :notice => t(:created)
   else

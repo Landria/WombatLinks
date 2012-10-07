@@ -9,19 +9,18 @@ class User < ActiveRecord::Base
 
   ROLES = %w[admin guest user]
 
-  def count_links private
-    if (private)
-      Link.where(:user_id => self.id, :is_private => true).count
-    else
-      Link.where(:user_id => self.id).count
-    end
+  def count_links private=nil, spam=nil
+    links = Link.where(:user_id => self.id)
+    links = links.where(:is_private => private) if !private.nil?
+    links = links.where(:is_spam => spam) if !spam.nil?
+    links.count
   end
 
   def user_links_percent
     system_links = Link.all.count
     user_links = Link.where(:user_id => self.id).count
 
-    (user_links*100)/system_links
+    ((user_links*100)/system_links).to_i
   end
 
   def is?(role)
