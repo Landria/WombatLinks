@@ -3,7 +3,7 @@
 
 en:
   hello: "Hello world"
-  denied: "Sorry! You can't access requested page!"
+  denied: "Sorry! Access denied!"
   created: "Link was successfully sent!"
   updated: "Link was successfully updated"
   auth_tx: "You logged in as "
@@ -88,4 +88,6 @@ en:
       status_text: "Unlock requests from %{date} state:"
       send_message: "Unlock request has been successfully send and will be processed as soon as possible."
       send_unlock_request: "Send request"
+  link_not_found: "Link not found"
+  resend_link: "Resend"
 

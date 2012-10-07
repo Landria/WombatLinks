@@ -1,5 +1,6 @@
 class Ability
   include CanCan::Ability
+
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
@@ -22,24 +23,42 @@ class Ability
     #
     #   can :update, Article, :published => true
     #
-    user ||= User.new # guest user
-    if user.role == "admin"
-      can :manage, :all
-    else
-      can :create, Link do |link|
-        link.try(:user) == user || user.role =='user'
-      end
-      can :new, Link do |link|
-        link.try(:user) == user || user.role =='user'
-      end
-      can :show, Link do |link|
-        link.user_id == user.id || link.is_private == false
-      end
-      can :manage, Link do |link|
+    # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
+    if user.blank?
+      can :index, Link
+      can :new, Link
+      can :show, Link
+      can :create, Link
+    end
+    if user
+      if user.is_locked?
+        can :index, Link
+        can :show, Link
+        can :new, Link
+        can :destroy, Link do |link|
           link.user_id == user.id
-      end
-      can :index, Link do |link|
-        link.try(:user) == user || user.role =='user'
+        end
+      else
+        if user.role == 'admin'
+          can :manage, :all
+        else
+          can :show, Link do |link|
+            !link.is_private? || link.user == user
+          end
+          can :index, Link
+          #can :new, Link
+
+          can :create, Link
+          can :destroy, Link do |link|
+            link.user_id == user.id
+          end
+          can :new, Link do |link|
+            user.is_locked?
+          end
+          can :resend, Link do |link|
+            (!link.is_private? and !link.is_spam?)|| (link.user == user and !link.is_spam?)
+          end
+        end
       end
     end
   end

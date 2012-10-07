@@ -44,7 +44,10 @@
         - if can? :show, link
           = link_to (t :show), link
           '
-        - if can? :manage, link
+        - if (can? :resend, link)
+          = link_to (t :resend_link), resend_link_path(:link_id => link.id)
+          '
+        - if can? :destroy, link
           ' | #{link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete}
       hr
     - if (@links.count == 0)

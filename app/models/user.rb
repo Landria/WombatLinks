@@ -24,10 +24,6 @@ class User < ActiveRecord::Base
     (user_links*100)/system_links
   end
 
-  def role?(base_role)
-    ROLES.index(base_role.to_s) <= ROLES.index(role)
-  end
-
   def is?(role)
     roles.include?(role.to_s)
   end

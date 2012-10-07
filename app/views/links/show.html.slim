@@ -1,7 +1,11 @@
 .row
   .span5
     .page-header
-      h1= (t :w_link) + @link.id.to_s
+      h1
+        - if @link.title.blank?
+          = (t :w_link) + @link.id.to_s
+        - else
+          = @link.title
     #link-detail
       p
         - if @link.is_private
@@ -15,11 +19,6 @@
           ' URL:
         = link_to(@link.link, @link.link)
       p
-        srong
-          = (t :title)
-          ' :
-        = @link.title
-      p
         strong
           = (t :description)
           ' :
@@ -30,13 +29,12 @@
             = (t :email)
             ' :
           = @link.email
-      = link_to (t :new_link), root_path, :class => "btn"
-      - if signed_in?
-        = link_to (t :my_links), links_path, :class => "btn"
+      - if can? :resend, @link
+        = link_to (t :resend_link), resend_link_path(:link_id => @link.id), :class => "btn"
+      - if can? :destroy, @link
+        = link_to (t :destroy), @link, :confirm => (t :confirm), :method => :delete, :class => "btn"
       - else
         = link_to (t :all_links), all_links_path, :class => "btn"
-  .span6
-    - if @tweets
-      span#twitter
-      = render :partial => 'twee_feed'
+      - if can? :new, Link
+        = link_to (t :new_link), root_path, :class => "btn"
 

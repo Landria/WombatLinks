@@ -1,8 +1,5 @@
 class LinksController < ApplicationController
-  # GET /links
-  # GET /links.json
-
-  before_filter :authenticate_user!, :except => [:index, :show, :new, :create]
+  before_filter :authenticate_user!, :except => [:index, :show, :new, :create, :resend]
   load_and_authorize_resource
 
   def index
@@ -27,7 +24,6 @@ end
 
 # GET /links/1
 def show
-  @page_title = false
   @link = Link.find(params[:id])
 
 end
@@ -39,15 +35,34 @@ def new
   end
 
   @link = Link.new
-  @page_title = false
   if user_signed_in?
     @link.email = current_user.email
   end
 end
 
-# GET /links/1/edit
-def edit
-  @link = Link.find(params[:id])
+
+# GET /links/resend/:link_id
+def resend
+  begin
+    resend_link = Link.find(params[:link_id])
+  rescue
+    resend_link = false
+  end
+
+  if resend_link
+    authorize! :resend, resend_link
+    @link = Link.new
+    if user_signed_in?
+      @link.email = current_user.email
+    end
+    @link.link = resend_link.link
+    @link.title = resend_link.title
+    @link.description = resend_link.description
+
+    render 'new'
+  else
+    redirect_to root_path, :notice => (t :link_not_found)
+  end
 end
 
 # POST /links
