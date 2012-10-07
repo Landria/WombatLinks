@@ -29,12 +29,14 @@ class Ability
       can :new, Link
       can :show, Link
       can :create, Link
+      can :add_link, Link
     end
     if user
       if user.is_locked?
         can :index, Link
         can :show, Link
         can :new, Link
+        #
         can :destroy, Link do |link|
           link.user_id == user.id
         end
@@ -42,6 +44,7 @@ class Ability
         if user.role == 'admin'
           can :manage, :all
         else
+          can :add_link, Link
           can :show, Link do |link|
             !link.is_private? || link.user == user
           end
@@ -53,7 +56,7 @@ class Ability
             link.user_id == user.id
           end
           can :new, Link do |link|
-            user.is_locked?
+            !user.is_locked?
           end
           can :resend, Link do |link|
             (!link.is_private? and !link.is_spam?)|| (link.user == user and !link.is_spam?)

@@ -9,32 +9,39 @@
     #link-detail
       p
         - if @link.is_private
-          span.private
+          span.label.label-success
             strong= (t :is_private_show)
+          '
         - if @link.is_spam
-          span.spam
+          span.label.label-important
             strong= (t :is_spam_show)
+          '
       p
         strong
           ' URL:
         = link_to(@link.link, @link.link)
-      p
-        strong
-          = (t :description)
+      - if !@link.description.blank?
+        p
+          strong
+            = (t :description)
           ' :
-        = @link.description
+          = @link.description
       - if user_signed_in? && (@link.user_link? current_user)
         p
           strong
             = (t :email)
             ' :
           = @link.email
+      p
+        = (t :created_at)
+        '
+        = @link.created_at.strftime("%d.%m.%Y")
       - if can? :resend, @link
         = link_to (t :resend_link), resend_link_path(:link_id => @link.id), :class => "btn"
       - if can? :destroy, @link
         = link_to (t :destroy), @link, :confirm => (t :confirm), :method => :delete, :class => "btn"
       - else
         = link_to (t :all_links), all_links_path, :class => "btn"
-      - if can? :new, Link
+      - if can? :add_link, Link
         = link_to (t :new_link), root_path, :class => "btn"
 

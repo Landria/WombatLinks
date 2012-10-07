@@ -23,11 +23,13 @@
     - @links.each do |link|
       p
         - if link.is_private
-          span.private
+          span.label.label-success
             strong= (t :is_private_show)
+          '
         - if link.is_spam
-          span.spam
+          span.label.label-important
             strong= (t :is_spam_show)
+          '
         strong
           = '#'+ link.id.to_s
           ' :

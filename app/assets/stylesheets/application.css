@@ -13,7 +13,6 @@
     -moz-border-radius: 6px;
 }
 
-
 .holder_tweets {
     width: 100%;
     float: left;
@@ -62,31 +61,6 @@ span#twitter {
     margin: 15px 0 0 0;
     color: black;
 }
- /*
-#pagination{
-    float: left;
-    margin-bottom: 25px;
-    width: 100%;
-    font-size: 1.2em;
-}
-
-#pagination a{
-    text-decoration: none !important;
-    border: 1px #0066CC dotted;
-    padding: 4px 4px 4px 4px;
-    -webkit-border-radius: .5em;
-    -moz-border-radius: .5em;
-    border-radius: .5em;
-}
-
-#pagination .current, #pagination .next_page.disabled, #pagination .previous_page.disabled{
-    border: 1px #000 dotted;
-    padding: 4px 4px 4px 4px;
-    -webkit-border-radius: .5em;
-    -moz-border-radius: .5em;
-    border-radius: .5em;
-    font-style: normal;
-}*/
 
 div#error_explanation h2{
     font-size: 1.4em;
@@ -94,21 +68,47 @@ div#error_explanation h2{
     margin: 0;
 }
 
-span.private{
-    padding: 4px;
-    background-color: #add8e6;
-    margin-right: 5px;
-    -webkit-border-radius: .3em;
-    -moz-border-radius: .3em;
-    border-radius: .3em;
-    font-size: 0.8em;
+span.label{
+  padding: 4px;
 }
-span.spam{
-    padding: 4px;
-    background-color: orange;
-    margin-right: 5px;
-    -webkit-border-radius: .3em;
-    -moz-border-radius: .3em;
-    border-radius: .3em;
-    font-size: 0.8em;
+h1, h2, h3,h4, h5{
+    /*font-family: 'Chicle', cursive;
+    font-family: 'Arbutus Slab', serif;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Economica', sans-serif;
+    font-family: 'Molle', cursive;
+    font-family: 'Eagle Lake', cursive;
+    111font-family: 'Marck Script', cursive;
+    font-family: 'Oranienbaum', serif;
+    font-family: 'Lobster', cursive;
+    font-family: 'Frijole', cursive;
+    font-family: 'Racing Sans One', cursive;
+    font-family: 'Sofadi One', cursive;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-family: 'Griffy', cursive;
+    font-family: 'Jacques Francois', serif;
+   font-family: 'Courgette', cursive; */
+    /*font-family: 'Comfortaa', cursive;*/
+    /*font-family: 'PT Sans Narrow', sans-serif;*/
+    font-family: 'Comfortaa', cursive;
+}
+
+.brand{
+    /*font-family: 'Marck Script', cursive;*/
+    /*font-family: 'Racing Sans One', cursive;*/
+    font-size: 2.7em !important;
+    /*font-family: 'Griffy', cursive; */
+    /*font-family: 'Sofadi One', cursive; */
+    font-family: 'Comfortaa', cursive;
+    height: 30px;
+}
+div.line{
+    margin: 10px;
+    width: 100%;
+}
+
+footer{
+    /*font-family: 'Sofadi One', cursive;*/
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.1em;
 }
