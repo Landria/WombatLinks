@@ -91,8 +91,10 @@ ru:
         email: "Адрес эл. почты"
         password: "Пароль"
         current_password: "Текущий пароль"
-      link:
+      user_link:
         link: "Ссылка"
+        link_id: "Ссылка"
+        link_url: "Ссылка"
         email: "Адрес эл. почты"
         title: "Заголовок"
         description: "Описание"
@@ -102,9 +104,12 @@ ru:
         status: "Статус"
     errors:
       models:
-        link:
+        user_link:
           attributes:
             link:
+              blank: "не введена."
+              invalid: "не валидна. Проверьте данные."
+            link_url:
               blank: "не введена."
               invalid: "не валидна. Проверьте данные."
             email:

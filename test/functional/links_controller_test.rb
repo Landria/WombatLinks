@@ -19,7 +19,7 @@ class LinksControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:links)
+    assert_not_nil assigns(:user_links)
   end
 
   test "should get new" do
@@ -57,17 +57,17 @@ class LinksControllerTest < ActionController::TestCase
 
     assert_redirected_to links_path
   end
-  
+
   test "should send tweet" do
     put :tweet, :link =>@link
   end
-  
+
   test "current user" do
     assert_equal '16250cce9a347a08f8c28f927319c396357b54a9', response.cookies['remember_token']
   end
-  
+
   teardown do
     DatabaseCleaner.clean
   end
-    
+
 end

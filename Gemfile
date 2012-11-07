@@ -3,24 +3,18 @@ source 'http://gemcutter.org'
 
 gem 'rails', '~> 3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3'
-
 gem 'json'
+gem 'less-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
+gem 'twitter-bootstrap-rails'
+gem 'will_paginate-bootstrap', '~> 0.2.1'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'twitter-bootstrap-rails'
-  gem 'will_paginate-bootstrap', '~> 0.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
+  gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -33,15 +27,10 @@ group :test do
    gem 'webrat'
    gem 'shoulda', :require => nil
    gem 'database_cleaner'
-   gem 'minitest'
-   gem 'resque_unit'
+   gem 'webmock'
 end
 
-group :development do
-  gem 'rails-erd'
-end
-
-gem 'jquery-rails'
+ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
@@ -59,13 +48,11 @@ gem 'jquery-rails'
  gem 'ruby-debug19'
 
  gem 'pacecar'
- gem "high_voltage"
+ gem 'high_voltage'
  gem 'http_accept_language'
  gem 'therubyracer'
- #gem 'mysql2'
  gem 'pg'
  gem 'activerecord-postgresql-adapter'
- #gem "clearance"
  gem 'devise'
  gem 'foreigner'
  gem 'cancan'
@@ -83,4 +70,4 @@ gem 'jquery-rails'
 
  gem 'pg_search'
  gem 'slim'
- gem "rails_config"
+ gem 'rails_config'

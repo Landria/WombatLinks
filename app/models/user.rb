@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :link, :dependent => :destroy
+  has_many :user_link, :dependent => :destroy
   has_many :unlock_request, :dependent => :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -10,15 +10,20 @@ class User < ActiveRecord::Base
   ROLES = %w[admin guest user]
 
   def count_links private=nil, spam=nil
-    links = Link.where(:user_id => self.id)
+    links = UserLink.where(:user_id => self.id)
     links = links.where(:is_private => private) if !private.nil?
     links = links.where(:is_spam => spam) if !spam.nil?
     links.count
   end
 
   def user_links_percent
-    system_links = Link.all.count
-    user_links = Link.where(:user_id => self.id).count
+    if UserLink.all.count > 0
+      system_links = UserLink.all.count
+    else
+      system_links = 1
+    end
+
+    user_links = UserLink.where(:user_id => self.id).count
 
     ((user_links*100)/system_links).to_i
   end
@@ -28,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   def set_lock
-    if self.link.where(:is_spam == true).count > Settings.spam.max_spam_links_count
+    if self.user_link.where(:is_spam == true).count > Settings.spam.max_spam_links_count
       self.is_locked = true
       self.save
     end

@@ -1,16 +1,16 @@
 class WombatMailer < ActionMailer::Base
   default :from => Devise.mailer_sender
 
-  def send_link(link, locale = I18n.default_locale)
-    @link = link
+  def send_link(user_link, locale = I18n.default_locale)
+    @link = user_link
     I18n.locale = locale
-    if (link.title.empty?)
-       title = link.link
+    if (user_link.title.empty?)
+       title = user_link.link
     else
-      title = link.title
+      title = user_link.title
     end
 
-    mail :to      => link.email,
+    mail :to      => user_link.email,
          :subject => I18n.t(:new_wombat_link) + ": "+ title
   end
 

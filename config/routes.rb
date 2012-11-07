@@ -1,13 +1,13 @@
 LinkmeRuby::Application.routes.draw do
 
-  match "/links/all" => "links#index", :as => :all_links, :all => true
-  match "/links" => "links#index"
-  match "/link/create" => "links#create", :as => :create_link, :all => true
-  match "/resend/:link_id" => "links#resend", :as => :resend_link, :via => [:get]
+  match "/links/all" => "user_links#index", :as => :all_links, :all => true
+  match "/links" => "user_links#index"
+  match "/link/create" => "user_links#create", :as => :create_link, :all => true
+  match "/resend/:link_id" => "user_links#resend", :as => :resend_link, :via => [:get]
   match "/complain/:hash" => "requests#spam_complain", :as => :spam_complain, :via => [:get]
-  resources :links
+  resources :user_links
 
-  root :to => 'links#new'
+  root :to => 'user_links#new'
   mount Resque::Server, :at => "/background"
 
   devise_for :users

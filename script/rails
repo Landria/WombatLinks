@@ -1,5 +1,13 @@
 #!/usr/bin/env ruby
 # This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
+=begin
+set_trace_func proc {
+    |event, file, line, id, binding, classname|
+  if event == "call" or event == "return"
+    printf "%8s %s:%-2d %10s %8s\n", event, file, line, id, classname
+  end
+}
+=end
 
 APP_PATH = File.expand_path('../../config/application',  __FILE__)
 require File.expand_path('../../config/boot',  __FILE__)

@@ -1,19 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-link_one:
-  link: 'http://rusrails.ru/a-guide-to-testing-rails-applications/introduction-to-testing'
-  title: 'My One Link Title'
-  description: 'My one link description'
-  email: 'underveil@yahoo.com'
-
-link_two:
-  link: 'http://rusrails.ru/'
-  title: ''
-  description: ''
-  email: 'underveil@yahoo.com'
- 
-link_error:
-  link: 'http://rusrails'
-  title: ''
-  description: ''
-  email: 'underveil.yahoo.com'
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

@@ -25,41 +25,40 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
     if user.blank?
-      can :index, Link
-      can :new, Link
-      can :show, Link
-      can :create, Link
-      can :add_link, Link
+      can :index, UserLink
+      can :new, UserLink
+      can :show, UserLink
+      can :create, UserLink
+      can :add_link, UserLink
     end
     if user
       if user.is_locked?
-        can :index, Link
-        can :show, Link
-        can :new, Link
-        #
-        can :destroy, Link do |link|
-          link.user_id == user.id
+        can :index, UserLink
+        can :show, UserLink
+        can :new, UserLink
+        can :destroy, UserLink do |user_link|
+          user_link.user_id == user.id
         end
       else
         if user.role == 'admin'
           can :manage, :all
         else
-          can :add_link, Link
-          can :show, Link do |link|
-            !link.is_private? || link.user == user
+          can :add_link, UserLink
+          can :show, UserLink do |user_link|
+            !user_link.is_private? || user_link.user == user
           end
-          can :index, Link
-          #can :new, Link
+          can :index, UserLink
+          #can :new, UserLink
 
-          can :create, Link
-          can :destroy, Link do |link|
-            link.user_id == user.id
+          can :create, UserLink
+          can :destroy, UserLink do |user_link|
+            user_link.user_id == user.id
           end
-          can :new, Link do |link|
+          can :new, UserLink do |user_link|
             !user.is_locked?
           end
-          can :resend, Link do |link|
-            (!link.is_private? and !link.is_spam?)|| (link.user == user and !link.is_spam?)
+          can :resend, UserLink do |user_link|
+            (!user_link.is_private? and !user_link.is_spam?)|| (user_link.user == user and !user_link.is_spam?)
           end
         end
       end

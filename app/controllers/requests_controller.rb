@@ -7,7 +7,7 @@ class RequestsController < ApplicationController
 
   def spam_complain
 
-    @link = Link.find_by_link_hash(params[:hash])
+    @link = UserLink.find_by_link_hash(params[:hash])
 
     if @link
       if !@link.is_spam

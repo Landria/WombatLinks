@@ -1,4 +1,4 @@
-class LinksController < ApplicationController
+class UserLinksController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :new, :create, :resend]
   load_and_authorize_resource
 
@@ -11,7 +11,7 @@ class LinksController < ApplicationController
       user_id = nil
     end
 
-    @links = Link.search(@all, user_id, params[:page], params[:search])
+    @links = UserLink.search(@all, user_id, params[:page], params[:search])
 
     if !params[:search].blank?
       @search_params = params[:search]
@@ -24,7 +24,7 @@ end
 
 # GET /links/1
 def show
-  @link = Link.find(params[:id])
+  @link = UserLink.find(params[:id])
 
 end
 
@@ -34,7 +34,7 @@ def new
     redirect_to user_locked_path
   end
 
-  @link = Link.new
+  @link = UserLink.new
   if user_signed_in?
     @link.email = current_user.email
   end
@@ -44,18 +44,18 @@ end
 # GET /links/resend/:link_id
 def resend
   begin
-    resend_link = Link.find(params[:link_id])
+    resend_link = UserLink.find(params[:link_id])
   rescue
     resend_link = false
   end
 
   if resend_link
     authorize! :resend, resend_link
-    @link = Link.new
+    @link = UserLink.new
     if user_signed_in?
       @link.email = current_user.email
     end
-    @link.link = resend_link.link
+    @link.link_url = resend_link.url
     @link.title = resend_link.title
     @link.description = resend_link.description
 
@@ -68,9 +68,9 @@ end
 # POST /links
 def create
   @page_title = false
-  @link = Link.new(params[:link])
+  @link = UserLink.new(params[:user_link])
 
-  if @link.save
+  if @link.add
     Resque.enqueue(LinkJob, @link.id)
     if !@link.is_private?
       #Resque.enqueue(TweetLinkJob, @link.id)
@@ -87,7 +87,7 @@ end
 
 # DELETE /links/1.json
 def destroy
-  @link = Link.find(params[:id])
+  @link = UserLink.find(params[:id])
   @link.destroy
 
   redirect_to links_url

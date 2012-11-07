@@ -3,7 +3,7 @@ class TweetLinkJob < Resque::Job
   @queue = :TweetLinkJob
 
   def self.perform(id)
-    link = Link.find(id)
+    link = UserLink.find(id)
     title = "New Wombat Link:"
     message = ''
 

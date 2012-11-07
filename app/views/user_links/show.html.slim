@@ -19,7 +19,7 @@
       p
         strong
           ' URL:
-        = link_to(@link.link, @link.link)
+        = link_to(@link.url, @link.url)
       - if !@link.description.blank?
         p
           strong
@@ -42,6 +42,6 @@
         = link_to (t :destroy), @link, :confirm => (t :confirm), :method => :delete, :class => "btn"
       - else
         = link_to (t :all_links), all_links_path, :class => "btn"
-      - if can? :add_link, Link
+      - if can? :add_link, UserLink
         = link_to (t :send_link), root_path, :class => "btn"
 

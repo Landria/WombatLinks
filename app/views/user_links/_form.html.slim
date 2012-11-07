@@ -1,6 +1,6 @@
 = form_for @link, :url => create_link_path, :html => {:class => 'form-horizontal'} do |f|
   - if signed_in?
-    = hidden_field_tag 'link[user_id]', current_user.id
+    = hidden_field_tag 'user_link[user_id]', current_user.id
   - if @link.errors.any?
     .alert.alert-error
       #error_explanation
@@ -10,19 +10,19 @@
           - @link.errors.full_messages.each do |msg|
             li #{msg}
   .control-group
-    = f.label :email, :class => 'control-label', :rel => 'tooltip', :title=>(t :link_email_tip)
+    = f.label :email, :class => 'control-label'
     .controls
       .input-prepend
         .span.add-on
           i.icon-envelope
         = f.text_field :email, :class => 'input-xlarge'
   .control-group
-    = f.label :link, :class => 'control-label'
+    = f.label :link_id, :class => 'control-label'
     .controls
       .input-prepend
         .span.add-on
           i.icon-share
-        = f.text_field :link, :class => 'input-xlarge'
+        = f.text_field :link_url, :class => 'input-xlarge'
   .control-group
     = f.label :title, :class => 'control-label'
     .controls
@@ -34,9 +34,9 @@
     = f.label :description, :class => 'control-label'
     .controls
       .input-prepend
-       .span.add-on
-         i.icon-pencil
-       = f.text_area :description, :class => 'input-xlarge', :rows => 3
+        .span.add-on
+          i.icon-pencil
+        = f.text_area :description, :class => 'input-xlarge', :rows => 3
   .control-group
     = f.label :is_private, :class => 'control-label'
     .controls

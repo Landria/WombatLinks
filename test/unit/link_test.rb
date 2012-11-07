@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
-  fixtures :links
+  fixtures :user_links
 
-  
+
 end

@@ -3,7 +3,7 @@ class ReTryMailJob < Resque::Job
   @queue = :ReMailLinkJob
 
   def self.perform
-    links = Link.where(:is_send => false)
+    links = UserLink.where(:is_send => false)
     links.each do |link|
       if WombatMailer.send_link(link).deliver
         link.is_send = true

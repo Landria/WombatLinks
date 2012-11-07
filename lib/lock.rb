@@ -2,7 +2,7 @@ class Lock
 
   def self.create link
     begin
-      if link.is_a? Link
+      if link.is_a? UserLink
         if !LockedEmail.find_by_email(link.email) && !link.user_id
           LockedEmail.new(:email => link.email).save
         end
