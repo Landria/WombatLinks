@@ -18,3 +18,43 @@
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+
+# Application
+.bundle
+log/*.log
+.realsync
+test/
+
+# Deploy
+db/schema.rb
+
+# Local settings
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+# User files folder
+public/system
+
+# Temp files of every sort
+.sass-cache/
+.DS_Store
+.idea
+.rvmrc
+.stgit*
+*.swap
+*.swo
+*.swp
+*~
+bin/*
+nbproject
+patches-*
+capybara-*.html
+dump.rdb
+*.ids
+.rvmrc
+tags
+tmp/
+
+# Code coverage
+coverage
