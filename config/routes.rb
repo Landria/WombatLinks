@@ -1,5 +1,7 @@
 LinkmeRuby::Application.routes.draw do
 
+  resources :payments
+
   match "/links/all" => "user_links#index", :as => :all_links, :all => true
   match "/links" => "user_links#index"
   match "/link/create" => "user_links#create", :as => :create_link, :all => true

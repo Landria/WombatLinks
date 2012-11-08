@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101174440) do
+ActiveRecord::Schema.define(:version => 20121107235042) do
+
+  create_table "domains", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "links", :force => true do |t|
     t.string   "name"
@@ -32,6 +38,36 @@ ActiveRecord::Schema.define(:version => 20121101174440) do
     t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "tool"
+    t.float    "amount"
+    t.boolean  "is_completed", :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.integer  "sites_count"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "site_rates", :force => true do |t|
+    t.integer  "domain_id"
+    t.integer  "this_week"
+    t.integer  "prev_week"
+    t.integer  "this_month"
+    t.integer  "prev_month"
+    t.integer  "position"
+    t.integer  "prev_position"
+    t.integer  "total"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "tweets", :force => true do |t|
@@ -62,6 +98,21 @@ ActiveRecord::Schema.define(:version => 20121101174440) do
     t.datetime "updated_at",                     :null => false
   end
 
+  create_table "user_plans", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "plan_id"
+    t.date     "paid_upto"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_watches", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "domain_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",     :null => false
     t.string   "encrypted_password",     :default => "",     :null => false
@@ -80,9 +131,19 @@ ActiveRecord::Schema.define(:version => 20121101174440) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
+  add_foreign_key "payments", "users", :name => "payments_user_id_fk", :dependent => :delete
+
+  add_foreign_key "site_rates", "domains", :name => "site_rates_domain_id_fk", :dependent => :delete
+
   add_foreign_key "unlock_requests", "users", :name => "unlock_requests_user_id_fk", :dependent => :delete
 
   add_foreign_key "user_links", "links", :name => "user_links_link_id_fk", :dependent => :delete
   add_foreign_key "user_links", "users", :name => "user_links_user_id_fk", :dependent => :delete
+
+  add_foreign_key "user_plans", "plans", :name => "user_plans_plan_id_fk", :dependent => :delete
+  add_foreign_key "user_plans", "users", :name => "user_plans_user_id_fk", :dependent => :delete
+
+  add_foreign_key "user_watches", "domains", :name => "user_watches_domain_id_fk", :dependent => :delete
+  add_foreign_key "user_watches", "users", :name => "user_watches_user_id_fk", :dependent => :delete
 
 end
