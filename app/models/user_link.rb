@@ -1,6 +1,9 @@
 require 'digest/md5'
 class UserLink < ActiveRecord::Base
   include PgSearch
+  EMAIL_REGEXP = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  URL_REGEXP = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\Z/ix
+
   pg_search_scope :user_search,
                   :against => [:link, :email, :title, :description],
                   :using => {
@@ -12,11 +15,11 @@ class UserLink < ActiveRecord::Base
 
   validates_presence_of :email
   validates :email,
-            :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i},
+            :format => {:with => EMAIL_REGEXP},
             :if => "!email.blank?"
   validates_presence_of :link_url
   validates :link_url,
-            :format => {:with => /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\Z/ix},
+            :format => {:with => URL_REGEXP},
             :if => "!link_url.blank?"
 
   attr_accessible :email, :title, :description, :is_private
@@ -28,7 +31,6 @@ class UserLink < ActiveRecord::Base
   def add
     set_link if self.link_id.nil?
     set_link_hash if self.link_hash.nil?
-    puts "bef save"
     self.save
   end
 
@@ -50,6 +52,22 @@ class UserLink < ActiveRecord::Base
       url = shorten.urls.to_s
     ensure
       return url
+    end
+  end
+
+  def show_title
+    if !self.title.blank?
+      self.title
+    else
+      self.link.title
+    end
+  end
+
+  def show_description
+    if !self.description.blank?
+      self.description
+    else
+      self.link.description
     end
   end
 

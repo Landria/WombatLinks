@@ -1,0 +1,7 @@
+= form_for user_watch, :url => new_user_watch_path, :remote => true do |f|
+  .input-prepend
+    .span.add-on
+      i.icon-plus-sign
+    = f.text_field :url, :class => 'input-xlarge', :placeholder => 'wombatlinks.com'
+    button class="btn" type="submit" name="commit"
+      = t :add_site

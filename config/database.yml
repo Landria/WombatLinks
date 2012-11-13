@@ -2,9 +2,9 @@ development:
   adapter: postgresql
   host: localhost
   port: 5432
-  username: linkme_ruby
-  password: qwertpoiuy
-  database: linkme_development
+  username: wombatlinks
+  password: qwertypoiuy
+  database: wombatlinks_development
   schema_search_path: public
   encoding: utf8
   template: template1
@@ -13,9 +13,9 @@ test:
   adapter: postgresql
   host: localhost
   port: 5432
-  username: linkme_ruby
-  password: qwertpoiuy
-  database: linkme_test
+  username: wombatlinks
+  password: qwertypoiuy
+  database: wombatlinks_test
   schema_search_path: public
   encoding: utf8
   template: template1
@@ -24,9 +24,9 @@ production:
   adapter: postgresql
   host: localhost
   port: 5432
-  username: linkme_ruby
-  password: qwertpoiuy
-  database: linkme
+  username: wombatlinks
+  password: qwertypoiuy
+  database: wombatlinks
   schema_search_path: public
   encoding: utf8
   template: template1

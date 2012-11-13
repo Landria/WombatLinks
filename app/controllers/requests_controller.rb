@@ -44,4 +44,31 @@ class RequestsController < ApplicationController
     end
   end
 
+  def create_user_watch
+    render_404 unless request.xhr?
+    @user_watch = UserWatch.new(params[:user_watch].merge :user_id => current_user.id)
+
+    if @user_watch.valid?
+      @user_watch.save
+      render :partial => "requests/create_user_watch"
+    else
+      render :partial => "requests/errors_user_watch", :locals => { :errors => @user_watch.errors.full_messages}
+    end
+  end
+
+  def user_watches_list
+    render_404 unless request.xhr?
+    user_watches = UserWatch.find_all_by_user_id(current_user.id)
+
+    render :partial => 'user_watches/list', :locals => { :sites => user_watches}
+  end
+
+  def user_watch_destroy
+    user_watch = UserWatch.find(params[:id])
+    user_watch.destroy
+
+    render :partial => "requests/create_user_watch"
+
+  end
+
 end

@@ -1,0 +1,8 @@
+- sites.each do |site|
+  .site-item
+    i.icon-ok
+    span
+      = site.domain.name
+    .btn.btn-mini.btn-link
+      = link_to (t :destroy), site, :confirm => (t :confirm_site_delete), :method => :delete, :remote => true
+

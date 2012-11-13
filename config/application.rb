@@ -57,5 +57,6 @@ module LinkmeRuby
     config.assets.version = '1.0'
 
     config.autoload_paths += %W(#{config.root}/app/jobs)
+    config.autoload_paths += %W(#{config.root}/lib/validators/)
   end
 end

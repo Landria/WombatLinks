@@ -15,6 +15,7 @@ en:
   sign_up: "Sign up"
   sign_up: "Not registered yet? Do it!"
   send_link: "Send my link"
+  confirm_site_delete: "Are you sure to cancel site watching?"
   home_page: "Send link"
   forgot_password: "Forgot password?"
   new_password_tx: "We will email you a link to reset your password."
@@ -91,4 +92,6 @@ en:
       send_unlock_request: "Send request"
   link_not_found: "Link not found"
   resend_link: "Resend"
+  watches: "My sites"
+  add_site: "Watch"
 

@@ -68,10 +68,10 @@ end
 # POST /links
 def create
   @page_title = false
-  @link = UserLink.new(params[:user_link])
+  @link = UserLink.new(params[:user_link].merge :user_id => current_user.id)
 
   if @link.add
-    Resque.enqueue(LinkJob, @link.id)
+    Resque.enqueue(LinkJob, @link.link.id)
     if !@link.is_private?
       #Resque.enqueue(TweetLinkJob, @link.id)
     end

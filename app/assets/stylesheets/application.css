@@ -117,3 +117,13 @@ footer{
 .btn{
     font-family: 'Comfortaa', cursive;
 }
+
+.site-item{
+    margin: 10px 0;
+}
+
+.site-item span{
+    font-family: 'Comfortaa', cursive;
+    padding: 0 7px;
+    font-size: 1.6em;
+}

@@ -6,6 +6,7 @@ class Link < ActiveRecord::Base
             :if => "!name.blank?"
 
   def self.get_link_id name
+    Domain.get_domain_id name
     self.find_or_create_by_name(:name => name).id
   end
 end

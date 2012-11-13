@@ -34,15 +34,15 @@
       = t :all_links_count
       '
       = current_user.count_links
-    p
+      br
       = t :all_private_links_count
       '
       = current_user.count_links true
-    p
+      br
       = t :spam_links_count
       '
       = current_user.count_links nil, true
-    p
+      br
       = t :percent_of_system_links
       '
       = current_user.user_links_percent
@@ -50,3 +50,10 @@
     - if current_user.is_locked?
       a.label.label-important href="#{user_locked_path}"
         =(t 'unlock_request.user_is_locked')
+
+    .page-header
+      h2= t :watches
+      - if current_user.can_add_watch?
+        = render :partial => "user_watches/form", :locals => { :user_watch => UserWatch.new }
+      #my_sites_list
+        = render :partial => "user_watches/list", :locals => { :sites => current_user.sites}

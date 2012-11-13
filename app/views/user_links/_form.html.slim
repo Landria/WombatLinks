@@ -1,6 +1,4 @@
 = form_for @link, :url => create_link_path, :html => {:class => 'form-horizontal'} do |f|
-  - if signed_in?
-    = hidden_field_tag 'user_link[user_id]', current_user.id
   - if @link.errors.any?
     .alert.alert-error
       #error_explanation

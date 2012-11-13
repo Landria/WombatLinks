@@ -6,6 +6,7 @@ ru:
   show: "Подробнее"
   edit: "Редактировать"
   destroy: "Удалить"
+  confirm_site_delete: "Вы уверены, что хотите отменить наблюдение за сайтом?"
   created: "Ссылка успешно отправлена!"
   updated: "Ссылка успешно обновлена!"
   edit_profile: "Ваш профиль"
@@ -102,6 +103,8 @@ ru:
       unlock_request:
         message: "Запрос разблокировки"
         status: "Статус"
+      user_watch:
+        url: "Сайт"
     errors:
       models:
         user_link:
@@ -131,6 +134,12 @@ ru:
               blank: "не может быть пустым"
             status:
               inclusion: "не верен"
+        user_watch:
+          attributes:
+            url:
+              blank: "не введен"
+              invalid: "не соответствует формату URL"
+              is already being watched: "уже наблюдается"
   confirm_not_recieved: "Не получили письмо с кодом подтверждения?"
   unlock_not_recieved: "Не получили письмо с кодом разблокировки?"
   update: "Обновить"
@@ -162,3 +171,5 @@ ru:
     send_unlock_request: "Отправить запрос"
   link_not_found: "Ссылка не найдена."
   resend_link: "Переслать"
+  watches: "Мои сайты"
+  add_site: "Следить"

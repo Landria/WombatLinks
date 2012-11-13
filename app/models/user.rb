@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :user_link, :dependent => :destroy
   has_many :unlock_request, :dependent => :destroy
+  has_many :user_watch, :dependent => :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -50,5 +52,13 @@ class User < ActiveRecord::Base
       end
     rescue
     end
+  end
+
+  def can_add_watch?
+    true
+  end
+
+  def sites
+    self.user_watch
   end
 end
