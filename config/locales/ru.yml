@@ -105,6 +105,7 @@ ru:
         status: "Статус"
       user_watch:
         url: "Сайт"
+        domain_id: "Сайт"
     errors:
       models:
         user_link:
@@ -140,6 +141,8 @@ ru:
               blank: "не введен"
               invalid: "не соответствует формату URL"
               is already being watched: "уже наблюдается"
+            domain_id:
+              taken: "уже наблюдается Вами"
   confirm_not_recieved: "Не получили письмо с кодом подтверждения?"
   unlock_not_recieved: "Не получили письмо с кодом разблокировки?"
   update: "Обновить"

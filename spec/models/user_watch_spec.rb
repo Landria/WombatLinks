@@ -27,7 +27,10 @@ describe UserWatch do
 
   it "should not be accessible" do
     user_watch = described_class.new(:url=> url, :user_id => user_id)
-    user_watch.save.should eq(true)
+    user_watch.should be_valid
+    user_watch.errors.full_messages.should eq('')
+
+    #user_watch.save.should eq(true)
 
     described_class.all.count.should eq(1)
     described_class.accessible?(url, user_id).should eq(false)

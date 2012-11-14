@@ -13,17 +13,13 @@ class UserWatch < ActiveRecord::Base
             :format => {:with => URL_REGEXP},
             :if => "!url.blank?"
 
-  validates_with UserDomainUniquenessValidator, :if => "errors[:url].blank?"
-  before_create :set_domain_id
-
-  def self.accessible? url, user_id
-    !self.where("domain_id = ? AND user_id != ?", Domain.get_domain_id(url), user_id.to_i).exists?
-  end
+  validates :domain_id, :uniqueness => {:scope => :user_id}
+  before_validation :set_domain_id
 
   private
 
   def set_domain_id
-    self.domain_id = Domain.get_domain_id(self.url)
+    self.domain_id = Domain.get_domain_id(self.url) if !self.url.blank?
   end
 
 end

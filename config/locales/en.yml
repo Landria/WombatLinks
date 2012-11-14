@@ -64,6 +64,12 @@ en:
     attributes:
       link:
         is_private: "It's my private link"
+    errors:
+      models:
+        user_watch:
+          attributes:
+            domain_id:
+              taken: "is already watching by you"
   confirm_not_recieved: "Didn't receive confirmation instructions?"
   unlock_not_recieved: "Didn't receive unlock instructions?"
   update: "Update"

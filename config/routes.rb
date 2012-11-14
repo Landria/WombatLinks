@@ -10,7 +10,7 @@ LinkmeRuby::Application.routes.draw do
   match "/add_watch" => "requests#create_user_watch", :as => :new_user_watch, :via => [:post]
   resources :user_links
   match "/load_user_sites" => 'requests#user_watches_list', :method => 'post'
-  match "/user_watches/:id" => 'requests#user_watch_destroy', :method => 'delete', :as => :user_watches
+  match "/user_watches/:id" => 'requests#user_watch_destroy', :method => 'delete', :as => :user_watch
 
   root :to => 'user_links#new'
   mount Resque::Server, :at => "/background"
