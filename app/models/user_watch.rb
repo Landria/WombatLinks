@@ -9,6 +9,7 @@ class UserWatch < ActiveRecord::Base
   URL_REGEXP = /\A[A-Za-zА-ЯЁа-яё0-9]+([\-\.]{1}[A-Za-zА-ЯЁа-яё0-9]+)*\.[a-zA-ZА-ЯЁа-яё]{2,5}\Z/
 
   validates :url, :presence => true
+  validates :user_id, :presence => true
   validates :url,
             :format => {:with => URL_REGEXP},
             :if => "!url.blank?"

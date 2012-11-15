@@ -139,7 +139,7 @@ ru:
           attributes:
             url:
               blank: "не введен"
-              invalid: "не соответствует формату URL"
+              invalid: "не соответствует формату. Вводите без http://"
               is already being watched: "уже наблюдается"
             domain_id:
               taken: "уже наблюдается Вами"

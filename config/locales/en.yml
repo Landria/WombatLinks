@@ -70,6 +70,8 @@ en:
           attributes:
             domain_id:
               taken: "is already watching by you"
+            url:
+              invalid: "is invalid. Type without http://"
   confirm_not_recieved: "Didn't receive confirmation instructions?"
   unlock_not_recieved: "Didn't receive unlock instructions?"
   update: "Update"

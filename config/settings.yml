@@ -9,3 +9,6 @@ resque:
   admin:
     user: admin
     pass: '123456'
+
+registration:
+  prepaid_period: 2 #months

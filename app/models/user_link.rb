@@ -29,8 +29,8 @@ class UserLink < ActiveRecord::Base
   self.per_page = 10
 
   def add
-    set_link if self.link_id.nil?
-    set_link_hash if self.link_hash.nil?
+    set_link if !self.link_id
+    set_link_hash if !self.link_hash
     self.save
   end
 

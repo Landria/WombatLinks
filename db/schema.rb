@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107235042) do
+ActiveRecord::Schema.define(:version => 20121115192809) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(:version => 20121107235042) do
     t.string   "name"
     t.float    "price"
     t.integer  "sites_count"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "promos", :force => true do |t|
+    t.string   "name"
+    t.integer  "period"
+    t.date     "active_upto"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -106,6 +114,13 @@ ActiveRecord::Schema.define(:version => 20121107235042) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "user_promos", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "promo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "user_watches", :force => true do |t|
     t.integer  "user_id"
     t.integer  "domain_id"
@@ -142,6 +157,9 @@ ActiveRecord::Schema.define(:version => 20121107235042) do
 
   add_foreign_key "user_plans", "plans", :name => "user_plans_plan_id_fk", :dependent => :delete
   add_foreign_key "user_plans", "users", :name => "user_plans_user_id_fk", :dependent => :delete
+
+  add_foreign_key "user_promos", "promos", :name => "user_promos_promo_id_fk", :dependent => :delete
+  add_foreign_key "user_promos", "users", :name => "user_promos_user_id_fk", :dependent => :delete
 
   add_foreign_key "user_watches", "domains", :name => "user_watches_domain_id_fk", :dependent => :delete
   add_foreign_key "user_watches", "users", :name => "user_watches_user_id_fk", :dependent => :delete

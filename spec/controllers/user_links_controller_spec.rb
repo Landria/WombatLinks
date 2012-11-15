@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe UserLinksController do
+
+  before do
+    sign_in :user, create(:user)
+  end
+
   describe '#create' do
     let(:params) { {:user_link => {:email => 'user@mail.ru', :link_url => "http://link.info"} }}
 

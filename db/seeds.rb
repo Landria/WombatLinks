@@ -5,4 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
-User.create(:email => 'admin@admin.com', :password => 'admin');
+User.create(:email => 'natalia.m.sergeeva@gmail.com', :password => 'wombatadmin');
+
+Plan.create([
+    { name: "Single", price: 0, sites_count: 1},
+    { name: "Medium", price: 1.99, sites_count: 4},
+    { name: "Max", price: 2.99, sites_count: 7},
+])
+
+Promo.create(:name => "BigRegistrationPromo", :period => 7)

@@ -2,12 +2,16 @@ class User < ActiveRecord::Base
   has_many :user_link, :dependent => :destroy
   has_many :unlock_request, :dependent => :destroy
   has_many :user_watch, :dependent => :destroy
+  has_one :user_plan, :dependent => :destroy
+  has_one :user_promo, :dependent => :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :remember_me
   attr_protected :is_locked
+
+  after_create :set_user_accounts
 
   ROLES = %w[admin guest user]
 
@@ -60,5 +64,14 @@ class User < ActiveRecord::Base
 
   def sites
     self.user_watch
+  end
+
+  def stats_accessible?
+    self.user_plan.active?
+  end
+
+  private
+  def set_user_accounts
+    UserPlan.set_new_user self.id
   end
 end
