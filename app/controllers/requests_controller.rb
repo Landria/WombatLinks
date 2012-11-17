@@ -50,6 +50,7 @@ class RequestsController < ApplicationController
 
     if @user_watch.valid?
       @user_watch.save
+      current_user.change_plan if  current_user.should_change_plan?
       render :partial => "requests/create_user_watch"
     else
       render :partial => "requests/errors_user_watch", :locals => { :errors => @user_watch.errors.full_messages}

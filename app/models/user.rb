@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
   end
 
   def can_add_watch?
-    true
+    user_watch.count.to_i < Plan.get_max_sites_count
   end
 
   def sites
@@ -70,8 +70,18 @@ class User < ActiveRecord::Base
     self.user_plan.active?
   end
 
+  def change_plan
+    plan = Plan.get_suitable self.user_watch.count
+    #return false if !plan
+    self.user_plan.change plan.id if should_change_plan?
+  end
+
+  def should_change_plan?
+    user_plan.plan.sites_count < user_watch.count
+  end
+
   private
   def set_user_accounts
-    UserPlan.set_new_user self.id
+    Plan.set_new_user self.id
   end
 end

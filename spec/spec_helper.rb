@@ -47,7 +47,3 @@ RSpec.configure do |config|
 end
 
 START_SELENIUM_PORT_DIAPOSON = 1_000
-
-def fixture_dir
-  "#{Rails.root}/spec/fixtures"
-end

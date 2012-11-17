@@ -23,4 +23,10 @@ class UserWatch < ActiveRecord::Base
     self.domain_id = Domain.get_domain_id(self.url) if !self.url.blank?
   end
 
+  def change_plan
+    user = User.find(self.user_id)
+    return false if !user
+    user.user_plan.change Plan.get_suitable user.user_watch.count
+  end
+
 end

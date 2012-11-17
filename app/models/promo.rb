@@ -16,7 +16,7 @@ class Promo < ActiveRecord::Base
     self.active_upto.to_time > Time.now
   end
 
-  def link_with_user user_id
+  def link_user user_id
     UserPromo.add user_id, self.id
   end
 

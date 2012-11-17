@@ -7,5 +7,6 @@ FactoryGirl.define do
     is_locked false
     role 'user'
 
+    association :user_plan, factory: :user_plan
   end
 end
