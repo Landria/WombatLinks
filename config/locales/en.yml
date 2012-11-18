@@ -104,4 +104,9 @@ en:
   add_site: "Watch"
   subscription:
     prolong_text: "Use promo-codes to prolong subscription"
+  messages:
+    user_watch:
+      success_add: "Site successfully added"
+      success_destroy: "Site successfully deleted"
+      error_destroy: "Cannot proceed! Please repeat some later!"
 

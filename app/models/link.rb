@@ -9,4 +9,12 @@ class Link < ActiveRecord::Base
     Domain.get_domain_id name
     self.find_or_create_by_name(:name => name).id
   end
+
+  def domain_link? domain_name
+    begin
+     Domain.get_domain_from_url(self.name) == domain_name
+    rescue
+      false
+    end
+  end
 end

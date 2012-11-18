@@ -16,6 +16,9 @@ describe Domain do
     domain = described_class.get_domain("http://www.google.com")
     domain.name.should eq("google.com")
     described_class.all.count.should eq(1)
+    domain.site_rate.should_not be_nil
+    domain.site_rate.total.should eq(0)
+    domain.site_rate.position.should eq(0)
   end
 
   it "should return url with protocol" do

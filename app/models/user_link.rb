@@ -29,9 +29,13 @@ class UserLink < ActiveRecord::Base
   self.per_page = 10
 
   def add
-    set_link if !self.link_id
-    set_link_hash if !self.link_hash
-    self.save
+    if self.valid?
+      set_link if !self.link_id
+      set_link_hash if !self.link_hash
+      self.save
+    else
+      false
+    end
   end
 
   def url
@@ -103,13 +107,13 @@ class UserLink < ActiveRecord::Base
 
   private
   def set_link_hash
-      hash_string = "link_hash=" + self.inspect + Time.now.to_s
-      hash = Digest::MD5.hexdigest hash_string
-      self.link_hash = hash
+    hash_string = "link_hash=" + self.inspect + Time.now.to_s
+    hash = Digest::MD5.hexdigest hash_string
+    self.link_hash = hash
   end
 
   def set_link
-    self.link_id = Link.get_link_id self.link_url
+    self.link_id = Link.get_link_id self.link_url.to_s
   end
 
 end

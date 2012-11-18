@@ -67,15 +67,15 @@ ActiveRecord::Schema.define(:version => 20121115192809) do
 
   create_table "site_rates", :force => true do |t|
     t.integer  "domain_id"
-    t.integer  "this_week"
-    t.integer  "prev_week"
-    t.integer  "this_month"
-    t.integer  "prev_month"
-    t.integer  "position"
-    t.integer  "prev_position"
-    t.integer  "total"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "this_week",     :default => 0
+    t.integer  "prev_week",     :default => 0
+    t.integer  "this_month",    :default => 0
+    t.integer  "prev_month",    :default => 0
+    t.integer  "position",      :default => 0
+    t.integer  "prev_position", :default => 0
+    t.integer  "total",         :default => 0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "tweets", :force => true do |t|
