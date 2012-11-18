@@ -3,6 +3,8 @@ require 'spec_helper'
 
 describe User do
   let(:user) { create :user }
+  let(:promo) { create :active_promo }
+  let(:not_active_promo) { create :not_active_promo }
 
   context "can add watch" do
     before do
@@ -41,6 +43,8 @@ describe User do
   context "change plan" do
 
     it "should not change plan" do
+      Plan.create :name => "name", :sites_count => 2, :price => 1.99
+
       user.should_not be_should_change_plan
       user.change_plan.should be_nil
 
@@ -57,6 +61,31 @@ describe User do
       user.should be_should_change_plan
       user.change_plan.should be_true
       user.user_plan.plan.name.should eq(plan.name)
+
+      user.user_watch.delete_all
+      user.should be_should_change_plan
+      user.change_plan.should be_true
+      user.user_plan.plan.name.should eq(plan.name)
+
+    end
+
+  end
+
+  context "should change plan paid upto" do
+
+    it "should return true" do
+       user.should be_should_change_plan_paid_upto
+    end
+
+    it "should return false if user_promo is active" do
+      promo.link_user user.id
+      user.should_not be_should_change_plan_paid_upto
+    end
+
+    it "should return true if user_promo is not active" do
+      user.user_promo.delete_all
+      not_active_promo.link_user user.id
+      user.should be_should_change_plan_paid_upto
     end
   end
 end

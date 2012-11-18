@@ -81,7 +81,7 @@ describe Plan do
     described_class.get_suitable(6).name.should eq('name3')
     described_class.get_suitable(7).name.should eq('name3')
     described_class.get_suitable(8).should be_nil
-    described_class.get_suitable(0).should be_nil
+    described_class.get_suitable(0).name.should eq('name2')
     described_class.get_suitable(-1).should be_nil
   end
 

@@ -14,11 +14,11 @@ class Plan < ActiveRecord::Base
   end
 
   def self.get_first_suitable
-    get_free || self.all.first
+    get_free || self.order("sites_count ASC").first
   end
 
   def self.get_suitable count
-    where("sites_count >= ?", count).order("sites_count ASC").first if count > 0
+    where("sites_count >= ?", count).order("sites_count ASC").first if count > -1
   end
 
   def self.get_max_plan
@@ -30,7 +30,7 @@ class Plan < ActiveRecord::Base
   end
 
   def self.set_new_user user_id
-    #begin
+    begin
       promo = Promo.get_current
       if promo
         period = promo.period
@@ -39,9 +39,8 @@ class Plan < ActiveRecord::Base
         period = Settings.registration.prepaid_period.to_i
       end
       UserPlan.create :user_id => user_id, :plan_id => get_first_suitable.id, :paid_upto => Date.today + period.months
-    #rescue
-      #raise "Plan could not be set"
-    #end
+    rescue
+    end
   end
 
 end
