@@ -1,0 +1,21 @@
+h4
+  = t 'subscription.type'
+  ' :
+  = current_user.user_plan.plan.name
+p
+  - if current_user.user_plan.active?
+    span.label.label-success
+      strong= (t 'subscription.active')
+  - else
+    span.label.label-important
+      strong= (t 'subscription.locked')
+
+p
+  = t 'subscription.sites_count'
+  ' :
+  = current_user.user_plan.plan.sites_count
+  br
+  - if !current_user.user_plan.plan.free?
+    = t 'subscription.active_upto'
+    ' :
+    = l current_user.user_plan.paid_upto.to_date

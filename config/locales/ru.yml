@@ -176,3 +176,15 @@ ru:
   resend_link: "Переслать"
   watches: "Мои сайты"
   add_site: "Следить"
+  date:
+    formats:
+      default: "%e-%m-%Y"
+  subscription:
+    active: "Активна"
+    locked: "Не активна"
+    type: "Тип подписки"
+    sites_count: "Количество сайтов"
+    active_upto: "Активна до"
+    name: "Подписка"
+    prolong: "Продлить"
+    prolong_text: "Если у Вас есть промо-код, используйте его для продления подписки"

@@ -73,4 +73,10 @@ class RequestsController < ApplicationController
 
   end
 
+  def user_subscription
+    render_404 unless request.xhr?
+
+    render :partial => 'devise/shared/subscription'
+  end
+
 end

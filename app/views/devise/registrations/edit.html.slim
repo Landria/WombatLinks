@@ -24,6 +24,14 @@
         button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
           = t :update
 
+    h2= t 'subscription.name'
+    #subscription
+      = render :partial => "devise/shared/subscription"
+    p
+      button class="btn" type="button" name="commit"
+        = t 'subscription.prolong'
+    p.text-info= t 'subscription.prolong_text'
+
     h3= t :cancel_account
     p
       = link_to (t :cancel_account), registration_path(resource_name), :data =>  confirm=((t :confirm))

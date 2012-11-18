@@ -102,4 +102,6 @@ en:
   resend_link: "Resend"
   watches: "My sites"
   add_site: "Watch"
+  subscription:
+    prolong_text: "Use promo-codes to prolong subscription"
 
