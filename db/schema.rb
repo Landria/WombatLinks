@@ -11,12 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115192809) do
+ActiveRecord::Schema.define(:version => 20121115192900) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "link_rates", :force => true do |t|
+    t.integer  "link_id"
+    t.integer  "this_week",     :default => 0
+    t.integer  "prev_week",     :default => 0
+    t.integer  "this_month",    :default => 0
+    t.integer  "prev_month",    :default => 0
+    t.integer  "position",      :default => 0
+    t.integer  "prev_position", :default => 0
+    t.integer  "total",         :default => 0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "links", :force => true do |t|
@@ -146,6 +159,8 @@ ActiveRecord::Schema.define(:version => 20121115192809) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "link_rates", "links", :name => "link_rates_link_id_fk", :dependent => :delete
 
   add_foreign_key "links", "domains", :name => "links_domain_id_fk", :dependent => :delete
 

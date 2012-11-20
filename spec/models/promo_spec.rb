@@ -9,7 +9,6 @@ describe Promo do
     promo.should be_valid
     promo.save.should eq(true)
     promo.name.should_not be_nil
-    puts promo.name
   end
 
   it "should not be valid" do

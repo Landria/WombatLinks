@@ -4,14 +4,10 @@ class WombatMailer < ActionMailer::Base
   def send_link(user_link, locale = I18n.default_locale)
     @link = user_link
     I18n.locale = locale
-    if (user_link.title.empty?)
-       title = user_link.link
-    else
-      title = user_link.title
-    end
+    title = user_link.show_title
 
     mail :to      => user_link.email,
-         :subject => I18n.t(:new_wombat_link) + ": "+ title
+         :subject => I18n.t(:new_wombat_link) + ": "+ @link.show_title
   end
 
   def send_unlock_request

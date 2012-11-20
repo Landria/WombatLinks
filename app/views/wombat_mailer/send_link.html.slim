@@ -4,17 +4,17 @@ html
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
   body
     = render :partial => 'wombat_mailer/header'
-    - if(!@link.title.blank?)
-      h2= raw @link.title
+    - if(!@link.show_title.blank?)
+      h2= raw @link.show_title
     p
       strong
         ' URL:
-      = link_to(@link.link, @link.link)
+      = link_to @link.link.name, @link.link.name
       br
-      - if(!@link.description.blank?)
+      - if(!@link.show_description.blank?)
         strong= t :description
         ' :
-        =h @link.description
+        =h @link.show_description
     - if !@link.link_hash.blank?
       br
       p

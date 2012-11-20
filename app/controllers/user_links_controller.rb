@@ -68,7 +68,10 @@ end
 # POST /links
 def create
   @page_title = false
-  @link = UserLink.new(params[:user_link].merge :user_id => current_user.id)
+  link_params = params[:user_link]
+  link_params.merge :user_id => current_user.id if user_signed_in?
+
+  @link = UserLink.new(link_params)
 
   if @link.add
     Resque.enqueue(LinkJob, @link.link.id)

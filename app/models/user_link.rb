@@ -60,19 +60,13 @@ class UserLink < ActiveRecord::Base
   end
 
   def show_title
-    if !self.title.blank?
-      self.title
-    else
-      self.link.title
-    end
+      return self.title.to_s if self.title
+      self.link.title.to_s
   end
 
   def show_description
-    if !self.description.blank?
-      self.description
-    else
-      self.link.description
-    end
+    return self.description.to_s if self.description
+    self.link.description.to_s
   end
 
   def self.search(all, user_id, page, search)
@@ -97,12 +91,6 @@ class UserLink < ActiveRecord::Base
 
   def user_link? user
     self.user_id == user.id
-  end
-
-  def clean_text text, truncate_i
-    text['["'] = ''
-    text['"]'] = ''
-    text.truncate(truncate_i, :omission => '&hellip;', :separator => ' ')
   end
 
   #возможо удадить

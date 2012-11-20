@@ -2,10 +2,10 @@
   .span5
     .page-header
       h1
-        - if @link.title.blank?
+        - if @link.show_title.blank?
           = (t :w_link) + @link.id.to_s
         - else
-          = @link.title
+          = @link.show_title
     #link-detail
       p
         - if @link.is_private
@@ -20,12 +20,12 @@
         strong
           ' URL:
         = link_to(@link.url, @link.url)
-      - if !@link.description.blank?
+      - if !@link.show_description.blank?
         p
           strong
             = (t :description)
           ' :
-          = @link.description
+          = @link.show_description
       - if user_signed_in? && (@link.user_link? current_user)
         p
           strong

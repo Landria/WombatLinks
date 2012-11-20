@@ -1,11 +1,11 @@
 require "rate"
-class SiteRate < ActiveRecord::Base
+class LinkRate < ActiveRecord::Base
   extend Rate
 
-  attr_accessible :domain_id, :prev_month, :prev_week, :this_month, :this_week
+  attr_accessible :link_id, :prev_month, :prev_week, :this_month, :this_week
   attr_protected :total, :position, :prev_position
 
-  belongs_to :domain
+  belongs_to :link
 
   def recount_rates
     links = UserLink.clear self.links
@@ -28,6 +28,6 @@ class SiteRate < ActiveRecord::Base
   end
 
   def links
-    self.domain.user_link
+    self.link.user_link
   end
 end
