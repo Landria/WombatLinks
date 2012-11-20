@@ -71,3 +71,4 @@ end
  gem 'pg_search'
  gem 'slim'
  gem 'rails_config'
+ gem 'pry'

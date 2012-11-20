@@ -105,6 +105,45 @@ class UserLink < ActiveRecord::Base
     text.truncate(truncate_i, :omission => '&hellip;', :separator => ' ')
   end
 
+  #возможо удадить
+  def self.get_links_for_domain domain_name
+    links = self.find_all_by_created_at(2.months.ago..Time.now)
+    links.delete_if { |l| !l.link.domain_link? domain_name }
+    links
+  rescue
+    Array.new
+  end
+
+  #удадить
+  def self.get_grouped_by_link_id domain_name
+    get_links_for_domain(domain_name).group_by(&:group_by_link_id)
+  end
+
+  #удадить
+  def self.get_grouped_by_link_and_user domain_name
+    get_grouped_by_link_id(domain_name).group_by(&:group_by_user)
+  end
+
+  def self.clear_duplicates user_links
+    user_links.each do |u_link|
+      if u_link.user_id
+        user_links.delete_if { |l| l.id != u_link.id and l.user_id == u_link.user_id and l.link_id == u_link.link_id }
+      else
+        user_links.delete_if { |l| l.id != u_link.id and l.email == u_link.email and l.link_id == u_link.link_id and !l.user_id }
+      end
+    end
+    return user_links
+  end
+
+  def group_by_link_id
+    self.link_id
+  end
+
+  def group_by_user
+    return self.user_id if self.user_id
+    self.id
+  end
+
   private
   def set_link_hash
     hash_string = "link_hash=" + self.inspect + Time.now.to_s

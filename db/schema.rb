@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20121115192809) do
 
   create_table "links", :force => true do |t|
     t.text     "name"
+    t.integer  "domain_id"
     t.text     "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
@@ -145,6 +146,8 @@ ActiveRecord::Schema.define(:version => 20121115192809) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "links", "domains", :name => "links_domain_id_fk", :dependent => :delete
 
   add_foreign_key "payments", "users", :name => "payments_user_id_fk", :dependent => :delete
 
