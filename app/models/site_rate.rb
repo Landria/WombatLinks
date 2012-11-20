@@ -7,6 +7,8 @@ class SiteRate < ActiveRecord::Base
 
   belongs_to :domain
 
+  self.per_page = 20
+
   def recount_rates
     links = UserLink.clear self.links
     links_total = Array.new(links)
@@ -29,5 +31,9 @@ class SiteRate < ActiveRecord::Base
 
   def links
     self.domain.user_link
+  end
+
+  def self.get_rates page
+    rates = self.where('position > 0').order('total DESC').paginate(:page => page)
   end
 end

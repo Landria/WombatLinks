@@ -109,4 +109,9 @@ en:
       success_add: "Site successfully added"
       success_destroy: "Site successfully deleted"
       error_destroy: "Cannot proceed! Please repeat some later!"
+  statistics:
+    profile: "Statistics"
+    rates:
+      title: "Wombat Rates"
+      menu: "Sites Rates"
 

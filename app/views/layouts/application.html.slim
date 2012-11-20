@@ -40,37 +40,7 @@ html lang="en"
             span.icon-bar
             span.icon-bar
           .line
-            a.brand href="/" WombatLinks
-            .nav-collapse.collapse
-              ul.nav
-                li class="#{active_link_to_class(root_path, :active => [['links'], ['new', 'create']])}"
-                  = active_link_to (t :home_page), root_path, :active => [['links'], ['new', 'create']]
-                - if user_signed_in?
-                  li class="#{active_link_to_class(links_path, :active => [['links'], ['index']])}"
-                    = active_link_to (t :my_links), links_path, :active => [['links'], ['index']]
-                  li class="#{active_link_to_class(edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']])}"
-                    = active_link_to (t :profile), edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']]
-                - else
-                  li class="#{active_link_to_class(all_links_path, :active => [['links'], ['index']])}"
-                    = active_link_to (t :all_links), all_links_path, :active => [['links'], ['index']]
-                  li
-                    a href="#"
-                      | #{t :about}
-              .navbar-form.pull-right
-                - if signed_in?
-                  = t :welcome
-                  br
-                  = t :auth_tx
-                  span= current_user.email
-                  |  (
-                  = link_to (t :log_out), destroy_user_session_path, :method => :delete, :confirm => "Are you sure?"
-                  | )
-                - else
-                  = t :welcome
-                  br
-                  span
-                    = active_link_to (t :sign_in), new_user_session_path, :active => :exclusive
-                    |  / #{active_link_to (t :sign_up), new_user_registration_path, :active => :exclusive}
+            = render 'layouts/navigation'
     .container
       .main-unit
         = bootstrap_flash

@@ -1,0 +1,23 @@
+h2= t "statistics.rates.title"
+.row
+  .span10
+    - if @rates.count > 0
+      table.table.table-striped
+        thead
+          tr
+            th= t 'statistics.rates.position'
+            th= t 'statistics.rates.site'
+            th= t 'statistics.rates.this_week'
+            th= t 'statistics.rates.this_month'
+            th= t 'statistics.rates.total'
+        tbody
+          - @rates.each do |rate|
+            tr
+              td= rate.position
+              td= rate.domain.name
+              td= rate.this_week
+              td= rate.this_month
+              td= rate.total
+
+  .span10
+    = will_paginate @rates, :renderer => BootstrapPagination::Rails

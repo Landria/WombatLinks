@@ -6,7 +6,6 @@ class RequestsController < ApplicationController
   #load_and_authorize_resource
 
   def spam_complain
-
     @link = UserLink.find_by_link_hash(params[:hash])
 
     if @link

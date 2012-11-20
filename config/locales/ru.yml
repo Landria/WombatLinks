@@ -1,4 +1,5 @@
 ru:
+  links: "Ссылки"
   remember_me: "Запомнить меня"
   denied: "Извините, в доступе отказано!"
   auth_tx: "Вы вошли как "
@@ -193,3 +194,15 @@ ru:
       success_add: "Сайт успешно добавлен"
       success_destroy: "Сайт успешно удален"
       error_destroy: "Удаление невозможно! Повторите немного позже!"
+  statistics:
+    profile: "Статистика"
+    rates:
+      title: "Wombat Rates"
+      position: "Позиция"
+      site: "Сайт"
+      last_week: "На прошлой неделе"
+      this_week: "На этой неделе"
+      last_month: "В прошлом месце"
+      this_month: "В этом месяце"
+      total: "Всего"
+      menu: "Рейтинг"

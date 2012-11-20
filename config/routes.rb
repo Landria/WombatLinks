@@ -21,6 +21,7 @@ LinkmeRuby::Application.routes.draw do
   match "locked" => "requests#user_locked", :as => :user_locked
   match "unlock" => "requests#send_unlock", :as => :user_unlock, :via => [:post]
 
+  match "/wombat-rates" => "site_rates#index", :via => [:get], :as => :rates
 
 # The priority is based upon order of creation:
 # first created -> highest priority.

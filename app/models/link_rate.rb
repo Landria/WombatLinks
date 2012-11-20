@@ -7,6 +7,8 @@ class LinkRate < ActiveRecord::Base
 
   belongs_to :link
 
+  self.per_page = 20
+
   def recount_rates
     links = UserLink.clear self.links
     links_total = Array.new(links)
