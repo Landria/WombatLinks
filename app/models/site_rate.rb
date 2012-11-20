@@ -22,7 +22,7 @@ class SiteRate < ActiveRecord::Base
   end
 
   def recount_rates
-    links = UserLink.clear_duplicates self.domain.user_link
+    links = UserLink.clear self.domain.user_link
     links_total = Array.new(links)
     links_total.keep_if{|l| l.created_at >= self.updated_at}
     links_t_week = Array.new(links)

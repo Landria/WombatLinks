@@ -58,8 +58,8 @@ describe UserLink do
     end
   end
 
-  context "clear duplicates" do
-    it "should return cleared links links" do
+  context "clear links" do
+    it "should return cleared from duplicates links" do
       links = described_class.clear_duplicates described_class.all
       links.count.should eq(0)
 
@@ -90,7 +90,42 @@ describe UserLink do
 
       links = described_class.clear_duplicates described_class.all
       links.count.should eq(3)
+    end
 
+    it "should return cleared from spam links" do
+      link1 = UserLink.new :email => email_2, :link_url => link_url
+      link1.add
+
+      link2 = UserLink.new :email => email, :link_url => link_url
+      link2.add
+      link2.update_attribute(:is_spam, true)
+      described_class.all.count.should eq(2)
+
+      links = described_class.clear_spam described_class.all
+      links.count.should eq(1)
+    end
+
+    it "should return cleared from all links" do
+      link1 = UserLink.new :email => email_2, :link_url => link_url
+      link1.add
+
+      link2 = UserLink.new :email => email, :link_url => link_url_2
+      link2.add
+      link2.update_attribute(:is_spam, true)
+
+      link3 = UserLink.new :email => email_2, :link_url => link_url
+      link3.add
+
+      described_class.all.count.should eq(3)
+
+      links = described_class.clear described_class.all
+      links.count.should eq(1)
+
+      link4 = UserLink.new :email => email, :link_url => link_url_2
+      link4.add
+
+      links = described_class.clear described_class.all
+      links.count.should eq(2)
     end
   end
 

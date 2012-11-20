@@ -124,6 +124,15 @@ class UserLink < ActiveRecord::Base
     get_grouped_by_link_id(domain_name).group_by(&:group_by_user)
   end
 
+  def self.clear user_links
+     user_links = clear_duplicates clear_spam user_links
+  end
+
+  def self.clear_spam user_links
+    user_links.delete_if { |l| l.is_spam?}
+    user_links
+  end
+
   def self.clear_duplicates user_links
     user_links.each do |u_link|
       if u_link.user_id
