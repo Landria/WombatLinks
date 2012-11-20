@@ -4,7 +4,7 @@ bitly:
 spam:
   max_spam_links_count: 4
 deafult_link_mailer: "linker@wombatlinks.com"
-anonymous_links_live_period: 2
+anonymous_links_live_period: 3
 resque:
   admin:
     user: admin
