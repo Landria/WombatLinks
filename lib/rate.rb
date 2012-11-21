@@ -23,4 +23,15 @@ module Rate
     domains.count + 1
   end
 
+  def self.position_move value, prev_value
+    return prev_value - value if prev_value > 0
+    nil
+  end
+
+  def self.position_move_sign position
+    return :plus if position.to_i > 0
+    return :minus if position.to_i < 0
+    nil
+  end
+
 end

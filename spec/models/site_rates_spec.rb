@@ -85,6 +85,19 @@ describe SiteRate do
       link4.link.domain.site_rate.total.should eq(1)
     end
 
+    it "should recount rates with previous periods data" do
+      link1 = UserLink.new :email => user.email, :user_id => user.id, :link_url => link_url
+      link1.add
+
+      link2 = UserLink.new :email => email, :link_url => link_url
+      link2.add
+
+      link1.update_attribute(:created_at, 8.days.ago)
+      described_class.recount_all_rates
+
+      link1.link.domain.site_rate.prev_week.should eq(1)
+    end
+
   end
 
 end

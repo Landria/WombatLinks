@@ -12,15 +12,12 @@ a.brand href="/" WombatLinks
         - if user_signed_in?
           li class="#{active_link_to_class(links_path, :active => [['links'], ['index']])}"
             = active_link_to (t :my_links), links_path, :active => [['links'], ['index']]
+        - else
+          li class="#{active_link_to_class(all_links_path, :active => [['links'], ['index']])}"
+            = active_link_to (t :all_links), all_links_path, :active => [['links'], ['index']]
     - if user_signed_in?
       li class="#{active_link_to_class(edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']])}"
         = active_link_to (t :profile), edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']]
-    - else
-      li class="#{active_link_to_class(all_links_path, :active => [['links'], ['index']])}"
-        = active_link_to (t :all_links), all_links_path, :active => [['links'], ['index']]
-      li
-        a href="#"
-          | #{t :about}
     li class="#{active_link_to_class(rates_path, :active => [['links'], ['index']])}"
       = active_link_to (t "statistics.rates.menu"), rates_path, :active => [['links'], ['index']]
   .navbar-form.pull-right

@@ -13,10 +13,31 @@ h2= t "statistics.rates.title"
         tbody
           - @rates.each do |rate|
             tr
-              td= rate.position
-              td= rate.domain.name
-              td= rate.this_week
-              td= rate.this_month
+              td
+                = rate.position
+                span.stats class="#{rate.p_move_sign}"
+                  - if rate.p_move.to_i > 0
+                    i.icon-chevron-up
+                  - if rate.p_move.to_i < 0
+                    i.icon-chevron-down
+                  = rate.p_move.abs if rate.p_move
+              td= link_to rate.domain.name, "http://" + rate.domain.name, :target => "_blank"
+              td
+                = rate.this_week
+                span.stats class="#{rate.w_move_sign}"
+                  - if rate.w_move.to_i > 0
+                    i.icon-chevron-up
+                  - if rate.w_move.to_i < 0
+                    i.icon-chevron-down
+                  = rate.w_move.abs if rate.w_move
+              td
+                = rate.this_month
+                span.stats class="#{rate.m_move_sign}"
+                  - if rate.m_move.to_i > 0
+                    i.icon-chevron-up
+                  - if rate.m_move.to_i < 0
+                    i.icon-chevron-down
+                  = rate.m_move.abs if rate.m_move
               td= rate.total
 
   .span10

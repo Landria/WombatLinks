@@ -127,3 +127,13 @@ footer{
     padding: 0 7px;
     font-size: 1.6em;
 }
+.stats {
+    margin-left: 5px;
+}
+.stats.plus{
+   color: green !important;
+}
+
+.stats.minus{
+    color: #ff4500 !important;
+}

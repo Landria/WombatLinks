@@ -19,8 +19,8 @@ class Link < ActiveRecord::Base
   end
 
   def clean_text text, truncate_i
-    text['["'] = ''
-    text['"]'] = ''
+    text['["'] = '' if text['["']
+    text['"]'] = '' if text['"]']
     text.truncate(truncate_i, :omission => '&hellip;', :separator => ' ')
   end
 
