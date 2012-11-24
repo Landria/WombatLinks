@@ -6,7 +6,7 @@ class Plan < ActiveRecord::Base
   validates :sites_count, :presence => true
 
   def free?
-    self.price.to_f === 0
+    self.price.to_f == 0
   end
 
   def self.get_free

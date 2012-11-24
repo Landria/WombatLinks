@@ -37,8 +37,11 @@ class LinkRate < ActiveRecord::Base
     self.link.user_link
   end
 
-  def self.get_rates page
-    self.where('position > 0').order('total DESC').paginate(:page => page)
+  def self.get_rates domain_id, page
+    domain = Domain.find(domain_id)
+    self.where(:id => domain.link.map(&:id)).order('total DESC').paginate(:page => page)
+  rescue
+    nil
   end
 
 end

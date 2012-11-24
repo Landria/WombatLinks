@@ -7,3 +7,7 @@
     .btn.btn-mini.btn-link
       = link_to (t :destroy), site, :confirm => (t :confirm_site_delete), :method => :delete, :remote => true
 
+    - if current_user.stats_accessible?
+      .btn.btn-mini.btn-link
+        = link_to (t :show_stats), user_rates_path(site.domain_id)
+

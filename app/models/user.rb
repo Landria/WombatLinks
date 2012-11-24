@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :user_watch, :dependent => :destroy
   has_one :user_plan, :dependent => :destroy
   has_many :user_promo, :dependent => :destroy
+  has_many :domain, :through => :user_watch
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -70,17 +71,21 @@ class User < ActiveRecord::Base
     self.user_plan.active?
   end
 
+  def full_stats_accessible?
+    self.user_plan.active? and !self.user_plan.plan.free?
+  end
+
   def change_plan
     begin
       plan = Plan.get_suitable self.user_watch.count
       self.user_plan.change plan.id if should_change_plan? and !should_change_plan_paid_upto?
       self.user_plan.change_with_paid_upto plan.id if should_change_plan? and should_change_plan_paid_upto?
     rescue
+      false
     end
   end
 
   def should_change_plan?
-    #user_plan.plan.sites_count < user_watch.count
     Plan.get_suitable(user_watch.count).sites_count != user_plan.plan.sites_count
   end
 
