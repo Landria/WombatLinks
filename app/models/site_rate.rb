@@ -38,7 +38,7 @@ class SiteRate < ActiveRecord::Base
   end
 
   def self.get_rates page
-    self.where('position > 0').order('total DESC').paginate(:page => page)
+    self.where('total > 0').order('total DESC').paginate(:page => page)
   end
 
 end

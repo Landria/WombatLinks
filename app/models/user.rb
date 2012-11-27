@@ -71,10 +71,6 @@ class User < ActiveRecord::Base
     self.user_plan.active?
   end
 
-  def full_stats_accessible?
-    self.user_plan.active? and !self.user_plan.plan.free?
-  end
-
   def change_plan
     begin
       plan = Plan.get_suitable self.user_watch.count

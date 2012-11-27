@@ -23,6 +23,8 @@ LinkmeRuby::Application.routes.draw do
 
   match "/wombat-rates" => "site_rates#index", :via => [:get], :as => :rates
   match "/site-rates/:id" => "site_rates#user_rates", :via => [:get], :as => :user_rates
+  match "/recount-rates/:id" => "site_rates#recount_rates", :via => [:post], :as => :recount_rates
+
 
 # The priority is based upon order of creation:
 # first created -> highest priority.

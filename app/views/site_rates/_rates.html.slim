@@ -4,7 +4,10 @@
       thead
         tr
           th= t 'statistics.rates.position'
-          th= t 'statistics.rates.site'
+          - if rates.is_a? SiteRate
+            th= t 'statistics.rates.site'
+          - else
+            th= t 'link'
           th= t 'statistics.rates.this_week'
           th= t 'statistics.rates.this_month'
           th= t 'statistics.rates.total'

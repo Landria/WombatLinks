@@ -30,6 +30,7 @@ class Ability
       can :show, UserLink
       can :create, UserLink
       can :add_link, UserLink
+      can :index, SiteRate
     end
     if user
       if user.is_locked?
@@ -43,6 +44,11 @@ class Ability
         if user.role == 'admin'
           can :manage, :all
         else
+          if user.stats_accessible?
+            can :index, SiteRate
+            can :user_rates, SiteRate
+            can :recount_rates, SiteRate
+          end
           can :add_link, UserLink
           can :show, UserLink do |user_link|
             !user_link.is_private? || user_link.user == user

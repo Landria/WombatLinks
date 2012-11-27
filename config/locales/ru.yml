@@ -207,3 +207,5 @@ ru:
       total: "Всего"
       menu: "Рейтинг"
       pages_title: "Статистика ссылок"
+    show_stats: "Статистика"
+    recount_rates: "Пересчитать статистику"
