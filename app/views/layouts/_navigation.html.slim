@@ -1,25 +1,25 @@
 a.brand href="/" WombatLinks
 .nav-collapse.collapse
   ul.nav
-    li.dropdown class="#{active_link_to_class(links_path, :active => [['links'], ['new', 'create']])}"
+    li.dropdown class="#{active_link_to_class(links_path, :active => [['user_links'], ['new', 'create', 'index']])}"
       a class="dropdown-toggle" data-toggle="dropdown" href="#"
         = t :links
         '
         b class="caret"
       ul.dropdown-menu
-        li class="#{active_link_to_class(root_path, :active => [['links'], ['new', 'create']])}"
-          = active_link_to (t :home_page), root_path, :active => [['links'], ['new', 'create']]
+        li class="#{active_link_to_class(root_path, :active => [['user_links'], ['new', 'create']])}"
+          = active_link_to (t :home_page), root_path, :active => [['user_links'], ['new', 'create']]
         - if user_signed_in?
-          li class="#{active_link_to_class(links_path, :active => [['links'], ['index']])}"
-            = active_link_to (t :my_links), links_path, :active => [['links'], ['index']]
+          li class="#{active_link_to_class(links_path, :active => [['user_links'], ['index']])}"
+            = active_link_to (t :my_links), links_path, :active => [['user_links'], ['index']]
         - else
-          li class="#{active_link_to_class(all_links_path, :active => [['links'], ['index']])}"
-            = active_link_to (t :all_links), all_links_path, :active => [['links'], ['index']]
+          li class="#{active_link_to_class(all_links_path, :active => [['user_links'], ['index']])}"
+            = active_link_to (t :all_links), all_links_path, :active => [['user_links'], ['index']]
     - if user_signed_in?
       li class="#{active_link_to_class(edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']])}"
         = active_link_to (t :profile), edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']]
-    li class="#{active_link_to_class(rates_path, :active => [['links'], ['index']])}"
-      = active_link_to (t "statistics.rates.menu"), rates_path, :active => [['links'], ['index']]
+    li class="#{active_link_to_class(rates_path, :active => [['site_rates'], ['index']])}"
+      = active_link_to (t "statistics.rates.menu"), rates_path, :active => [['site_rates'], ['index']]
   .navbar-form.pull-right
     - if signed_in?
       = t :welcome
