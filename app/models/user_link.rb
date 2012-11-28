@@ -5,10 +5,13 @@ class UserLink < ActiveRecord::Base
   URL_REGEXP = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\Z/ix
 
   pg_search_scope :user_search,
-                  :against => [:link, :email, :title, :description],
+                  :against => [:email, :title, :description],
                   :using => {
-                      :tsearch => {:prefix => true}
-                  }
+                      :tsearch => {:prefix => true},
+                  },
+                  :associated_against => {
+                      :link => [:name, :title, :description],
+                      :user => [:email]}
 
   belongs_to :user, :dependent => :delete
   belongs_to :link, :dependent => :delete
