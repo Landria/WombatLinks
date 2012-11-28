@@ -1,0 +1,16 @@
+= form_for @payment, :url => payments_checkout_path do |f|
+  - if @payment.errors.any?
+    .alert.alert-error
+      #error_explanation
+        h2
+          | #{t :common_error_message}
+        ul
+          - @payment.errors.full_messages.each do |msg|
+            li #{msg}
+  =
+  .input-prepend
+    .span.add-on $
+    = f.text_field :amount, :class =>"input-small", :value => @payment.amount|| current_user.user_plan.plan.price, :placeholder => current_user.user_plan.plan.price
+    button class="btn btn-link center" type="submit" name="commit"
+      = image_tag('https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif')
+

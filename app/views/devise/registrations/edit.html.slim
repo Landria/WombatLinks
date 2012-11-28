@@ -28,8 +28,7 @@
     #subscription
       = render :partial => "devise/shared/subscription"
     p
-      button class="btn" type="button" name="commit"
-        = t 'subscription.prolong'
+      = button_to (t 'subscription.prolong'), payments_path, :class=> "btn"
     p.text-info= t 'subscription.prolong_text'
 
     h3= t :cancel_account

@@ -179,7 +179,7 @@ ru:
   add_site: "Следить"
   date:
     formats:
-      default: "%e-%m-%Y"
+      default: "%e.%m.%Y"
   subscription:
     active: "Активна"
     locked: "Не активна"

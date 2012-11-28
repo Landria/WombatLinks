@@ -1,0 +1,38 @@
+h1 Please Confirm Your Payment Details
+
+table
+  tr
+    td
+      | Name
+      = @address['name']
+  tr
+    td
+      | Company
+      = @address['company']
+  tr
+    td
+      | Address 1
+      = @address['address1']
+  tr
+    td
+      | Address 2
+      = @address['address2']
+  tr
+    td
+      | City
+      = @address['city']
+  tr
+    td
+      | State
+      = @address['state']
+  tr
+    td
+      | Country
+      = @address['country']
+  tr
+    td
+      | Zip
+      = @address['zip']
+
+= form_tag :action => 'complete', :token => params[:token], :payer_id => params[:PayerID] do
+  = submit_tag 'Complete Payment'

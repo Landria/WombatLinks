@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128171836) do
+ActiveRecord::Schema.define(:version => 20121128235042) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(:version => 20121128171836) do
     t.integer  "user_id"
     t.string   "tool"
     t.float    "amount"
+    t.string   "token"
+    t.integer  "ip"
+    t.string   "payer_id"
     t.boolean  "is_completed", :default => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false

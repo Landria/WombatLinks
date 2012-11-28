@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_one :user_plan, :dependent => :destroy
   has_many :user_promo, :dependent => :destroy
   has_many :domain, :through => :user_watch
+  has_many :payments, :dependent => :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -93,6 +94,20 @@ class User < ActiveRecord::Base
     end
 
     true
+  end
+
+  def complete_payment payment_id
+    payment = Payment.find(payment_id)
+    payment.complete
+    self.user_plan.recount_paid_upto payment_id
+  rescue
+    false
+  end
+
+  def current_payment ip
+    Payment.where('user_id = ? AND is_completed = false AND ip = ?', self.id, IpAddr.str2int(ip)).order('created_at DESC').first
+  rescue
+    nil
   end
 
   private

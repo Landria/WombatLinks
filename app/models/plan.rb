@@ -43,4 +43,8 @@ class Plan < ActiveRecord::Base
     end
   end
 
+  def price_per_day
+    self.price.to_f / 30
+  end
+
 end
