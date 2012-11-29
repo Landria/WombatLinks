@@ -47,4 +47,8 @@ class UserPlan < ActiveRecord::Base
     self.paid_upto = new_paid_upto(plan_id)
     self.save
   end
+
+  def free?
+    plan.free?
+  end
 end

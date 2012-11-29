@@ -137,3 +137,15 @@ footer{
 .stats.minus{
     color: #ff4500 !important;
 }
+
+#subscription .input-prepend .add-on, #my-sites .input-prepend .add-on{
+    margin: 0 !important;
+}
+
+#subscription .field_with_errors{
+    display: inline-block;
+}
+
+#subscription #payment{
+    margin-top: -7px;
+}

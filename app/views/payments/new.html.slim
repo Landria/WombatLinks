@@ -1,7 +1,10 @@
-h1= t 'payments.new'
-
-- if current_user.user_plan.plan.free?
- p= t 'payments.disabled'
--else
- p Вы можете пополить баланс на сумму, не меньшую чем стоимость 1 месяца подписки
- = render :partial => 'payments/form'
+.row#subscription
+  - if current_user.can_access_payment?
+    .span5
+      h1= t 'payments.new'
+      p.text-info= t 'payments.new_text'
+      - if current_user.user_plan.free?
+        p.text-warning= t 'payments.new_text_free'
+      = render :partial => 'payments/form'
+  .span5
+    h2= t 'payments.promo_code'

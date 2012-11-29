@@ -107,6 +107,8 @@ ru:
       user_watch:
         url: "Сайт"
         domain_id: "Сайт"
+      payment:
+        amount: "Сумма"
     errors:
       models:
         user_link:
@@ -144,6 +146,11 @@ ru:
               is already being watched: "уже наблюдается"
             domain_id:
               taken: "уже наблюдается Вами"
+        payment:
+          attributes:
+            amount:
+              not_a_number: "должна быть числом"
+              greater_than_or_equal_to: "должна быть больше или равна $%{count}"
   confirm_not_recieved: "Не получили письмо с кодом подтверждения?"
   unlock_not_recieved: "Не получили письмо с кодом разблокировки?"
   update: "Обновить"
@@ -209,3 +216,21 @@ ru:
       pages_title: "Статистика ссылок"
     show_stats: "Статистика"
     recount_rates: "Пересчитать статистику"
+  payments:
+    new: "Продлить подписку"
+    disabled: "Оплата продления бесплатной подписки не может быть осуществлена!"
+    promo_code: "У меня есть промо-код!"
+    new_text: "Вы можете пополить баланс на сумму, не меньшую чем стоимость одного месяца минимальной подписки."
+    error: "Ошибка завершения платежа. Если подписка не продлена, обратитесь к администратору!"
+    complete: "Спасибо за продление подписки!"
+    new_text_free: "Ваша подписка не нуждается в платном продлении, но Вы можете совершить платеж, если хотите поддержать развитие сервиса."
+    table:
+      list: "Мои платежи"
+      status: "Статус"
+      date: "Дата"
+      tool: "Система платежей"
+      amount: "Сумма"
+      completed: "Завершен"
+      not_completed: "Не завершен"
+      total: "Всего завершено платежей на сумму"
+  paypal_image: 'https://www.paypal.com/ru_RU/i/btn/btn_dg_pay_w_paypal.gif'

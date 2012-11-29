@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
   end
 
   def new
-   @payment = Payment.new
+    @payment = Payment.new
   end
 
   def checkout
@@ -24,42 +24,34 @@ class PaymentsController < ApplicationController
 
     setup_response = EXPRESS_GATEWAY.setup_purchase(@payment.amount_with_cents,
                                                     :ip => request.remote_ip,
-                                                    :return_url => url_for(:controller => :payments, :action => :confirm, :only_path => false),
-                                                    :cancel_return_url => url_for(:controller => :payments, :action => :new, :only_path => false)
+                                                    :return_url => url_for(:controller => :payments, :action => :complete, :only_path => false),
+                                                    :cancel_return_url => url_for(:controller => :payments, :action => :new, :only_path => false),
     )
 
     redirect_to EXPRESS_GATEWAY.redirect_url_for(setup_response.token)
   end
 
-  def confirm
-    redirect_to :action => :new unless params[:token]
-
-    details_response = EXPRESS_GATEWAY.details_for(params[:token])
-
-    if !details_response.success?
-      redirect_to :new, :error => details_response.message
-    end
-
-    @address = details_response.address
-  end
-
   def complete
+    message = {notice: (t 'payments.complete')}
+
     @payment = current_user.current_payment(request.remote_ip)
 
     purchase = EXPRESS_GATEWAY.purchase(@payment.amount.to_i,
                                         :ip => request.remote_ip,
-                                        :payer_id => params[:payer_id],
+                                        :payer_id => params[:PayerID],
                                         :token => params[:token]
     )
 
     if !purchase.success?
-      redirect_to :new, :error => purchase.message
+      message =  {alert: purchase.message}
     end
 
-    if !(current_user.complete_payment @payment.id)
-      #redirect_to :new, :error => "Ошибка завершения платежа"
+    if !(current_user.complete_payment @payment.id, params[:PayerID])
+      message = {alert: (t 'payments.error')}
+
     end
 
+    redirect_to payments_url, message
   end
 
 end

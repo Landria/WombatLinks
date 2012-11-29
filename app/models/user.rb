@@ -96,18 +96,30 @@ class User < ActiveRecord::Base
     true
   end
 
-  def complete_payment payment_id
+  def complete_payment payment_id, payer_id
     payment = Payment.find(payment_id)
-    payment.complete
+    payment.complete payer_id
     self.user_plan.recount_paid_upto payment_id
   rescue
     false
+  end
+
+  def can_access_payment?
+    Plan.get_min_plan
   end
 
   def current_payment ip
     Payment.where('user_id = ? AND is_completed = false AND ip = ?', self.id, IpAddr.str2int(ip)).order('created_at DESC').first
   rescue
     nil
+  end
+
+  def total_payments
+     Payment.sum_of_completed_for_user self.id
+  end
+
+  def get_payments page
+    Payment.find_for_user self.id, page
   end
 
   private

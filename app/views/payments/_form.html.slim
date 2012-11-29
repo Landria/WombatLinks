@@ -10,7 +10,6 @@
   =
   .input-prepend
     .span.add-on $
-    = f.text_field :amount, :class =>"input-small", :value => @payment.amount|| current_user.user_plan.plan.price, :placeholder => current_user.user_plan.plan.price
-    button class="btn btn-link center" type="submit" name="commit"
-      = image_tag('https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif')
-
+    = f.text_field :amount, :class =>"input-small", :value => @payment.amount|| Plan.get_min_plan_price, :placeholder => Plan.get_min_plan_price
+    button class="btn btn-link" id="payment" type="submit" name="commit"
+      = image_tag(t 'paypal_image')

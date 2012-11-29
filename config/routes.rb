@@ -26,7 +26,7 @@ LinkmeRuby::Application.routes.draw do
   match "/payment/" => "payments#new", :as => :payments
   match "/payment/checkout" => "payments#checkout", :via => [:post], :as => :payments_checkout
   match "/payment/confirm" => "payments#confirm", :via => [:get], :as => :payments_confirm
-  match "/payment/complete/:token/:payer_id" => "payments#complete", :as => :payments_complete_with_params
+  match "/payment/complete" => "payments#complete", :as => :payments_complete
 
 
 
