@@ -12,22 +12,32 @@ describe UserLink do
   let(:email_wrong) { 'underveil@.com' }
   let(:link_name_wrong) { 'link' }
 
-  it "should create user_link" do
-    user_link = described_class.new :email => email, :link_url => link_url
-    user_link.should be_valid
-    user_link.add.should eq true
-    user_link.link_hash.should_not be_nil
-    user_link.link.domain_id.should_not be_nil
-  end
+  context "create user link" do
+    it "should create user_link" do
+      user_link = described_class.new :email => email, :link_url => link_url
+      user_link.should be_valid
+      user_link.add.should eq true
+      user_link.link_hash.should_not be_nil
+      user_link.link.domain_id.should_not be_nil
+    end
 
-  it "should not create user_link" do
-    user_link = described_class.new :email => email_wrong, :link_url => link_url
-    user_link.should_not be_valid
-    user_link.save.should eq false
+    it "should create private user_link" do
+      user_link = described_class.new :email => email, :link_url => link_url, :is_private => true
+      user_link.should be_valid
+      user_link.add.should eq true
+      user_link.link_hash.should_not be_nil
+      user_link.link.domain_id.should_not be_nil
+    end
 
-    user_link = described_class.new :email => email, :link_url => link_name_wrong
-    user_link.should_not be_valid
-    user_link.save.should eq false
+    it "should not create user_link" do
+      user_link = described_class.new :email => email_wrong, :link_url => link_url
+      user_link.should_not be_valid
+      user_link.save.should eq false
+
+      user_link = described_class.new :email => email, :link_url => link_name_wrong
+      user_link.should_not be_valid
+      user_link.save.should eq false
+    end
   end
 
   context "get links for domain" do
