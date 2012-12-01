@@ -1,7 +1,5 @@
 LinkmeRuby::Application.routes.draw do
 
-  resources :payments
-
   match "/links/all" => "user_links#index", :as => :all_links, :all => true
   match "/links" => "user_links#index"
   match "/link/create" => "user_links#create", :as => :create_link, :all => true
@@ -24,6 +22,12 @@ LinkmeRuby::Application.routes.draw do
   match "/wombat-rates" => "site_rates#index", :via => [:get], :as => :rates
   match "/site-rates/:id" => "site_rates#user_rates", :via => [:get], :as => :user_rates
   match "/recount-rates/:id" => "site_rates#recount_rates", :via => [:post], :as => :recount_rates
+
+  match "/payment/" => "payments#new", :as => :payments
+  match "/payment/checkout" => "payments#checkout", :via => [:post], :as => :payments_checkout
+  match "/payment/confirm" => "payments#confirm", :via => [:get], :as => :payments_confirm
+  match "/payment/complete" => "payments#complete", :as => :payments_complete
+
 
 
 # The priority is based upon order of creation:

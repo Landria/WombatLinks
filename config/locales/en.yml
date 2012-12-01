@@ -104,6 +104,8 @@ en:
   add_site: "Watch"
   subscription:
     prolong_text: "Use promo-codes to prolong subscription"
+    name: "Subscription"
+    prolong: "Prolong"
   messages:
     user_watch:
       success_add: "Site successfully added"
@@ -115,4 +117,15 @@ en:
       title: "Wombat Rates"
       menu: "Sites Rates"
       pages_title: "Domain links stats"
-
+  payments:
+    new: "Prolong subscription"
+    promo_code: "I have promo-code!"
+    disabled: "You cannot buy prolongation for free subscription!"
+    new_text: "Minimum amount to pay is price of one subscription period."
+    error: "Payment cannot be completed because of some errors. If you subscription is not prolonged, please contact administrator!"
+    complete: "Thank you for subscription prolongation!"
+    new_text_free: "Your subscription is free but you can make donation payment as for ordinary subscription prolongation."
+    table:
+      list: "My payments"
+      tool: "Payment System"
+  paypal_image: 'https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif'

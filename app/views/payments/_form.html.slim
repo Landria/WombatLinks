@@ -1,0 +1,15 @@
+= form_for @payment, :url => payments_checkout_path do |f|
+  - if @payment.errors.any?
+    .alert.alert-error
+      #error_explanation
+        h2
+          | #{t :common_error_message}
+        ul
+          - @payment.errors.full_messages.each do |msg|
+            li #{msg}
+  =
+  .input-prepend
+    .span.add-on $
+    = f.text_field :amount, :class =>"input-small", :value => @payment.amount|| Plan.get_min_plan_price, :placeholder => Plan.get_min_plan_price
+    button class="btn btn-link" id="payment" type="submit" name="commit"
+      = image_tag(t 'paypal_image')

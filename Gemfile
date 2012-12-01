@@ -28,6 +28,7 @@ group :test do
    gem 'shoulda', :require => nil
    gem 'database_cleaner'
    gem 'webmock'
+   gem 'pry'
 end
 
  gem 'jquery-rails'
@@ -71,4 +72,5 @@ end
  gem 'pg_search'
  gem 'slim'
  gem 'rails_config'
- gem 'pry'
+
+ gem 'activemerchant'

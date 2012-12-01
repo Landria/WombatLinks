@@ -67,4 +67,15 @@ LinkmeRuby::Application.configure do
   config.bitly_login = "Landria"
   config.bitly_api_key = "R_de421b9f20e1012c66b13504051ce7c8"
   config.action_mailer.default_url_options = { :host => 'www.wombatlinks.com' }
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+        :login => 'underv_1354121044_biz_api1.yahoo.com',
+        :password => '1354121065',
+        :signature => 'Adzdl-XhqacuZSu8b2-JA3ESmDN0A.XHNg87PH58MW8R-BdurMxfynaE'
+    }
+    ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
 end

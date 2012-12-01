@@ -1,0 +1,10 @@
+.row#subscription
+  - if current_user.can_access_payment?
+    .span5
+      h1= t 'payments.new'
+      p.text-info= t 'payments.new_text'
+      - if current_user.user_plan.free?
+        p.text-warning= t 'payments.new_text_free'
+      = render :partial => 'payments/form'
+  .span5
+    h2= t 'payments.promo_code'

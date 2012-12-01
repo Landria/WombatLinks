@@ -4,6 +4,8 @@ class CreatePayments < ActiveRecord::Migration
       t.integer :user_id
       t.string :tool
       t.float :amount
+      t.integer :ip
+      t.string :payer_id
       t.boolean :is_completed, :default => false
 
       t.timestamps

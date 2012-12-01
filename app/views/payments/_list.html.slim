@@ -1,0 +1,29 @@
+- if payments.count > 0
+  h2= t 'payments.table.list'
+  table.table.table-striped
+    thead
+      tr
+        th= t 'payments.table.date'
+        th= t 'payments.table.amount'
+        th= t 'payments.table.tool'
+        th= t 'payments.table.status'
+    tbody
+      - payments.each do |payment|
+        tr
+          td= l payment.created_at.to_date
+          td $#{payment.amount}
+          td= payment.tool.capitalize
+          td
+            - if payment.is_completed
+              span.label.label-success
+                = t 'completed'
+            - else
+              span.label.label-important
+                = t 'not_completed'
+  p
+    strong
+      = t 'payments.table.total'
+      ' :
+    | $#{current_user.total_payments}
+
+= will_paginate payments, :renderer => BootstrapPagination::Rails

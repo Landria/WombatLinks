@@ -25,6 +25,16 @@ class Plan < ActiveRecord::Base
     order("sites_count DESC").first
   end
 
+  def self.get_min_plan
+    where('price > 0').order("sites_count ASC").first
+  end
+
+  def self.get_min_plan_price
+    plan = get_min_plan
+    return plan.price if plan
+    1
+  end
+
   def self.get_max_sites_count
     get_max_plan.sites_count.to_i #if get_max_plan
   end
@@ -41,6 +51,10 @@ class Plan < ActiveRecord::Base
       UserPlan.create :user_id => user_id, :plan_id => get_first_suitable.id, :paid_upto => Date.today + period.months
     rescue
     end
+  end
+
+  def price_per_day
+    self.price.to_f / 30
   end
 
 end

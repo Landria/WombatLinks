@@ -12,12 +12,21 @@ class UserPlan < ActiveRecord::Base
           promo.link_user self.user_id if UserPromo.where(:promo_id => promo.id).exists?
           Time.now + promo.period.months
         else
-          Time.now + ((plan.price / Plan.find(plan_id).price) * days_remain).days
+          Time.now + ((self.plan.price / Plan.find(plan_id).price) * days_remain).days
         end
       end
     rescue
       self.paid_upto.to_time
     end
+  end
+
+  # use when payments received
+  def recount_paid_upto payment_id
+    payment = Payment.find(payment_id)
+    new_date = self.paid_upto.to_time + ((payment.amount.to_f / self.plan.price_per_day).floor + 1).days
+    self.update_attribute(:paid_upto, new_date)
+  rescue
+    fasle
   end
 
   def days_remain
@@ -37,5 +46,9 @@ class UserPlan < ActiveRecord::Base
     self.plan_id = plan_id
     self.paid_upto = new_paid_upto(plan_id)
     self.save
+  end
+
+  def free?
+    plan.free?
   end
 end

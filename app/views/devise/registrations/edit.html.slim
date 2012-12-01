@@ -28,8 +28,7 @@
     #subscription
       = render :partial => "devise/shared/subscription"
     p
-      button class="btn" type="button" name="commit"
-        = t 'subscription.prolong'
+      = button_to (t 'subscription.prolong'), payments_path, :class=> "btn"
     p.text-info= t 'subscription.prolong_text'
 
     h3= t :cancel_account
@@ -60,8 +59,7 @@
         =(t 'unlock_request.user_is_locked')
 
     .page-header
-      h2= t :watches
-      - if current_user.can_add_watch?
-        = render :partial => "user_watches/form", :locals => { :user_watch => UserWatch.new }
-      #my_sites_list
-        = render :partial => "user_watches/list", :locals => { :sites => current_user.sites}
+      = render :partial => 'user_watches/block'
+
+    .page-header
+      = render :partial => 'payments/list', locals: {payments: current_user.get_payments(params[:page]) }
