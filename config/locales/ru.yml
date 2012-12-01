@@ -77,16 +77,6 @@ ru:
       password:
         email: "Адрес эл. почты"
         password: "Пароль"
-  clearance:
-    controllers:
-      sessions:
-        bad_email_or_password: "Неверный логин или пароль"
-      passwords:
-        bad_email_or_password: "Проверьте адрес электронной почты и пароль."
-        blank_password: "Введите пароль."
-        blank_email: "Введите email"
-        unknown_email: "Проверьте email. Пользователь не найден."
-        forbidden: "Проверьте URL и повторите отправку формы."
   activerecord:
     attributes:
       user:

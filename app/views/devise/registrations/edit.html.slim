@@ -34,7 +34,7 @@
 
     h3= t :cancel_account
     p
-      = link_to (t :cancel_account), registration_path(resource_name), :data =>  confirm=((t :confirm))
+      = link_to (t :cancel_account), user_registration_path, :method => :delete, :confirm =>(t :confirm)
   .span6
     .page-header
       h1= t 'statistics.profile'
