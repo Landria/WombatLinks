@@ -1,0 +1,15 @@
+= form_for user_promo, :url => create_user_promo_path do |f|
+  - if user_promo.errors.any?
+    .alert.alert-error
+      #error_explanation
+        h2
+          | #{t :common_error_message}
+        ul
+          - user_promo.errors.full_messages.each do |msg|
+            li #{msg}
+  .input-prepend
+    .span.add-on
+      i.icon-gift
+    = f.text_field :promo_code, :class => 'input-xlarge', :placeholder => (t 'promos.palceholder')
+    button class="btn" type="submit" name="commit"
+      = t 'promos.add_code'

@@ -2,6 +2,7 @@
 class UserWatch < ActiveRecord::Base
   belongs_to :user
   belongs_to :domain
+
   attr_accessible :user_id
   attr_accessor :url
   attr_protected :domain_id

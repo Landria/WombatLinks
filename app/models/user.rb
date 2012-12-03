@@ -69,7 +69,8 @@ class User < ActiveRecord::Base
   end
 
   def stats_accessible?
-    self.user_plan.active?
+    return self.user_plan.active? if self.user_plan
+    false
   end
 
   def change_plan

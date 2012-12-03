@@ -32,9 +32,9 @@ describe Promo do
   end
 
   it "should create UserPromo" do
-    promo = described_class.new :period => 2, :active_upto => Time.now + 2.days
-    promo.link_user user.id
-
+    promo = described_class.create :period => 2, :active_upto => Time.now + 2.days
+    promo.should_not be_nil
+    promo.link_user(user.id)
     user_promo = UserPromo.find_by_user_id user.id
     user_promo.should_not be_nil
   end

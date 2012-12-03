@@ -17,7 +17,8 @@ class Promo < ActiveRecord::Base
   end
 
   def link_user user_id
-    UserPromo.add user_id, self.id
+    UserPromo.create user_id: user_id, promo_code: self.name
+  rescue
   end
 
   private

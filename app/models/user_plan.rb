@@ -26,7 +26,15 @@ class UserPlan < ActiveRecord::Base
     new_date = self.paid_upto.to_time + ((payment.amount.to_f / self.plan.price_per_day).floor + 1).days
     self.update_attribute(:paid_upto, new_date)
   rescue
-    fasle
+    false
+  end
+
+  # use when promo activated
+  def recount_paid_upto_via_promo promo_id
+    new_date = self.paid_upto.to_time + Promo.find(promo_id).period.to_i.months
+    self.update_attribute(:paid_upto, new_date)
+  rescue
+    false
   end
 
   def days_remain

@@ -28,6 +28,7 @@ LinkmeRuby::Application.routes.draw do
   match "/payment/confirm" => "payments#confirm", :via => [:get], :as => :payments_confirm
   match "/payment/complete" => "payments#complete", :as => :payments_complete
 
+  match "/user_promo/create" => "payments#create_user_promo", :via => [:post], :as => :create_user_promo
 
 
 # The priority is based upon order of creation:

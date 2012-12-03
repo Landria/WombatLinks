@@ -33,11 +33,11 @@ class Ability
       can :index, SiteRate
     end
     if user
-      can :index, Payment
       can :create, Payment
       can :checkout, Payment
       can :confirm, Payment
       can :complete, Payment
+      can :create_user_promo, Payment
       if user.is_locked?
         can :index, UserLink
         can :show, UserLink

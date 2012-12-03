@@ -64,6 +64,12 @@ en:
     attributes:
       link:
         is_private: "It's my private link"
+      user_watch:
+        url: "Site"
+        domain_id: "Site"
+      user_promo:
+        promo_code: 'Promo-code'
+        promo_id: 'Promo-code'
     errors:
       models:
         user_watch:
@@ -72,6 +78,17 @@ en:
               taken: "is already watching by you"
             url:
               invalid: "is invalid. Type without http://"
+        user_promo:
+          attributes:
+            promo_id:
+              blank: 'is not found (or active)'
+              taken: 'is already activated'
+        user_watch:
+          attributes:
+            url:
+              invalid: "не соответствует формату. Вводите без http://"
+            domain_id:
+              taken: "is already being watched"
   confirm_not_recieved: "Didn't receive confirmation instructions?"
   unlock_not_recieved: "Didn't receive unlock instructions?"
   update: "Update"
@@ -119,7 +136,6 @@ en:
       pages_title: "Domain links stats"
   payments:
     new: "Prolong subscription"
-    promo_code: "I have promo-code!"
     disabled: "You cannot buy prolongation for free subscription!"
     new_text: "Minimum amount to pay is price of one subscription period."
     error: "Payment cannot be completed because of some errors. If you subscription is not prolonged, please contact administrator!"
@@ -129,3 +145,10 @@ en:
       list: "My payments"
       tool: "Payment System"
   paypal_image: 'https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif'
+  promos:
+    title: "I have promo-code!"
+    code: "Promo-code"
+    add_code: "Activate"
+    palceholder: "Enter promo-code here"
+    new_text: "User your promo-codes to prolong subscription. You can activate all your codes at a time!"
+    success: "Promo-code is activated! Subscription is prolonged for %{count} months!"

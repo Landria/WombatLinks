@@ -7,4 +7,6 @@
         p.text-warning= t 'payments.new_text_free'
       = render :partial => 'payments/form'
   .span5
-    h2= t 'payments.promo_code'
+    h2= t 'promos.title'
+    p.text-info= t 'promos.new_text'
+    = render :partial => 'user_promos/form', :locals => {:user_promo => @user_promo}

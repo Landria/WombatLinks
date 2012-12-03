@@ -40,7 +40,6 @@ class Plan < ActiveRecord::Base
   end
 
   def self.set_new_user user_id
-    begin
       promo = Promo.get_current
       if promo
         period = promo.period
@@ -48,9 +47,7 @@ class Plan < ActiveRecord::Base
       else
         period = Settings.registration.prepaid_period.to_i
       end
-      UserPlan.create :user_id => user_id, :plan_id => get_first_suitable.id, :paid_upto => Date.today + period.months
-    rescue
-    end
+     UserPlan.create :user_id => user_id, :plan_id => get_first_suitable.id, :paid_upto => Date.today + period.months
   end
 
   def price_per_day

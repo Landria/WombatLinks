@@ -2,12 +2,23 @@ class PaymentsController < ApplicationController
   include ActiveMerchant::Billing
   load_and_authorize_resource
 
-  def index
-
-  end
-
   def new
     @payment = Payment.new
+    @user_promo = UserPromo.new
+  end
+
+  def create_user_promo
+    promo_params = params[:user_promo]
+    promo_params = promo_params.merge user_id: current_user.id
+
+    @user_promo = UserPromo.new(promo_params)
+    if !@user_promo.save
+      @payment = Payment.new
+      render :action => :new
+      return
+    else
+      redirect_to payments_url, notice: (t 'promos.success', count: @user_promo.promo.period.to_s)
+    end
   end
 
   def checkout
