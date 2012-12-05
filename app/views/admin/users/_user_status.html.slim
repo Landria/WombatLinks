@@ -1,0 +1,8 @@
+- if user.is_locked?
+  span.label.label-important
+    | Locked
+  span.action
+    = link_to "Unlock", unlock_admin_user_path(user), method: :put
+- else
+  span.label.label-success
+    | Active

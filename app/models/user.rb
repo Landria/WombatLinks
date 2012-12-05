@@ -56,7 +56,12 @@ class User < ActiveRecord::Base
         link.is_spam = false
         link.save
       end
+      if request = self.unlock_request.where(:status => 'new').last
+        request.accept!
+      end
+      true
     rescue
+      false
     end
   end
 

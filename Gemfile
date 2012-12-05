@@ -74,3 +74,4 @@ end
  gem 'rails_config'
 
  gem 'activemerchant'
+ gem 'activeadmin'

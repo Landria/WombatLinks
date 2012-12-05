@@ -16,4 +16,10 @@ class WombatMailer < ActionMailer::Base
             :subject => "New unlock request"
      end
   end
+
+  def send_unlock_notification user, locale = I18n.default_locale
+    I18n.locale = locale
+    mail :to      => user.email,
+         :subject => (t 'unlock.notification')
+  end
 end

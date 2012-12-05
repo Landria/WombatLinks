@@ -1,0 +1,15 @@
+- if request.is_new?
+  span.label.label-new
+    | New
+  span.action
+    = link_to "Accept", accept_admin_unlock_request_path(request), method: :put
+  span.action
+    = link_to "Decline", decline_admin_unlock_request_path(request), method: :put
+- if request.is_declined?
+  span.label.label-important
+    | Declined
+  span.action
+    = link_to "Accept", accept_admin_unlock_request_path(request), method: :put
+- if request.is_accepted?
+  span.label.label-success
+    | Accepted

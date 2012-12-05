@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
-User.delete_all
+AdminUser.delete_all
 Plan.delete_all
 Promo.delete_all
 
@@ -15,6 +15,6 @@ Plan.create([
     { name: "Max", price: 2.99, sites_count: 7},
 ])
 
-User.create(:email => 'natalia.m.sergeeva@gmail.com', :password => 'wombatadmin');
+AdminUser.create(:email => 'natalia.m.sergeeva@gmail.com', :password => 'wombatadmin');
 
 Promo.create(:name => "BigRegistrationPromo", :period => 7, :active_upto => Time.now + 4.months, :registration => true)

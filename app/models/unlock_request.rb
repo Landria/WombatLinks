@@ -1,14 +1,7 @@
 class UnlockRequest < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :message
-
-  def status
-    read_attribute(:status).to_s
-  end
-
-  def status= (value)
-    write_attribute(:status, value.to_sym)
-  end
+  attr_protected :status
 
   def is_new?
     self.status == 'new'
@@ -20,5 +13,16 @@ class UnlockRequest < ActiveRecord::Base
 
   def is_accepted?
     self.status == 'accepted'
+  end
+
+  def accept!
+    self.status =  'accepted'
+    self.save
+    WombatMailer.send_unlock_notification(self.user, I18n.locale).deliver
+  end
+
+  def decline!
+    self.status = 'declined'
+    self.save
   end
 end
