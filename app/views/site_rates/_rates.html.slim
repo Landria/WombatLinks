@@ -44,5 +44,7 @@
                   i.icon-chevron-down
                 = rate.m_move.abs if rate.m_move
             td= rate.total
+  - else
+    p.text-warning= t 'messages.no_data'
 .span10
   = will_paginate rates, :renderer => BootstrapPagination::Rails

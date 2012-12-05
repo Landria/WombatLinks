@@ -54,7 +54,6 @@ ru:
   is_private: "Это моя личная ссылка"
   is_private_show: "Личная ссылка"
   is_spam_show: "Спам"
-  no_links: "Ссылок пока нет!"
   add_link: "Добавить ссылку"
   index_auth_message: "Вы просматриваете только публичные ссылки. Чтобы видеть все свои ссылки, пожалуйста, %{sign_in_link}!"
   sign_in_to: "войдите"
@@ -203,6 +202,9 @@ ru:
       success_add: "Сайт успешно добавлен"
       success_destroy: "Сайт успешно удален"
       error_destroy: "Удаление невозможно! Повторите немного позже!"
+    unauthorized: "Сессия истекла! Войдите снова."
+    no_data: "Данных пока нет."
+    no_links: "Ссылок пока нет!"
   statistics:
     profile: "Статистика"
     rates:

@@ -9,11 +9,11 @@ LinkmeRuby::Application.routes.draw do
   match "/link/create" => "user_links#create", :as => :create_link, :all => true
   match "/resend/:link_id" => "user_links#resend", :as => :resend_link, :via => [:get]
   match "/complain/:hash" => "requests#spam_complain", :as => :spam_complain, :via => [:get]
-  match "/add_watch" => "requests#create_user_watch", :as => :new_user_watch, :via => [:post]
+  match "/add_watch" => "user_watches#create_user_watch", :as => :new_user_watch, :via => [:post]
   resources :user_links
-  match "/load_user_sites" => 'requests#user_watches_list', :method => 'post'
+  match "/load_user_sites" => 'user_watches#user_watches_list', :method => 'post'
   match "/load_user_subscription" => 'requests#user_subscription', :method => 'post'
-  match "/user_watches/:id" => 'requests#user_watch_destroy', :method => 'delete', :as => :user_watch
+  match "/user_watches/:id" => 'user_watches#user_watch_destroy', :method => 'delete', :as => :user_watch
 
   root :to => 'user_links#new'
   mount Resque::Server, :at => "/background"

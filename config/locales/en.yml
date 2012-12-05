@@ -43,7 +43,6 @@ en:
   w_link: 'Link #'
   is_private_show: "Private link"
   is_spam_show: "Spam"
-  no_links: "No links yet!"
   index_auth_message: "You are listing public links only. To see all your links please %{sign_in_link}!"
   sign_in_to: "sign in"
   confirm: "Are you sure?"
@@ -128,6 +127,9 @@ en:
       success_add: "Site successfully added"
       success_destroy: "Site successfully deleted"
       error_destroy: "Cannot proceed! Please repeat some later!"
+    unauthorized: "Session expired! Log in again."
+    no_data: "No data yet."
+    no_links: "No links yet!"
   statistics:
     profile: "Statistics"
     rates:
@@ -156,5 +158,5 @@ en:
     registration_prepaid_text: "Register today and You get test subscription period for"
     plans_change: "Subscription type changes automatically with active profile sites count."
   months_count:
-      one: "%{count} month"
-      other: "%{count} months"
+    one: "%{count} month"
+    other: "%{count} months"

@@ -53,7 +53,7 @@
           ' | #{link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete}
       hr
     - if (@links.count == 0)
-      p= t :no_links
+      p.text-warning= t 'messages.no_links'
   .span10
     = will_paginate @links, :renderer => BootstrapPagination::Rails
     - if can? :create, UserLink
