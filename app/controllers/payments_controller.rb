@@ -17,7 +17,8 @@ class PaymentsController < ApplicationController
       render :action => :new
       return
     else
-      redirect_to payments_url, notice: (t 'promos.success', count: @user_promo.promo.period.to_s)
+      notice = t 'promos.success'  + " " + t(:months_count, :count => @user_promo.promo.period) + "!"
+      redirect_to payments_url, notice: notice
     end
   end
 

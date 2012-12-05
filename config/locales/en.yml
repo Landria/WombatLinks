@@ -151,4 +151,10 @@ en:
     add_code: "Activate"
     palceholder: "Enter promo-code here"
     new_text: "User your promo-codes to prolong subscription. You can activate all your codes at a time!"
-    success: "Promo-code is activated! Subscription is prolonged for %{count} months!"
+    success: "Promo-code is activated! Subscription is prolonged for"
+    registration_text: "Register today and You get prepaid subscription period for"
+    registration_prepaid_text: "Register today and You get test subscription period for"
+    plans_change: "Subscription type changes automatically with active profile sites count."
+  months_count:
+      one: "%{count} month"
+      other: "%{count} months"

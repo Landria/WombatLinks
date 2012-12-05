@@ -1,17 +1,16 @@
 /*
  *= require bootstrap_and_overrides
  */
+@import url(http://fonts.googleapis.com/css?family=Comfortaa:400,300,700&subset=latin,cyrillic-ext,greek,latin-ext,cyrillic);
 
 .main-unit {
     margin-top: 10px;
     padding: 5px 40px 20px 40px;
     margin-bottom: 20px;
     background-color: #f8f8ff;
-    -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
 }
 
 .holder_tweets {
@@ -73,24 +72,6 @@ span.label, a.label{
   padding: 5px;
 }
 h1, h2, h3,h4, h5{
-    /*font-family: 'Chicle', cursive;
-    font-family: 'Arbutus Slab', serif;
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-family: 'Economica', sans-serif;
-    font-family: 'Molle', cursive;
-    font-family: 'Eagle Lake', cursive;
-    111font-family: 'Marck Script', cursive;
-    font-family: 'Oranienbaum', serif;
-    font-family: 'Lobster', cursive;
-    font-family: 'Frijole', cursive;
-    font-family: 'Racing Sans One', cursive;
-    font-family: 'Sofadi One', cursive;
-    font-family: 'Archivo Narrow', sans-serif;
-    font-family: 'Griffy', cursive;
-    font-family: 'Jacques Francois', serif;
-   font-family: 'Courgette', cursive; */
-    /*font-family: 'Comfortaa', cursive;*/
-    /*font-family: 'PT Sans Narrow', sans-serif;*/
     font-family: 'Comfortaa', cursive;
 }
 
@@ -112,6 +93,7 @@ footer{
     /*font-family: 'Sofadi One', cursive;*/
     font-family: 'Comfortaa', cursive;
     font-size: 1.1em;
+    margin-bottom: 20px;
 }
 
 .btn{
@@ -148,4 +130,31 @@ footer{
 
 #subscription #payment{
     margin-top: -7px;
+}
+
+p.text-info.wide{
+    text-align: justify;
+}
+
+#plans-and-pricing span.label{
+    font-size: 1.1em;
+    padding: 10px;
+}
+#plans-and-pricing .plan {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+#plans-and-pricing #promo{
+    margin: 20px 0;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    background-color: #f8f8ee;
+    padding: 10px 20px;
+
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+
 }

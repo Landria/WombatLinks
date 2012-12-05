@@ -1,6 +1,29 @@
-ru:
+en:
   text:
     plans:
-      title: "Планы"
+      title: "Plans and pricing"
+      plans:
     terms:
-      title: "Условия пользования сервисом"
+      title: "Terms of use"
+      terms:
+       - 'You can use our "Link to Email" service and "Common Site Rates" service absolutely free.
+          All links you send as anonymous user will be public.'
+
+       - 'You have to register to access our "Site Watch and Monitoring" service.
+          See "Plans and Pricing".'
+
+       - "By using WombatLinks services You agree to we could collect anonymous statistic data"
+
+       - "Every visitor of our website can access anonymous public links.
+          We can use anonymous public links to post to our social networks accounts.
+          We can delete anonymous public link when it's storage period expired."
+
+       - "We guarantee you account data and emails will be used just to send links,
+          Site Watch and Monitoring reports and our mailing list."
+
+       - "You can refuse receiving Site Watch and Monitoring reports and service information emails
+          at Your profile."
+
+       - 'WombatLinks.com is not responsible for links, emailed by our service.
+         If You receive spam links,
+         please make us now via "Spam link complain" link in email message.'

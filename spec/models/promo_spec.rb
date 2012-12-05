@@ -22,12 +22,12 @@ describe Promo do
   end
 
   it "should return current active promo" do
-    promo = described_class.create :period => 2, :active_upto => Time.now + 2.days
+    promo = described_class.create :period => 2, :active_upto => Time.now + 2.days, :registration => true
     described_class.get_current.should_not be_nil
   end
 
   it "should return nil if no active promos" do
-    promo = described_class.create :period => 1, :active_upto => Time.now - 2.days
+    promo = described_class.create :period => 1, :active_upto => Time.now - 2.days, :registration => true
     described_class.get_current.should be_nil
   end
 

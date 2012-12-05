@@ -4,6 +4,7 @@ class CreatePromos < ActiveRecord::Migration
       t.string :name
       t.integer :period
       t.date :active_upto
+      t.boolean :registration, default: false
 
       t.timestamps
     end

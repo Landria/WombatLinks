@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(:version => 20121128235042) do
     t.integer  "user_id"
     t.string   "tool"
     t.float    "amount"
-    t.string   "token"
     t.integer  "ip"
     t.string   "payer_id"
     t.boolean  "is_completed", :default => false
@@ -78,8 +77,9 @@ ActiveRecord::Schema.define(:version => 20121128235042) do
     t.string   "name"
     t.integer  "period"
     t.date     "active_upto"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "registration", :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "site_rates", :force => true do |t|

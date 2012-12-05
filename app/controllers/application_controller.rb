@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :set_locale, :get_tweets, :check_user_lock
+  before_filter :set_locale, :get_tweets, :check_user_lock, :get_plans, :get_promo
 
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
@@ -46,6 +46,15 @@ class ApplicationController < ActionController::Base
 
   def current_ability
     @current_ability ||= Ability.new(current_user)
+  end
+
+  def get_plans
+    @plans = Plan.all
+  end
+
+  def get_promo
+    @promo = Promo.get_current
+    @prepaid = Settings.registration.prepaid_period.to_i
   end
 
 end

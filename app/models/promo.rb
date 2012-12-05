@@ -1,6 +1,6 @@
 require 'digest/md5'
 class Promo < ActiveRecord::Base
-  attr_accessible :active_upto, :name, :period
+  attr_accessible :active_upto, :name, :period, :registration
 
   validates_presence_of :period
   validates_presence_of :active_upto
@@ -9,7 +9,7 @@ class Promo < ActiveRecord::Base
   before_create :set_name
 
   def self.get_current
-    self.where("active_upto > ?", Time.now).last
+    self.where("active_upto > ? AND registration = true", Time.now).last
   end
 
   def active?

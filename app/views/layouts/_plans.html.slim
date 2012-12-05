@@ -1,0 +1,36 @@
+#plans-and-pricing
+  h3= t 'text.plans.title'
+
+  - @plans.each do |plan|
+    .plan
+      h4= plan.name
+      p
+        - if plan.free?
+          span.label.label-success
+            strong= (t 'subscription.free')
+        - else
+          span.label.label-info
+            strong $#{plan.price}/#{t 'month'}
+
+      p
+        = t 'subscription.sites_count'
+        ' :
+        = plan.sites_count
+  - if !signed_in?
+    #promo
+      - if @promo
+        p.text-success
+          = t 'promos.registration_text'
+          '
+          span.month= t(:months_count, :count => @promo.period)
+          | !
+      -else
+        - if @prepaid
+          p.text-success
+            = t 'promos.registration_prepaid_text'
+            '
+            = t(:months_count, :count => @prepaid)
+            | !
+  p.text-warning= t 'promos.plans_change'
+  - if !is_active_link?(new_user_registration_path, :exclusive) and !signed_in?
+    = button_to (t :sign_up), new_user_registration_path, class: "btn btn-large", method: :get
