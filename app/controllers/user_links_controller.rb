@@ -73,7 +73,7 @@ class UserLinksController < ApplicationController
 
     @link = UserLink.new(link_params)
 
-    if @link.add
+    if @link.save
       Resque.enqueue(LinkJob, @link.link.id)
       if !@link.is_private?
         #Resque.enqueue(TweetLinkJob, @link.id)

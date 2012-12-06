@@ -50,12 +50,7 @@ html lang="en"
         .span6
           = render 'layouts/plans'
       hr
-        footer
-          span
-            | © #{Time.now.strftime('%Y')} Wombat Links
-          span.pull-right
-            a href="http://landrina.ru"
-              |Landrina Projects
+      = render 'layouts/footer'
     /! /container
     /! Placed at the end of the document so the pages load faster
     = javascript_include_tag :application

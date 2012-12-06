@@ -1,8 +1,10 @@
 LinkmeRuby::Application.routes.draw do
 
+  root :to => 'user_links#new'
   ActiveAdmin.routes(self)
-
+  devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
+  mount Resque::Server, :at => "/background"
 
   match "/links/all" => "user_links#index", :as => :all_links, :all => true
   match "/links" => "user_links#index"
@@ -11,17 +13,15 @@ LinkmeRuby::Application.routes.draw do
   match "/complain/:hash" => "requests#spam_complain", :as => :spam_complain, :via => [:get]
   match "/add_watch" => "user_watches#create_user_watch", :as => :new_user_watch, :via => [:post]
   resources :user_links
+
+  match "/send-link" => "user_links#create", :as => :create_link, :via => [:post]
+
   match "/load_user_sites" => 'user_watches#user_watches_list', :method => 'post'
   match "/load_user_subscription" => 'requests#user_subscription', :method => 'post'
   match "/user_watches/:id" => 'user_watches#user_watch_destroy', :method => 'delete', :as => :user_watch
 
-  root :to => 'user_links#new'
-  mount Resque::Server, :at => "/background"
-
-  devise_for :users
-
-  match "locked" => "requests#user_locked", :as => :user_locked
-  match "unlock" => "requests#send_unlock", :as => :user_unlock, :via => [:post]
+  match "/account_locked" => "requests#user_locked", :as => :user_locked
+  match "/account_unlock" => "requests#send_unlock", :as => :user_unlock, :via => [:post]
 
   match "/wombat-rates" => "site_rates#index", :via => [:get], :as => :rates
   match "/site-rates/:id" => "site_rates#user_rates", :via => [:get], :as => :user_rates
@@ -34,6 +34,8 @@ LinkmeRuby::Application.routes.draw do
 
   match "/user_promo/create" => "payments#create_user_promo", :via => [:post], :as => :create_user_promo
 
+  match "/about_us" => "requests#contacts", :via => [:get], :as => :contacts
+  match "/send_message" => "requests#email_to_admin", :via => [:post], :as => :email_to_admin
 
 # The priority is based upon order of creation:
 # first created -> highest priority.

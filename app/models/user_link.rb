@@ -29,6 +29,8 @@ class UserLink < ActiveRecord::Base
   attr_protected :link_hash, :is_spam, :link_id
   attr_accessor :link_url
 
+  before_create :set_link, :set_link_hash
+
   self.per_page = 10
 
   def add
@@ -146,13 +148,17 @@ class UserLink < ActiveRecord::Base
 
   private
   def set_link_hash
-    hash_string = "link_hash=" + self.inspect + Time.now.to_s
-    hash = Digest::MD5.hexdigest hash_string
-    self.link_hash = hash
+    if !self.link_hash
+      hash_string = "link_hash=" + self.inspect + Time.now.to_s
+      hash = Digest::MD5.hexdigest hash_string
+      self.link_hash = hash
+    end
   end
 
   def set_link
-    self.link_id = Link.get_link_id self.link_url.to_s
+    if !self.link_id
+      self.link_id = Link.get_link_id self.link_url.to_s
+    end
   end
 
 end

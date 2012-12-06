@@ -1,5 +1,5 @@
+h2= t 'payments.table.list'
 - if payments.count > 0
-  h2= t 'payments.table.list'
   table.table.table-striped
     thead
       tr
@@ -25,5 +25,6 @@
       = t 'payments.table.total'
       ' :
     | $#{current_user.total_payments}
-
+-else
+  p.text-warning= t 'messages.no_data'
 = will_paginate payments, :renderer => BootstrapPagination::Rails

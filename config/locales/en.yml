@@ -26,7 +26,7 @@ en:
   common_error_message: "Oops! Something goes wrong!"
   register: "Registration"
   register_link: "Sign up!"
-  new_link_title: "Send link"
+  new_link_title: "New email-bookmark"
   link_email_tip: "Where to send?"
   link_link_tip: "What to send?"
   link_title_tip: "Link title used for email's subject. If you leave this field blank we'll try to get it automatically."
@@ -160,3 +160,5 @@ en:
   months_count:
     one: "%{count} month"
     other: "%{count} months"
+  contacts:
+    send: "Message is successfully send. Thank you!"

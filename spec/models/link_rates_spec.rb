@@ -14,13 +14,13 @@ describe LinkRate do
 
     it "should return total position" do
       link = UserLink.new :email => user.email, :link_url => link_url
-      link.add
+      link.save
 
       link2 = UserLink.new :email => email, :link_url => link_url
-      link2.add
+      link2.save
 
       link3 = UserLink.new :email => user.email, :link_url => link_url_2
-      link3.add
+      link3.save
 
       described_class.recount_all_rates
 
@@ -31,10 +31,10 @@ describe LinkRate do
 
     it "should recount rates" do
       link1 = UserLink.new :email => user.email, :link_url => link_url
-      link1.add
+      link1.save
 
       link2 = UserLink.new :email => user.email, :link_url => link_url_2
-      link2.add
+      link2.save
 
       described_class.recount_all_rates
 
@@ -45,7 +45,7 @@ describe LinkRate do
       described_class.total_to_position(link2.link.link_rate.total).should eq(1)
 
       link3 = UserLink.new :email => email2, :user_id => user.id, :link_url => link_url_2
-      link3.add
+      link3.save
 
       described_class.recount_all_rates
 
@@ -63,16 +63,16 @@ describe LinkRate do
 
     it "should recount rates with duplicate user_links" do
       link1 = UserLink.new :email => user.email, :user_id => user.id, :link_url => link_url
-      link1.add
+      link1.save
 
       link2 = UserLink.new :email => email, :link_url => link_url
-      link2.add
+      link2.save
 
       link3 = UserLink.new :email => user.email, :user_id => user.id, :link_url => link_url
-      link3.add
+      link3.save
 
       link4 = UserLink.new :email => email, :link_url => link_url_2
-      link4.add
+      link4.save
 
       described_class.recount_all_rates
 

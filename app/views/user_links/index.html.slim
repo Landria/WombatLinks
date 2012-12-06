@@ -58,4 +58,4 @@
     = will_paginate @links, :renderer => BootstrapPagination::Rails
     - if can? :create, UserLink
       div
-        = link_to (t :send_link), new_user_link_path, :class => "btn btn-large"
+        = link_to (t :new_link), new_user_link_path, :class => "btn btn-large"

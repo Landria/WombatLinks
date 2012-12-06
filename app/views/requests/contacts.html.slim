@@ -1,0 +1,10 @@
+.row
+  .span5
+    .page-header
+      h1= (t 'contacts.about_us')
+    - (t 'text.about').each do |term|
+      p.wide= term
+  .span5
+    .page-header
+      h2= (t 'contacts.contact_us')
+    = render :partial => 'requests/contacts_form'

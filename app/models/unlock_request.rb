@@ -16,9 +16,9 @@ class UnlockRequest < ActiveRecord::Base
   end
 
   def accept!
-    self.status =  'accepted'
+    self.status = 'accepted'
     self.save
-    WombatMailer.send_unlock_notification(self.user, I18n.locale).deliver
+    WombatMailer.send_unlock_notification(self.user_id, I18n.locale).deliver
   end
 
   def decline!

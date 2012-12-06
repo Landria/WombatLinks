@@ -132,8 +132,14 @@ footer{
     margin-top: -7px;
 }
 
-p.text-info.wide{
+p.wide{
+    text-indent:20px;
     text-align: justify;
+}
+
+div#terms p{
+    font-size: 0.9em !important;
+    line-height: 1.2em;
 }
 
 #plans-and-pricing span.label{
@@ -157,4 +163,8 @@ p.text-info.wide{
     border-radius: 6px;
     -webkit-border-radius: 6px;
 
+}
+
+footer span#footer_menu{
+    margin-left: 50px;
 }

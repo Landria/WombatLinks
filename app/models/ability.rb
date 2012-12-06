@@ -38,6 +38,7 @@ class Ability
       can :confirm, Payment
       can :complete, Payment
       can :create_user_promo, Payment
+      can :index, SiteRate
       if user.is_locked?
         can :index, UserLink
         can :show, UserLink

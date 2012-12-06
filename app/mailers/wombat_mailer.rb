@@ -17,9 +17,20 @@ class WombatMailer < ActionMailer::Base
      end
   end
 
-  def send_unlock_notification user, locale = I18n.default_locale
+  def send_unlock_notification user_id, locale = I18n.default_locale
+    user = User.find(user_id) unless user
     I18n.locale = locale
     mail :to      => user.email,
          :subject => (t 'unlock.notification')
+  end
+
+  def send_email_to_admin(message)
+    @message = message
+
+    AdminUser.all.each do |admin|
+      mail :to      => admin.email,
+           :from    => @message.email_from,
+           :subject => "WombatLinks contact message: " + @message.subject
+    end
   end
 end

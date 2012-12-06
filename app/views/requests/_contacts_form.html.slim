@@ -1,0 +1,31 @@
+= form_for @message, :url => email_to_admin_path do |f|
+  p.text-success= t 'text.contacts'
+  - if @message.errors.any?
+    .alert.alert-error
+      #error_explanation
+        h2
+          | #{t :common_error_message}
+        ul
+          - @message.errors.full_messages.each do |msg|
+            li #{msg}
+  .control-group
+    .controls
+      .input-prepend
+        .span.add-on
+          i.icon-envelope
+        = f.text_field :email_from, class: 'input-xlarge', value: (@message.email_from || current_user.email if user_signed_in?), placeholder: 'name@wombatlinks.com'
+  .control-group
+    .controls
+      .input-prepend
+        .span.add-on
+          i.icon-pencil
+        = f.text_field :subject, class: 'input-xlarge', placeholder: (t 'contacts.subject')
+  .control-group
+    .controls
+      .input-prepend
+        .span.add-on
+          i.icon-pencil
+        = f.text_area :text, class: 'input-xlarge', rows: 3, placeholder: (t 'contacts.email_text')
+  .form-actions
+    button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
+      = t 'contacts.send_message'

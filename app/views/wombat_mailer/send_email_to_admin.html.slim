@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+  body
+    = render :partial => 'wombat_mailer/header'
+    p Получено сообщение от пользователя: #{@message.email_from}.
+    p= @message.text
+    = render :partial =>'wombat_mailer/footer'

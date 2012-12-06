@@ -20,6 +20,8 @@ a.brand href="/" WombatLinks
         = active_link_to (t :profile), edit_user_registration_path, :active => [['devise/registrations'], ['edit', 'update']]
     li class="#{active_link_to_class(rates_path, :active => [['site_rates'], ['index']])}"
       = active_link_to (t "statistics.rates.menu"), rates_path, :active => [['site_rates'], ['index']]
+    li class="#{active_link_to_class(contacts_path, :active => [['requests'], ['contacts', 'email_to_admin']])}"
+      = active_link_to (t "contacts.about_us"), contacts_path, :active => [['requests'], ['contacts', 'email_to_admin']]
   .navbar-form.pull-right
     - if signed_in?
       = t :welcome

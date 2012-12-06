@@ -2,16 +2,18 @@
   .span5
     .page-header
       h1= (t 'unlock_request.user_is_locked')
-    p= (t 'unlock_request.lock_text')
+    p.text-error.wide= (t 'unlock_request.lock_text')
     - if @request
       p
         = t 'unlock_request.status_text',:date => @request.created_at.strftime("%d.%m.%Y %H:%M")
         '
-        = t 'unlock_request.new' if @request.is_new?
-        = t 'unlock_request.declined'if @request.is_declined?
+        - if @request.is_new?
+          span.label.label-info= t 'unlock_request.new'
+        - if @request.is_declined?
+          span.label.label-important= t 'unlock_request.declined'
 
     - if @unlock_request
-      = form_for @unlock_request, :url => user_unlock_path, :html => {:class => 'form-horizontal'} do |f|
+      = form_for @unlock_request, :url => user_unlock_path do |f|
         = hidden_field_tag 'unlock_request[user_id]', current_user.id
         - if @unlock_request.errors.any?
           .alert.alert-error
@@ -22,12 +24,11 @@
                 - @unlock_request.errors.full_messages.each do |msg|
                   li #{msg}
         .control-group
-          = f.label :message, :class => 'control-label'
           .controls
             .input-prepend
               .span.add-on
                 i.icon-pencil
-              = f.text_area :message, :class => 'input-xlarge', :rows => 5
+              = f.text_area :message, class: 'input-xlarge', rows: 5, placeholder: (t 'contacts.email_text')
         .form-actions
           button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
             = (t 'unlock_request.send_unlock_request')

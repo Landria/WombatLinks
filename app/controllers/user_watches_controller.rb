@@ -30,7 +30,7 @@ class UserWatchesController < ApplicationController
       current_user.change_plan if current_user.should_change_plan?
       flash[:notice] = t 'messages.user_watch.success_destroy'
     rescue
-      flash[:error] = t 'messages.user_watch.error_destroy'
+      flash[:alert] = t 'messages.user_watch.error_destroy'
     ensure
       render :partial => "user_watches/create_user_watch", :locals => { :flash => flash }
     end

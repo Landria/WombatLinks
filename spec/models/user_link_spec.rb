@@ -16,7 +16,7 @@ describe UserLink do
     it "should create user_link" do
       user_link = described_class.new :email => email, :link_url => link_url
       user_link.should be_valid
-      user_link.add.should eq true
+      user_link.save.should eq true
       user_link.link_hash.should_not be_nil
       user_link.link.domain_id.should_not be_nil
     end
@@ -24,7 +24,7 @@ describe UserLink do
     it "should create private user_link" do
       user_link = described_class.new :email => email, :link_url => link_url, :is_private => true
       user_link.should be_valid
-      user_link.add.should eq true
+      user_link.save.should eq true
       user_link.link_hash.should_not be_nil
       user_link.link.domain_id.should_not be_nil
     end
@@ -44,7 +44,7 @@ describe UserLink do
     it "should return [] if no link exists " do
       described_class.get_links_for_domain(domain.name).should be_empty
       user_link = described_class.new :email => email, :link_url => link_url
-      user_link.add
+      user_link.save
       described_class.get_links_for_domain(domain.name).should_not be_empty
       user_link.update_attribute(:created_at, 3.months.ago)
       Domain.count.should eq(1)
@@ -53,13 +53,13 @@ describe UserLink do
 
     it "should return array of user links " do
       user_link = described_class.new :email => email, :link_url => link_url
-      user_link.add
+      user_link.save
       links = described_class.get_links_for_domain(domain.name)
       links.should_not be_empty
       links.count.should eq(1)
 
       user_link = described_class.new :email => email, :link_url => link_url_2
-      user_link.add
+      user_link.save
 
       links = described_class.get_links_for_domain(domain.name)
       links.should_not be_empty
@@ -74,29 +74,29 @@ describe UserLink do
       links.count.should eq(0)
 
       link2 = UserLink.new :email => email, :link_url => link_url
-      link2.add
+      link2.save
 
       link1 = UserLink.new :email => email_2, :link_url => link_url
-      link1.add
+      link1.save
 
       links = described_class.clear_duplicates described_class.all
       links.count.should eq(2)
 
       link3 = UserLink.new :email => email, :link_url => link_url
-      link3.add
+      link3.save
 
       links = described_class.clear_duplicates described_class.all
       links.count.should eq(2)
 
 
       link4 = UserLink.new :email => email_2, :link_url => link_url
-      link4.add
+      link4.save
 
       links = described_class.clear_duplicates described_class.all
       links.count.should eq(2)
 
       link5 = UserLink.new :email => email, :user_id =>user.id, :link_url => link_url
-      link5.add
+      link5.save
 
       links = described_class.clear_duplicates described_class.all
       links.count.should eq(3)
@@ -104,10 +104,10 @@ describe UserLink do
 
     it "should return cleared from spam links" do
       link1 = UserLink.new :email => email_2, :link_url => link_url
-      link1.add
+      link1.save
 
       link2 = UserLink.new :email => email, :link_url => link_url
-      link2.add
+      link2.save
       link2.update_attribute(:is_spam, true)
       described_class.all.count.should eq(2)
 
@@ -117,14 +117,14 @@ describe UserLink do
 
     it "should return cleared from all links" do
       link1 = UserLink.new :email => email_2, :link_url => link_url
-      link1.add
+      link1.save
 
       link2 = UserLink.new :email => email, :link_url => link_url_2
-      link2.add
+      link2.save
       link2.update_attribute(:is_spam, true)
 
       link3 = UserLink.new :email => email_2, :link_url => link_url
-      link3.add
+      link3.save
 
       described_class.all.count.should eq(3)
 
@@ -132,7 +132,7 @@ describe UserLink do
       links.count.should eq(1)
 
       link4 = UserLink.new :email => email, :link_url => link_url_2
-      link4.add
+      link4.save
 
       links = described_class.clear described_class.all
       links.count.should eq(2)

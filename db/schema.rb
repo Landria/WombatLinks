@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205190322) do
+ActiveRecord::Schema.define(:version => 20121206181943) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20121205190322) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "cancel_mailing_lists", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "domains", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -76,6 +83,15 @@ ActiveRecord::Schema.define(:version => 20121205190322) do
 
   create_table "locked_emails", :force => true do |t|
     t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "email_from"
+    t.string   "subject"
+    t.text     "text"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -196,9 +212,13 @@ ActiveRecord::Schema.define(:version => 20121205190322) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
+  add_foreign_key "cancel_mailing_lists", "users", :name => "cancel_mailing_lists_user_id_fk", :dependent => :delete
+
   add_foreign_key "link_rates", "links", :name => "link_rates_link_id_fk", :dependent => :delete
 
   add_foreign_key "links", "domains", :name => "links_domain_id_fk", :dependent => :delete
+
+  add_foreign_key "messages", "users", :name => "messages_user_id_fk", :dependent => :delete
 
   add_foreign_key "payments", "users", :name => "payments_user_id_fk", :dependent => :delete
 
