@@ -59,8 +59,7 @@ class PaymentsController < ApplicationController
     end
 
     if !(current_user.complete_payment @payment.id, params[:PayerID])
-      message = {alert: (t 'payments.error')}
-
+      message = message.merge alert: (t 'payments.error')
     end
 
     redirect_to payments_url, message

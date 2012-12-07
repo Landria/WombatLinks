@@ -1,4 +1,5 @@
-h2= t :watches
+.page-header
+  h2= t :watches
 - if current_user.can_add_watch?
   = render :partial => "user_watches/form", :locals => { :user_watch => UserWatch.new }
 #my_sites_list

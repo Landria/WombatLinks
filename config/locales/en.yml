@@ -140,8 +140,8 @@ en:
     new: "Prolong subscription"
     disabled: "You cannot buy prolongation for free subscription!"
     new_text: "Minimum amount to pay is price of one subscription period."
-    error: "Payment cannot be completed because of some errors. If you subscription is not prolonged, please contact administrator!"
-    complete: "Thank you for subscription prolongation!"
+    error: "Prolongation cannot be completed because of some errors! Please contact administrator!"
+    complete: "Payment successfully completed! Thank you!"
     new_text_free: "Your subscription is free but you can make donation payment as for ordinary subscription prolongation."
     table:
       list: "My payments"

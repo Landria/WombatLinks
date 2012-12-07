@@ -1,0 +1,22 @@
+.page-header
+  h1= t 'statistics.profile'
+p
+  = t :all_links_count
+  '
+  = current_user.count_links
+  br
+  = t :all_private_links_count
+  '
+  = current_user.count_links true
+  br
+  = t :spam_links_count
+  '
+  = current_user.count_links nil, true
+  br
+  = t :percent_of_system_links
+  '
+  = current_user.user_links_percent
+  | %
+  - if current_user.is_locked?
+    a.label.label-important href="#{user_locked_path}"
+      =(t 'unlock_request.user_is_locked')

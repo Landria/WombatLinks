@@ -168,3 +168,10 @@ div#terms p{
 footer span#footer_menu{
     margin-left: 50px;
 }
+
+.inline label{
+    margin: 0 10px 0 30px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}

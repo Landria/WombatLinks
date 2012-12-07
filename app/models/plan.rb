@@ -51,7 +51,9 @@ class Plan < ActiveRecord::Base
   end
 
   def price_per_day
-    self.price.to_f / 30
+    price = self.price.to_f
+    price = Plan.get_min_plan_price.to_f if self.free?
+    price / 30
   end
 
 end

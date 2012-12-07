@@ -2,64 +2,20 @@
   .span5
     .page-header
       h1= t :update_account
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal', :method => :put}) do |f|
-      - errors = devise_error_messages!
-      - if !errors.blank?
-        .alert.alert-error
-          = errors
-      .control-group
-        = f.label :email, :class => 'control-label'
-        .controls
-          = f.text_field :email, :class => 'input-xlarge'
-      .control-group
-        = f.label :password, :class => 'control-label'
-        .controls
-          = f.text_field :password, :class => 'input-xlarge'
-      .control-group
-        = f.label :current_password, :class => 'control-label'
-        .controls
-          = f.text_field :current_password, :class => 'input-xlarge'
+    = render :partial => 'form'
 
-      .form-actions
-        button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
-          = t :update
+    h4= t :cancel_account
+    p= link_to (t :cancel_account), user_registration_path, :method => :delete, :confirm =>(t :confirm)
 
     h2= t 'subscription.name'
     #subscription
       = render :partial => "devise/shared/subscription"
-    p
-      = button_to (t 'subscription.prolong'), payments_path, :class=> "btn"
-    p.text-info= t 'subscription.prolong_text'
 
-    h3= t :cancel_account
-    p
-      = link_to (t :cancel_account), user_registration_path, :method => :delete, :confirm =>(t :confirm)
   .span6
-    .page-header
-      h1= t 'statistics.profile'
-    p
-      = t :all_links_count
-      '
-      = current_user.count_links
-      br
-      = t :all_private_links_count
-      '
-      = current_user.count_links true
-      br
-      = t :spam_links_count
-      '
-      = current_user.count_links nil, true
-      br
-      = t :percent_of_system_links
-      '
-      = current_user.user_links_percent
-      | %
-    - if current_user.is_locked?
-      a.label.label-important href="#{user_locked_path}"
-        =(t 'unlock_request.user_is_locked')
+    = render :partial => "devise/shared/statistics"
 
-    .page-header
-      = render :partial => 'user_watches/block'
 
-    .page-header
-      = render :partial => 'payments/list', locals: {payments: current_user.get_payments(params[:page]) }
+    = render :partial => 'user_watches/block'
+
+
+    = render :partial => 'payments/list', locals: {payments: current_user.get_payments(params[:page]) }

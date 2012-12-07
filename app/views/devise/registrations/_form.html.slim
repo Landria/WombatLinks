@@ -1,0 +1,20 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal', :method => :put}) do |f|
+  - errors = devise_error_messages!
+  - if !errors.blank?
+    .alert.alert-error
+      = errors
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'input-xlarge'
+  .control-group
+    = f.label :password, :class => 'control-label'
+    .controls
+      = f.text_field :password, :class => 'input-xlarge'
+  .control-group
+    = f.label :current_password, :class => 'control-label'
+    .controls
+      = f.text_field :current_password, :class => 'input-xlarge'
+  .form-actions
+    button class="btn btn-large btn-block btn-primary" type="submit" name="commit"
+      = t :update

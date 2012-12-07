@@ -19,3 +19,5 @@ p
     = t 'subscription.active_upto'
     ' :
     = l current_user.user_plan.paid_upto.to_date
+p.text-info= t 'subscription.prolong_text'
+p= button_to (t 'subscription.prolong'), payments_path, :class=> "btn"
