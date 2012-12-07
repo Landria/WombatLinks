@@ -1,5 +1,6 @@
 /*
  *= require bootstrap_and_overrides
+ *= require toggle-switch
  */
 @import url(http://fonts.googleapis.com/css?family=Comfortaa:400,300,700&subset=latin,cyrillic-ext,greek,latin-ext,cyrillic);
 
@@ -174,4 +175,8 @@ footer span#footer_menu{
     display: inline-block;
     position: relative;
     top: 2px;
+}
+
+#mailing{
+    margin-bottom: 20px !important;
 }
