@@ -1,21 +1,21 @@
 .row
   .span5
+    //обновление email и пароля
     .page-header
       h1= t :update_account
     = render :partial => 'form'
 
+    = render :partial => 'mailing'
+    //подписка
+    = render :partial => "devise/shared/subscription"
+    //удаление аккаунта
     h4= t :cancel_account
     p= link_to (t :cancel_account), user_registration_path, :method => :delete, :confirm =>(t :confirm)
 
-    h2= t 'subscription.name'
-    #subscription
-      = render :partial => "devise/shared/subscription"
-
   .span6
+    //статистика
     = render :partial => "devise/shared/statistics"
-
-
+    //наблюдаемые сайты
     = render :partial => 'user_watches/block'
-
-
+    //платежи
     = render :partial => 'payments/list', locals: {payments: current_user.get_payments(params[:page]) }
