@@ -130,6 +130,8 @@ en:
     unauthorized: "Session expired! Log in again."
     no_data: "No data yet."
     no_links: "No links yet!"
+    mailing:
+      success: "Mailing list status updated!"
   statistics:
     profile: "Statistics"
     rates:
@@ -162,3 +164,7 @@ en:
     other: "%{count} months"
   contacts:
     send: "Message is successfully send. Thank you!"
+  mailing:
+    title: "Mailing lists"
+    monitoring: "Sites minitoring"
+    rates: "Site rates"

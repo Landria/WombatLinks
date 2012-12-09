@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_promo, :dependent => :destroy
   has_many :domain, :through => :user_watch
   has_many :payments, :dependent => :destroy
+  has_many :cancel_mailing_lists, :dependent => :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -126,6 +127,11 @@ class User < ActiveRecord::Base
 
   def get_payments page
     Payment.find_for_user self.id, page
+  end
+
+  def mailing_list_cancelled? type
+    return true if cancel_mailing_lists.where(:list_type => type).first
+    false
   end
 
   private

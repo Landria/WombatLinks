@@ -86,4 +86,18 @@ describe User do
       user.should be_should_change_plan_paid_upto
     end
   end
+
+  it "should return mailing list status" do
+    user.should_not be_mailing_list_cancelled "rates"
+    CancelMailingList.change_status user.id, "rates"
+    user.should be_mailing_list_cancelled "rates"
+
+    user.should_not be_mailing_list_cancelled "monitor"
+    CancelMailingList.change_status user.id, "monitor"
+    user.should be_mailing_list_cancelled "monitor"
+
+    user.should_not be_mailing_list_cancelled "monit"
+    CancelMailingList.change_status user.id, "monit"
+    user.should_not be_mailing_list_cancelled "monit"
+  end
 end

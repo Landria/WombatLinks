@@ -1,20 +1,23 @@
-h3 Управление рассылками
-.row
-  .span2
-    label Статистика сайтов
-    .switch.candy.blue
-      input id="week" name="view" type="radio"
-      label for="week" onclick="" Week
-      input id="month" name="view" type="radio"
-      label for="month" onclick="" Month
-      span.slide-button
+#mailing
+  h3= t 'mailing.title'
+  = bootstrap_flash
+  .row
+    .span2
+      label= t 'mailing.rates'
+      .switch.candy.blue
+        = form_tag(mailing_path, :remote => true, :id => 'rates') do
+          = radio_button_tag 'type', 'rates', !current_user.mailing_list_cancelled?('rates')
+          label for="rates_yes" onclick="$('#rates').submit()" #{t 'mailing.yes'}
+          = radio_button_tag 'type', 'rates', current_user.mailing_list_cancelled?('rates')
+          label for="rates_no" onclick="$('#rates').submit()" #{t 'mailing.no'}
+          span.slide-button
 
-  .span2
-    label Данные мониторинга
-    .switch.candy.blue
-      input id="week1" name="view1" type="radio"
-      label for="week1" onclick="" Week1
-      input id="month1" name="view1" type="radio"
-      label for="month1" onclick="" Month1
-      span.slide-button
-br
+    .span2
+      label= t 'mailing.monitoring'
+      .switch.candy.blue
+        = form_tag(mailing_path, :remote => true, :id => 'monitor') do
+          = radio_button_tag 'type', 'monitor', !current_user.mailing_list_cancelled?('monitor')
+          label for="monitor_yes" onclick="$('#monitor').submit()" #{t 'mailing.yes'}
+          = radio_button_tag 'type', 'monitor', current_user.mailing_list_cancelled?('monitor')
+          label for="monitor_no" onclick="$('#monitor').submit()" #{t 'mailing.no'}
+          span.slide-button

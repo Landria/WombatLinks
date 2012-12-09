@@ -57,4 +57,11 @@ class ApplicationController < ActionController::Base
     @prepaid = Settings.registration.prepaid_period.to_i
   end
 
+  def render_404
+    respond_to do |format|
+      format.html { render "public/404.html", :status => 404, :layout => false }
+      format.all { render :status => 404, :nothing => true }
+    end
+  end
+
 end

@@ -48,10 +48,12 @@ ActiveRecord::Schema.define(:version => 20121206181943) do
 
   create_table "cancel_mailing_lists", :force => true do |t|
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "list_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "cancel_mailing_lists", ["user_id", "list_type"], :name => "index_cancel_mailing_lists_on_user_id_and_list_type", :unique => true
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -217,8 +219,6 @@ ActiveRecord::Schema.define(:version => 20121206181943) do
   add_foreign_key "link_rates", "links", :name => "link_rates_link_id_fk", :dependent => :delete
 
   add_foreign_key "links", "domains", :name => "links_domain_id_fk", :dependent => :delete
-
-  add_foreign_key "messages", "users", :name => "messages_user_id_fk", :dependent => :delete
 
   add_foreign_key "payments", "users", :name => "payments_user_id_fk", :dependent => :delete
 
