@@ -38,18 +38,18 @@ html lang="en"
             span.icon-bar
             span.icon-bar
           .line
-            = render 'layouts/navigation'
+            = render 'layouts/shared/navigation'
     .container
       .main-unit
         = bootstrap_flash
         = yield
       .row
-        .span6
-          = render 'layouts/terms'
-        .span6
-          = render 'layouts/plans'
+        .span7
+          = render 'layouts/shared/news'
+        .span5
+          = render 'layouts/shared/plans'
       hr
-      = render 'layouts/footer'
+      = render 'layouts/shared/footer'
     /! /container
     /! Placed at the end of the document so the pages load faster
     = javascript_include_tag :application

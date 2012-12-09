@@ -2,8 +2,12 @@ require 'lock'
 
 class RequestsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:spam_complain, :contacts, :email_to_admin]
+  before_filter :authenticate_user!, :except => [:spam_complain, :contacts, :email_to_admin, :terms]
   #load_and_authorize_resource
+
+  def terms
+
+  end
 
   def mailing_list_manage
     render_404 unless request.xhr?

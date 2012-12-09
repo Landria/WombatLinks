@@ -39,6 +39,8 @@ LinkmeRuby::Application.routes.draw do
 
   match "/mailing" => "requests#mailing_list_manage", :via => [:post], :as => :mailing
   match "/load_mailing" => "requests#load_mailing", :via => [:get]
+
+  match "/terms" => "requests#terms", :via => [:get], :as => :terms
 # The priority is based upon order of creation:
 # first created -> highest priority.
 

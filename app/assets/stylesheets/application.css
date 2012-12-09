@@ -163,11 +163,14 @@ div#terms p{
     -moz-border-radius: 6px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
-
 }
 
 footer span#footer_menu{
     margin-left: 50px;
+}
+
+footer span#footer_menu a{
+    margin-right: 20px;
 }
 
 .inline label{
