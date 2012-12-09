@@ -1,7 +1,7 @@
 #plans-and-pricing
   h3= t 'text.plans.title'
 
-  - @plans.each do |plan|
+  - @plans_all.each do |plan|
     .plan
       h4= plan.name
       p
@@ -18,7 +18,7 @@
         = plan.sites_count
   - if !signed_in?
     #promo
-      - if @promo
+      - if @current_promo
         p.text-success
           = t 'promos.registration_text'
           '

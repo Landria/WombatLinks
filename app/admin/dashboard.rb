@@ -10,7 +10,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Links" do
           ul do
             Link.last(10).map do |link|
-              li link_to(link.title, admin_link_path(link))
+              li link_to(link.title, admin_user_link_path(link))
             end
           end
         end

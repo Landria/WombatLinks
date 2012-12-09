@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :set_locale, :get_tweets, :check_user_lock, :get_plans, :get_promo
+  before_filter :set_locale, :get_tweets, :check_user_lock, :get_plans, :get_promo, :get_news
 
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
@@ -49,11 +49,11 @@ class ApplicationController < ActionController::Base
   end
 
   def get_plans
-    @plans = Plan.all
+    @plans_all = Plan.all
   end
 
   def get_promo
-    @promo = Promo.get_current
+    @current_promo = Promo.get_current
     @prepaid = Settings.registration.prepaid_period.to_i
   end
 
@@ -64,4 +64,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_news
+    @news_limit = News.where(:locale => I18n.locale.to_s).limit(Settings.news.limit)
+  #rescue
+    #@news = Array.new
+  end
 end

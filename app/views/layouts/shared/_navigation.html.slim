@@ -23,7 +23,7 @@ a.brand href="/" WombatLinks
     li class="#{active_link_to_class(contacts_path, :active => [['requests'], ['contacts', 'email_to_admin']])}"
       = active_link_to (t "contacts.about_us"), contacts_path, :active => [['requests'], ['contacts', 'email_to_admin']]
   .navbar-form.pull-right
-    - if signed_in?
+    - if user_signed_in?
       = t :welcome
       br
       = t :auth_tx

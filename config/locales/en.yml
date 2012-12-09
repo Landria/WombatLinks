@@ -129,7 +129,8 @@ en:
       error_destroy: "Cannot proceed! Please repeat some later!"
     unauthorized: "Session expired! Log in again."
     no_data: "No data yet."
-    no_links: "No links yet!"
+    no_news: "No news yet."
+    no_links: "No links yet."
     mailing:
       success: "Mailing list status updated!"
   statistics:

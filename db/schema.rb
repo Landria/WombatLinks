@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206181943) do
+ActiveRecord::Schema.define(:version => 20121206181955) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,15 +45,6 @@ ActiveRecord::Schema.define(:version => 20121206181943) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
-
-  create_table "cancel_mailing_lists", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "list_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "cancel_mailing_lists", ["user_id", "list_type"], :name => "index_cancel_mailing_lists_on_user_id_and_list_type", :unique => true
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -101,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20121206181943) do
   create_table "news", :force => true do |t|
     t.string   "title"
     t.text     "text"
+    t.string   "locale"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -213,8 +205,6 @@ ActiveRecord::Schema.define(:version => 20121206181943) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  add_foreign_key "cancel_mailing_lists", "users", :name => "cancel_mailing_lists_user_id_fk", :dependent => :delete
 
   add_foreign_key "link_rates", "links", :name => "link_rates_link_id_fk", :dependent => :delete
 
