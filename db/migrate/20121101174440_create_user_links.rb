@@ -15,7 +15,7 @@ class CreateUserLinks < ActiveRecord::Migration
     end
 
     change_table :user_links do |t|
-      t.foreign_key :users, :dependent => :delete
+      t.foreign_key :users
       t.foreign_key :links, :dependent => :delete
     end
   end

@@ -13,7 +13,7 @@ class UserLink < ActiveRecord::Base
                       :link => [:name, :title, :description],
                       :user => [:email]}
 
-  belongs_to :user, :dependent => :delete
+  belongs_to :user
   belongs_to :link, :dependent => :delete
 
   validates_presence_of :email
