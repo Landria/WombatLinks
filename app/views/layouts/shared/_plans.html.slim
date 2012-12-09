@@ -22,7 +22,7 @@
         p.text-success
           = t 'promos.registration_text'
           '
-          span.month= t(:months_count, :count => @promo.period)
+          span.month= t(:months_count, :count => @current_promo.period)
           | !
       -else
         - if @prepaid
