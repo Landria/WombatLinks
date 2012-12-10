@@ -21,6 +21,10 @@ class UserPromo < ActiveRecord::Base
     user_promos = where(:user_id => user_id, :promo_id => promo_id)
   end
 
+  def active?
+    Date.today < (self.created_at.to_date + promo.period.to_i.months)
+  end
+
   private
 
   def set_promo_id

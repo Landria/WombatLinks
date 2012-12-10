@@ -5,19 +5,15 @@ class UserPlan < ActiveRecord::Base
   belongs_to :plan
 
   def new_paid_upto plan_id
-    begin
-      if self.user.should_change_plan_paid_upto?
-        promo = Promo.get_current
-        if promo
-          promo.link_user self.user_id if UserPromo.where(:promo_id => promo.id).exists?
-          Time.now + promo.period.months
-        else
-          Time.now + ((self.plan.price / Plan.find(plan_id).price) * days_remain).days
-        end
-      end
-    rescue
-      self.paid_upto.to_time
+    if freeze_days > 0
+      upto = Time.now + freeze_days.days
+      self.update_attribute(:freeze_days, 0)
+    else
+      upto = Time.now + ((self.plan.price / Plan.find(plan_id).price) * days_remain).days
     end
+    return upto
+  rescue
+    self.paid_upto.to_time
   end
 
   # use when payments received
@@ -32,6 +28,7 @@ class UserPlan < ActiveRecord::Base
   # use when promo activated
   def recount_paid_upto_via_promo promo_id
     new_date = self.paid_upto.to_time + Promo.find(promo_id).period.to_i.months
+    self.freeze_days = days_remain if !plan.free?
     self.update_attribute(:paid_upto, new_date)
   rescue
     false
@@ -42,17 +39,23 @@ class UserPlan < ActiveRecord::Base
   end
 
   def active?
-    self.paid_upto.to_date > Date.today || self.plan.free?
+    self.paid_upto.to_date > Date.today || self.free?
   end
 
-  def change plan_id
-    self.plan_id = plan_id
-    self.save
-  end
+  def change_to plan_id, change_paid_upto = false
 
-  def change_with_paid_upto plan_id
+    freeze  =  days_remain
+
+    if change_paid_upto
+      self.paid_upto = new_paid_upto(plan_id)
+    end
+
     self.plan_id = plan_id
-    self.paid_upto = new_paid_upto(plan_id)
+
+    if self.free? and freeze
+      self.freeze_days = freeze
+    end
+
     self.save
   end
 

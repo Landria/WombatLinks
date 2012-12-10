@@ -83,8 +83,7 @@ class User < ActiveRecord::Base
   def change_plan
     begin
       plan = Plan.get_suitable self.user_watch.count
-      self.user_plan.change plan.id if should_change_plan? and !should_change_plan_paid_upto?
-      self.user_plan.change_with_paid_upto plan.id if should_change_plan? and should_change_plan_paid_upto?
+      self.user_plan.change_to plan.id, should_change_plan_paid_upto? if should_change_plan?
     rescue
       false
     end
@@ -94,10 +93,11 @@ class User < ActiveRecord::Base
     Plan.get_suitable(user_watch.count).sites_count != user_plan.plan.sites_count
   end
 
+  # если есть активный promo у пользователя, период не пересчитывать
   def should_change_plan_paid_upto?
     if self.user_promo
       self.user_promo.each do |u_p|
-        return false if u_p.promo.active?
+        return false if u_p.active?
       end
     end
 
@@ -108,8 +108,8 @@ class User < ActiveRecord::Base
     payment = Payment.find(payment_id)
     payment.complete payer_id
     user_plan.recount_paid_upto payment_id
-  #rescue
-    #false
+  rescue
+    false
   end
 
   def can_access_payment?

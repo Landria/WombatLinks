@@ -55,11 +55,17 @@ describe User do
     end
 
     it "should change plan" do
-      plan = Plan.create :name => "name", :sites_count => 2, :price => 1.99
+      plan = Plan.create :name => "name", :sites_count => 3, :price => 1.99
       UserWatch.create :url => 'google.com', :user_id => user.id
       UserWatch.create :url => 'mail.com', :user_id => user.id
+
+      Plan.get_suitable(user.user_watch.count).id.should eq(plan.id)
+
       user.should be_should_change_plan
+      user.should be_should_change_plan_paid_upto
+
       user.change_plan.should be_true
+
       user.user_plan.plan.name.should eq(plan.name)
 
       user.user_watch.delete_all
