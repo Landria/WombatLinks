@@ -38,7 +38,7 @@ ru:
   link_private_tip: "Личные ссылки не публикуются в ленте и не доступны для общего поиска. Неавторизованные ссылки всегда публичны."
   new_wombat_link: "Новая Wombat ссылка"
   email_footer_text: "Искренне Ваш, сервис Wombat Links!"
-  email_new_link_text: "Новая ссылка от WombatLinks"
+  email_new_link_text: "WombatLink: "
   email_change_password: "Запрос на смену пароля WombatLinks"
   email_change_psw_text_1: "Вы запросили ссылку на смену пароля к учетной записи WEombatLinks."
   email_change_psw_text_2: "Вот Ваша ссылка:"
@@ -230,6 +230,8 @@ ru:
     mailing:
       success: "Статус подписки изменен!"
     monitor_alert: "Сайт %{site} недоступен с %{time}!"
+    monitor_alert_email: "WombatLinks Мониторинг"
+    statistics_email: "WombatLinks статистика Ваших сайтов!"
   statistics:
     profile: "Статистика"
     rates:

@@ -14,7 +14,7 @@ class MonitorJob < Resque::Job
       ensure
         uwm = SitesMonitor.create domain: uw.domain, status: (response.is_a? Net::HTTPOK), code: code
         if !uwm.status
-          WombatMailer.send_monitor_alert(uwm, uw.user).deliver if !uw.user.mailing_list_cancelled?('monitor')
+          Resque.enqueue(MonitorAlertMailJob, uwm, uw.user)if !uw.user.mailing_list_cancelled?('monitor') and uw.user.stats_accessible?
         end
       end
     end

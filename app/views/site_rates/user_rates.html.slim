@@ -1,5 +1,5 @@
 - if @rates
-  h2= t "statistics.rates.title"
+  h2= WombatRates
   h3
     = link_to @rates.domain.name, @rates.domain.url, :target => '_blank'
   = button_to (t 'statistics.recount_rates'), recount_rates_path(@rates.id), :method => :post, :remote => true, :class => 'btn'

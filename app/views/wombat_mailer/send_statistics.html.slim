@@ -1,0 +1,99 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+  body
+    h2 WombatRates
+    h3= link_to @rates.domain.name, @rates.domain.url, :target => '_blank'
+
+    - if @rates
+      h5= t 'statistics.uptime', :uptime => @rates.domain.uptime
+      .row
+        .span10
+          table.table.table-striped
+            thead
+              tr
+                th= t 'statistics.rates.position'
+                th= t 'statistics.rates.this_week'
+                th= t 'statistics.rates.this_month'
+                th= t 'statistics.rates.total'
+            tbody
+              tr
+                td
+                  ' #{@rates.position}
+                  span.stats class="#{@rates.p_move_sign}"
+                    - if @rates.p_move.to_i > 0
+                      | /+
+                    - if @rates.p_move.to_i < 0
+                      | /-
+                    = @rates.p_move.abs if @rates.p_move
+                td
+                  ' #{ @rates.this_week}
+                  span.stats class="#{@rates.w_move_sign}"
+                    - if @rates.w_move.to_i > 0
+                      | /+
+                    - if @rates.w_move.to_i < 0
+                      | /-
+                    = @rates.w_move.abs if @rates.w_move
+                td
+                  ' #{@rates.this_month}
+                  span.stats class="#{@rates.m_move_sign}"
+                    - if @rates.m_move.to_i > 0
+                      | /+
+                    - if @rates.m_move.to_i < 0
+                      | /-
+                    = @rates.m_move.abs if @rates.m_move
+                td= @rates.total
+
+      h3= t 'statistics.rates.pages_title'
+      .row
+        .span10
+          - if @link_rates.count > 0
+            table.table.table-striped
+              thead
+                tr
+                  th= t 'statistics.rates.position'
+                  - if @link_rates.is_a? SiteRate
+                    th= t 'statistics.rates.site'
+                  - else
+                    th= t 'link'
+                  th= t 'statistics.rates.this_week'
+                  th= t 'statistics.rates.this_month'
+                  th= t 'statistics.rates.total'
+              tbody
+                - @link_rates.each do |rate|
+                  tr
+                    td
+                      ' #{rate.position}
+                      span.stats class="#{rate.p_move_sign}"
+                        - if rate.p_move.to_i > 0
+                          | /+
+                        - if rate.p_move.to_i < 0
+                          | /-
+                        = rate.p_move.abs if rate.p_move
+                    td
+                      - if rate.is_a? SiteRate
+                        = link_to rate.domain.name, rate.domain.url, :target => "_blank"
+                      - else
+                        = link_to rate.link.name, rate.link.name, :target => "_blank"
+                    td
+                      '#{rate.this_week}
+                      span.stats class="#{rate.w_move_sign}"
+                        - if rate.w_move.to_i > 0
+                          | /+
+                        - if rate.w_move.to_i < 0
+                          | /-
+                        = rate.w_move.abs if rate.w_move
+                    td
+                      ' #{rate.this_month}
+                      span.stats class="#{rate.m_move_sign}"
+                        - if rate.m_move.to_i > 0
+                          | /+
+                        - if rate.m_move.to_i < 0
+                          | /-
+                        = rate.m_move.abs if rate.m_move
+                    td= rate.total
+          - else
+            p.text-warning= t 'messages.no_data'
+    br
+    = render :partial =>'wombat_mailer/footer'

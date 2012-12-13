@@ -1,5 +1,5 @@
 send_tweets_every_30_minutes:
-  cron: "*/30 * * * *"
+  cron: "* */30 * * *"
   class: TweetJob
   args:
   queue: TweetJob
@@ -13,31 +13,38 @@ delete_old_links_every_months:
   description: "Delete old links every 24 hours"
 
 resend emails_every_5_minutes:
-  cron: "*/5 * * * * *"
+  cron: "*/15 * * * * *"
   class: ReTryMailJob
   args:
-  queue: ReMailLinkJob
+  queue: MailJob
   description: "Resend email every 5 minutes"
 
 recount_stats_every_4_hours:
-  cron: "* */4 * * * *"
+  cron: "*/4 * * * * *"
   class: RecountStatsJob
   args:
   queue: RecountStatsJob
   description: "Recount stats every 4 hours"
 
 monitor_every_hour:
-   cron: "*/20 * * * * *"
+   cron: "*/5 * * * * *"
    class: MonitorJob
    args:
    queue: MonitorJob
    description: "Run sites monitor"
 
 delete_old_monitor_data_every_month:
-   cron: "*/20 * * * * *"
+   cron: "* */1 * * * *"
    class: DeleteOldMonitorDataJob
    args:
    queue: DeleteOldMonitorDataJob
    description: "Delete old monitor data"
+
+send statisctics_every_week:
+  cron: "*/20 * * * * *"
+  class: StatisticsMailJob
+  args:
+  queue: MailJob
+  description: "Send statistics every week"
 
 #minutes, hour, day of month, month, day of week

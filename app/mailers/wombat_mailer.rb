@@ -30,7 +30,7 @@ class WombatMailer < ActionMailer::Base
     AdminUser.all.each do |admin|
       mail :to      => admin.email,
            :from    => @message.email_from,
-           :subject => "WombatLinks contact message: " + @message.subject
+           :subject => "WombatLinks contact: " + @message.subject
     end
   end
 
@@ -38,6 +38,14 @@ class WombatMailer < ActionMailer::Base
     I18n.locale = user.locale.to_sym
     @uwm = user_watch_monitor
     mail :to      => user.email,
-         :subject => "WombatLinks Sites Monitor alert!"
+         :subject => (t 'messages.monitor_alert_email')
+  end
+
+  def send_statistics uw
+    I18n.locale = uw.user.locale.to_sym
+    @rates = SiteRate.find(uw.domain.id)
+    @link_rates = LinkRate.get_rates_all @rates.domain.id
+    mail :to      => uw.user.email,
+         :subject => (t 'messages.statistics_email')
   end
 end

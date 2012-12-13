@@ -1,6 +1,6 @@
 class ReTryMailJob < Resque::Job
 
-  @queue = :ReMailLinkJob
+  @queue = :MailJob
 
   def self.perform
     links = UserLink.where(:is_send => false)
@@ -10,9 +10,5 @@ class ReTryMailJob < Resque::Job
       sleep 15
     end
   rescue
-  end
-
-  def queue_job
-    Resque.enqueue(ReMailLinkJob)
   end
 end

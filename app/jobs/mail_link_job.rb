@@ -1,10 +1,10 @@
 class MailLinkJob < Resque::Job
 
-  @queue = :MailLinkJob
+  @queue = :MailJob
 
-  def self.perform(user_link_id, locale)
+  def self.perform user_link_id
     link = UserLink.find(user_link_id)
-    WombatMailer.send_link(link, locale).deliver
+    WombatMailer.send_link(link).deliver
     link.update_attribute(:is_send, true)
   rescue
   end
