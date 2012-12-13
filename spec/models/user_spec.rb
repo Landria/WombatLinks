@@ -62,7 +62,7 @@ describe User do
       Plan.get_suitable(user.user_watch.count).id.should eq(plan.id)
 
       user.should be_should_change_plan
-      user.should be_should_change_plan_paid_upto
+      user.should be_should_change_plan_paid_upto plan
 
       user.change_plan.should be_true
 
@@ -76,20 +76,21 @@ describe User do
   end
 
   context "should change plan paid upto" do
+     let(:plan) {Plan.create :name => "name", :sites_count => 3, :price => 1.99}
 
     it "should return true" do
-       user.should be_should_change_plan_paid_upto
+       user.should be_should_change_plan_paid_upto plan
     end
 
     it "should return false if user_promo is active" do
       promo.link_user user.id
-      user.should_not be_should_change_plan_paid_upto
+      user.should_not be_should_change_plan_paid_upto plan
     end
 
     it "should return true if user_promo is not active" do
       user.user_promo.delete_all
       not_active_promo.link_user user.id
-      user.should be_should_change_plan_paid_upto
+      user.should be_should_change_plan_paid_upto plan
     end
   end
 

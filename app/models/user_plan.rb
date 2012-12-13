@@ -6,10 +6,10 @@ class UserPlan < ActiveRecord::Base
 
   def new_paid_upto plan_id
     if freeze_days > 0
-      upto = Time.now + freeze_days.days
+      upto = Date.today + freeze_days.days
       self.update_attribute(:freeze_days, 0)
     else
-      upto = Time.now + ((self.plan.price / Plan.find(plan_id).price) * days_remain).days
+      upto = Date.today + ((self.plan.price / Plan.find(plan_id).price) * days_remain).days
     end
     return upto
   rescue
