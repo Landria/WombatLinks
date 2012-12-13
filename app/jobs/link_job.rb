@@ -1,11 +1,11 @@
+require 'net/http'
+require 'htmlentities'
+
 class LinkJob < Resque::Job
 
   @queue = :LinkJob
 
   def self.perform(link_id)
-    require 'net/http'
-    require 'htmlentities'
-
     link = Link.find(link_id)
     return 0 unless link
 

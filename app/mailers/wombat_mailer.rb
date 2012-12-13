@@ -1,9 +1,9 @@
 class WombatMailer < ActionMailer::Base
   default :from => Devise.mailer_sender
 
-  def send_link(user_link, locale = I18n.default_locale)
+  def send_link(user_link)
     @link = user_link
-    I18n.locale = locale
+    I18n.locale = @link.user.locale if @link.user
     title = user_link.show_title
 
     mail :to      => user_link.email,
@@ -17,11 +17,11 @@ class WombatMailer < ActionMailer::Base
      end
   end
 
-  def send_unlock_notification user_id, locale = I18n.default_locale
+  def send_unlock_notification user_id
     user = User.find(user_id) unless user
-    I18n.locale = locale
+    I18n.locale = user.locale.to_sym
     mail :to      => user.email,
-         :subject => (t 'unlock.notification')
+         :subject => (t 'unlock_request.notification')
   end
 
   def send_email_to_admin(message)
@@ -32,5 +32,12 @@ class WombatMailer < ActionMailer::Base
            :from    => @message.email_from,
            :subject => "WombatLinks contact message: " + @message.subject
     end
+  end
+
+  def send_monitor_alert user_watch_monitor, user
+    I18n.locale = user.locale.to_sym
+    @uwm = user_watch_monitor
+    mail :to      => user.email,
+         :subject => "WombatLinks Sites Monitor alert!"
   end
 end

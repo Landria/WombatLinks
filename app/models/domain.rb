@@ -1,11 +1,12 @@
 require 'addressable/uri'
 
 class Domain < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :protocol
   after_create :initialize_stats
   has_one :site_rate
   has_many :link
   has_many :user_link, :through => :link
+  has_many :sites_monitors
 
   def self.get_domain_name_from_url url
     Addressable::URI.parse(self.check_url(url.downcase)).host.sub(/\Awww\./, '')
@@ -19,7 +20,19 @@ class Domain < ActiveRecord::Base
 
   def self.get_domain url
     domain_name = self.get_domain_name_from_url url.downcase
-    self.find_or_create_by_name(:name => domain_name)
+    domain = self.find_by_name(domain_name)
+    return domain if domain
+    self.create name: domain_name, protocol: Addressable::URI.parse(url).scheme
+  end
+
+  def url
+    protocol + "://" + name
+  end
+
+  def uptime
+    ((sites_monitors.where(:status => true).count * 100)/sites_monitors.count).to_i
+  rescue
+    "NaN"
   end
 
   private

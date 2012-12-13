@@ -1,8 +1,11 @@
 - if @rates
   h2= t "statistics.rates.title"
   h3
-    = link_to @rates.domain.name, "http://" + @rates.domain.name, :target => '_blank'
+    = link_to @rates.domain.name, @rates.domain.url, :target => '_blank'
   = button_to (t 'statistics.recount_rates'), recount_rates_path(@rates.id), :method => :post, :remote => true, :class => 'btn'
+
+  h5= t 'statistics.uptime', :uptime => @rates.domain.uptime
+
   .row
     .span10
       table.table.table-striped

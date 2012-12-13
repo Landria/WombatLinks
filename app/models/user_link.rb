@@ -25,11 +25,12 @@ class UserLink < ActiveRecord::Base
             :format => {:with => URL_REGEXP},
             :if => "!link_url.blank?"
 
-  attr_accessible :email, :title, :description, :is_private
+  attr_accessible :email, :title, :description, :is_private, :is_send
   attr_protected :link_hash, :is_spam, :link_id
   attr_accessor :link_url
 
   before_create :set_link, :set_link_hash
+  after_commit :enqueue_jobs, :on => :create
 
   self.per_page = 10
 
@@ -65,12 +66,12 @@ class UserLink < ActiveRecord::Base
   end
 
   def show_title
-      return self.title.to_s if self.title
-      self.link.title.to_s
+    return self.title.to_s if !self.title.blank?
+    self.link.title.to_s
   end
 
   def show_description
-    return self.description.to_s if self.description
+    return self.description.to_s if !self.description.blank?
     self.link.description.to_s
   end
 
@@ -159,6 +160,12 @@ class UserLink < ActiveRecord::Base
     if !self.link_id
       self.link_id = Link.get_link_id self.link_url.to_s
     end
+  end
+
+  def enqueue_jobs
+    Resque.enqueue(LinkJob, self.link.id)
+    Resque.enqueue(TweetLinkJob, self.id) if !self.is_private?
+    Resque.enqueue(MailLinkJob, self.id)
   end
 
 end

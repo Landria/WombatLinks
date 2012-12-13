@@ -9,22 +9,12 @@ class TweetLinkJob < Resque::Job
 
     begin
       short_url = link.get_shortened_url
-
-      if !link.title.to_s.blank?
-      title =  link.title
-      else if !link.description.to_s.blank?
-          title = link.description
-        end
-      end
-
+      title =  link.show_title !link.show_title.to_s.blank?
+      title = link.show_description if link.show_title.to_s.blank? and !link.show_description.to_s.blank?
       title = title.truncate(60, :omission => '&hellip;', :separator => ' ')
-
       message = title + " " + short_url +" #WombatLinks"
       Twitter.update(message)
-    rescue RuntimeError => error
-      puts "Twitter error"
-      puts error.inspect
-
+    rescue
       if(!message.to_s.blank?)
        tweet = Tweet.new(:message => message)
        tweet.save

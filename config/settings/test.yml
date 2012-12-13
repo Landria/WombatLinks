@@ -1,7 +1,11 @@
 spam:
   max_spam_links_count: 4
 deafult_link_mailer: "info@wombatlinks.com"
-anonymous_links_live_period: 3
-
 registration:
   prepaid_period: 2 #months
+
+twitter:
+  consumer_key: ""
+  consumer_secret: ""
+  oauth_token: ""
+  oauth_token_secret: ""

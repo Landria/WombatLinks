@@ -1,9 +1,9 @@
 class DeleteOldLinksJob < Resque::Job
 
-  @queue = :DeleteJob
+  @queue = :DeleteOldLinksJob
 
   def self.perform
-    period = Settings.anonymous_links_live_period.to_i
+    period = Settings.anonymous_links_storage_period.to_i
     links = UserLink.where(:is_private => false, :user_id => nil).where(["created_at < ?", period.months.ago]).order('created_at ASC')
     links.each do |link|
       link.destroy
@@ -11,6 +11,6 @@ class DeleteOldLinksJob < Resque::Job
   end
 
   def queue_job
-    Resque.enqueue(TweetJob)
+    Resque.enqueue(DeleteOldLinksJob)
   end
 end

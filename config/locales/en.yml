@@ -114,6 +114,7 @@ en:
       status_text: "Unlock requests from %{date} state:"
       send_message: "Unlock request has been successfully send and will be processed as soon as possible."
       send_unlock_request: "Send request"
+      notification: "Your account is unlocked!"
   link_not_found: "Link not found"
   resend_link: "Resend"
   watches: "My sites"
@@ -133,12 +134,14 @@ en:
     no_links: "No links yet."
     mailing:
       success: "Mailing list status updated!"
+    monitor_alert: "Website %{site} is out of service since %{time}!"
   statistics:
     profile: "Statistics"
     rates:
       title: "Wombat Rates"
       menu: "Sites Rates"
       pages_title: "Domain links stats"
+    uptime: "Uptime: %{uptime}%"
   payments:
     new: "Prolong subscription"
     disabled: "You cannot buy prolongation for free subscription!"

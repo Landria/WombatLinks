@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210142817) do
+ActiveRecord::Schema.define(:version => 20121213205215) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,8 +57,9 @@ ActiveRecord::Schema.define(:version => 20121210142817) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "protocol",   :default => "http"
   end
 
   create_table "link_rates", :force => true do |t|
@@ -147,6 +148,14 @@ ActiveRecord::Schema.define(:version => 20121210142817) do
     t.datetime "updated_at",                   :null => false
   end
 
+  create_table "sites_monitors", :force => true do |t|
+    t.integer  "domain_id"
+    t.boolean  "status"
+    t.integer  "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tweets", :force => true do |t|
     t.text     "message"
     t.datetime "created_at", :null => false
@@ -191,6 +200,14 @@ ActiveRecord::Schema.define(:version => 20121210142817) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "user_watch_monitors", :force => true do |t|
+    t.integer  "user_watch_id"
+    t.boolean  "status"
+    t.integer  "code"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "user_watches", :force => true do |t|
     t.integer  "user_id"
     t.integer  "domain_id"
@@ -211,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20121210142817) do
     t.string   "last_sign_in_ip"
     t.string   "role",                   :default => "user"
     t.boolean  "is_locked",              :default => false
+    t.string   "locale",                 :default => "en"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -228,6 +246,8 @@ ActiveRecord::Schema.define(:version => 20121210142817) do
 
   add_foreign_key "site_rates", "domains", :name => "site_rates_domain_id_fk", :dependent => :delete
 
+  add_foreign_key "sites_monitors", "domains", :name => "sites_monitors_domain_id_fk", :dependent => :delete
+
   add_foreign_key "unlock_requests", "users", :name => "unlock_requests_user_id_fk", :dependent => :delete
 
   add_foreign_key "user_links", "links", :name => "user_links_link_id_fk", :dependent => :delete
@@ -238,6 +258,8 @@ ActiveRecord::Schema.define(:version => 20121210142817) do
 
   add_foreign_key "user_promos", "promos", :name => "user_promos_promo_id_fk", :dependent => :delete
   add_foreign_key "user_promos", "users", :name => "user_promos_user_id_fk", :dependent => :delete
+
+  add_foreign_key "user_watch_monitors", "user_watches", :name => "user_watch_monitors_user_watch_id_fk", :dependent => :delete
 
   add_foreign_key "user_watches", "domains", :name => "user_watches_domain_id_fk", :dependent => :delete
   add_foreign_key "user_watches", "users", :name => "user_watches_user_id_fk", :dependent => :delete

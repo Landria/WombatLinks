@@ -194,6 +194,7 @@ ru:
     status_text: "Статус запроса разблокировки от %{date}:"
     send_message: "Запрос разблокировки отправлен и будет в ближайшее время рассмотрен!"
     send_unlock_request: "Отправить запрос"
+    notification: "Ваш аккаунт разблокирован!"
   link_not_found: "Ссылка не найдена."
   resend_link: "Переслать"
   watches: "Мои сайты"
@@ -201,6 +202,12 @@ ru:
   date:
     formats:
       default: "%e.%m.%Y"
+  time:
+    formats:
+      default: "%e.%m.%Y %H:%M"
+      time: "%H:%M"
+      short: "%e.%m.%Y %H:%M"
+      long: "%e.%m.%Y, %H:%M"
   subscription:
     active: "Активна"
     locked: "Не активна"
@@ -222,6 +229,7 @@ ru:
     no_links: "Ссылок пока нет!"
     mailing:
       success: "Статус подписки изменен!"
+    monitor_alert: "Сайт %{site} недоступен с %{time}!"
   statistics:
     profile: "Статистика"
     rates:
@@ -237,6 +245,7 @@ ru:
       pages_title: "Статистика ссылок"
     show_stats: "Статистика"
     recount_rates: "Пересчитать статистику"
+    uptime: "Uptime: %{uptime}%"
   payments:
     new: "Продлить подписку"
     disabled: "Оплата продления бесплатной подписки не может быть осуществлена!"

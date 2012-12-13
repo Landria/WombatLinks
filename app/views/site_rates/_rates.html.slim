@@ -24,7 +24,7 @@
                 = rate.p_move.abs if rate.p_move
             td
               - if rate.is_a? SiteRate
-                = link_to rate.domain.name, "http://" + rate.domain.name, :target => "_blank"
+                = link_to rate.domain.name, rate.domain.url, :target => "_blank"
               - else
                 = link_to rate.link.name, rate.link.name, :target => "_blank"
             td

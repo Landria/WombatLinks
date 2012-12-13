@@ -21,20 +21,14 @@
           ' URL:
         = link_to(@link.url, @link.url)
       - if !@link.show_description.blank?
-        p
-          strong
-            = (t :description)
-          ' :
-          = @link.show_description
+        p= @link.show_description
       - if user_signed_in? && (@link.user_link? current_user)
         p
           strong
             = (t :email)
             ' :
           = @link.email
-      p
-        = (t :created_at)
-        '
+      p.muted
         = @link.created_at.strftime("%d.%m.%Y %H:%M")
       - if can? :resend, @link
         = link_to (t :resend_link), resend_link_path(:link_id => @link.id), :class => "btn"

@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+  body
+    p style="color: red;"
+      = t 'messages.monitor_alert', site: @uwm.domain.url, time: l(@uwm.created_at)
+    br
+    = render :partial =>'wombat_mailer/footer'

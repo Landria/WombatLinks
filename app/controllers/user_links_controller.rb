@@ -74,12 +74,6 @@ class UserLinksController < ApplicationController
     @link = UserLink.new(link_params)
 
     if @link.save
-      Resque.enqueue(LinkJob, @link.link.id)
-      if !@link.is_private?
-        #Resque.enqueue(TweetLinkJob, @link.id)
-      end
-      Resque.enqueue(MailLinkJob, @link.id, I18n.locale)
-
       redirect_to @link, :notice => t(:created)
     else
       render :action => "new"

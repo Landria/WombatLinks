@@ -5,12 +5,11 @@ class ReTryMailJob < Resque::Job
   def self.perform
     links = UserLink.where(:is_send => false)
     links.each do |link|
-      if WombatMailer.send_link(link).deliver
-        link.is_send = true
-        link.save
-        sleep 15
-      end
+      WombatMailer.send_link(link).deliver
+      link.update_attribute(:is_send, true)
+      sleep 15
     end
+  rescue
   end
 
   def queue_job
