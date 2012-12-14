@@ -13,11 +13,10 @@ class RequestsController < ApplicationController
     render_404 unless request.xhr?
 
     if CancelMailingList.change_status current_user.id, params[:type]
-      flash[:notice] = t 'messages.mailing.success'
+      flash[:ajax_success] = t 'messages.mailing.success'
     else
-      flash[:alert] = params.inspect
+      flash[:ajax_alert] = t 'messages.mailing.fail'
     end
-
     render js: %($("#mailing").load("/load_mailing");) and return
   end
 
@@ -81,7 +80,6 @@ class RequestsController < ApplicationController
 
   def user_subscription
     render_404 unless request.xhr?
-
     render :partial => 'devise/shared/subscription'
   end
 

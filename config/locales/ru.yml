@@ -65,6 +65,7 @@ ru:
   range: "периода"
   date_search: "Поиск по дате"
   text_search: "Поиск"
+  news: "Новости"
   will_paginate:
     previous_label: "&#8592; Назад"
     next_label: "Вперед &#8594;"
@@ -221,8 +222,8 @@ ru:
     free: "Free"
   messages:
     user_watch:
-      success_add: "Сайт успешно добавлен"
-      success_destroy: "Сайт успешно удален"
+      success_add: "Сайт успешно добавлен!"
+      success_destroy: "Сайт успешно удален!"
       error_destroy: "Удаление невозможно! Повторите немного позже!"
     unauthorized: "Сессия истекла! Войдите снова."
     no_data: "Данных пока нет."
@@ -230,6 +231,9 @@ ru:
     no_links: "Ссылок пока нет!"
     mailing:
       success: "Статус подписки изменен!"
+      fail: "Статус подписки не изменен!"
+    subscription:
+      success: "Тип подписки изменен!"
     monitor_alert: "Сайт %{site} недоступен с %{time}!"
     monitor_alert_email: "WombatLinks Мониторинг"
     statistics_email: "WombatLinks статистика Ваших сайтов!"
@@ -257,7 +261,7 @@ ru:
     complete: "Оплата продления успешно завершена! Спасибо!"
     new_text_free: "Ваша подписка не нуждается в платном продлении, но Вы можете совершить платеж, если хотите поддержать развитие сервиса."
     table:
-      list: "Мои платежи"
+      list: "История платежей"
       status: "Статус"
       date: "Дата"
       tool: "Система платежей"
@@ -290,7 +294,7 @@ ru:
     send: "Ваше сообщение успешно отправлено! Спасибо!"
   mailing:
     title: "Управление рассылками"
-    monitoring: "Данные мониторинга"
-    rates: "Статистика сайтов"
+    monitoring: "Мониторинг"
+    rates: "Статистика"
     yes: "Да"
     no: "Нет"

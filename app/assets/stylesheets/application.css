@@ -183,3 +183,15 @@ footer span#footer_menu a{
 #mailing{
     margin-bottom: 20px !important;
 }
+
+.alert-ajax_success {
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    color: #468847;
+}
+
+.alert-ajax_alert {
+    background-color: #F2DEDE;
+    border-color: #EED3D7;
+    color: #B94A48;
+}

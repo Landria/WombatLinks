@@ -1,4 +1,5 @@
-= bootstrap_flash
+- if flash[:ajax_alert] or flash[:ajax_success]
+  = bootstrap_flash
 - sites.each do |site|
   .site-item
     i.icon-ok

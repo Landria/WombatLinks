@@ -9,7 +9,7 @@ class UserWatchesController < ApplicationController
     if @user_watch.valid?
       @user_watch.save
       current_user.change_plan if current_user.should_change_plan?
-      flash[:notice] = t 'messages.user_watch.success_add'
+      flash[:ajax_success] = t 'messages.user_watch.success_add'
       render :partial => "user_watches/create_user_watch", :locals => { :flash => flash }
     else
       render :partial => "user_watches/errors_user_watch", :locals => { :errors => @user_watch.errors.full_messages}
@@ -28,9 +28,9 @@ class UserWatchesController < ApplicationController
       user_watch = UserWatch.find(params[:id])
       user_watch.destroy
       current_user.change_plan if current_user.should_change_plan?
-      flash[:notice] = t 'messages.user_watch.success_destroy'
+      flash[:ajax_success] = t 'messages.user_watch.success_destroy'
     rescue
-      flash[:alert] = t 'messages.user_watch.error_destroy'
+      flash[:ajax_alert] = t 'messages.user_watch.error_destroy'
     ensure
       render :partial => "user_watches/create_user_watch", :locals => { :flash => flash }
     end

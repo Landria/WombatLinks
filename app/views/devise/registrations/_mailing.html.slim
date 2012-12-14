@@ -1,6 +1,7 @@
 #mailing
   h3= t 'mailing.title'
-  = bootstrap_flash
+  - if flash[:ajax_alert] or flash[:ajax_success]
+    = bootstrap_flash
   .row
     .span2
       label= t 'mailing.rates'

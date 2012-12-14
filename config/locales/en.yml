@@ -125,8 +125,8 @@ en:
     prolong: "Prolong"
   messages:
     user_watch:
-      success_add: "Site successfully added"
-      success_destroy: "Site successfully deleted"
+      success_add: "Site successfully added!"
+      success_destroy: "Site successfully deleted!"
       error_destroy: "Cannot proceed! Please repeat some later!"
     unauthorized: "Session expired! Log in again."
     no_data: "No data yet."
@@ -134,6 +134,9 @@ en:
     no_links: "No links yet."
     mailing:
       success: "Mailing list status updated!"
+      fail: "Mailing list status is not updated!"
+    subscription:
+      success: "Subscription updated!"
     monitor_alert: "Website %{site} is out of service since %{time}!"
     monitor_alert_email: "WombatLinks Sites Monitor alert!"
     statistics_email: "WombatLinks Sites Statistics!"
@@ -152,7 +155,7 @@ en:
     complete: "Payment successfully completed! Thank you!"
     new_text_free: "Your subscription is free but you can make donation payment as for ordinary subscription prolongation."
     table:
-      list: "My payments"
+      list: "Payments history"
       tool: "Payment System"
   paypal_image: 'https://www.paypal.com/en_US/i/btn/btn_dg_pay_w_paypal.gif'
   promos:
@@ -172,5 +175,5 @@ en:
     send: "Message is successfully send. Thank you!"
   mailing:
     title: "Mailing lists"
-    monitoring: "Sites minitoring"
+    monitoring: "Monitoring"
     rates: "Site rates"
