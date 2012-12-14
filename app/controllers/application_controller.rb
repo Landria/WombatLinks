@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
   def set_locale
     available = %w{en ru}
     I18n.locale = extract_locale_from_tld || request.preferred_language_from(available) || I18n.default_locale
-    I18n.locale = :en
   end
 
   # Get locale from top-level domain or return nil if such locale is not available

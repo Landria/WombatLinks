@@ -10,6 +10,9 @@ en:
   edit_profile: "Your profile"
   welcome: "Welcome to WombatLinks!"
   new_link: "New link"
+  title: "Title"
+  description: "Description"
+  remember_me: "Remember me"
   log_out: "Log out"
   sign_in: "Sign in"
   sign_up: "Sign up"
@@ -180,3 +183,10 @@ en:
   site:
     description: "WombatLinks - Link-to-Email, SiteRates and Monitoring service"
     keywords: "send link, site rates, site monitoring, uptime, site statistics, send link to email"
+  contacts:
+    contact_us: "Contact us!"
+    subject: "Subject"
+    email_text: "Email text"
+    send_message: "Send message"
+    about_us: "About us"
+    send: "Your message successfully send! Thank you!"
