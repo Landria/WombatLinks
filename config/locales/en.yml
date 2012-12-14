@@ -177,3 +177,6 @@ en:
     title: "Mailing lists"
     monitoring: "Monitoring"
     rates: "Site rates"
+  site:
+    description: "WombatLinks - Link-to-Email, SiteRates and Monitoring service"
+    keywords: "send link, site rates, site monitoring, uptime, site statistics, send link to email"
