@@ -200,14 +200,6 @@ ActiveRecord::Schema.define(:version => 20121213205215) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "user_watch_monitors", :force => true do |t|
-    t.integer  "user_watch_id"
-    t.boolean  "status"
-    t.integer  "code"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "user_watches", :force => true do |t|
     t.integer  "user_id"
     t.integer  "domain_id"
@@ -258,8 +250,6 @@ ActiveRecord::Schema.define(:version => 20121213205215) do
 
   add_foreign_key "user_promos", "promos", :name => "user_promos_promo_id_fk", :dependent => :delete
   add_foreign_key "user_promos", "users", :name => "user_promos_user_id_fk", :dependent => :delete
-
-  add_foreign_key "user_watch_monitors", "user_watches", :name => "user_watch_monitors_user_watch_id_fk", :dependent => :delete
 
   add_foreign_key "user_watches", "domains", :name => "user_watches_domain_id_fk", :dependent => :delete
   add_foreign_key "user_watches", "users", :name => "user_watches_user_id_fk", :dependent => :delete

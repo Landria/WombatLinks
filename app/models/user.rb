@@ -78,8 +78,8 @@ class User < ActiveRecord::Base
 
   def change_plan
     begin
-      plan = Plan.get_suitable self.user_watch.count
-      self.user_plan.change_to plan.id, should_change_plan_paid_upto?(plan) if should_change_plan?
+      plan = Plan.get_suitable user_watch.count
+      self.user_plan.change_to plan.id, should_change_plan_paid_upto?(plan), should_freeze? if should_change_plan?
     rescue
       false
     end
@@ -97,6 +97,17 @@ class User < ActiveRecord::Base
       end
     end
     return false if plan.free?
+    true
+  end
+
+  # если есть активный promo у пользователя, freeze_days не пересчитывать
+  def should_freeze?
+    if self.user_promo
+      self.user_promo.each do |u_p|
+        return false if u_p.active?
+      end
+    end
+    return false if user_plan.free?
     true
   end
 

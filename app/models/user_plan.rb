@@ -42,7 +42,7 @@ class UserPlan < ActiveRecord::Base
     self.paid_upto.to_date > Date.today || self.free?
   end
 
-  def change_to plan_id, change_paid_upto = false
+  def change_to plan_id, change_paid_upto = false, should_freeze = false
 
     freeze  =  days_remain
 
@@ -52,7 +52,7 @@ class UserPlan < ActiveRecord::Base
 
     self.plan_id = plan_id
 
-    if self.free? and freeze
+    if should_freeze
       self.freeze_days = freeze
     end
 

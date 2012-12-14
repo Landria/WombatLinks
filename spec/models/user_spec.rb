@@ -66,9 +66,9 @@ describe User do
 
       user.change_plan.should be_true
 
-      user.user_plan.plan.name.should eq(plan.name)
-
       user.user_watch.delete_all
+      user.user_watch.count.should eq(0)
+
       user.should be_should_change_plan
       user.change_plan.should be_true
     end

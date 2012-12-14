@@ -12,12 +12,12 @@ describe UserLinksController do
   describe '#create' do
     it "should create new user_link" do
       lambda { post :create, params }.should change(UserLink, :count)
-      response.should redirect_to(UserLink.last)
+      response.should redirect_to(link_path(UserLink.last))
     end
 
     it "should create new private user_link" do
       lambda { post :create, params_with_private }.should change(UserLink, :count)
-      response.should redirect_to(UserLink.last)
+      response.should redirect_to(link_path(UserLink.last))
     end
   end
 end
