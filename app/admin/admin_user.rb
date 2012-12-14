@@ -1,4 +1,5 @@
 ActiveAdmin.register AdminUser do
+  menu parent: "Users"
   index do
     column :email
     column :sign_in_count

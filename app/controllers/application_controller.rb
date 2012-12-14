@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   Warden::Manager.after_set_user do |user|
-    user.update_attribute(:locale, I18n.locale)
+    user.update_attribute(:locale, I18n.locale) if user.is_a? User
   end
 
   private

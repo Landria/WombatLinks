@@ -1,4 +1,5 @@
 ActiveAdmin.register UserLink do
+  menu parent: "Users"
   actions :all, :except => [:edit]
   filter :user, :as => :select,
          :collection => User.all.inject({}) {|result, element| result[element.email] = element.id; result}
@@ -9,14 +10,14 @@ ActiveAdmin.register UserLink do
 
   scope :all, :default => true
   scope :is_private do
-    Link.where(:is_private => true)
+    UserLink.where(:is_private => true)
   end
   scope :is_spam do
-    Link.where(:is_spam => true)
+    UserLink.where(:is_spam => true)
   end
 
   scope :not_send do
-    Link.where(:is_send => false)
+    UserLink.where(:is_send => false)
   end
 
   index do

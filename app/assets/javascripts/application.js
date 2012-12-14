@@ -25,4 +25,3 @@
 //= require twitter/bootstrap/bootstrap-carousel
 //= require twitter/bootstrap/bootstrap-typeahead
 //= require twitter/bootstrap/bootstrap-affix
-//= require_tree .
