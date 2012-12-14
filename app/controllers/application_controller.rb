@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  Warden::Manager.after_set_user do |user|
+    user.update_attribute(:locale, I18n.locale)
+  end
+
   private
 
   def set_locale
