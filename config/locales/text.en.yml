@@ -24,8 +24,15 @@ en:
        - 'WombatLinks.com is not responsible for links, emailed by our service.
          If You receive spam links,
          please make us now via "Spam link complain" link in email message.'
-    contacts: "Any questions or suggestions? Please contact us!"
+    contacts: "Any questions or suggestions? Please, contact us!"
     about:
-      - 'WombatLinks.com предоставляет сервис "Email-закладок", сервис "Статистики интернет-ресурсов" и
-         сервис "Мониторинга сайтов".'
-      - 'Сервис "Email-закладок" дает возможность отправить ссылку на понравившийся материал себе'
+          - 'WombatLinks.com provides "Link to Email", "Site Rates" and "Sites Monitoring" services.'
+
+          - '"Link to Email" service allows to send links to emails (your or your friends).
+              It is very conveniently if you want to back to site later or want your friends to do it.'
+
+          - 'At you profile page you can add sites to Watch List and receive sites rates and links statistics to email or watch it on the Statistic page.
+             You can request site rates recount on you site statistics page at any time.'
+
+          - 'Wombatlinks also provides "Sites monitoring" service for your Watch List sites. You will receive email alert notification if site is unavailable.
+             Sites uptime data shows on site Statistics page. We are going to add some other alert notification ways soon (skype, sms, icq).'
