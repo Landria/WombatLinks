@@ -4,5 +4,5 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-LinkmeRuby::Application.load_tasks
+WombatLinks::Application.load_tasks
 

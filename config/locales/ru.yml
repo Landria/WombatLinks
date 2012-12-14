@@ -129,6 +129,7 @@ ru:
               blank: "не введен."
             current_password:
               blank: "не введен"
+              invalid: "введен не верно"
         unlock_request:
           attributes:
             message:

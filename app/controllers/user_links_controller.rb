@@ -74,7 +74,7 @@ class UserLinksController < ApplicationController
     @link = UserLink.new(link_params)
 
     if @link.save
-      redirect_to @link, :notice => t(:created)
+      redirect_to link_path(@link), :notice => t(:created)
     else
       render :action => "new"
     end

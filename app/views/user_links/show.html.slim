@@ -33,7 +33,7 @@
       - if can? :resend, @link
         = link_to (t :resend_link), resend_link_path(:link_id => @link.id), :class => "btn"
       - if can? :destroy, @link
-        = link_to (t :destroy), @link, :confirm => (t :confirm), :method => :delete, :class => "btn"
+        = link_to (t :destroy), link_delete_path(@link), :confirm => (t :confirm), :method => :delete, :class => "btn"
       - else
         = link_to (t :all_links), all_links_path, :class => "btn"
       - if can? :add_link, UserLink

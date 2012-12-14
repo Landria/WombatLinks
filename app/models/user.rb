@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :user_link
+  has_many :user_link, :dependent => :nullify
   has_many :unlock_request, :dependent => :destroy
   has_many :user_watch, :dependent => :destroy
   has_one :user_plan, :dependent => :destroy
@@ -15,9 +15,6 @@ class User < ActiveRecord::Base
   attr_protected :is_locked
 
   after_create :set_user_accounts
-  before_destroy :unset_links
-
-  ROLES = %w[admin guest user]
 
   def count_links private=nil, spam=nil
     links = UserLink.where(:user_id => self.id)
@@ -47,7 +44,6 @@ class User < ActiveRecord::Base
       self.is_locked = true
       self.save
     end
-
   end
 
   def set_unlock
@@ -138,11 +134,5 @@ class User < ActiveRecord::Base
   private
   def set_user_accounts
     Plan.set_new_user self.id
-  end
-
-  def unset_links
-    user_link.each do |link|
-      link.update_attribute(:user_id, nil)
-    end
   end
 end

@@ -21,34 +21,31 @@
 .row
   .span10
     - @links.each do |link|
+      - if link.is_private
+        span.label.label-success
+          strong= (t :is_private_show)
+
+      - if link.is_spam
+        span.label.label-important
+          strong= (t :is_spam_show)
       h4
-        - if link.is_private
-          span.label.label-success
-            strong= (t :is_private_show)
-          '
-        - if link.is_spam
-          span.label.label-important
-            strong= (t :is_spam_show)
-          '
         strong
           = '#'+ link.id.to_s
           ' :
         = link_to(link.url, link.url)
-      p
-        - if !link.show_title.blank?
-          = link.show_title
-        br
-        span.muted
-          = link.created_at.strftime("%d.%m.%Y %H:%M")
+      - if !link.show_title.blank?
+        p= link.show_title
+      span.muted
+        = link.created_at.strftime("%d.%m.%Y %H:%M")
       .link_controls
         - if can? :show, link
-          = link_to (t :show), link, class: 'btn btn-small'
+          = link_to (t :show), link_path(link), class: 'btn btn-small'
 
         - if (can? :resend, link)
           = link_to (t :resend_link), resend_link_path(:link_id => link.id), class: 'btn btn-small'
 
         - if can? :destroy, link
-          = link_to (t :destroy), link, :confirm => (t :confirm), :method => :delete, class: 'btn btn-small'
+          = link_to (t :destroy), link_delete_path(link), :confirm => (t :confirm), :method => :delete, class: 'btn btn-small'
       hr
     - if (@links.count == 0)
       p.text-warning= t 'messages.no_links'

@@ -1,8 +1,12 @@
-LinkmeRuby::Application.routes.draw do
+WombatLinks::Application.routes.draw do
 
   root :to => 'user_links#new'
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users do
+    match "/profile" => "devise/registrations#edit", :as => :edit_user_registration, :via => [:get]
+    match "/profile" => "devise/registrations#update", :as => :profile_edit, :via => [:put]
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   mount Resque::Server, :at => "/background"
 
@@ -12,7 +16,10 @@ LinkmeRuby::Application.routes.draw do
   match "/resend/:link_id" => "user_links#resend", :as => :resend_link, :via => [:get]
   match "/complain/:hash" => "requests#spam_complain", :as => :spam_complain, :via => [:get]
   match "/add_watch" => "user_watches#create_user_watch", :as => :new_user_watch, :via => [:post]
+
   resources :user_links
+  match "/link/:id" => "user_links#show", :as => :link, :via => [:get]
+  match "/link/:id" => "user_links#destroy", :as => :link_delete, :via => [:delete]
 
   match "/send-link" => "user_links#create", :as => :create_link, :via => [:post]
 
