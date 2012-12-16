@@ -1,7 +1,8 @@
 WombatLinks::Application.routes.draw do
 
-  root :to => 'user_links#new'
   ActiveAdmin.routes(self)
+  root :to => 'user_links#new'
+
   devise_for :users do
     match "/profile" => "devise/registrations#edit", :as => :edit_user_registration, :via => [:get]
     match "/profile" => "devise/registrations#update", :as => :profile_edit, :via => [:put]
