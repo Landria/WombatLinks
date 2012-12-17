@@ -72,9 +72,9 @@ WombatLinks::Application.configure do
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     paypal_options = {
-        :login => 'underv_1354121044_biz_api1.yahoo.com',
-        :password => '1354121065',
-        :signature => 'Adzdl-XhqacuZSu8b2-JA3ESmDN0A.XHNg87PH58MW8R-BdurMxfynaE'
+        :login => 'natalia.m.sergeeva_api1.gmail.com',
+        :password => 'JKX6AKGJCY7Y4QJS',
+        :signature => 'AmT-ND4t7c8p0OA8prvU6Y6WMBgaAQ5LK9OqsFU9FJLIpLGLBJ-vTexn'
     }
     ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)

@@ -120,7 +120,7 @@ en:
       notification: "Your account is unlocked!"
   link_not_found: "Link not found"
   resend_link: "Resend"
-  watches: "My sites"
+  watches: "Watch List"
   add_site: "Watch"
   subscription:
     prolong_text: "Use promo-codes to prolong subscription"
