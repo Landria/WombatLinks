@@ -47,9 +47,11 @@ html lang="en"
         = bootstrap_flash
         = yield
       .row
-        .span7
+        .span4
           = render 'layouts/shared/news'
-        .span5
+        .span3
+          = render 'layouts/shared/carousel'
+        .span4
           = render 'layouts/shared/plans'
       hr
       = render 'layouts/shared/footer'
