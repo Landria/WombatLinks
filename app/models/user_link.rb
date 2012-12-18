@@ -130,7 +130,7 @@ class UserLink < ActiveRecord::Base
   def self.clear_duplicates user_links
     user_links.each do |u_link|
       if u_link.user_id
-        user_links.delete_if { |l| l.id != u_link.id and l.user_id == u_link.user_id and l.link_id == u_link.link_id }
+        user_links.delete_if { |l| l.id != u_link.id and l.user_id == u_link.user_id and l.email == u_link.email and l.link_id == u_link.link_id }
       else
         user_links.delete_if { |l| l.id != u_link.id and l.email == u_link.email and l.link_id == u_link.link_id and !l.user_id }
       end

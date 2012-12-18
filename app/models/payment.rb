@@ -2,7 +2,7 @@ require "ip_addr"
 
 class Payment < ActiveRecord::Base
 
-  MIN_AMOUNT = Plan.get_min_plan_price
+  MIN_AMOUNT = Settings.min_payment_amount
 
   attr_accessible :amount, :is_completed, :tool, :user_id
   attr_protected :payer_id, :is_completed, :ip

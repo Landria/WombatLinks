@@ -13,8 +13,10 @@ ActiveAdmin.register UnlockRequest do
     UnlockRequest.where(:status => 'declined')
   end
 
-  filter :user, :as => :select,
+  if User.table_exists?
+    filter :user, :as => :select,
          :collection => User.all.inject({}) {|result, element| result[element.email] = element.id; result}
+  end
   member_action :accept, :method => :put do
     request = UnlockRequest.find(params[:id])
     request.accept!

@@ -39,10 +39,17 @@ class User < ActiveRecord::Base
     roles.include?(role.to_s)
   end
 
+  def is_spammer?
+    self.user_link.where(:is_spam => true).count > Settings.spam.max_spam_links_count
+  end
+
   def set_lock
-    if self.user_link.where(:is_spam == true).count > Settings.spam.max_spam_links_count
-      self.is_locked = true
-      self.save
+    update_attribute(:is_locked, true)
+  end
+
+  def check_lock
+    if self.is_spammer?
+      set_lock
     end
   end
 

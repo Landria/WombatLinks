@@ -1,5 +1,5 @@
 spam:
-  max_spam_links_count: 4
+  max_spam_links_count: 0
 deafult_link_mailer: "info@wombatlinks.com"
 registration:
   prepaid_period: 2 #months

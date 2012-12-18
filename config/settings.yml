@@ -2,3 +2,4 @@ news:
   limit: 5
 monitor_data_storage_period: 6
 anonymous_links_storage_period: 3
+min_payment_amount: 1.99

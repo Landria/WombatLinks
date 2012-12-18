@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   def check_user_lock
      if user_signed_in?
-       current_user.set_lock
+       current_user.check_lock
      end
   end
 

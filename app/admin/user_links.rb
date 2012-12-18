@@ -1,9 +1,10 @@
 ActiveAdmin.register UserLink do
   menu parent: "Users"
   actions :all, :except => [:edit]
-  filter :user, :as => :select,
+  if User.table_exists?
+    filter :user, :as => :select,
          :collection => User.all.inject({}) {|result, element| result[element.email] = element.id; result}
-
+  end
   filter :title
   filter :link
   filter :description
