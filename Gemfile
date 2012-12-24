@@ -71,6 +71,7 @@ end
  gem 'high_voltage'
  gem 'will_paginate', '~> 3.0.0'
  gem 'htmlentities'
+ gem 'hpricot'
 
  gem 'pg_search'
  gem 'slim'

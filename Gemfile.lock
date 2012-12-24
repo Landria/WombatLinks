@@ -131,6 +131,7 @@ GEM
     high_voltage (1.2.1)
     highline (1.6.15)
     hike (1.2.1)
+    hpricot (0.8.6)
     htmlentities (4.3.1)
     http_accept_language (1.0.2)
     httparty (0.5.2)
@@ -361,6 +362,7 @@ DEPENDENCIES
   factory_girl_rails
   foreigner
   high_voltage
+  hpricot
   htmlentities
   http_accept_language
   jbuilder

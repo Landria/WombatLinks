@@ -4,6 +4,7 @@ class RecountStatsJob < Resque::Job
 
   def self.perform
     SiteRate.recount_all_rates
+    SiteRate.get_alexa_rank
     LinkRate.recount_all_rates
   end
 

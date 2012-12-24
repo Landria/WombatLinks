@@ -4,13 +4,15 @@
       thead
         tr
           th= t 'statistics.rates.position'
-          - if rates.is_a? SiteRate
+          - if rates.first.is_a? SiteRate
             th= t 'statistics.rates.site'
           - else
             th= t 'link'
           th= t 'statistics.rates.this_week'
           th= t 'statistics.rates.this_month'
           th= t 'statistics.rates.total'
+          - if rates.first.is_a? SiteRate
+            th Alexa Rank
       tbody
         - rates.each do |rate|
           tr
@@ -44,6 +46,8 @@
                   i.icon-chevron-down
                 = rate.m_move.abs if rate.m_move
             td= rate.total
+            - if rate.is_a? SiteRate
+              td= rate.alexa
   - else
     p.text-warning= t 'messages.no_data'
 .span10

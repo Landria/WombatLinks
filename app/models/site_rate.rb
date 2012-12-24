@@ -1,5 +1,8 @@
 require "rate"
 require "rate_move"
+require 'hpricot'
+require 'net/http'
+
 class SiteRate < ActiveRecord::Base
   extend Rate
   include RateMove
@@ -15,22 +18,22 @@ class SiteRate < ActiveRecord::Base
     links = UserLink.clear self.links
 
     links_total = Array.new(links)
-    links_total.keep_if{|l| l.created_at >= self.updated_at}
+    links_total.keep_if { |l| l.created_at >= self.updated_at }
 
     links_t_week = Array.new(links)
-    links_t_week.keep_if{|l| l.created_at >= 7.days.ago}
+    links_t_week.keep_if { |l| l.created_at >= 7.days.ago }
 
     links_t_month = Array.new(links)
-    links_t_month.keep_if{|l| l.created_at >= 1.months.ago}
+    links_t_month.keep_if { |l| l.created_at >= 1.months.ago }
 
     links_p_week = Array.new(links)
-    links_p_week.keep_if{|l|  l.created_at >= 14.days.ago and l.created_at < 7.days.ago}
+    links_p_week.keep_if { |l| l.created_at >= 14.days.ago and l.created_at < 7.days.ago }
 
     links_p_month = Array.new(links)
-    links_p_month.keep_if{|l| l.created_at >= 2.months.ago and l.created_at < 1.months.ago}
+    links_p_month.keep_if { |l| l.created_at >= 2.months.ago and l.created_at < 1.months.ago }
 
     self.update_attributes this_week: links_t_week.count, this_month: links_t_month.count, prev_week: links_p_week.count, prev_month: links_p_month.count
-    self.update_attribute(:total, (self.total  + links_total.count))
+    self.update_attribute(:total, (self.total + links_total.count))
   end
 
   def links
@@ -41,4 +44,17 @@ class SiteRate < ActiveRecord::Base
     self.where('total > 0').order('total DESC').paginate(:page => page)
   end
 
+  def self.get_alexa_rank
+    SiteRate.all.each do |sr|
+      begin
+        url = 'http://data.alexa.com/data?cli=10&dat=snbamz&url=' + sr.domain.name
+        response = Net::HTTP.get_response(URI.parse(URI.encode(url)))
+        xml = response.body
+
+        doc = Hpricot::XML(xml)
+        sr.update_attribute :alexa, doc.at(:POPULARITY)['TEXT']
+      rescue
+      end
+    end
+  end
 end
