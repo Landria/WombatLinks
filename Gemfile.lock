@@ -207,7 +207,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    railroady (1.1.0)
     rails (3.2.8)
       actionmailer (= 3.2.8)
       actionpack (= 3.2.8)
@@ -380,7 +379,6 @@ DEPENDENCIES
   pg
   pg_search
   pry
-  railroady
   rails (~> 3.2.8)
   rails-erd
   rails_config
