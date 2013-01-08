@@ -33,8 +33,8 @@ end
 
  #gem 'jquery-rails'
 group :development do
-  gem "capistrano"
   gem "rvm-capistrano"
+  gem 'railroady'
 end
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
@@ -79,3 +79,5 @@ end
 
  gem 'activemerchant'
  gem 'activeadmin'
+
+ gem 'rails-erd'

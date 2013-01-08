@@ -3,7 +3,7 @@ class UserWatch < ActiveRecord::Base
   belongs_to :user
   belongs_to :domain
 
-  has_many :user_watch_monitors
+  has_many :sites_monitors, :through => :domain
 
   attr_accessible :user_id
   attr_accessor :url

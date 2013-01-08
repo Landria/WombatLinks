@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class PaymentsController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/payments_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">ActiveMerchant::Billing</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-checkout">#checkout</a>
+    
+    <li><a href="#method-i-complete">#complete</a>
+    
+    <li><a href="#method-i-create_user_promo">#create_user_promo</a>
+    
+    <li><a href="#method-i-new">#new</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AdminUser.html">AdminUser</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./CancelMailingList.html">CancelMailingList</a>
+  
+    <li><a href="./DeleteOldLinksJob.html">DeleteOldLinksJob</a>
+  
+    <li><a href="./DeleteOldMonitorDataJob.html">DeleteOldMonitorDataJob</a>
+  
+    <li><a href="./Domain.html">Domain</a>
+  
+    <li><a href="./IpAddr.html">IpAddr</a>
+  
+    <li><a href="./Link.html">Link</a>
+  
+    <li><a href="./LinkJob.html">LinkJob</a>
+  
+    <li><a href="./LinkRate.html">LinkRate</a>
+  
+    <li><a href="./LinksHelper.html">LinksHelper</a>
+  
+    <li><a href="./Lock.html">Lock</a>
+  
+    <li><a href="./LockedEmail.html">LockedEmail</a>
+  
+    <li><a href="./MailLinkJob.html">MailLinkJob</a>
+  
+    <li><a href="./Messages.html">Messages</a>
+  
+    <li><a href="./MonitorAlertMailJob.html">MonitorAlertMailJob</a>
+  
+    <li><a href="./MonitorJob.html">MonitorJob</a>
+  
+    <li><a href="./News.html">News</a>
+  
+    <li><a href="./Payment.html">Payment</a>
+  
+    <li><a href="./PaymentsController.html">PaymentsController</a>
+  
+    <li><a href="./PaymentsHelper.html">PaymentsHelper</a>
+  
+    <li><a href="./Plan.html">Plan</a>
+  
+    <li><a href="./Promo.html">Promo</a>
+  
+    <li><a href="./Rate.html">Rate</a>
+  
+    <li><a href="./RateMove.html">RateMove</a>
+  
+    <li><a href="./ReTryMailJob.html">ReTryMailJob</a>
+  
+    <li><a href="./RecountStatsJob.html">RecountStatsJob</a>
+  
+    <li><a href="./RequestsController.html">RequestsController</a>
+  
+    <li><a href="./SiteRate.html">SiteRate</a>
+  
+    <li><a href="./SiteRatesController.html">SiteRatesController</a>
+  
+    <li><a href="./SitesMonitor.html">SitesMonitor</a>
+  
+    <li><a href="./StatisticsMailJob.html">StatisticsMailJob</a>
+  
+    <li><a href="./Tweet.html">Tweet</a>
+  
+    <li><a href="./TweetJob.html">TweetJob</a>
+  
+    <li><a href="./TweetLinkJob.html">TweetLinkJob</a>
+  
+    <li><a href="./TweetsHelper.html">TweetsHelper</a>
+  
+    <li><a href="./UnlockRequest.html">UnlockRequest</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserLink.html">UserLink</a>
+  
+    <li><a href="./UserLinksController.html">UserLinksController</a>
+  
+    <li><a href="./UserPlan.html">UserPlan</a>
+  
+    <li><a href="./UserPromo.html">UserPromo</a>
+  
+    <li><a href="./UserWatch.html">UserWatch</a>
+  
+    <li><a href="./UserWatchesController.html">UserWatchesController</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./WombatMailer.html">WombatMailer</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class PaymentsController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-checkout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">checkout</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="checkout-source">
+            <pre><span class="ruby-comment"># File app/controllers/payments_controller.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkout</span>
+  <span class="ruby-identifier">payment_params</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:payment</span>]
+  <span class="ruby-identifier">payment_params</span> = <span class="ruby-identifier">payment_params</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">tool</span><span class="ruby-operator">:</span> <span class="ruby-value">:paypal</span>
+
+  <span class="ruby-ivar">@payment</span> = <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">payment_params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:ip</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>)
+
+  <span class="ruby-identifier">setup_response</span> = <span class="ruby-constant">EXPRESS_GATEWAY</span>.<span class="ruby-identifier">setup_purchase</span>(<span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">amount_with_cents</span>,
+                                                  <span class="ruby-value">:ip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>,
+                                                  <span class="ruby-value">:return_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url_for</span>(<span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:payments</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:complete</span>, <span class="ruby-value">:only_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>),
+                                                  <span class="ruby-value">:cancel_return_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url_for</span>(<span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:payments</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>, <span class="ruby-value">:only_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>),
+  )
+
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-constant">EXPRESS_GATEWAY</span>.<span class="ruby-identifier">redirect_url_for</span>(<span class="ruby-identifier">setup_response</span>.<span class="ruby-identifier">token</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- checkout-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- checkout-method -->
+
+    
+      <div id="method-i-complete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">complete</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="complete-source">
+            <pre><span class="ruby-comment"># File app/controllers/payments_controller.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">complete</span>
+  <span class="ruby-identifier">message</span> = {<span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">t</span> <span class="ruby-string">'payments.complete'</span>)}
+
+  <span class="ruby-ivar">@payment</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">current_payment</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>)
+
+  <span class="ruby-identifier">purchase</span> = <span class="ruby-constant">EXPRESS_GATEWAY</span>.<span class="ruby-identifier">purchase</span>(<span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">amount</span>.<span class="ruby-identifier">to_i</span>,
+                                      <span class="ruby-value">:ip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>,
+                                      <span class="ruby-value">:payer_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:PayerID</span>],
+                                      <span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>]
+  )
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-identifier">message</span> =  {<span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">message</span>}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">complete_payment</span> <span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:PayerID</span>])
+    <span class="ruby-identifier">message</span> = <span class="ruby-identifier">message</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">t</span> <span class="ruby-string">'payments.error'</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">payments_url</span>, <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- complete-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- complete-method -->
+
+    
+      <div id="method-i-create_user_promo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_user_promo</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_user_promo-source">
+            <pre><span class="ruby-comment"># File app/controllers/payments_controller.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_user_promo</span>
+  <span class="ruby-identifier">promo_params</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:user_promo</span>]
+  <span class="ruby-identifier">promo_params</span> = <span class="ruby-identifier">promo_params</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+
+  <span class="ruby-ivar">@user_promo</span> = <span class="ruby-constant">UserPromo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">promo_params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user_promo</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-ivar">@payment</span> = <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">notice</span> = <span class="ruby-identifier">t</span> <span class="ruby-string">'promos.success'</span>  <span class="ruby-operator">+</span> <span class="ruby-string">&quot; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">t</span>(<span class="ruby-value">:months_count</span>, <span class="ruby-value">:count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user_promo</span>.<span class="ruby-identifier">promo</span>.<span class="ruby-identifier">period</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;!&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">payments_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-identifier">notice</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create_user_promo-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_user_promo-method -->
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/payments_controller.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@payment</span> = <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@user_promo</span> = <span class="ruby-constant">UserPromo</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

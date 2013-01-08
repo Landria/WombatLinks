@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class User - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/user.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-can_access_payment-3F">#can_access_payment?</a>
+    
+    <li><a href="#method-i-can_add_watch-3F">#can_add_watch?</a>
+    
+    <li><a href="#method-i-change_plan">#change_plan</a>
+    
+    <li><a href="#method-i-check_lock">#check_lock</a>
+    
+    <li><a href="#method-i-complete_payment">#complete_payment</a>
+    
+    <li><a href="#method-i-count_links">#count_links</a>
+    
+    <li><a href="#method-i-current_payment">#current_payment</a>
+    
+    <li><a href="#method-i-get_payments">#get_payments</a>
+    
+    <li><a href="#method-i-is-3F">#is?</a>
+    
+    <li><a href="#method-i-is_spammer-3F">#is_spammer?</a>
+    
+    <li><a href="#method-i-mailing_list_cancelled-3F">#mailing_list_cancelled?</a>
+    
+    <li><a href="#method-i-set_lock">#set_lock</a>
+    
+    <li><a href="#method-i-set_unlock">#set_unlock</a>
+    
+    <li><a href="#method-i-should_change_plan-3F">#should_change_plan?</a>
+    
+    <li><a href="#method-i-should_change_plan_paid_upto-3F">#should_change_plan_paid_upto?</a>
+    
+    <li><a href="#method-i-should_freeze-3F">#should_freeze?</a>
+    
+    <li><a href="#method-i-sites">#sites</a>
+    
+    <li><a href="#method-i-stats_accessible-3F">#stats_accessible?</a>
+    
+    <li><a href="#method-i-total_payments">#total_payments</a>
+    
+    <li><a href="#method-i-user_links_percent">#user_links_percent</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AdminUser.html">AdminUser</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./CancelMailingList.html">CancelMailingList</a>
+  
+    <li><a href="./DeleteOldLinksJob.html">DeleteOldLinksJob</a>
+  
+    <li><a href="./DeleteOldMonitorDataJob.html">DeleteOldMonitorDataJob</a>
+  
+    <li><a href="./Domain.html">Domain</a>
+  
+    <li><a href="./IpAddr.html">IpAddr</a>
+  
+    <li><a href="./Link.html">Link</a>
+  
+    <li><a href="./LinkJob.html">LinkJob</a>
+  
+    <li><a href="./LinkRate.html">LinkRate</a>
+  
+    <li><a href="./LinksHelper.html">LinksHelper</a>
+  
+    <li><a href="./Lock.html">Lock</a>
+  
+    <li><a href="./LockedEmail.html">LockedEmail</a>
+  
+    <li><a href="./MailLinkJob.html">MailLinkJob</a>
+  
+    <li><a href="./Messages.html">Messages</a>
+  
+    <li><a href="./MonitorAlertMailJob.html">MonitorAlertMailJob</a>
+  
+    <li><a href="./MonitorJob.html">MonitorJob</a>
+  
+    <li><a href="./News.html">News</a>
+  
+    <li><a href="./Payment.html">Payment</a>
+  
+    <li><a href="./PaymentsController.html">PaymentsController</a>
+  
+    <li><a href="./PaymentsHelper.html">PaymentsHelper</a>
+  
+    <li><a href="./Plan.html">Plan</a>
+  
+    <li><a href="./Promo.html">Promo</a>
+  
+    <li><a href="./Rate.html">Rate</a>
+  
+    <li><a href="./RateMove.html">RateMove</a>
+  
+    <li><a href="./ReTryMailJob.html">ReTryMailJob</a>
+  
+    <li><a href="./RecountStatsJob.html">RecountStatsJob</a>
+  
+    <li><a href="./RequestsController.html">RequestsController</a>
+  
+    <li><a href="./SiteRate.html">SiteRate</a>
+  
+    <li><a href="./SiteRatesController.html">SiteRatesController</a>
+  
+    <li><a href="./SitesMonitor.html">SitesMonitor</a>
+  
+    <li><a href="./StatisticsMailJob.html">StatisticsMailJob</a>
+  
+    <li><a href="./Tweet.html">Tweet</a>
+  
+    <li><a href="./TweetJob.html">TweetJob</a>
+  
+    <li><a href="./TweetLinkJob.html">TweetLinkJob</a>
+  
+    <li><a href="./TweetsHelper.html">TweetsHelper</a>
+  
+    <li><a href="./UnlockRequest.html">UnlockRequest</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserLink.html">UserLink</a>
+  
+    <li><a href="./UserLinksController.html">UserLinksController</a>
+  
+    <li><a href="./UserPlan.html">UserPlan</a>
+  
+    <li><a href="./UserPromo.html">UserPromo</a>
+  
+    <li><a href="./UserWatch.html">UserWatch</a>
+  
+    <li><a href="./UserWatchesController.html">UserWatchesController</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./WombatMailer.html">WombatMailer</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class User</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-can_access_payment-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">can_access_payment?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="can_access_payment-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can_access_payment?</span>
+  <span class="ruby-constant">Plan</span>.<span class="ruby-identifier">get_min_plan</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- can_access_payment-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- can_access_payment-3F-method -->
+
+    
+      <div id="method-i-can_add_watch-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">can_add_watch?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="can_add_watch-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can_add_watch?</span>
+  <span class="ruby-identifier">user_watch</span>.<span class="ruby-identifier">count</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Plan</span>.<span class="ruby-identifier">get_max_sites_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- can_add_watch-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- can_add_watch-3F-method -->
+
+    
+      <div id="method-i-change_plan" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">change_plan</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="change_plan-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">change_plan</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">plan</span> = <span class="ruby-constant">Plan</span>.<span class="ruby-identifier">get_suitable</span> <span class="ruby-identifier">user_watch</span>.<span class="ruby-identifier">count</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_plan</span>.<span class="ruby-identifier">change_to</span> <span class="ruby-identifier">plan</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">should_change_plan_paid_upto?</span>(<span class="ruby-identifier">plan</span>), <span class="ruby-identifier">should_freeze?</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_change_plan?</span>
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- change_plan-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- change_plan-method -->
+
+    
+      <div id="method-i-check_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_lock</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_lock-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_lock</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_spammer?</span>
+    <span class="ruby-identifier">set_lock</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_lock-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_lock-method -->
+
+    
+      <div id="method-i-complete_payment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">complete_payment</span><span
+            class="method-args">(payment_id, payer_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="complete_payment-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">complete_payment</span> <span class="ruby-identifier">payment_id</span>, <span class="ruby-identifier">payer_id</span>
+  <span class="ruby-identifier">payment</span> = <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">payment_id</span>)
+  <span class="ruby-identifier">payment</span>.<span class="ruby-identifier">complete</span> <span class="ruby-identifier">payer_id</span>
+  <span class="ruby-identifier">user_plan</span>.<span class="ruby-identifier">recount_paid_upto</span> <span class="ruby-identifier">payment_id</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- complete_payment-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- complete_payment-method -->
+
+    
+      <div id="method-i-count_links" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">count_links</span><span
+            class="method-args">(private=nil, spam=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="count_links-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">count_links</span> <span class="ruby-identifier">private</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">spam</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">links</span> = <span class="ruby-constant">UserLink</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">links</span> = <span class="ruby-identifier">links</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:is_private</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">private</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">private</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">links</span> = <span class="ruby-identifier">links</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:is_spam</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">spam</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">spam</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">links</span>.<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- count_links-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- count_links-method -->
+
+    
+      <div id="method-i-current_payment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_payment</span><span
+            class="method-args">(ip)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current_payment-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_payment</span> <span class="ruby-identifier">ip</span>
+  <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">'user_id = ? AND is_completed = false AND ip = ?'</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-constant">IpAddr</span>.<span class="ruby-identifier">str2int</span>(<span class="ruby-identifier">ip</span>)).<span class="ruby-identifier">order</span>(<span class="ruby-string">'created_at DESC'</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- current_payment-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- current_payment-method -->
+
+    
+      <div id="method-i-get_payments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_payments</span><span
+            class="method-args">(page)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_payments-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_payments</span> <span class="ruby-identifier">page</span>
+  <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">find_for_user</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">page</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_payments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_payments-method -->
+
+    
+      <div id="method-i-is-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is?</span><span
+            class="method-args">(role)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is?</span>(<span class="ruby-identifier">role</span>)
+  <span class="ruby-identifier">roles</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">role</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is-3F-method -->
+
+    
+      <div id="method-i-is_spammer-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_spammer?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_spammer-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_spammer?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_link</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:is_spam</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">Settings</span>.<span class="ruby-identifier">spam</span>.<span class="ruby-identifier">max_spam_links_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_spammer-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_spammer-3F-method -->
+
+    
+      <div id="method-i-mailing_list_cancelled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mailing_list_cancelled?</span><span
+            class="method-args">(type)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mailing_list_cancelled-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mailing_list_cancelled?</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cancel_mailing_lists</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:list_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">type</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mailing_list_cancelled-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mailing_list_cancelled-3F-method -->
+
+    
+      <div id="method-i-set_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_lock</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_lock-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_lock</span>
+  <span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:is_locked</span>, <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_lock-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_lock-method -->
+
+    
+      <div id="method-i-set_unlock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_unlock</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_unlock-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_unlock</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_locked</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">link</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:is_spam</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">link</span>.<span class="ruby-identifier">is_spam</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">link</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unlock_request</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'new'</span>).<span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">accept!</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_unlock-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_unlock-method -->
+
+    
+      <div id="method-i-should_change_plan-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_change_plan?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_change_plan-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_change_plan?</span>
+  <span class="ruby-constant">Plan</span>.<span class="ruby-identifier">get_suitable</span>(<span class="ruby-identifier">user_watch</span>.<span class="ruby-identifier">count</span>).<span class="ruby-identifier">sites_count</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">user_plan</span>.<span class="ruby-identifier">plan</span>.<span class="ruby-identifier">sites_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- should_change_plan-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- should_change_plan-3F-method -->
+
+    
+      <div id="method-i-should_change_plan_paid_upto-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_change_plan_paid_upto?</span><span
+            class="method-args">(plan)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>если есть активный promo у пользователя, период не пересчитывать</p>
+          
+
+          
+          <div class="method-source-code" id="should_change_plan_paid_upto-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_change_plan_paid_upto?</span> <span class="ruby-identifier">plan</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_promo</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_promo</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u_p</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">u_p</span>.<span class="ruby-identifier">active?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">plan</span>.<span class="ruby-identifier">free?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- should_change_plan_paid_upto-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- should_change_plan_paid_upto-3F-method -->
+
+    
+      <div id="method-i-should_freeze-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_freeze?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>если есть активный promo у пользователя, freeze_days не пересчитывать</p>
+          
+
+          
+          <div class="method-source-code" id="should_freeze-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_freeze?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_promo</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_promo</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u_p</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">u_p</span>.<span class="ruby-identifier">active?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_plan</span>.<span class="ruby-identifier">free?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- should_freeze-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- should_freeze-3F-method -->
+
+    
+      <div id="method-i-sites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sites</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sites-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sites</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_watch</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sites-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sites-method -->
+
+    
+      <div id="method-i-stats_accessible-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stats_accessible?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stats_accessible-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stats_accessible?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_plan</span>.<span class="ruby-identifier">active?</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_plan</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stats_accessible-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stats_accessible-3F-method -->
+
+    
+      <div id="method-i-total_payments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">total_payments</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="total_payments-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">total_payments</span>
+   <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">sum_of_completed_for_user</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- total_payments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- total_payments-method -->
+
+    
+      <div id="method-i-user_links_percent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_links_percent</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="user_links_percent-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_links_percent</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">UserLink</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">system_links</span> = <span class="ruby-constant">UserLink</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">system_links</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">user_links</span> = <span class="ruby-constant">UserLink</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
+
+  ((<span class="ruby-identifier">user_links</span>*<span class="ruby-value">100</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">system_links</span>).<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- user_links_percent-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- user_links_percent-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

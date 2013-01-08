@@ -1,6 +1,6 @@
 = title "User WombatRates"
 - if @rates
-  h2= WombatRates
+  h2 WombatRates
   h3
     = link_to @rates.domain.name, @rates.domain.url, :target => '_blank'
   = button_to (t 'statistics.recount_rates'), recount_rates_path(@rates.id), :method => :post, :remote => true, :class => 'btn'
@@ -16,6 +16,7 @@
             th= t 'statistics.rates.this_week'
             th= t 'statistics.rates.this_month'
             th= t 'statistics.rates.total'
+            th Alexa Rank
         tbody
           tr
             td
@@ -43,6 +44,7 @@
                   i.icon-chevron-down
                 = @rates.m_move.abs if @rates.m_move
             td= @rates.total
+            td= @rates.alexa
 
   h3= t 'statistics.rates.pages_title'
   .row
