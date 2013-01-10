@@ -1,7 +1,7 @@
 
 #deploy_to  = "/srv/wombatlinks"
 #rails_root = "#{deploy_to}/current"
-deploy_to = "/home/landria/public_html/linkme_ruby"
+deploy_to = "/home/wombat/wombatlinks"
 rails_root = "#{deploy_to}/"
 pid_file   = "#{deploy_to}/unicorn.pid"
 socket_file= "#{deploy_to}/unicorn.sock"

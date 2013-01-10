@@ -32,9 +32,6 @@ group :test do
 end
 
  #gem 'jquery-rails'
-group :development do
-  gem "rvm-capistrano"
-end
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -46,6 +43,7 @@ end
 
 # Deploy with Capistrano
  gem 'capistrano'
+ gem 'rvm-capistrano'
 
 # To use debugger
  gem 'ruby-debug19'
