@@ -35,8 +35,8 @@ set :rails_env, "production"
 set :domain, "wombat@78.47.134.57" # Это необходимо для деплоя через ssh. Именно ради этого я настоятельно советовал сразу же залить на сервер свой ключ, чтобы не вводить паролей.
 set :deploy_to, "/home/wombat/#{application}"
 set :use_sudo, false
-set :unicorn_conf, "#{deploy_to}/config/unicorn.rb"
-set :unicorn_pid, "#{deploy_to}/unicorn.pid"
+set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
+set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
 #set :rvm_ruby_string, 'ree' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 set :rvm_ruby_string, '1.9.3'
