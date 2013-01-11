@@ -17,8 +17,8 @@ pid pid_file
 #stderr_path err_log
 #stdout_path log_file
 
-stderr_path rails_root + "/log/unicorn_error.log"
-stdout_path rails_root + "/log/unicorn.log"
+stderr_path rails_root + "/log/" + "unicorn_error.log"
+stdout_path rails_root + "/log/" + "unicorn.log"
 
 preload_app true # Мастер процесс загружает приложение, перед тем, как плодить рабочие процессы.
 
