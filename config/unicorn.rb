@@ -17,9 +17,6 @@ pid pid_file
 #stderr_path err_log
 #stdout_path log_file
 
-stderr_path rails_root + "/log/" + "unicorn_error.log"
-stdout_path rails_root + "/log/" + "unicorn.log"
-
 preload_app true # Мастер процесс загружает приложение, перед тем, как плодить рабочие процессы.
 
 GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=) # Решительно не уверен, что значит эта строка, но я решил ее оставить.
