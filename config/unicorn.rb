@@ -5,8 +5,8 @@ deploy_to = "/home/wombat/wombatlinks"
 rails_root = "#{deploy_to}/current"
 pid_file   = "#{deploy_to}/shared/pids/unicorn.pid"
 socket_file= "#{deploy_to}/shared/unicorn.sock"
-log_file   = "#{rails_root}/log/unicorn.log"
-err_log    = "#{rails_root}/log/unicorn_error.log"
+log_file   = "#{deploy_to}/shared/log/unicorn.log"
+err_log    = "#{deploy_to}/shared/log/unicorn_error.log"
 old_pid    = pid_file + '.oldbin'
 
 timeout 30
@@ -14,8 +14,8 @@ worker_processes 4 # Здесь тоже в зависимости от нагр
 listen socket_file, :backlog => 1024
 pid pid_file
 
-#stderr_path err_log
-#stdout_path log_file
+stderr_path err_log
+stdout_path log_file
 
 preload_app true # Мастер процесс загружает приложение, перед тем, как плодить рабочие процессы.
 
