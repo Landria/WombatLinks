@@ -5,5 +5,6 @@ html
   body
     = render :partial => 'wombat_mailer/header'
     p Получено сообщение от пользователя: #{@message.email_from}.
+    br
     p= @message.text
     = render :partial =>'wombat_mailer/footer'
