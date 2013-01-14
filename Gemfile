@@ -10,6 +10,7 @@ gem 'less-rails'
 # in production environments by default.
 gem 'twitter-bootstrap-rails'
 gem 'will_paginate-bootstrap', '~> 0.2.1'
+gem 'addressable',    '~> 2.3.2', :require => 'addressable/uri'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
