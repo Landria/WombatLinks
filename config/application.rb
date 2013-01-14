@@ -55,7 +55,6 @@ module WombatLinks
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.assets.precompile += %w(active_admin.css active_admin.js)
 
     config.autoload_paths += %W(#{config.root}/app/jobs)
     config.autoload_paths += %W(#{config.root}/lib/validators/)
