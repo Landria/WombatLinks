@@ -1,4 +1,4 @@
-= form_for @message, :url => email_to_admin_path do |f|
+= form_for @message, :url => email_to_admin_path, :html => { :method => 'post' }  do |f|
   p.text-success= t 'text.contacts'
   - if @message.errors.any?
     .alert.alert-error

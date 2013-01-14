@@ -40,8 +40,6 @@ set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
 #set :rvm_ruby_string, 'ree' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 set :rvm_ruby_string, '1.9.3'
-#set :rvm_type, :system
-#set :rvm_install_shell, :zsh
 
 set :scm, :git # Используем git. Можно, конечно, использовать что-нибудь другое - svn, например, но общая рекомендация для всех кто не использует git - используйте git.
 set :scm_passphrase, ""
@@ -58,7 +56,7 @@ role :db,  domain, :primary => true
 role :resque_worker, domain
 role :resque_scheduler, domain
 
-set :workers, { "*" => 2, "LinkJob" => 1, "MailJob" => 1 }
+set :workers, { "*" => 4 }
 
 before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby'  # интеграция rvm с capistrano настолько хороша, что при выполнении cap deploy:setup установит себя и указанный в rvm_ruby_string руби.
 
