@@ -68,7 +68,6 @@ WombatLinks::Application.configure do
   config.bitly_login = "Landria"
   config.bitly_api_key = "R_de421b9f20e1012c66b13504051ce7c8"
   config.action_mailer.default_url_options = { :host => 'www.wombatlinks.com' }
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
