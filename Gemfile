@@ -44,6 +44,7 @@ end
 
 # Deploy with Capistrano
  gem 'capistrano'
+ gem 'capistrano-resque'
  gem 'rvm-capistrano'
 
 # To use debugger

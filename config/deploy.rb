@@ -55,6 +55,11 @@ role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
 
+role :resque_worker, domain
+role :resque_scheduler, domain
+
+set :workers, { "DeleteOldLinksJob" => 1, "DeleteOldMonitorDataJob" => 1, "LinkJob" => 3, "MailJob" => 3, "MonitorJob" => 1, "RecountStatsJob" => 1, "TweetJob" => 1, "TweetLinkJob" => 1 }
+
 before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby'  # интеграция rvm с capistrano настолько хороша, что при выполнении cap deploy:setup установит себя и указанный в rvm_ruby_string руби.
 
 after 'deploy:update_code', :roles => :app do
@@ -65,10 +70,14 @@ after 'deploy:update_code', :roles => :app do
   run "ln -s #{deploy_to}/shared/config/production.yml #{current_release}/config/settings/production.yml"
 end
 
+after "deploy:start", "resque:start"
+after "deploy:start", "resque:scheduler:start"
+
 after "deploy:restart", "deploy:cleanup"
+after "deploy:restart", "resque:restart"
+after "deploy:restart", "resque:scheduler:restart"
 
 # Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.
-# В случае с Rails 3 приложениями стоит заменять bundle exec unicorn_rails на bundle exec unicorn
 namespace :deploy do
   task :restart do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
