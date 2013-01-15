@@ -10,14 +10,14 @@ delete_old_links_every_months:
   class: DeleteOldLinksJob
   args:
   queue: DeleteJob
-  description: "Delete old links every 24 hours"
+  description: "Delete old links every months"
 
 resend emails_every_15_minutes:
   cron: "0,15,30,45 * * * *"
   class: ReTryM/ailJob
   args:
   queue: MailJob
-  description: "Resend email every 5 minutes"
+  description: "Resend email every 15 minutes"
 
 recount_stats_every_4_hours:
   cron: "* /4 * * *"
@@ -46,5 +46,12 @@ send statisctics_every_sunday_at_3_15:
   args:
   queue: MailJob
   description: "Send statistics every Sunday"
+
+backup_every_7_days_at_2_15:
+  cron: "15 2 * * Sun"
+  class: BackupJob
+  args:
+  queue: BackupJob
+  description: "Backup every 7 days"
 
 #minutes, hour, day of month, month, day of week  /every
