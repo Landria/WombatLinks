@@ -109,11 +109,11 @@ ActiveRecord::Schema.define(:version => 20121224190633) do
     t.integer  "user_id"
     t.string   "tool"
     t.float    "amount"
-    t.integer  "ip"
     t.string   "payer_id"
-    t.boolean  "is_completed", :default => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.boolean  "is_completed",              :default => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "ip",           :limit => 8
   end
 
   create_table "plans", :force => true do |t|

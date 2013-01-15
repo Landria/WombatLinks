@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration
       t.integer :user_id
       t.string :tool
       t.float :amount
-      t.integer :ip
+      #t.bigint :ip
       t.string :payer_id
       t.boolean :is_completed, :default => false
 
@@ -13,5 +13,6 @@ class CreatePayments < ActiveRecord::Migration
     change_table :payments do |t|
       t.foreign_key :users, :dependent => :delete
     end
+    add_column :payments, :ip, :bigint
   end
 end
