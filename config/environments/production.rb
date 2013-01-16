@@ -73,11 +73,11 @@ WombatLinks::Application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test
+    ActiveMerchant::Billing::Base.mode = :production
     paypal_options = {
-        :login => 'natalia.m.sergeeva_api1.gmail.com',
-        :password => 'JKX6AKGJCY7Y4QJS',
-        :signature => 'AmT-ND4t7c8p0OA8prvU6Y6WMBgaAQ5LK9OqsFU9FJLIpLGLBJ-vTexn'
+        :login => 'underveil_api1.yahoo.com',
+        :password => '3HYL4XHXEU8SGZDX',
+        :signature => 'AbXSWIlDTAxXwLJxVszPc.Z9awgFAjlEoEimqfmPGDYL0-vFhph1B2vE'
     }
     ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
