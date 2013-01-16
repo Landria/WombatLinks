@@ -164,8 +164,5 @@ class UserLink < ActiveRecord::Base
 
   def enqueue_jobs
     Resque.enqueue(LinkJob, self.link.id)
-    Resque.enqueue(TweetLinkJob, self.id) if !self.is_private?
-    Resque.enqueue(MailLinkJob, self.id)
   end
-
 end

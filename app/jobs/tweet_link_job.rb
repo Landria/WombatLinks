@@ -4,6 +4,8 @@ class TweetLinkJob < Resque::Job
 
   def self.perform(id)
     link = UserLink.find(id)
+    return if link.is_private?
+
     title = "New Wombat Link:"
     message = ''
 
