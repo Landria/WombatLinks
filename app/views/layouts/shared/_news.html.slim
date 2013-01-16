@@ -1,6 +1,6 @@
 h3= t 'news'
 - if @news_limit.count > 0
-  - @news.each do |news|
+  - @news_limit.each do |news|
     h4= news.title
     p.text-info= news.text
 - else

@@ -70,7 +70,5 @@ class ApplicationController < ActionController::Base
 
   def get_news
     @news_limit = News.where(:locale => I18n.locale.to_s).limit(Settings.news.limit)
-  #rescue
-    #@news = Array.new
   end
 end
