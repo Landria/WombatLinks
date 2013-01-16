@@ -6,6 +6,7 @@ class LinkJob < Resque::Job
   @queue = :LinkJob
 
   def self.perform(link_id)
+    begin
     link = Link.find(link_id)
     return 0 unless link
 
@@ -54,7 +55,10 @@ class LinkJob < Resque::Job
       link.update_attribute(:title, data["title"]) if !data['title'].blank?
       link.update_attribute(:description, data["description"]) if !data['description'].blank?
     end
-
+    ensure
+      Resque.enqueue(MailLinkJob, link_id)
+      Resque.enqueue(TweetLinkJob, link_id)
+    end
   end
 
 end
