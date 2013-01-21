@@ -6,3 +6,5 @@
 - else
   span.label.label-success
     | Active
+  span.action
+    = link_to "Lock", lock_admin_user_path(user), method: :put
