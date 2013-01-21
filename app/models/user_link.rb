@@ -147,6 +147,14 @@ class UserLink < ActiveRecord::Base
     self.id
   end
 
+  def set_is_spam
+    update_attribute(:is_spam, true)
+  end
+
+  def unset_is_spam
+    update_attribute(:is_spam, false)
+  end
+
   private
   def set_link_hash
     if !self.link_hash

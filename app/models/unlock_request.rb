@@ -16,13 +16,12 @@ class UnlockRequest < ActiveRecord::Base
   end
 
   def accept!
-    self.status = 'accepted'
-    self.save
+    user.set_unlock
+    update_attribute(:status, 'accepted')
     WombatMailer.send_unlock_notification(self.user_id).deliver
   end
 
   def decline!
-    self.status = 'declined'
-    self.save
+    self.update_attribute(:status, 'declined')
   end
 end

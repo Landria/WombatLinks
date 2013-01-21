@@ -21,12 +21,38 @@ ActiveAdmin.register UserLink do
     UserLink.where(:is_send => false)
   end
 
+  member_action :set_is_spam, :method => :put do
+    link = UserLink.find(params[:id])
+    if link.set_is_spam
+      message = {:notice => "Set as spam!"}
+    else
+      message = {:alert => "Error!"}
+    end
+
+    redirect_to :back, message
+  end
+
+  member_action :unset_is_spam, :method => :put do
+    link = UserLink.find(params[:id])
+    if link.unset_is_spam
+      message = {:notice => "Unset as spam!"}
+    else
+      message = {:alert => "Error!"}
+    end
+
+    redirect_to :back, message
+  end
+
   index do
     column :id
     column :title
     column :email
     column :link
     column :description
+
+    column :status do |link|
+      render 'link_status', {:link => link}
+    end
 
     default_actions
   end

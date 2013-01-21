@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def check_lock
-    if self.is_spammer?
+    if self.is_spammer?  and !self.is_locked?
       set_lock
     end
   end
@@ -57,15 +57,11 @@ class User < ActiveRecord::Base
     begin
       update_attribute(:is_locked, false)
       self.user_link.where(:is_spam == true).each do |link|
-        link.is_spam = false
-        link.save
-      end
-      if request = self.unlock_request.where(:status => 'new').last
-        request.accept!
+        link.update_attribute(:is_spam, false)
       end
       true
-    rescue
-      false
+    #rescue
+      #false
     end
   end
 
