@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
     @request = current_user.unlock_request.last
 
     if @request && @request.is_accepted?
-      redirect_to root_path
+      redirect_to root_path if !current_user.is_locked?
     end
 
     if !@request || @request.is_declined?

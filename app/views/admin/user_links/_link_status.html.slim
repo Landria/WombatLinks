@@ -1,0 +1,8 @@
+- if link.is_spam?
+  span.label.label-important
+    | Spam
+  span.action
+    = link_to "Unset spam", unset_is_spam_admin_user_link_path(link), method: :put
+- else
+  span.action
+    = link_to "Set spam", set_is_spam_admin_user_link_path(link), method: :put
