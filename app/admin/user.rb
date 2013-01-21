@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  actions :all, :except => [:edit]
+  #actions :all, :except => [:edit]
   scope :all, :default => true
   scope :active do
     User.where(:is_locked => false)
@@ -12,6 +12,17 @@ ActiveAdmin.register User do
     user = User.find(params[:id])
     if user.set_unlock
       message = {:notice => "Unlocked!"}
+    else
+      message = {:alert => "Error!"}
+    end
+
+    redirect_to :back, message
+  end
+
+  member_action :lock, :method => :put do
+    user = User.find(params[:id])
+    if user.set_lock
+      message = {:notice => "Locked!"}
     else
       message = {:alert => "Error!"}
     end

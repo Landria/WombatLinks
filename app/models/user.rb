@@ -55,9 +55,8 @@ class User < ActiveRecord::Base
 
   def set_unlock
     begin
-      self.is_locked = false
-      self.save
-      self.link.where(:is_spam == true).each do |link|
+      update_attribute(:is_locked, false)
+      self.user_link.where(:is_spam == true).each do |link|
         link.is_spam = false
         link.save
       end
