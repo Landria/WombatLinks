@@ -8,6 +8,10 @@ class Domain < ActiveRecord::Base
   has_many :user_link, :through => :link
   has_many :sites_monitors
 
+  #URL_REGEXP = /\A[A-Za-zА-ЯЁа-яё0-9]+([\-\.]{1}[A-Za-zА-ЯЁа-яё0-9]+)*\.[a-zA-ZА-ЯЁа-яё]{2,5}\Z/
+  #validates :name,
+            #:format => {:with => URL_REGEXP},
+            #:if => "!name.blank?"
   def self.get_domain_name_from_url url
     Addressable::URI.parse(self.check_url(url.downcase)).host.sub(/\Awww\./, '')
   end
@@ -22,7 +26,10 @@ class Domain < ActiveRecord::Base
     domain_name = self.get_domain_name_from_url url.downcase
     domain = self.find_by_name(domain_name)
     return domain if domain
-    self.create name: domain_name, protocol: Addressable::URI.parse(url).scheme
+    protocol = Addressable::URI.parse(url).scheme
+    params = { name: domain_name }
+    params = params.merge  protocol: protocol if protocol
+    self.create params
   end
 
   def url

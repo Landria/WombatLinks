@@ -18,7 +18,7 @@ class UserWatch < ActiveRecord::Base
             :if => "!url.blank?"
 
   validates :domain_id, :uniqueness => {:scope => :user_id}
-  before_validation :set_domain_id
+  before_create :set_domain_id
 
   private
 

@@ -190,3 +190,4 @@ en:
     send_message: "Send message"
     about_us: "About us"
     send: "Your message successfully send! Thank you!"
+  task_enqueued: "Task is enqueued. Reload page in a few minutes."
