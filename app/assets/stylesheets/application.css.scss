@@ -204,3 +204,12 @@ footer span#footer_menu a{
   background-position: bottom right;
   background-repeat: no-repeat;
 }
+
+p a, h4 a{
+  white-space: pre-line;      /* CSS 3.0 */
+  white-space: -pre-wrap;     /* Opera 4-6 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -hp-pre-wrap;  /* HP Printers */
+  word-wrap: break-word;      /* IE 5+ */
+}
