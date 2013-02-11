@@ -13,17 +13,8 @@ class SiteRatesController < ApplicationController
 
   def recount_rates
     render_404 unless request.xhr?
-
-    rates = SiteRate.find(params[:id])
-    rates.recount_rates
-
-    SiteRate.reset_positions
-
-    rates.domain.link.each do |link|
-      link.link_rate.recount_rates
-    end
-    LinkRate.reset_positions
-
+    Resque.enqueue(RecountUserStatsJob, params[:id])
+    flash[:notice] = (t :task_enqueued)
     render :js => "window.location = '#{user_rates_path(params[:id])}'"
   end
 end
