@@ -46,17 +46,17 @@ html lang="en"
     = javascript_include_tag :application
     = render 'layouts/shared/counters'
 
-    /javascript:
-    /  var options = {
-    /    "publisher" : "97ab5a0d-2e38-4fe6-a158-27955a8b251d",
-    /    "position" : "bottom",
-    /    "ad" : {
-    /      "visible" : false,
-    /      "openDelay" : 5,
-    /      "closeDelay" : 0
-    /      },
-    /    "chicklets" : {
-    /      "items" : ["facebook", "vkontakte", "twitter", "googleplus", "linkedin", "digg", "sharethis"]
-    /    }
-    /  };
-    /  var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+    javascript:
+      var options = {
+        "publisher" : "97ab5a0d-2e38-4fe6-a158-27955a8b251d",
+        "position" : "bottom",
+        "ad" : {
+          "visible" : false,
+          "openDelay" : 5,
+          "closeDelay" : 0
+          },
+        "chicklets" : {
+          "items" : ["facebook", "vkontakte", "twitter", "googleplus", "linkedin", "digg", "sharethis"]
+        }
+      };
+      var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
