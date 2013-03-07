@@ -48,10 +48,10 @@ send statisctics_every_sunday_at_3_15:
   description: "Send statistics every Sunday"
 
 backup_every_7_days_at_2_15:
-  cron: "15 2 * * Sun"
+  cron: "* /24 * * *"
   class: BackupJob
   args:
   queue: BackupJob
-  description: "Backup every 7 days"
+  description: "Backup every 24 hours"
 
 #minutes, hour, day of month, month, day of week  /every
