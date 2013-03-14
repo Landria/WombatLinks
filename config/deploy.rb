@@ -69,7 +69,7 @@ after 'deploy:update_code', :roles => :app do
 end
 
 after "deploy:start", "resque:start"
-after "deploy:start", "resque:scheduler:start"
+after "deploy:start", "resque:scheduler"
 
 after "deploy:restart", "deploy:cleanup"
 after "deploy:restart", "resque:restart"

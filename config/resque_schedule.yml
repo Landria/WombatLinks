@@ -27,7 +27,7 @@ recount_stats_every_4_hours:
   description: "Recount stats every 4 hours"
 
 monitor_every_hour:
-  cron: "* /1 * * *"
+  cron: "* 1 * * *"
   class: MonitorJob
   args:
   queue: MonitorJob
@@ -48,7 +48,7 @@ send statisctics_every_sunday_at_3_15:
   description: "Send statistics every Sunday"
 
 backup_every_7_days_at_2_15:
-  cron: "* /24 * * *"
+  cron: "* 24 * * *"
   class: BackupJob
   args:
   queue: BackupJob
