@@ -17,14 +17,15 @@
         ' :
         = plan.sites_count
   - if !signed_in?
-    #promo
-      - if @current_promo
+    - if @current_promo
+      #promo
         p.text-success
           = t 'promos.registration_text'
           '
           span.month= t(:months_count, :count => @current_promo.period)
           | !
-      -else
+    /-else
+      #promo
         - if @prepaid
           p.text-success
             = t 'promos.registration_prepaid_text'
