@@ -79,6 +79,7 @@ after "deploy:restart", "resque:scheduler:restart"
 namespace :deploy do
   task :restart do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
+    run "backup perform --trigger wombat_backup"
   end
   task :start do
     run "cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
