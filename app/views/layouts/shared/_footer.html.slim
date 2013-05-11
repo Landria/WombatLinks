@@ -1,9 +1,13 @@
 footer
-  span
-    | © #{Time.now.strftime('%Y')} WombatLinks
-  span#footer_menu
-    = link_to (t 'contacts.about_us'), contacts_path
-    = link_to (t 'text.terms.title'), terms_path
-  span.pull-right
-    a href="http://www.landrina.ru"
-      | Landrina Projects
+  .row
+    .span6
+      span#copyright
+        | © #{Time.now.strftime('%Y')} WombatLinks
+      br.visible-phone
+      span#footer_menu
+        = link_to (t 'contacts.about_us'), contacts_path
+        = link_to (t 'text.terms.title'), terms_path
+    .span6
+      span3.pull-right
+        a href="http://www.landrina.ru"
+          | Landrina Projects

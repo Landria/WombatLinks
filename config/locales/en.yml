@@ -170,7 +170,7 @@ en:
     success: "Promo-code is activated! Subscription is prolonged for"
     registration_text: "Register today and You get prepaid Max subscription period for"
     registration_prepaid_text: "Register today and You get test subscription period for"
-    plans_change: "Subscription type changes automatically with active profile sites count."
+    plans_change: "Subscription type changes automatically according to active profile sites count."
   months_count:
     one: "%{count} month"
     other: "%{count} months"

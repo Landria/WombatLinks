@@ -10,25 +10,25 @@
   .control-group
     .controls
       .input-prepend
-        .span.add-on
+        .span.add-on.hidden-phone
           i.icon-envelope
         = f.text_field :email, :class => 'input-xlarge', placeholder: 'name@wombatlinks.com'
   .control-group
     .controls
       .input-prepend
-        .span.add-on
+        .span.add-on.hidden-phone
           i.icon-share
         = f.text_field :link_url, :class => 'input-xlarge', placeholder: 'http://wombatlinks.com'
   .control-group
     .controls
       .input-prepend
-        .span.add-on
+        .span.add-on.hidden-phone
           i.icon-pencil
         = f.text_field :title, :class => 'input-xlarge', placeholder: (t :title)
   .control-group
     .controls
       .input-prepend
-        .span.add-on
+        .span.add-on.hidden-phone
           i.icon-pencil
         = f.text_area :description, :class => 'input-xlarge', :rows => 3, placeholder: (t :description)
   .control-group.inline
