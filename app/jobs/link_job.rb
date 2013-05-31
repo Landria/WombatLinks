@@ -14,9 +14,9 @@ class LinkJob < Resque::Job
       link = Link.find(user_link.link_id)
       return 0 unless link
 
-      data = !link.title.blank?
+      data = false
 
-      if !data
+      if link.title.blank?
         response = Net::HTTP.get_response(URI.parse(URI.encode(link.name)))
         content = response.body
 
@@ -54,7 +54,7 @@ class LinkJob < Resque::Job
       end
 
     ensure
-      Resque.enqueue(MailLinkJob, user_link)
+      Resque.enqueue(MailLinkJob, id)
       #Resque.enqueue(TweetLinkJob, user_link) unless user_link.is_private?
     end
   end
