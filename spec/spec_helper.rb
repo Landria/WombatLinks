@@ -45,5 +45,3 @@ RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
   Capybara.ignore_hidden_elements = false
 end
-
-START_SELENIUM_PORT_DIAPOSON = 1_000

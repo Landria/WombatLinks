@@ -17,8 +17,10 @@ class UserWatch < ActiveRecord::Base
             :format => {:with => URL_REGEXP},
             :if => "!url.blank?"
 
+  validates :domain_id, :presence => true
   validates :domain_id, :uniqueness => {:scope => :user_id}
-  before_create :set_domain_id
+
+  before_validation :set_domain_id
 
   private
 

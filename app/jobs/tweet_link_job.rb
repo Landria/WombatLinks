@@ -2,9 +2,8 @@ class TweetLinkJob < Resque::Job
 
   @queue = :TweetLinkJob
 
-  def self.perform(id)
-    link = UserLink.find(id)
-    return if link.is_private?
+  def self.perform(user_link)
+    return if user_link.is_private?
 
     title = "New Wombat Link:"
     message = ''

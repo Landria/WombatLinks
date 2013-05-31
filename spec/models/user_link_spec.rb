@@ -137,6 +137,15 @@ describe UserLink do
       links = described_class.clear described_class.all
       links.count.should eq(2)
     end
+
+    it "should delete only user_link" do
+      user_link = described_class.new :email => email, :link_url => link_url
+      user_link.should be_valid
+      user_link.save.should eq true
+      link = user_link.link
+      user_link.destroy
+      Link.find(link.id).should_not be_nil
+    end
   end
 
 end

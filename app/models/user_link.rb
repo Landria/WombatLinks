@@ -14,7 +14,7 @@ class UserLink < ActiveRecord::Base
                       :user => [:email]}
 
   belongs_to :user
-  belongs_to :link, :dependent => :delete
+  belongs_to :link
 
   validates_presence_of :email
   validates :email,
@@ -119,11 +119,11 @@ class UserLink < ActiveRecord::Base
   end
 
   def self.clear user_links
-     user_links = clear_duplicates clear_spam user_links
+    user_links = clear_duplicates clear_spam user_links
   end
 
   def self.clear_spam user_links
-    user_links.delete_if { |l| l.is_spam?}
+    user_links.delete_if { |l| l.is_spam? }
     user_links
   end
 
@@ -171,6 +171,6 @@ class UserLink < ActiveRecord::Base
   end
 
   def enqueue_jobs
-    Resque.enqueue(LinkJob, self.link.id)
+    Resque.enqueue(LinkJob, self.id)
   end
 end

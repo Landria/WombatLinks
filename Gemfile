@@ -24,7 +24,7 @@ group :test do
    gem 'rspec'
    gem 'rspec-rails'
    gem 'cucumber'
-   gem 'cucumber-rails', '~> 1.3.0'
+   gem 'cucumber-rails', '~> 1.3.0', :require => false
    gem 'webrat'
    gem 'shoulda', :require => nil
    gem 'database_cleaner'
@@ -61,7 +61,7 @@ end
  gem 'cancan'
  gem 'erubis'
  gem 'active_link_to'
- gem 'twitter', '~>2.5.0'
+ #gem 'twitter', '~>2.5.0'
  gem 'url_shortener'
  gem 'ruby-prof'
  gem 'resque', "~> 1.20.0",  :require => 'resque/server'
