@@ -80,3 +80,4 @@ end
  gem 'activeadmin'
 
  gem 'rails-erd'
+ gem 'newrelic_rpm'
