@@ -57,6 +57,7 @@ role :resque_worker, domain
 role :resque_scheduler, domain
 
 set :workers, { "*" => 2 }
+default_run_options[:pty] = true
 
 before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby'  # интеграция rvm с capistrano настолько хороша, что при выполнении cap deploy:setup установит себя и указанный в rvm_ruby_string руби.
 
