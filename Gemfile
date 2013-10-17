@@ -47,9 +47,6 @@ end
  gem 'capistrano-resque'
  gem 'rvm-capistrano'
 
-# To use debugger
- gem 'ruby-debug19'
-
  gem 'pacecar'
  gem 'high_voltage'
  gem 'http_accept_language'
